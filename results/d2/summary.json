@@ -1,0 +1,184 @@
+{
+  "targets": 30,
+  "caption": "30 objetivos de prueba reservados (SEED=777), los mismos del Entregable 1; cada variante juega las mismas partidas con el mismo motor, prompt y criterio de corrección.",
+  "variants": [
+    {
+      "key": "gguf_d1",
+      "label": "Baseline del Entregable 1 · GGUF Q4_K_M en LM Studio",
+      "short": "E1 · GGUF",
+      "solved": 6,
+      "games": 30,
+      "solve_rate": 0.2,
+      "violation_rate": 0.9579439252336449,
+      "compatible_rate": 0.04205607476635509,
+      "invalid_rate": 0.10294117647058823,
+      "avg_attempts_solved": 5.333333333333333,
+      "progress": 0.5428571428571428,
+      "enumeration": 0.018691588785046728,
+      "cfs": 0.42913641718369594,
+      "p_vs_random": 0.01990049751243781,
+      "latency_s": 0.284,
+      "list": null
+    },
+    {
+      "key": "baseline",
+      "label": "Baseline · MLX 4-bit, prompting directo",
+      "short": "Baseline",
+      "solved": 1,
+      "games": 30,
+      "solve_rate": 0.03333333333333333,
+      "violation_rate": 0.9905660377358491,
+      "compatible_rate": 0.009433962264150941,
+      "invalid_rate": 0.17123287671232876,
+      "avg_attempts_solved": 2.0,
+      "progress": 0.4857142857142857,
+      "enumeration": 0.018867924528301886,
+      "cfs": 0.3643837954928676,
+      "p_vs_random": 0.8606965174129353,
+      "latency_s": 1.585,
+      "list": null
+    },
+    {
+      "key": "lora",
+      "label": "Solución · fine-tuning LoRA (el juego recibe la jugada del modelo)",
+      "short": "LoRA",
+      "solved": 14,
+      "games": 30,
+      "solve_rate": 0.4666666666666667,
+      "violation_rate": 0.6972972972972973,
+      "compatible_rate": 0.3027027027027027,
+      "invalid_rate": 0.004629629629629629,
+      "avg_attempts_solved": 4.0,
+      "progress": 0.7666666666666666,
+      "enumeration": 0.03783783783783784,
+      "cfs": 0.6012597597597598,
+      "p_vs_random": 0.004975124378109453,
+      "latency_s": 0.671,
+      "list": {
+        "state_accuracy": 0.9768518518518519,
+        "turns_with_list": 216,
+        "listed_precision": 0.6500920810313076,
+        "listed_unknown": 1,
+        "first_listed_compatible": 0.39814814814814814,
+        "first_listed_is_policy": 0.3425925925925926
+      }
+    },
+    {
+      "key": "lora_tool",
+      "label": "Variante · fine-tuning LoRA + consulta al roster con el «Sé» del modelo",
+      "short": "LoRA+herr.",
+      "solved": 30,
+      "games": 30,
+      "solve_rate": 1.0,
+      "violation_rate": 0.5504587155963303,
+      "compatible_rate": 0.4495412844036697,
+      "invalid_rate": 0.0,
+      "avg_attempts_solved": 4.633333333333334,
+      "progress": 1.0,
+      "enumeration": 0.10091743119266056,
+      "cfs": 0.7932110091743119,
+      "p_vs_random": 0.004975124378109453,
+      "latency_s": 0.655,
+      "list": {
+        "state_accuracy": 0.9928057553956835,
+        "turns_with_list": 139,
+        "listed_precision": 0.7172131147540983,
+        "listed_unknown": 0,
+        "first_listed_compatible": 0.5539568345323741,
+        "first_listed_is_policy": 0.4892086330935252
+      }
+    }
+  ],
+  "comparisons": {
+    "lora": {
+      "only_solution": [
+        "Zoe",
+        "Veigar",
+        "LeBlanc",
+        "Thresh",
+        "Ashe",
+        "Xin Zhao",
+        "Lissandra",
+        "Elise",
+        "Ekko",
+        "Briar",
+        "Diana",
+        "Aatrox",
+        "Zeri",
+        "Jhin"
+      ],
+      "only_baseline": [
+        "Malzahar"
+      ],
+      "both": [],
+      "mcnemar_p": 0.0009765625,
+      "violation_diff_ci95": [
+        -0.38592626941803854,
+        -0.21423444976076556
+      ]
+    },
+    "lora_tool": {
+      "only_solution": [
+        "Karma",
+        "Samira",
+        "Zoe",
+        "Nocturne",
+        "Veigar",
+        "LeBlanc",
+        "Morgana",
+        "Thresh",
+        "Ashe",
+        "Zilean",
+        "Xin Zhao",
+        "Tryndamere",
+        "Pantheon",
+        "Vladimir",
+        "Lissandra",
+        "Elise",
+        "Ekko",
+        "Briar",
+        "Mordekaiser",
+        "Diana",
+        "Aatrox",
+        "Zeri",
+        "Zac",
+        "Xerath",
+        "Kog'Maw",
+        "Dr. Mundo",
+        "Jhin",
+        "Soraka",
+        "Ezreal"
+      ],
+      "only_baseline": [],
+      "both": [
+        "Malzahar"
+      ],
+      "mcnemar_p": 3.725290298461914e-09,
+      "violation_diff_ci95": [
+        -0.5247524752475248,
+        -0.3693146417445483
+      ]
+    }
+  },
+  "failures": {
+    "lora": [
+      "Karma",
+      "Samira",
+      "Nocturne",
+      "Morgana",
+      "Zilean",
+      "Tryndamere",
+      "Pantheon",
+      "Vladimir",
+      "Mordekaiser",
+      "Zac",
+      "Xerath",
+      "Kog'Maw",
+      "Dr. Mundo",
+      "Malzahar",
+      "Soraka",
+      "Ezreal"
+    ],
+    "lora_tool": []
+  }
+}

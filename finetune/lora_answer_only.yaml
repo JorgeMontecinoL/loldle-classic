@@ -1,0 +1,45 @@
+# ALTERNATIVA DESCARTADA: fine-tuning LoRA "sólo nombre". Se detuvo en la
+# iteración 240: no aprendió la búsqueda y degradó al modelo (inventó
+# campeones como "Melphite" y entró en bucles). Se conserva para reproducirla.
+# Se lanza desde la raíz del repo:
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_answer_only.yaml
+#
+# Valores fijados tras medir en un M5 Pro de 64 GB (cada ejemplo mide ~5.500
+# tokens porque el prompt lleva el roster completo):
+#   - lote 4 y LoRA en los 26 bloques: 70 s por paso y 52 GB de pico. Inviable.
+#   - lote 1 × acumulación 4 y LoRA en los 12 bloques superiores: ~10 s por
+#     ejemplo y ~21 GB de pico.
+#   - tasa 1e-4 divergió (pérdida 2,8 -> 11,4 en seis pasos): mlx-lm escala la
+#     salida LoRA ×20, así que 2e-5 equivale a ~4e-4 en la convención de PEFT.
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit   # mismos pesos que el baseline
+train: true
+data: finetune/data/answer           # make_data.py --format answer
+adapter_path: finetune/adapters/answer-only
+seed: 2026
+
+fine_tune_type: lora
+num_layers: 12                       # los 12 bloques superiores de 26
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true                    # la pérdida cae sólo en el nombre propuesto
+max_seq_length: 8192                 # el ejemplo más largo mide 7.224 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4           # lote efectivo de 4
+iters: 640                           # 640 ejemplos = 160 actualizaciones
+learning_rate: 2.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8                          # en actualizaciones del optimizador
+  warmup_init: 1.0e-7
+  arguments: [2.0e-5, 152, 2.0e-6]   # pico, pasos de decaimiento, mínimo
+
+steps_per_report: 16
+steps_per_eval: 80
+val_batches: 20                      # 20 de los 60 ejemplos de validación
+save_every: 80                       # un punto de control cada 20 actualizaciones

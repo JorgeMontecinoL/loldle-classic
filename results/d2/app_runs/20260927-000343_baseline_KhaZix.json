@@ -1,0 +1,190 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Kha'Zix",
+  "draw_seed": null,
+  "pace_s": 0.55,
+  "started_at": "2026-09-27T00:03:43",
+  "summary": {
+    "solved": true,
+    "attempts": 5,
+    "violations": 3,
+    "invalid": 0,
+    "repeated": 0
+  },
+  "record": {
+    "game": 1,
+    "target": "Kha'Zix",
+    "solved": true,
+    "attempts_used": 5,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "debía coincidir con Male"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "yellow",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Kog'Maw",
+        "guess": "Kog'Maw",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "green",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "green",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Vel'Koz",
+        "guess": "Vel'Koz",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "valor descartado por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "green",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "green",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Kha'Zix",
+        "guess": "Kha'Zix",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 5
+      }
+    ]
+  }
+}

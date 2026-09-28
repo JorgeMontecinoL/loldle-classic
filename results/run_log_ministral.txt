@@ -1,0 +1,77 @@
+Roster: 173 campeones
+Objetivos (SEED=777, n=30): Karma, Samira, Zoe, Nocturne, Veigar, LeBlanc, Morgana, Thresh, Ashe, Zilean, Xin Zhao, Tryndamere, Pantheon, Vladimir, Lissandra, Elise, Ekko, Briar, Mordekaiser, Diana, Aatrox, Zeri, Zac, Xerath, Kog'Maw, Dr. Mundo, Jhin, Malzahar, Soraka, Ezreal
+
+[1/10] exaone-3.5-2.4b-instruct: ya existe, se omite
+[2/10] qwen3.5-4b: ya existe, se omite
+[3/10] meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k: ya existe, se omite
+[4/10] microsoft_phi-4-mini-instruct: ya existe, se omite
+[5/10] ministral-3-3b-instruct-2512 (3.0B)
+  [ministral-3-3b-instruct-2512] partida  1/30 OK  objetivo=Karma          intentos=4 t=     3s
+  [ministral-3-3b-instruct-2512] partida  2/30 --  objetivo=Samira         intentos=10 t=     6s
+  [ministral-3-3b-instruct-2512] partida  3/30 --  objetivo=Zoe            intentos=10 t=     9s
+  [ministral-3-3b-instruct-2512] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    11s
+  [ministral-3-3b-instruct-2512] partida  5/30 --  objetivo=Veigar         intentos=10 t=    13s
+  [ministral-3-3b-instruct-2512] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    16s
+  [ministral-3-3b-instruct-2512] partida  7/30 OK  objetivo=Morgana        intentos=6 t=    17s
+  [ministral-3-3b-instruct-2512] partida  8/30 --  objetivo=Thresh         intentos=10 t=    19s
+  [ministral-3-3b-instruct-2512] partida  9/30 OK  objetivo=Ashe           intentos=3 t=    20s
+  [ministral-3-3b-instruct-2512] partida 10/30 --  objetivo=Zilean         intentos=10 t=    23s
+  [ministral-3-3b-instruct-2512] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    25s
+  [ministral-3-3b-instruct-2512] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    28s
+  [ministral-3-3b-instruct-2512] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    30s
+  [ministral-3-3b-instruct-2512] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    34s
+  [ministral-3-3b-instruct-2512] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    38s
+  [ministral-3-3b-instruct-2512] partida 16/30 --  objetivo=Elise          intentos=10 t=    40s
+  [ministral-3-3b-instruct-2512] partida 17/30 --  objetivo=Ekko           intentos=10 t=    42s
+  [ministral-3-3b-instruct-2512] partida 18/30 --  objetivo=Briar          intentos=10 t=    44s
+  [ministral-3-3b-instruct-2512] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    49s
+  [ministral-3-3b-instruct-2512] partida 20/30 --  objetivo=Diana          intentos=10 t=    56s
+  [ministral-3-3b-instruct-2512] partida 21/30 OK  objetivo=Aatrox         intentos=10 t=    58s
+  [ministral-3-3b-instruct-2512] partida 22/30 --  objetivo=Zeri           intentos=10 t=    60s
+  [ministral-3-3b-instruct-2512] partida 23/30 --  objetivo=Zac            intentos=10 t=    62s
+  [ministral-3-3b-instruct-2512] partida 24/30 --  objetivo=Xerath         intentos=10 t=    64s
+  [ministral-3-3b-instruct-2512] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    67s
+  [ministral-3-3b-instruct-2512] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    69s
+  [ministral-3-3b-instruct-2512] partida 27/30 OK  objetivo=Jhin           intentos=5 t=    70s
+  [ministral-3-3b-instruct-2512] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    72s
+  [ministral-3-3b-instruct-2512] partida 29/30 OK  objetivo=Soraka         intentos=4 t=    73s
+  [ministral-3-3b-instruct-2512] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    77s
+  -> resueltas 6/30 | inválidos 28/272 | violaciones 205 | 77s | guardado en results/raw/ministral-3-3b-instruct-2512.json
+
+[6/10] falcon3-7b-instruct: ya existe, se omite
+[7/10] josie-7b-v6.0-step2000: ya existe, se omite
+[8/10] josiefied-qwen2.5-7b-instruct-abliterated-v2: ya existe, se omite
+[9/10] qwen2.5-7b-instruct: ya existe, se omite
+[10/10] ministral-3-8b-instruct-2512 (8.0B)
+  [ministral-3-8b-instruct-2512] partida  1/30 OK  objetivo=Karma          intentos=3 t=     8s
+  [ministral-3-8b-instruct-2512] partida  2/30 OK  objetivo=Samira         intentos=8 t=    10s
+  [ministral-3-8b-instruct-2512] partida  3/30 OK  objetivo=Zoe            intentos=6 t=    12s
+  [ministral-3-8b-instruct-2512] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    16s
+  [ministral-3-8b-instruct-2512] partida  5/30 OK  objetivo=Veigar         intentos=6 t=    18s
+  [ministral-3-8b-instruct-2512] partida  6/30 OK  objetivo=LeBlanc        intentos=10 t=    22s
+  [ministral-3-8b-instruct-2512] partida  7/30 OK  objetivo=Morgana        intentos=4 t=    23s
+  [ministral-3-8b-instruct-2512] partida  8/30 --  objetivo=Thresh         intentos=10 t=    26s
+  [ministral-3-8b-instruct-2512] partida  9/30 --  objetivo=Ashe           intentos=10 t=    30s
+  [ministral-3-8b-instruct-2512] partida 10/30 --  objetivo=Zilean         intentos=10 t=    34s
+  [ministral-3-8b-instruct-2512] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    38s
+  [ministral-3-8b-instruct-2512] partida 12/30 OK  objetivo=Tryndamere     intentos=8 t=    40s
+  [ministral-3-8b-instruct-2512] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    44s
+  [ministral-3-8b-instruct-2512] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    48s
+  [ministral-3-8b-instruct-2512] partida 15/30 OK  objetivo=Lissandra      intentos=2 t=    48s
+  [ministral-3-8b-instruct-2512] partida 16/30 --  objetivo=Elise          intentos=10 t=    52s
+  [ministral-3-8b-instruct-2512] partida 17/30 --  objetivo=Ekko           intentos=10 t=    55s
+  [ministral-3-8b-instruct-2512] partida 18/30 --  objetivo=Briar          intentos=10 t=    59s
+  [ministral-3-8b-instruct-2512] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    63s
+  [ministral-3-8b-instruct-2512] partida 20/30 --  objetivo=Diana          intentos=10 t=    67s
+  [ministral-3-8b-instruct-2512] partida 21/30 --  objetivo=Aatrox         intentos=10 t=    71s
+  [ministral-3-8b-instruct-2512] partida 22/30 OK  objetivo=Zeri           intentos=5 t=    72s
+  [ministral-3-8b-instruct-2512] partida 23/30 --  objetivo=Zac            intentos=10 t=    76s
+  [ministral-3-8b-instruct-2512] partida 24/30 --  objetivo=Xerath         intentos=10 t=    79s
+  [ministral-3-8b-instruct-2512] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    83s
+  [ministral-3-8b-instruct-2512] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    87s
+  [ministral-3-8b-instruct-2512] partida 27/30 OK  objetivo=Jhin           intentos=6 t=    88s
+  [ministral-3-8b-instruct-2512] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    92s
+  [ministral-3-8b-instruct-2512] partida 29/30 OK  objetivo=Soraka         intentos=7 t=    94s
+  [ministral-3-8b-instruct-2512] partida 30/30 OK  objetivo=Ezreal         intentos=7 t=    97s
+  -> resueltas 12/30 | inválidos 1/252 | violaciones 200 | 97s | guardado en results/raw/ministral-3-8b-instruct-2512.json
+
