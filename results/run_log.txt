@@ -1,0 +1,267 @@
+Roster: 173 campeones
+Objetivos (SEED=777, n=30): Karma, Samira, Zoe, Nocturne, Veigar, LeBlanc, Morgana, Thresh, Ashe, Zilean, Xin Zhao, Tryndamere, Pantheon, Vladimir, Lissandra, Elise, Ekko, Briar, Mordekaiser, Diana, Aatrox, Zeri, Zac, Xerath, Kog'Maw, Dr. Mundo, Jhin, Malzahar, Soraka, Ezreal
+
+[1/8] exaone-3.5-2.4b-instruct (2.4B)
+  [exaone-3.5-2.4b-instruct] partida  1/30 --  objetivo=Karma          intentos=10 t=     5s
+  [exaone-3.5-2.4b-instruct] partida  2/30 --  objetivo=Samira         intentos=10 t=     7s
+  [exaone-3.5-2.4b-instruct] partida  3/30 --  objetivo=Zoe            intentos=10 t=     9s
+  [exaone-3.5-2.4b-instruct] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    11s
+  [exaone-3.5-2.4b-instruct] partida  5/30 --  objetivo=Veigar         intentos=10 t=    14s
+  [exaone-3.5-2.4b-instruct] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    16s
+  [exaone-3.5-2.4b-instruct] partida  7/30 --  objetivo=Morgana        intentos=10 t=    18s
+  [exaone-3.5-2.4b-instruct] partida  8/30 --  objetivo=Thresh         intentos=10 t=    21s
+  [exaone-3.5-2.4b-instruct] partida  9/30 --  objetivo=Ashe           intentos=10 t=    22s
+  [exaone-3.5-2.4b-instruct] partida 10/30 --  objetivo=Zilean         intentos=10 t=    25s
+  [exaone-3.5-2.4b-instruct] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    28s
+  [exaone-3.5-2.4b-instruct] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    30s
+  [exaone-3.5-2.4b-instruct] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    32s
+  [exaone-3.5-2.4b-instruct] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    35s
+  [exaone-3.5-2.4b-instruct] partida 15/30 OK  objetivo=Lissandra      intentos=6 t=    36s
+  [exaone-3.5-2.4b-instruct] partida 16/30 --  objetivo=Elise          intentos=10 t=    38s
+  [exaone-3.5-2.4b-instruct] partida 17/30 --  objetivo=Ekko           intentos=10 t=    40s
+  [exaone-3.5-2.4b-instruct] partida 18/30 --  objetivo=Briar          intentos=10 t=    43s
+  [exaone-3.5-2.4b-instruct] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    46s
+  [exaone-3.5-2.4b-instruct] partida 20/30 --  objetivo=Diana          intentos=10 t=    48s
+  [exaone-3.5-2.4b-instruct] partida 21/30 --  objetivo=Aatrox         intentos=10 t=    51s
+  [exaone-3.5-2.4b-instruct] partida 22/30 --  objetivo=Zeri           intentos=10 t=    53s
+  [exaone-3.5-2.4b-instruct] partida 23/30 --  objetivo=Zac            intentos=10 t=    55s
+  [exaone-3.5-2.4b-instruct] partida 24/30 --  objetivo=Xerath         intentos=10 t=    58s
+  [exaone-3.5-2.4b-instruct] partida 25/30 OK  objetivo=Kog'Maw        intentos=1 t=    58s
+  [exaone-3.5-2.4b-instruct] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    60s
+  [exaone-3.5-2.4b-instruct] partida 27/30 --  objetivo=Jhin           intentos=10 t=    63s
+  [exaone-3.5-2.4b-instruct] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    65s
+  [exaone-3.5-2.4b-instruct] partida 29/30 --  objetivo=Soraka         intentos=10 t=    68s
+  [exaone-3.5-2.4b-instruct] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    70s
+  -> resueltas 2/30 | inválidos 20/287 | violaciones 233 | 70s | guardado en results/raw/exaone-3.5-2.4b-instruct.json
+
+[2/8] qwen3.5-4b (4.0B)
+  [qwen3.5-4b] partida  1/30 --  objetivo=Karma          intentos=10 t=     6s
+  [qwen3.5-4b] partida  2/30 --  objetivo=Samira         intentos=10 t=     8s
+  [qwen3.5-4b] partida  3/30 --  objetivo=Zoe            intentos=10 t=    11s
+  [qwen3.5-4b] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    14s
+  [qwen3.5-4b] partida  5/30 --  objetivo=Veigar         intentos=10 t=    17s
+  [qwen3.5-4b] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    19s
+  [qwen3.5-4b] partida  7/30 --  objetivo=Morgana        intentos=10 t=    22s
+  [qwen3.5-4b] partida  8/30 --  objetivo=Thresh         intentos=10 t=    25s
+  [qwen3.5-4b] partida  9/30 --  objetivo=Ashe           intentos=10 t=    27s
+  [qwen3.5-4b] partida 10/30 --  objetivo=Zilean         intentos=10 t=    30s
+  [qwen3.5-4b] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    32s
+  [qwen3.5-4b] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    35s
+  [qwen3.5-4b] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    37s
+  [qwen3.5-4b] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    40s
+  [qwen3.5-4b] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    42s
+  [qwen3.5-4b] partida 16/30 --  objetivo=Elise          intentos=10 t=    45s
+  [qwen3.5-4b] partida 17/30 --  objetivo=Ekko           intentos=10 t=    48s
+  [qwen3.5-4b] partida 18/30 --  objetivo=Briar          intentos=10 t=    51s
+  [qwen3.5-4b] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    53s
+  [qwen3.5-4b] partida 20/30 --  objetivo=Diana          intentos=10 t=    56s
+  [qwen3.5-4b] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=    56s
+  [qwen3.5-4b] partida 22/30 --  objetivo=Zeri           intentos=10 t=    59s
+  [qwen3.5-4b] partida 23/30 --  objetivo=Zac            intentos=10 t=    61s
+  [qwen3.5-4b] partida 24/30 --  objetivo=Xerath         intentos=10 t=    64s
+  [qwen3.5-4b] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    66s
+  [qwen3.5-4b] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    69s
+  [qwen3.5-4b] partida 27/30 --  objetivo=Jhin           intentos=10 t=    71s
+  [qwen3.5-4b] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    74s
+  [qwen3.5-4b] partida 29/30 --  objetivo=Soraka         intentos=10 t=    77s
+  [qwen3.5-4b] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    79s
+  -> resueltas 1/30 | inválidos 4/291 | violaciones 251 | 79s | guardado en results/raw/qwen3.5-4b.json
+
+[3/8] meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k (3.2B)
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  1/30 --  objetivo=Karma          intentos=10 t=     6s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  2/30 --  objetivo=Samira         intentos=10 t=     8s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  3/30 --  objetivo=Zoe            intentos=10 t=     9s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    11s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  5/30 --  objetivo=Veigar         intentos=10 t=    13s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    15s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  7/30 --  objetivo=Morgana        intentos=10 t=    17s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  8/30 --  objetivo=Thresh         intentos=10 t=    19s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida  9/30 --  objetivo=Ashe           intentos=10 t=    20s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 10/30 --  objetivo=Zilean         intentos=10 t=    22s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    24s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    26s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    28s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    30s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    32s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 16/30 --  objetivo=Elise          intentos=10 t=    34s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 17/30 --  objetivo=Ekko           intentos=10 t=    36s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 18/30 OK  objetivo=Briar          intentos=7 t=    37s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    39s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 20/30 --  objetivo=Diana          intentos=10 t=    41s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=    41s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 22/30 --  objetivo=Zeri           intentos=10 t=    42s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 23/30 --  objetivo=Zac            intentos=10 t=    44s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 24/30 --  objetivo=Xerath         intentos=10 t=    46s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    48s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    50s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 27/30 --  objetivo=Jhin           intentos=10 t=    52s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    54s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 29/30 --  objetivo=Soraka         intentos=10 t=    56s
+  [meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    58s
+  -> resueltas 2/30 | inválidos 0/288 | violaciones 257 | 58s | guardado en results/raw/meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k.json
+
+[4/8] microsoft_phi-4-mini-instruct (3.8B)
+  [microsoft_phi-4-mini-instruct] partida  1/30 --  objetivo=Karma          intentos=10 t=    10s
+  [microsoft_phi-4-mini-instruct] partida  2/30 --  objetivo=Samira         intentos=10 t=    18s
+  [microsoft_phi-4-mini-instruct] partida  3/30 --  objetivo=Zoe            intentos=10 t=    24s
+  [microsoft_phi-4-mini-instruct] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    32s
+  [microsoft_phi-4-mini-instruct] partida  5/30 --  objetivo=Veigar         intentos=10 t=    41s
+  [microsoft_phi-4-mini-instruct] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    50s
+  [microsoft_phi-4-mini-instruct] partida  7/30 --  objetivo=Morgana        intentos=10 t=    56s
+  [microsoft_phi-4-mini-instruct] partida  8/30 --  objetivo=Thresh         intentos=10 t=    60s
+  [microsoft_phi-4-mini-instruct] partida  9/30 --  objetivo=Ashe           intentos=10 t=    66s
+  [microsoft_phi-4-mini-instruct] partida 10/30 --  objetivo=Zilean         intentos=10 t=    75s
+  [microsoft_phi-4-mini-instruct] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    82s
+  [microsoft_phi-4-mini-instruct] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    85s
+  [microsoft_phi-4-mini-instruct] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    92s
+  [microsoft_phi-4-mini-instruct] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    96s
+  [microsoft_phi-4-mini-instruct] partida 15/30 --  objetivo=Lissandra      intentos=10 t=   102s
+  [microsoft_phi-4-mini-instruct] partida 16/30 --  objetivo=Elise          intentos=10 t=   108s
+  [microsoft_phi-4-mini-instruct] partida 17/30 --  objetivo=Ekko           intentos=10 t=   112s
+  [microsoft_phi-4-mini-instruct] partida 18/30 --  objetivo=Briar          intentos=10 t=   121s
+  [microsoft_phi-4-mini-instruct] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=   124s
+  [microsoft_phi-4-mini-instruct] partida 20/30 --  objetivo=Diana          intentos=10 t=   132s
+  [microsoft_phi-4-mini-instruct] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=   133s
+  [microsoft_phi-4-mini-instruct] partida 22/30 --  objetivo=Zeri           intentos=10 t=   137s
+  [microsoft_phi-4-mini-instruct] partida 23/30 --  objetivo=Zac            intentos=10 t=   139s
+  [microsoft_phi-4-mini-instruct] partida 24/30 --  objetivo=Xerath         intentos=10 t=   141s
+  [microsoft_phi-4-mini-instruct] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=   147s
+  [microsoft_phi-4-mini-instruct] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=   152s
+  [microsoft_phi-4-mini-instruct] partida 27/30 --  objetivo=Jhin           intentos=10 t=   157s
+  [microsoft_phi-4-mini-instruct] partida 28/30 --  objetivo=Malzahar       intentos=10 t=   166s
+  [microsoft_phi-4-mini-instruct] partida 29/30 --  objetivo=Soraka         intentos=10 t=   172s
+  [microsoft_phi-4-mini-instruct] partida 30/30 --  objetivo=Ezreal         intentos=10 t=   177s
+  -> resueltas 1/30 | inválidos 92/291 | violaciones 169 | 177s | guardado en results/raw/microsoft_phi-4-mini-instruct.json
+
+[5/8] falcon3-7b-instruct (7.0B)
+  [falcon3-7b-instruct] partida  1/30 --  objetivo=Karma          intentos=10 t=     9s
+  [falcon3-7b-instruct] partida  2/30 --  objetivo=Samira         intentos=10 t=    12s
+  [falcon3-7b-instruct] partida  3/30 --  objetivo=Zoe            intentos=10 t=    15s
+  [falcon3-7b-instruct] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    18s
+  [falcon3-7b-instruct] partida  5/30 --  objetivo=Veigar         intentos=10 t=    21s
+  [falcon3-7b-instruct] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    25s
+  [falcon3-7b-instruct] partida  7/30 --  objetivo=Morgana        intentos=10 t=    28s
+  [falcon3-7b-instruct] partida  8/30 --  objetivo=Thresh         intentos=10 t=    31s
+  [falcon3-7b-instruct] partida  9/30 --  objetivo=Ashe           intentos=10 t=    34s
+  [falcon3-7b-instruct] partida 10/30 --  objetivo=Zilean         intentos=10 t=    37s
+  [falcon3-7b-instruct] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    40s
+  [falcon3-7b-instruct] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    43s
+  [falcon3-7b-instruct] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    47s
+  [falcon3-7b-instruct] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    50s
+  [falcon3-7b-instruct] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    53s
+  [falcon3-7b-instruct] partida 16/30 --  objetivo=Elise          intentos=10 t=    56s
+  [falcon3-7b-instruct] partida 17/30 --  objetivo=Ekko           intentos=10 t=    59s
+  [falcon3-7b-instruct] partida 18/30 --  objetivo=Briar          intentos=10 t=    62s
+  [falcon3-7b-instruct] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    66s
+  [falcon3-7b-instruct] partida 20/30 OK  objetivo=Diana          intentos=5 t=    67s
+  [falcon3-7b-instruct] partida 21/30 --  objetivo=Aatrox         intentos=10 t=    71s
+  [falcon3-7b-instruct] partida 22/30 --  objetivo=Zeri           intentos=10 t=    73s
+  [falcon3-7b-instruct] partida 23/30 --  objetivo=Zac            intentos=10 t=    77s
+  [falcon3-7b-instruct] partida 24/30 --  objetivo=Xerath         intentos=10 t=    79s
+  [falcon3-7b-instruct] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    83s
+  [falcon3-7b-instruct] partida 26/30 OK  objetivo=Dr. Mundo      intentos=10 t=    86s
+  [falcon3-7b-instruct] partida 27/30 OK  objetivo=Jhin           intentos=8 t=    89s
+  [falcon3-7b-instruct] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    92s
+  [falcon3-7b-instruct] partida 29/30 --  objetivo=Soraka         intentos=10 t=    95s
+  [falcon3-7b-instruct] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    99s
+  -> resueltas 3/30 | inválidos 2/293 | violaciones 256 | 99s | guardado en results/raw/falcon3-7b-instruct.json
+
+[6/8] josie-7b-v6.0-step2000 (7.6B)
+  [josie-7b-v6.0-step2000] partida  1/30 --  objetivo=Karma          intentos=10 t=     9s
+  [josie-7b-v6.0-step2000] partida  2/30 --  objetivo=Samira         intentos=10 t=    12s
+  [josie-7b-v6.0-step2000] partida  3/30 --  objetivo=Zoe            intentos=10 t=    15s
+  [josie-7b-v6.0-step2000] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    19s
+  [josie-7b-v6.0-step2000] partida  5/30 --  objetivo=Veigar         intentos=10 t=    22s
+  [josie-7b-v6.0-step2000] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    25s
+  [josie-7b-v6.0-step2000] partida  7/30 --  objetivo=Morgana        intentos=10 t=    28s
+  [josie-7b-v6.0-step2000] partida  8/30 --  objetivo=Thresh         intentos=10 t=    31s
+  [josie-7b-v6.0-step2000] partida  9/30 OK  objetivo=Ashe           intentos=7 t=    33s
+  [josie-7b-v6.0-step2000] partida 10/30 --  objetivo=Zilean         intentos=10 t=    36s
+  [josie-7b-v6.0-step2000] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    40s
+  [josie-7b-v6.0-step2000] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    43s
+  [josie-7b-v6.0-step2000] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    47s
+  [josie-7b-v6.0-step2000] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    50s
+  [josie-7b-v6.0-step2000] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    53s
+  [josie-7b-v6.0-step2000] partida 16/30 --  objetivo=Elise          intentos=10 t=    56s
+  [josie-7b-v6.0-step2000] partida 17/30 --  objetivo=Ekko           intentos=10 t=    60s
+  [josie-7b-v6.0-step2000] partida 18/30 --  objetivo=Briar          intentos=10 t=    63s
+  [josie-7b-v6.0-step2000] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    66s
+  [josie-7b-v6.0-step2000] partida 20/30 --  objetivo=Diana          intentos=10 t=    69s
+  [josie-7b-v6.0-step2000] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=    69s
+  [josie-7b-v6.0-step2000] partida 22/30 --  objetivo=Zeri           intentos=10 t=    72s
+  [josie-7b-v6.0-step2000] partida 23/30 --  objetivo=Zac            intentos=10 t=    76s
+  [josie-7b-v6.0-step2000] partida 24/30 --  objetivo=Xerath         intentos=10 t=    79s
+  [josie-7b-v6.0-step2000] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    83s
+  [josie-7b-v6.0-step2000] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    86s
+  [josie-7b-v6.0-step2000] partida 27/30 --  objetivo=Jhin           intentos=10 t=    89s
+  [josie-7b-v6.0-step2000] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    92s
+  [josie-7b-v6.0-step2000] partida 29/30 --  objetivo=Soraka         intentos=10 t=    95s
+  [josie-7b-v6.0-step2000] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    98s
+  -> resueltas 2/30 | inválidos 0/288 | violaciones 250 | 98s | guardado en results/raw/josie-7b-v6.0-step2000.json
+
+[7/8] josiefied-qwen2.5-7b-instruct-abliterated-v2 (7.6B)
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  1/30 --  objetivo=Karma          intentos=10 t=     9s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  2/30 --  objetivo=Samira         intentos=10 t=    12s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  3/30 --  objetivo=Zoe            intentos=10 t=    15s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    18s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  5/30 --  objetivo=Veigar         intentos=10 t=    21s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    24s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  7/30 --  objetivo=Morgana        intentos=10 t=    27s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  8/30 --  objetivo=Thresh         intentos=10 t=    31s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida  9/30 OK  objetivo=Ashe           intentos=10 t=    34s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 10/30 --  objetivo=Zilean         intentos=10 t=    37s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    40s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    43s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    46s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    50s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    53s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 16/30 --  objetivo=Elise          intentos=10 t=    56s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 17/30 OK  objetivo=Ekko           intentos=10 t=    59s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 18/30 --  objetivo=Briar          intentos=10 t=    63s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    66s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 20/30 OK  objetivo=Diana          intentos=10 t=    69s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=    69s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 22/30 --  objetivo=Zeri           intentos=10 t=    72s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 23/30 --  objetivo=Zac            intentos=10 t=    76s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 24/30 --  objetivo=Xerath         intentos=10 t=    79s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    82s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    85s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 27/30 --  objetivo=Jhin           intentos=10 t=    88s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    92s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 29/30 --  objetivo=Soraka         intentos=10 t=    95s
+  [josiefied-qwen2.5-7b-instruct-abliterated-v2] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    98s
+  -> resueltas 4/30 | inválidos 0/291 | violaciones 251 | 98s | guardado en results/raw/josiefied-qwen2.5-7b-instruct-abliterated-v2.json
+
+[8/8] qwen2.5-7b-instruct (7.6B)
+  [qwen2.5-7b-instruct] partida  1/30 --  objetivo=Karma          intentos=10 t=     9s
+  [qwen2.5-7b-instruct] partida  2/30 --  objetivo=Samira         intentos=10 t=    12s
+  [qwen2.5-7b-instruct] partida  3/30 --  objetivo=Zoe            intentos=10 t=    15s
+  [qwen2.5-7b-instruct] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    18s
+  [qwen2.5-7b-instruct] partida  5/30 --  objetivo=Veigar         intentos=10 t=    22s
+  [qwen2.5-7b-instruct] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    25s
+  [qwen2.5-7b-instruct] partida  7/30 --  objetivo=Morgana        intentos=10 t=    28s
+  [qwen2.5-7b-instruct] partida  8/30 --  objetivo=Thresh         intentos=10 t=    31s
+  [qwen2.5-7b-instruct] partida  9/30 --  objetivo=Ashe           intentos=10 t=    34s
+  [qwen2.5-7b-instruct] partida 10/30 --  objetivo=Zilean         intentos=10 t=    38s
+  [qwen2.5-7b-instruct] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=    41s
+  [qwen2.5-7b-instruct] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=    44s
+  [qwen2.5-7b-instruct] partida 13/30 --  objetivo=Pantheon       intentos=10 t=    47s
+  [qwen2.5-7b-instruct] partida 14/30 --  objetivo=Vladimir       intentos=10 t=    50s
+  [qwen2.5-7b-instruct] partida 15/30 --  objetivo=Lissandra      intentos=10 t=    53s
+  [qwen2.5-7b-instruct] partida 16/30 --  objetivo=Elise          intentos=10 t=    56s
+  [qwen2.5-7b-instruct] partida 17/30 --  objetivo=Ekko           intentos=10 t=    59s
+  [qwen2.5-7b-instruct] partida 18/30 --  objetivo=Briar          intentos=10 t=    63s
+  [qwen2.5-7b-instruct] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=    66s
+  [qwen2.5-7b-instruct] partida 20/30 --  objetivo=Diana          intentos=10 t=    69s
+  [qwen2.5-7b-instruct] partida 21/30 OK  objetivo=Aatrox         intentos=1 t=    69s
+  [qwen2.5-7b-instruct] partida 22/30 --  objetivo=Zeri           intentos=10 t=    72s
+  [qwen2.5-7b-instruct] partida 23/30 --  objetivo=Zac            intentos=10 t=    76s
+  [qwen2.5-7b-instruct] partida 24/30 --  objetivo=Xerath         intentos=10 t=    79s
+  [qwen2.5-7b-instruct] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=    82s
+  [qwen2.5-7b-instruct] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=    85s
+  [qwen2.5-7b-instruct] partida 27/30 --  objetivo=Jhin           intentos=10 t=    88s
+  [qwen2.5-7b-instruct] partida 28/30 --  objetivo=Malzahar       intentos=10 t=    91s
+  [qwen2.5-7b-instruct] partida 29/30 --  objetivo=Soraka         intentos=10 t=    94s
+  [qwen2.5-7b-instruct] partida 30/30 --  objetivo=Ezreal         intentos=10 t=    97s
+  -> resueltas 1/30 | inválidos 0/291 | violaciones 254 | 97s | guardado en results/raw/qwen2.5-7b-instruct.json
+

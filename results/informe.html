@@ -1,0 +1,1317 @@
+<title>LoLdle contra modelos pequeños</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,800;1,400&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  /* ---------- Tokens: paleta completa en :root (claro) ---------- */
+  :root {
+    --ground:        #EDEFF1;
+    --panel:         #F7F8F9;
+    --panel-2:       #E3E7EA;
+    --rule:          #CBD2D8;
+    --rule-soft:     #DDE2E6;
+
+    --ink:           #10181D;
+    --ink-2:         #3D4A53;
+    --ink-3:         #66757F;
+
+    --accent:        #8A6516;   /* oro hextech, sólo cromo de página */
+    --accent-soft:   #C89B3C;
+    --accent-wash:   rgba(138, 101, 22, .10);
+
+    /* colores de dato — validados con validate_palette.js */
+    --ceiling:       #16803C;   /* deducción perfecta */
+    --model:         #3A63A8;   /* modelos */
+    --ref:           #7A8790;   /* línea de referencia del azar */
+
+    /* fichas de feedback — colores del propio código (STATUS_COLORS) */
+    --fb-green:      #16803C;
+    --fb-yellow:     #B7791F;
+    --fb-gray:       #52525B;
+    --fb-year:       #3A63A8;
+    --fb-ink:        #FFFFFF;
+
+    --shadow:        0 1px 2px rgba(16, 24, 29, .07), 0 8px 24px -12px rgba(16, 24, 29, .18);
+
+    --maxw: 74rem;
+    --text-w: 40rem;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0C1418;
+      --panel:       #121D23;
+      --panel-2:     #1A272E;
+      --rule:        #2B3A43;
+      --rule-soft:   #1F2D35;
+
+      --ink:         #E8EDF0;
+      --ink-2:       #A9B7C0;
+      --ink-3:       #7A8B95;
+
+      --accent:      #C89B3C;
+      --accent-soft: #9A7A33;
+      --accent-wash: rgba(200, 155, 60, .12);
+
+      --ceiling:     #3FA46A;
+      --model:       #5E90D4;
+      --ref:         #75858F;
+
+      --fb-green:    #2C8B4F;
+      --fb-yellow:   #A9701C;
+      --fb-gray:     #4A4A53;
+      --fb-year:     #3C68B0;
+      --fb-ink:      #F2F6F8;
+
+      --shadow:      0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0C1418;
+    --panel:       #121D23;
+    --panel-2:     #1A272E;
+    --rule:        #2B3A43;
+    --rule-soft:   #1F2D35;
+
+    --ink:         #E8EDF0;
+    --ink-2:       #A9B7C0;
+    --ink-3:       #7A8B95;
+
+    --accent:      #C89B3C;
+    --accent-soft: #9A7A33;
+    --accent-wash: rgba(200, 155, 60, .12);
+
+    --ceiling:     #3FA46A;
+    --model:       #5E90D4;
+    --ref:         #75858F;
+
+    --fb-green:    #2C8B4F;
+    --fb-yellow:   #A9701C;
+    --fb-gray:     #4A4A53;
+    --fb-year:     #3C68B0;
+    --fb-ink:      #F2F6F8;
+
+    --shadow:      0 1px 2px rgba(0,0,0,.4), 0 10px 30px -14px rgba(0,0,0,.7);
+  }
+
+  /* ---------- Base ---------- */
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin-inline: auto;
+    padding: 0 clamp(1.1rem, 4vw, 3rem);
+  }
+
+  h1, h2, h3 {
+    font-family: "Spectral", ui-serif, Georgia, serif;
+    text-wrap: balance;
+    line-height: 1.15;
+    letter-spacing: -.015em;
+  }
+
+  p { max-width: var(--text-w); }
+  strong { font-weight: 600; color: var(--ink); }
+  a { color: var(--accent); }
+
+  code, .mono, .num {
+    font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  code {
+    font-size: .86em;
+    background: var(--panel-2);
+    padding: .1em .38em;
+    border-radius: 3px;
+    color: var(--ink-2);
+  }
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .69rem;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 500;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    border-bottom: 1px solid var(--rule);
+    padding: clamp(3rem, 8vw, 5.5rem) 0 clamp(2rem, 5vw, 3.5rem);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(120% 80% at 82% -10%, var(--accent-wash), transparent 62%);
+    pointer-events: none;
+  }
+  .hero .wrap { position: relative; }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 7.2vw, 4.6rem);
+    font-weight: 800;
+    margin: .7rem 0 0;
+    max-width: 20ch;
+  }
+  .hero .thesis {
+    font-family: "Spectral", ui-serif, Georgia, serif;
+    font-size: clamp(1.12rem, 2.3vw, 1.45rem);
+    font-style: italic;
+    color: var(--ink-2);
+    max-width: 46rem;
+    margin: 1.15rem 0 0;
+    line-height: 1.5;
+  }
+
+  .runmeta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1.6rem;
+    margin-top: 2rem;
+    padding-top: 1.15rem;
+    border-top: 1px solid var(--rule-soft);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .76rem;
+    color: var(--ink-3);
+  }
+  .runmeta b { color: var(--ink-2); font-weight: 600; }
+
+  /* ---------- Par de números protagonistas ---------- */
+  .gapduo {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: stretch;
+    gap: 0;
+    margin-top: clamp(2.2rem, 5vw, 3.2rem);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--panel);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .gapcell { padding: clamp(1.3rem, 3vw, 1.9rem); }
+  .gapcell .lab {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .gapcell .fig {
+    font-family: "Spectral", serif;
+    font-size: clamp(2.6rem, 7vw, 4.1rem);
+    font-weight: 800;
+    line-height: 1;
+    margin: .45rem 0 .3rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .gapcell .sub { font-size: .84rem; color: var(--ink-2); max-width: 24ch; }
+  .gapcell.ceiling .fig { color: var(--ceiling); }
+  .gapcell.best .fig { color: var(--model); }
+  .gapdiv {
+    display: grid;
+    place-items: center;
+    padding: 0 clamp(.6rem, 2vw, 1.3rem);
+    background: var(--panel-2);
+    border-inline: 1px solid var(--rule);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+  @media (max-width: 640px) {
+    .gapduo { grid-template-columns: 1fr; }
+    .gapdiv {
+      writing-mode: horizontal-tb;
+      border-inline: 0;
+      border-block: 1px solid var(--rule);
+      padding: .5rem;
+    }
+  }
+
+  /* ---------- Secciones ---------- */
+  section { padding: clamp(2.8rem, 6vw, 4.4rem) 0; border-bottom: 1px solid var(--rule-soft); }
+  .shead { display: flex; align-items: baseline; gap: .9rem; margin-bottom: .3rem; }
+  .snum {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--accent);
+    padding-top: .35rem;
+  }
+  section h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 700; margin: 0; }
+  .lede { margin-top: .85rem; color: var(--ink-2); font-size: 1.03rem; }
+
+  /* ---------- Figura genérica ---------- */
+  figure { margin: 2rem 0 0; }
+  figcaption {
+    font-size: .8rem;
+    color: var(--ink-3);
+    margin-top: .85rem;
+    max-width: 52rem;
+    line-height: 1.55;
+  }
+  .fig-title {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 1rem;
+    padding-bottom: .55rem;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  /* ---------- Gráfico de barras (la brecha) ---------- */
+  .bars { display: flex; flex-direction: column; gap: .1rem; }
+  .barrow {
+    display: grid;
+    grid-template-columns: minmax(9rem, 15rem) 1fr 3.6rem;
+    align-items: center;
+    gap: 1rem;
+    padding: .3rem 0;
+    border-radius: 4px;
+  }
+  .barrow:hover { background: var(--accent-wash); }
+  .barlab {
+    font-size: .8rem;
+    color: var(--ink-2);
+    text-align: right;
+    line-height: 1.3;
+  }
+  .barlab .k { display: block; font-weight: 600; color: var(--ink); }
+  .barlab .m {
+    display: block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    color: var(--ink-3);
+  }
+  .bartrack { position: relative; height: 1.6rem; display: flex; align-items: center; }
+  .barfill {
+    height: 1.05rem;
+    border-radius: 0 4px 4px 0;
+    background: var(--model);
+    min-width: 2px;
+  }
+  .barrow.is-ceiling .barfill { background: var(--ceiling); }
+  .barrow.is-ref .barfill { background: var(--ref); }
+  .barval {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    white-space: nowrap;
+    text-align: right;
+  }
+  .refline {
+    position: absolute;
+    top: -.15rem; bottom: -.15rem;
+    width: 0;
+    border-left: 2px dashed var(--ref);
+    z-index: 2;
+    pointer-events: none;
+  }
+  .barscale {
+    display: grid;
+    grid-template-columns: minmax(9rem, 15rem) 1fr 3.6rem;
+    gap: 1rem;
+    margin-top: .5rem;
+    padding-top: .5rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .barscale .ticks {
+    display: flex;
+    justify-content: space-between;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    color: var(--ink-3);
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .4rem 1.3rem;
+    margin-bottom: 1.1rem;
+    font-size: .78rem;
+    color: var(--ink-2);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: .45rem; }
+  .swatch { width: .85rem; height: .85rem; border-radius: 2px; flex: none; }
+  .swatch.ceiling { background: var(--ceiling); }
+  .swatch.model { background: var(--model); }
+  .swatch.ref { background: transparent; border-top: 2px dashed var(--ref); height: 0; width: 1.1rem; }
+
+  /* ---------- Tablas ---------- */
+  .tablewrap { overflow-x: auto; margin-top: 1.6rem; }
+  table { border-collapse: collapse; width: 100%; font-size: .84rem; min-width: 46rem; }
+  th, td { padding: .58rem .7rem; text-align: left; border-bottom: 1px solid var(--rule-soft); }
+  th {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .66rem;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    font-weight: 600;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+    vertical-align: bottom;
+  }
+  td.n { font-family: "IBM Plex Mono", monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  tbody tr:hover { background: var(--accent-wash); }
+  .mname { font-family: "IBM Plex Mono", monospace; font-size: .76rem; color: var(--ink); }
+  th.sortable { padding: 0; }
+  th.sortable button {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    background: none;
+    border: 0;
+    width: 100%;
+    padding: .58rem .7rem;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: .3rem;
+    border-radius: 3px 3px 0 0;
+  }
+  th.sortable button:hover { background: var(--accent-wash); color: var(--ink); }
+  th.sortable .arrow { opacity: 0; font-size: .9em; }
+  th.sortable[aria-sort] button { color: var(--accent); }
+  th.sortable[aria-sort] .arrow { opacity: 1; }
+  th.num-col button { justify-content: flex-end; text-align: right; }
+  .sorthint {
+    font-size: .78rem;
+    color: var(--ink-3);
+    margin: 1.4rem 0 -.4rem;
+    display: flex;
+    align-items: center;
+    gap: .45rem;
+  }
+
+  .rank {
+    font-family: "IBM Plex Mono", monospace;
+    color: var(--ink-3);
+    font-size: .78rem;
+  }
+  tr.podium .rank { color: var(--accent); font-weight: 600; }
+  tr.podium .mname { font-weight: 600; }
+
+  /* micro-barra dentro de celda */
+  .cellbar {
+    display: block;
+    height: 5px;
+    border-radius: 0 2px 2px 0;
+    background: var(--model);
+    margin-top: .22rem;
+    min-width: 2px;
+  }
+  .cellbar.warn { background: var(--fb-yellow); }
+
+  .pill {
+    display: inline-block;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    padding: .1rem .42rem;
+    border-radius: 3px;
+    border: 1px solid var(--rule);
+    color: var(--ink-3);
+    white-space: nowrap;
+  }
+  .pill.ns { border-color: var(--rule); }
+  .pill.near { border-color: var(--model); color: var(--model); }
+  .pill.sig { border-color: var(--ceiling); color: var(--ceiling); font-weight: 600; }
+
+  /* ---------- Fichas de feedback (motivo del juego) ---------- */
+  .tilerow { display: flex; gap: 2px; flex-wrap: nowrap; }
+  .tile {
+    flex: 1 1 0;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    display: grid;
+    place-content: center;
+    gap: .1rem;
+    border-radius: 3px;
+    background: var(--fb-gray);
+    color: var(--fb-ink);
+    text-align: center;
+    padding: .2rem;
+  }
+  .tile.green  { background: var(--fb-green); }
+  .tile.yellow {
+    background: var(--fb-yellow);
+    background-image: repeating-linear-gradient(135deg,
+      rgba(255,255,255,.16) 0 3px, transparent 3px 7px);
+  }
+  .tile.gray   { background: var(--fb-gray); }
+  .tile.year   { background: var(--fb-year); }
+  .tile .g {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: clamp(.72rem, 1.9vw, .98rem);
+    font-weight: 600;
+    line-height: 1;
+  }
+  .tile .t {
+    font-size: clamp(.44rem, 1.05vw, .58rem);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    opacity: .82;
+    line-height: 1;
+  }
+  .tile.empty {
+    background: transparent;
+    border: 1px dashed var(--rule);
+    color: var(--ink-3);
+  }
+
+  .tileheads {
+    display: flex;
+    gap: 2px;
+    margin-bottom: .3rem;
+  }
+  .tileheads span {
+    flex: 1 1 0;
+    min-width: 0;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .56rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* En la traza las fichas son una franja compacta, no cuadrados */
+  .traceline .tile {
+    aspect-ratio: auto;
+    height: 1.7rem;
+    border-radius: 2px;
+  }
+  .traceline .tile .g { font-size: .74rem; }
+
+  .trace { display: flex; flex-direction: column; gap: .2rem; }
+  .traceline {
+    display: grid;
+    grid-template-columns: 1.6rem minmax(5.5rem, 8rem) 1fr 4.5rem;
+    align-items: center;
+    gap: .55rem;
+  }
+  .traceline .tn {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    color: var(--ink-3);
+    text-align: right;
+  }
+  .traceline .gname {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .78rem;
+    font-weight: 500;
+    color: var(--ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .traceline .flag {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .62rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--fb-yellow);
+    text-align: right;
+  }
+  .traceline .flag.ok { color: var(--ink-3); opacity: .5; }
+  .traceline.invalid .gname { color: var(--fb-yellow); font-style: italic; }
+  @media (max-width: 620px) {
+    .traceline { grid-template-columns: 1.3rem minmax(4.5rem, 6rem) 1fr; }
+    .traceline .flag { display: none; }
+    .tileheads { display: none; }
+  }
+
+  .tracebox { margin-bottom: 1.9rem; }
+  .tracelabel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: .3rem .7rem;
+    padding: .4rem 0 .6rem;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: .7rem;
+  }
+  .tracelabel code { background: none; padding: 0; font-size: .82rem; color: var(--ink); font-weight: 600; }
+  .tracelabel span {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+  .tracelabel.good { border-bottom-color: var(--ceiling); }
+  .tracelabel.good span { color: var(--ceiling); }
+  .tracelabel.bad span { color: var(--fb-yellow); }
+  .traceline.solved .gname { color: var(--ceiling); font-weight: 700; }
+  .traceline .flag.win { color: var(--ceiling); opacity: 1; font-weight: 600; }
+
+  .tracehead {
+    display: grid;
+    grid-template-columns: 1.6rem minmax(5.5rem, 8rem) 1fr 4.5rem;
+    gap: .55rem;
+    align-items: end;
+  }
+  @media (max-width: 620px) {
+    .tracehead { grid-template-columns: 1.3rem minmax(4.5rem, 6rem) 1fr; }
+  }
+
+  .twocol {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+    gap: clamp(1.4rem, 4vw, 2.6rem);
+    align-items: start;
+  }
+
+  /* ---------- Colapso del espacio de candidatos ---------- */
+  .collapse { display: flex; align-items: flex-end; gap: .35rem; height: 8.5rem; }
+  .cbar { flex: 1 1 0; display: flex; flex-direction: column; justify-content: flex-end; gap: .3rem; height: 100%; }
+  .cbar .fillv {
+    background: var(--model);
+    border-radius: 3px 3px 0 0;
+    min-height: 2px;
+    transition: opacity .15s;
+  }
+  .cbar:hover .fillv { opacity: .78; }
+  .cbar .cv {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    font-weight: 600;
+    color: var(--ink-2);
+    text-align: center;
+  }
+  .cbar .ct {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .62rem;
+    color: var(--ink-3);
+    text-align: center;
+    padding-top: .3rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+
+  /* ---------- Candidatos ---------- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.1rem; margin-top: 2rem; }
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: .7rem;
+    box-shadow: var(--shadow);
+  }
+  .card .cno {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .card h3 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .88rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.35;
+    word-break: break-word;
+    letter-spacing: 0;
+  }
+  .card .size {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .7rem;
+    color: var(--ink-3);
+  }
+  .card p { font-size: .87rem; color: var(--ink-2); margin: 0; max-width: none; }
+  .card .why { border-top: 1px solid var(--rule-soft); padding-top: .7rem; }
+  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: .5rem; }
+  .kpi { background: var(--panel-2); border-radius: 4px; padding: .5rem .55rem; }
+  .kpi .kv {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .95rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.1;
+  }
+  .kpi .kl {
+    font-size: .6rem;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-top: .15rem;
+    line-height: 1.2;
+  }
+
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: var(--accent-wash);
+    padding: 1rem 1.2rem;
+    border-radius: 0 5px 5px 0;
+    margin-top: 1.8rem;
+  }
+  .callout p { margin: 0; max-width: 52rem; font-size: .92rem; }
+
+  ol.steps { margin: 1.4rem 0 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 1rem; }
+  ol.steps li {
+    counter-increment: s;
+    display: grid;
+    grid-template-columns: 1.7rem 1fr;
+    gap: .85rem;
+    max-width: 48rem;
+  }
+  ol.steps li::before {
+    content: counter(s);
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .74rem;
+    font-weight: 600;
+    color: var(--accent);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    height: 1.7rem;
+    display: grid;
+    place-items: center;
+  }
+  ol.steps li p { margin: 0; font-size: .92rem; }
+  ol.steps li b { color: var(--ink); }
+
+  footer {
+    padding: clamp(2.2rem, 5vw, 3.2rem) 0 4rem;
+    color: var(--ink-3);
+    font-size: .82rem;
+  }
+  footer .wrap > div { max-width: 52rem; }
+  footer code { font-size: .8em; }
+  .ftgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); gap: 1.4rem; margin-top: 1.2rem; }
+  .ftgrid h4 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: .66rem;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin: 0 0 .5rem;
+    font-weight: 600;
+  }
+  .ftgrid p { font-size: .8rem; margin: 0; max-width: none; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Entregable 1 · IA Generativa 580694 · Modelos open-weight ≤ 8B</div>
+    <h1>LoLdle contra modelos pequeños</h1>
+    <p class="thesis">
+      La tarea se resuelve al 100% con sólo recordar lo que ya se reveló. Ocho de los diez
+      modelos no llegan al azar. Dos lo superan — y aun así se quedan a mitad de camino.
+    </p>
+
+    <div class="gapduo">
+      <div class="gapcell ceiling">
+        <div class="lab">Deducción perfecta</div>
+        <div class="fig">100%</div>
+        <div class="sub">de las partidas, en 3,3 intentos de media, con 0% de violaciones</div>
+      </div>
+      <div class="gapdiv">La brecha</div>
+      <div class="gapcell best">
+        <div class="lab">Mejor de los 10 modelos</div>
+        <div class="fig">40%</div>
+        <div class="sub">12 de 30 partidas — el azar sin memoria acierta 6,3%</div>
+      </div>
+    </div>
+
+    <div class="runmeta">
+      <span><b>10</b> modelos</span>
+      <span><b>30</b> partidas cada uno</span>
+      <span><b>2.844</b> intentos</span>
+      <span><b>173</b> campeones en el prompt</span>
+      <span><b>0</b> errores de API</span>
+      <span><b>16</b> min de cómputo local</span>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">01</span><h2>La tarea</h2></div>
+    <p class="lede">
+      El modelo debe adivinar un campeón secreto de League of Legends en un máximo de
+      diez intentos. Recibe el roster completo de 173 campeones en el prompt y, tras
+      cada intento, feedback estilo Wordle sobre siete atributos.
+    </p>
+    <p>
+      Una salida es correcta cuando es <strong>exactamente el nombre de un campeón del
+      roster</strong>, sin texto adicional, que además <strong>no contradice ninguna
+      restricción ya revelada</strong> ni repite un campeón anterior. Ese es el criterio
+      completo: no hay ambigüedad sobre qué cuenta como acierto.
+    </p>
+
+    <figure>
+      <div class="fig-title">Anatomía de un intento — el modelo propone «Ahri», el objetivo es «Karma»</div>
+      <div class="tileheads" aria-hidden="true">
+        <span>Género</span><span>Posiciones</span><span>Especie</span><span>Recurso</span><span>Alcance</span><span>Regiones</span><span>Año</span>
+      </div>
+      <div class="tilerow">
+        <div class="tile green"><span class="g">✓</span><span class="t">Female</span></div>
+        <div class="tile yellow"><span class="g">≈</span><span class="t">Middle</span></div>
+        <div class="tile gray"><span class="g">×</span><span class="t">Vastayan</span></div>
+        <div class="tile green"><span class="g">✓</span><span class="t">Mana</span></div>
+        <div class="tile green"><span class="g">✓</span><span class="t">Ranged</span></div>
+        <div class="tile green"><span class="g">✓</span><span class="t">Ionia</span></div>
+        <div class="tile green"><span class="g">✓</span><span class="t">2011</span></div>
+      </div>
+      <figcaption>
+        <strong>✓ verde</strong> coincidencia exacta · <strong>≈ ámbar rayado</strong>
+        coincidencia parcial en un atributo multivalor · <strong>× gris</strong> sin
+        coincidencia · <strong>↑ ↓ azul</strong> el año objetivo es posterior o anterior.
+        Cada ficha lleva su símbolo y su valor, así que el color nunca es el único canal.
+        Tras este único intento el objetivo es una mujer de Ionia, con maná, a distancia,
+        de 2011, que juega Middle entre otras posiciones y no es Vastaya. De los 173
+        campeones <strong>queda exactamente uno</strong> que cumpla todo eso: Karma. La
+        respuesta ya está determinada.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">02</span><h2>El resultado principal</h2></div>
+    <p class="lede">
+      La tarea es completamente resoluble con la información que recibe el modelo. Una
+      línea base que sólo mantiene el conjunto de restricciones reveladas y elige al azar
+      entre los campeones compatibles la resuelve siempre. Ocho de los diez modelos caen
+      en la banda del azar; los dos Ministral se despegan de ella.
+    </p>
+
+    <figure>
+      <div class="fig-title">Partidas resueltas sobre 30 — escala 0 a 100%</div>
+      <div class="legend">
+        <span><i class="swatch ceiling"></i>Deducción perfecta (línea base algorítmica)</span>
+        <span><i class="swatch model"></i>Modelo de lenguaje</span>
+        <span><i class="swatch ref"></i>Azar sin memoria — 6,3% (200 simulaciones)</span>
+      </div>
+      <div class="bars" id="gapbars"></div>
+      <div class="barscale">
+        <div></div>
+        <div class="ticks"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+        <div></div>
+      </div>
+      <figcaption>
+        La línea discontinua marca el azar. Cuatro modelos quedan por debajo de ella y
+        seis apenas la rozan; sólo <code>ministral-3-8b</code> (40%) y
+        <code>ministral-3-3b</code> (20%) se separan de forma estadísticamente
+        significativa. La barra verde usa exactamente la misma información y el mismo
+        número de intentos que todas las azules.
+      </figcaption>
+    </figure>
+
+    <div class="callout">
+      <p>
+        Que dos modelos superen el azar no cierra la brecha, sólo la estrecha. Incluso el
+        mejor viola restricciones ya reveladas en el <strong>90,5%</strong> de sus
+        intentos y deja <strong>18 de 30</strong> partidas sin resolver. La deducción
+        perfecta viola el <strong>0%</strong> y las resuelve todas. Esa distancia sigue
+        siendo el problema que el resto del semestre tiene que atacar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">03</span><h2>Ranking</h2></div>
+    <p class="lede">
+      El <strong>CFS</strong> (Constraint-Following Score) resume la tarea en un número:
+      cumplimiento de restricciones 35%, resolución 17%, progreso 16%, no enumerar el
+      roster 14%, validez de formato 12%, no repetición 6%.
+    </p>
+    <p>
+      El peso dominante es el cumplimiento de restricciones, que es la capacidad que la
+      tarea mide realmente. La resolución pesa menos porque en la cola baja del ranking
+      las diferencias entre 1/30 y 4/30 son ruido estadístico. El término de enumeración
+      se incorporó tras observar el comportamiento de la sección 4: recitar el listado
+      infla el progreso aparente sin deducir nada.
+    </p>
+
+    <p class="sorthint">Toca cualquier encabezado para reordenar la tabla por esa métrica.</p>
+    <div class="tablewrap">
+      <table id="rank">
+        <thead><tr id="rankhead"></tr></thead>
+        <tbody id="ranktable"></tbody>
+      </table>
+    </div>
+    <figcaption>
+      <strong>Violación</strong>: intentos que contradicen una restricción revelada, sobre
+      los intentos válidos posteriores a algún feedback. <strong>Progreso</strong>:
+      atributos en verde alcanzados en el mejor intento de cada partida.
+      <strong>Enumera roster</strong>: transiciones que avanzan exactamente una posición en
+      el listado; el azar daría ~0,6%. <strong>vs. azar</strong>: p-valor empírico
+      unilateral contra 200 simulaciones aleatorias — <span class="pill ns">n.s.</span>
+      significa que el modelo no se distingue de adivinar.
+    </figcaption>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">04</span><h2>Dónde se rompe</h2></div>
+    <p class="lede">
+      El fallo no es de conocimiento. El roster completo va en el prompt, los modelos
+      nombran campeones reales y el formato es correcto en la gran mayoría de los
+      intentos. El fallo es de <strong>razonamiento deductivo acumulativo</strong>.
+    </p>
+
+    <div class="twocol" style="margin-top:2.2rem">
+      <figure style="margin-top:0">
+        <div class="fig-title">a · La información está ahí y es abundante</div>
+        <div class="collapse" id="collapse"></div>
+        <figcaption>
+          Campeones que aún satisfacen todas las restricciones reveladas, por turno.
+          Tras <strong>un solo intento informativo</strong> el espacio cae de 173 a 12
+          candidatos; al tercero quedan 4. El modelo no necesita buscar: necesita no
+          contradecirse.
+        </figcaption>
+      </figure>
+
+      <figure style="margin-top:0">
+        <div class="fig-title">b · La violación llega de inmediato</div>
+        <div style="display:flex;align-items:baseline;gap:.6rem;margin-top:1.6rem">
+          <span style="font-family:Spectral,serif;font-size:clamp(3rem,8vw,4.4rem);font-weight:800;line-height:1;color:var(--model)">2,1</span>
+          <span style="font-size:.9rem;color:var(--ink-2);max-width:16rem">turno medio de la
+          primera contradicción, sobre 10 disponibles</span>
+        </div>
+        <div style="display:flex;align-items:baseline;gap:.6rem;margin-top:1.6rem">
+          <span style="font-family:Spectral,serif;font-size:clamp(3rem,8vw,4.4rem);font-weight:800;line-height:1;color:var(--model)">8</span>
+          <span style="font-size:.9rem;color:var(--ink-2);max-width:16rem">de las 300 partidas
+          jugadas terminan sin ninguna violación</span>
+        </div>
+        <figcaption style="margin-top:1.6rem">
+          La contradicción aparece en cuanto hay algo que recordar —el segundo intento— y
+          no se recupera en los ocho turnos restantes. No es un descuido ocasional: es la
+          conducta por defecto.
+        </figcaption>
+      </figure>
+    </div>
+
+    <figure>
+      <div class="fig-title">c · Deducir o recitar — el mismo objetivo, dos modelos</div>
+      <p style="margin-bottom:1.6rem">
+        Ambas partidas son reales y tienen el mismo campeón secreto:
+        <strong>Karma</strong>. Ambos modelos abren con Ahri y reciben exactamente el
+        mismo feedback —cinco verdes, que dejan <strong>un único campeón compatible en
+        todo el roster</strong>—. A partir de ahí se separan por completo.
+      </p>
+
+      <div class="tracebox">
+        <div class="tracelabel good">
+          <code>ministral-3-8b-instruct-2512</code>
+          <span>resuelve en 3 intentos</span>
+        </div>
+        <div class="tracehead" aria-hidden="true">
+          <span></span><span></span>
+          <div class="tileheads" style="margin:0">
+            <span>Género</span><span>Posiciones</span><span>Especie</span><span>Recurso</span><span>Alcance</span><span>Regiones</span><span>Año</span>
+          </div>
+          <span></span>
+        </div>
+        <div class="trace" id="tracewin"></div>
+      </div>
+
+      <div class="tracebox">
+        <div class="tracelabel bad">
+          <code>qwen2.5-7b-instruct</code>
+          <span>agota los 10 intentos recorriendo la letra A</span>
+        </div>
+        <div class="tracehead" aria-hidden="true">
+          <span></span><span></span>
+          <div class="tileheads" style="margin:0">
+            <span>Género</span><span>Posiciones</span><span>Especie</span><span>Recurso</span><span>Alcance</span><span>Regiones</span><span>Año</span>
+          </div>
+          <span></span>
+        </div>
+        <div class="trace" id="trace"></div>
+      </div>
+
+      <figcaption>
+        Aatrox → Ahri → Akali → Anivia → Annie → Aphelios → Ashe → Aurelion Sol → Aurora
+        → Azir: <code>qwen2.5-7b</code> avanza por el roster en orden alfabético en el
+        <strong>96,6%</strong> de sus transiciones y ocho de sus diez intentos contradicen
+        feedback que él mismo ya había recibido. No es un problema de información —la
+        tenía toda en el turno 2— sino de no usarla. <code>josie-7b</code> hace lo mismo
+        en el 81,8% de sus transiciones. Los dos modelos que superan el azar,
+        <code>ministral-3-8b</code> y <code>ministral-3-3b</code>, enumeran un 0,5% y un
+        1,9%: son precisamente los que deducen en vez de recitar.
+      </figcaption>
+    </figure>
+
+    <figure>
+      <div class="fig-title">Qué restricción se rompe — 10.250 violaciones agregadas</div>
+      <div class="bars" id="attrbars"></div>
+      <figcaption>
+        Sumando los 10 modelos. El género es un atributo escalar binario revelado en verde
+        o gris desde el primer intento: es la restricción más fácil de mantener y la que
+        más se rompe. Eso descarta que el problema sea la complejidad de los atributos
+        multivalor.
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">05</span><h2>Los tres candidatos</h2></div>
+    <p class="lede">
+      Los dos modelos que superan el azar de forma significativa entran directos. Para el
+      tercer puesto, donde las diferencias de resolución ya son ruido, el criterio es qué
+      tan buena base ofrece cada modelo para el andamiaje de los próximos entregables.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <div class="cno">Candidato 01 · CFS 0,528</div>
+        <h3>ministral-3-8b-instruct-2512</h3>
+        <div class="size">8,0B — en el techo del límite</div>
+        <div class="kpis">
+          <div class="kpi"><div class="kv">12/30</div><div class="kl">resueltas</div></div>
+          <div class="kpi"><div class="kv">90,5%</div><div class="kl">violación</div></div>
+          <div class="kpi"><div class="kv">0,5%</div><div class="kl">enumera</div></div>
+        </div>
+        <p class="why">
+          El único modelo que se acerca a hacer la tarea. Resuelve <strong>12/30 con
+          p = 0,005</strong> contra el azar, tiene la <strong>tasa de violación más baja
+          del estudio</strong> —siete puntos por debajo del siguiente— y el mejor progreso
+          medio (67,6%). Casi no enumera el roster: cuando acierta es porque dedujo, no
+          porque barrió. Con 0,4% de respuestas inválidas y 2 repeticiones es además
+          directamente usable dentro de un pipeline.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cno">Candidato 02 · CFS 0,429</div>
+        <h3>ministral-3-3b-instruct-2512</h3>
+        <div class="size">3,0B — el 38% del techo</div>
+        <div class="kpis">
+          <div class="kpi"><div class="kv">6/30</div><div class="kl">resueltas</div></div>
+          <div class="kpi"><div class="kv">1,9%</div><div class="kl">enumera</div></div>
+          <div class="kpi"><div class="kv">0,28s</div><div class="kl">latencia</div></div>
+        </div>
+        <p class="why">
+          La apuesta por eficiencia. Con 3B <strong>también supera el azar de forma
+          significativa</strong> (p = 0,020), algo que ningún otro modelo por debajo de 8B
+          consigue, y le gana en el índice compuesto a los cuatro modelos de 7B y 7,6B del
+          estudio con menos de la mitad de sus parámetros. Su punto débil es la disciplina
+          de formato: 28 respuestas inválidas (10,3%), corregible con validación externa
+          y reintento.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="cno">Candidato 03 · CFS 0,404</div>
+        <h3>exaone-3.5-2.4b-instruct</h3>
+        <div class="size">2,4B — el más pequeño del estudio</div>
+        <div class="kpis">
+          <div class="kpi"><div class="kv">2/30</div><div class="kl">resueltas</div></div>
+          <div class="kpi"><div class="kv">0%</div><div class="kl">enumera</div></div>
+          <div class="kpi"><div class="kv">0,24s</div><div class="kl">latencia</div></div>
+        </div>
+        <p class="why">
+          El control de bajo coste. No supera el azar (p = 0,602), pero es el
+          <strong>único con 0% de enumeración</strong>: cuando falla, falla intentando
+          deducir en vez de recitar el listado. Es el más barato por intento, lo que lo
+          hace útil como banco de pruebas rápido del andamiaje antes de gastar cómputo en
+          los Ministral.
+        </p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>Bono por tamaño.</strong> <code>ministral-3-3b</code> es el modelo más
+        pequeño que supera el azar de forma significativa: 3B, un 38% del techo, con 6/30
+        partidas resueltas. La defensa es de tarea y no de tamaño — gana en el índice
+        compuesto a todos los modelos de 7B y 7,6B del estudio.
+      </p>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>Descartados.</strong> <code>josie-7b</code> y <code>qwen2.5-7b</code>
+        enumeran el roster en el 81,8% y el 96,6% de sus transiciones: son listas que se
+        recitan, no razonadores. <code>microsoft_phi-4-mini-instruct</code> devuelve 31,6%
+        de respuestas inválidas y viola el 100% de sus intentos elegibles.
+        <code>qwen3.5-4b</code> necesita desactivar el razonamiento para siquiera responder
+        y aun así queda por debajo del azar. <code>llama-3.2-3b-qlora-malaysian</code> es un
+        fine-tune para otro idioma y llega al 99,6% de violación.
+        <code>josiefied-qwen2.5-7b</code> y <code>falcon3-7b</code> quedan cerca, pero
+        enumeran un 48,3% y acumulan 149 repeticiones respectivamente.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="shead"><span class="snum">06</span><h2>Qué implica</h2></div>
+    <p class="lede">
+      La elección de modelo <strong>sí importa</strong>, y más de lo que sugería la primera
+      tanda: <code>ministral-3-8b</code> resuelve 12/30 donde la mediana del estudio
+      resuelve 2/30, con la tasa de violación más baja medida. Cualquier andamiaje debe
+      construirse sobre esa base, no sobre los modelos de la cola.
+    </p>
+    <p>
+      Pero el mejor modelo sigue violando restricciones en el 90,5% de sus intentos y
+      dejando 18 de 30 partidas sin resolver, frente a un techo del 100%.
+      <strong>El modelo solo no basta.</strong> La brecha que queda no es de capacidad
+      lingüística sino de gestión de estado, y se ataca con andamiaje externo.
+    </p>
+    <ol class="steps">
+      <li><p><b>Memoria explícita de restricciones.</b> Mantener el conjunto revelado
+        fuera del modelo y reinyectarlo como texto en cada turno, en vez de esperar que lo
+        reconstruya del historial de la conversación.</p></li>
+      <li><p><b>Filtrado del espacio de candidatos.</b> Pasar de 173 nombres a los ~4
+        compatibles y pedir la elección sobre esa lista corta. La sección 4a muestra que
+        ese filtro es trivial de computar y brutalmente efectivo.</p></li>
+      <li><p><b>Descomposición del razonamiento.</b> Separar «actualizar restricciones» de
+        «elegir candidato» en dos llamadas, en vez de exigir ambas cosas en una respuesta
+        de 64 tokens.</p></li>
+    </ol>
+    <p style="margin-top:1.6rem">
+      La señal más útil para diseñar ese andamiaje está en la sección 4c: los modelos que
+      enumeran el roster ocupan el fondo del ranking y los dos que superan el azar casi no
+      enumeran. La diferencia entre recitar y deducir es exactamente lo que el andamiaje
+      tiene que amplificar.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Reproducibilidad</div>
+      <div class="ftgrid">
+        <div>
+          <h4>Configuración</h4>
+          <p>Idéntica para los 8 modelos: 30 partidas, 10 intentos máximo,
+          <code>SEED=777</code>, <code>temperature=0</code>, <code>max_tokens=64</code>,
+          prompt en rol <code>system</code>. La semilla fija los mismos 30 objetivos para
+          todos, así que la comparación es pareada.</p>
+        </div>
+        <div>
+          <h4>Ejecución</h4>
+          <p>LM Studio local con API compatible con OpenAI, prompts de ~5.000 tokens.
+          2.320 llamadas en 13 minutos sin un solo error. Latencias entre 0,20 s y 0,61 s
+          por intento.</p>
+        </div>
+        <div>
+          <h4>Salvedad</h4>
+          <p><code>qwen3.5-4b</code> es un modelo de razonamiento: con
+          <code>max_tokens=64</code> agota la generación en <code>reasoning_content</code>
+          y devuelve <code>content</code> vacío en el 100% de los intentos. Se corrige con
+          <code>reasoning_effort: "none"</code>.</p>
+        </div>
+        <div>
+          <h4>Artefactos</h4>
+          <p>Traza completa de cada intento en <code>results/raw/*.json</code>, tabla plana
+          de los 2.320 intentos en <code>results/attempts.csv</code>, informe en
+          <code>results/ANALISIS.md</code>. Motor compartido con el notebook.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const MODELS = [
+    {n:"ministral-3-8b-instruct-2512", b:8.0, cfs:0.5279, solved:12, rate:0.4000, viol:0.9050, prog:0.6762, roster:0.0045, invalid:0.0040, rep:2, p:0.0050, lat:0.383, att:252},
+    {n:"ministral-3-3b-instruct-2512", b:3.0, cfs:0.4291, solved:6, rate:0.2000, viol:0.9579, prog:0.5429, roster:0.0187, invalid:0.1029, rep:52, p:0.0199, lat:0.284, att:272},
+    {n:"exaone-3.5-2.4b-instruct", b:2.4, cfs:0.4040, solved:2, rate:0.0667, viol:0.9831, prog:0.5429, roster:0.0000, invalid:0.0697, rep:56, p:0.6020, lat:0.244, att:287},
+    {n:"josiefied-qwen2.5-7b-instruct-abliterated-v2", b:7.6, cfs:0.3761, solved:4, rate:0.1333, viol:0.9617, prog:0.5667, roster:0.4828, invalid:0.0000, rep:15, p:0.0896, lat:0.336, att:291},
+    {n:"falcon3-7b-instruct", b:7.0, cfs:0.3741, solved:3, rate:0.1000, viol:0.9808, prog:0.5000, roster:0.1303, invalid:0.0068, rep:149, p:0.3035, lat:0.336, att:293},
+    {n:"meta-llama-llama-3.2-3b-instruct-qlora-malaysian-16k", b:3.2, cfs:0.3524, solved:2, rate:0.0667, viol:0.9961, prog:0.4810, roster:0.3140, invalid:0.0000, rep:64, p:0.6020, lat:0.200, att:288},
+    {n:"qwen3.5-4b", b:4.0, cfs:0.3330, solved:1, rate:0.0333, viol:0.9767, prog:0.4714, roster:0.2840, invalid:0.0137, rep:169, p:0.8607, lat:0.272, att:291},
+    {n:"microsoft_phi-4-mini-instruct", b:3.8, cfs:0.3203, solved:1, rate:0.0333, viol:1.0000, prog:0.3905, roster:0.0651, invalid:0.3162, rep:101, p:0.8607, lat:0.608, att:291},
+    {n:"josie-7b-v6.0-step2000", b:7.6, cfs:0.3123, solved:2, rate:0.0667, viol:0.9690, prog:0.5381, roster:0.8178, invalid:0.0000, rep:7, p:0.6020, lat:0.341, att:288},
+    {n:"qwen2.5-7b-instruct", b:7.6, cfs:0.2852, solved:1, rate:0.0333, viol:0.9732, prog:0.5333, roster:0.9655, invalid:0.0000, rep:0, p:0.8607, lat:0.335, att:291}
+  ];
+
+  const pct = (v, d = 1) =>
+    v.toLocaleString("es-ES", {style: "percent", minimumFractionDigits: d, maximumFractionDigits: d});
+  const num = (v, d = 3) =>
+    v.toLocaleString("es-ES", {minimumFractionDigits: d, maximumFractionDigits: d});
+  const shortName = (n) => n.length > 30 ? n.slice(0, 29) + "…" : n;
+
+  /* ---- 02 · la brecha ---- */
+  const RANDOM_RATE = 0.063;
+  const gapRows = [
+    {k: "Deducción perfecta", m: "línea base algorítmica", v: 1.0, cls: "is-ceiling", note: "30/30 partidas"},
+    ...MODELS.map(m => ({k: shortName(m.n), m: m.b + "B", v: m.rate, cls: "", note: m.solved + "/30 partidas"})),
+    {k: "Azar sin memoria", m: "200 simulaciones", v: RANDOM_RATE, cls: "is-ref", note: "1,9/30 partidas"}
+  ];
+  document.getElementById("gapbars").innerHTML = gapRows.map(r => `
+    <div class="barrow ${r.cls}" title="${r.k} — ${r.note}">
+      <div class="barlab"><span class="k">${r.k}</span><span class="m">${r.m}</span></div>
+      <div class="bartrack">
+        <div class="refline" style="left:${RANDOM_RATE * 100}%"></div>
+        <div class="barfill" style="width:${r.v * 100}%"></div>
+      </div>
+      <span class="barval">${pct(r.v)}</span>
+    </div>`).join("");
+
+  /* ---- 03 · ranking ordenable ---- */
+  // `better` dice hacia dónde está lo bueno en cada métrica: -1 = más bajo es mejor.
+  // Al ordenar por una columna se aplica su propia dirección, así que la primera fila
+  // es siempre la mejor en esa métrica, suba o baje el número.
+  const COLS = [
+    {key: "n",       label: "Modelo",         type: "text", better: 0},
+    {key: "b",       label: "B",              type: "num",  better: 0,  fmt: m => num(m.b, 1)},
+    {key: "cfs",     label: "CFS",            type: "num",  better: +1, fmt: m => `<b>${num(m.cfs)}</b>`, bar: m => m.cfs / maxCfs},
+    {key: "solved",  label: "Resueltas",      type: "num",  better: +1, fmt: m => `${m.solved}/30 · ${pct(m.rate)}`},
+    {key: "viol",    label: "Violación",      type: "num",  better: -1, fmt: m => pct(m.viol)},
+    {key: "prog",    label: "Progreso",       type: "num",  better: +1, fmt: m => pct(m.prog)},
+    {key: "roster",  label: "Enumera roster", type: "num",  better: -1, fmt: m => pct(m.roster), bar: m => m.roster, warn: m => m.roster > .4},
+    {key: "invalid", label: "Inválidos",      type: "num",  better: -1, fmt: m => pct(m.invalid)},
+    {key: "rep",     label: "Repet.",         type: "num",  better: -1, fmt: m => String(m.rep)},
+    {key: "p",       label: "vs. azar",       type: "num",  better: -1,
+     fmt: m => `<span class="pill ${m.p < .05 ? "sig" : m.p < .15 ? "near" : "ns"}">${m.p < .15 ? "p=" + num(m.p, 3) : "n.s."}</span>`}
+  ];
+  const maxCfs = Math.max(...MODELS.map(m => m.cfs));
+  const CFS_ORDER = MODELS.map(m => m.n);   // el puesto oficial no cambia al reordenar
+  let sortKey = "cfs";
+
+  function renderRank() {
+    const col = COLS.find(c => c.key === sortKey);
+    const dir = col.better === -1 ? 1 : -1;   // -1 = descendente
+    const rows = [...MODELS].sort((a, b) =>
+      col.type === "text"
+        ? a.n.localeCompare(b.n)
+        : (a[col.key] - b[col.key]) * dir);
+
+    document.getElementById("rankhead").innerHTML =
+      `<th>#</th>` + COLS.map(c => {
+        const on = c.key === sortKey;
+        const hint = c.better === -1 ? "más bajo es mejor"
+                   : c.better === +1 ? "más alto es mejor" : "";
+        return `<th class="sortable ${c.type === "num" ? "num-col" : ""}"
+                    ${on ? `aria-sort="${c.better === -1 ? "ascending" : "descending"}"` : ""}>
+                  <button type="button" data-key="${c.key}"
+                          title="Ordenar por ${c.label}${hint ? " — " + hint : ""}">
+                    ${c.label}<span class="arrow">${c.better === -1 ? "▲" : "▼"}</span>
+                  </button></th>`;
+      }).join("");
+
+    document.getElementById("ranktable").innerHTML = rows.map(m => {
+      const place = CFS_ORDER.indexOf(m.n) + 1;
+      return `<tr class="${place <= 3 ? "podium" : ""}">
+        <td class="rank">${String(place).padStart(2, "0")}</td>` +
+        COLS.map(c => {
+          if (c.key === "n") return `<td class="mname">${m.n}</td>`;
+          const bar = c.bar
+            ? `<span class="cellbar ${c.warn && c.warn(m) ? "warn" : ""}" style="width:${c.bar(m) * 100}%"></span>`
+            : "";
+          return `<td class="n">${c.fmt(m)}${bar}</td>`;
+        }).join("") + `</tr>`;
+    }).join("");
+  }
+
+  document.getElementById("rank").addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button[data-key]");
+    if (!btn) return;
+    sortKey = btn.dataset.key;
+    renderRank();
+  });
+  renderRank();
+
+  /* ---- 04a · colapso del espacio de candidatos ---- */
+  const FEASIBLE = [173, 12.1, 4.3, 2.4, 1.8, 1.5, 1.3, 1];
+  const maxF = FEASIBLE[0];
+  document.getElementById("collapse").innerHTML = FEASIBLE.map((v, i) => `
+    <div class="cbar" title="Turno ${i + 1}: ${num(v, v < 10 ? 1 : 0)} candidatos compatibles">
+      <div class="cv">${num(v, v >= 10 || Number.isInteger(v) ? 0 : 1)}</div>
+      <div class="fillv" style="height:${Math.max((v / maxF) * 100, 1.6)}%"></div>
+      <div class="ct">T${i + 1}</div>
+    </div>`).join("");
+
+  /* ---- 04c · traza alfabética real ---- */
+  const GLYPH = {green: "✓", yellow: "≈", gray: "×", higher: "↑", lower: "↓"};
+  const LABEL = {green: "exacto", yellow: "parcial", gray: "no", higher: "posterior", lower: "anterior"};
+  const CLS = {green: "green", yellow: "yellow", gray: "gray", higher: "year", lower: "year"};
+  const TRACE = [
+    {t:1, g:"Aatrox",       fb:["gray","gray","gray","gray","gray","gray","lower"],       v:false},
+    {t:2, g:"Ahri",         fb:["green","yellow","gray","green","green","green","green"], v:false},
+    {t:3, g:"Akali",        fb:["green","yellow","yellow","gray","gray","green","higher"],v:true},
+    {t:4, g:"Anivia",       fb:["green","yellow","gray","green","green","gray","higher"], v:true},
+    {t:5, g:"Annie",        fb:["green","yellow","yellow","green","green","gray","higher"],v:true},
+    {t:6, g:"Aphelios",     fb:["gray","gray","green","green","green","gray","lower"],    v:true},
+    {t:7, g:"Ashe",         fb:["green","yellow","yellow","green","green","gray","higher"],v:true},
+    {t:8, g:"Aurelion Sol", fb:["gray","yellow","gray","green","green","gray","lower"],   v:true},
+    {t:9, g:"Aurora",       fb:["green","yellow","gray","green","green","gray","lower"],  v:true},
+    {t:10,g:"Azir",         fb:["gray","yellow","gray","green","green","gray","lower"],   v:true}
+  ];
+  document.getElementById("trace").innerHTML = TRACE.map(r => `
+    <div class="traceline">
+      <span class="tn">${r.t}</span>
+      <span class="gname">${r.g}</span>
+      <div class="tilerow">
+        ${r.fb.map(s => `<div class="tile ${CLS[s]}" title="${LABEL[s]}">
+            <span class="g">${GLYPH[s]}</span></div>`).join("")}
+      </div>
+      <span class="flag ${r.v ? "" : "ok"}">${r.v ? "viola" : "—"}</span>
+    </div>`).join("");
+
+  /* ---- 04 · violaciones por atributo ---- */
+  const TRACE_WIN = [
+    {t:1, g:"Ahri",      fb:["green","yellow","gray","green","green","green","green"],  v:false, s:false},
+    {t:2, g:"Lissandra", fb:["green","yellow","yellow","green","green","gray","lower"], v:true,  s:false},
+    {t:3, g:"Karma",     fb:["green","green","green","green","green","green","green"],  v:false, s:true}
+  ];
+  document.getElementById("tracewin").innerHTML = TRACE_WIN.map(r => `
+    <div class="traceline ${r.s ? "solved" : ""}">
+      <span class="tn">${r.t}</span>
+      <span class="gname">${r.g}</span>
+      <div class="tilerow">
+        ${r.fb.map(st => `<div class="tile ${CLS[st]}" title="${LABEL[st]}">
+            <span class="g">${GLYPH[st]}</span></div>`).join("")}
+      </div>
+      <span class="flag ${r.s ? "win" : r.v ? "" : "ok"}">${r.s ? "resuelto" : r.v ? "viola" : "—"}</span>
+    </div>`).join("");
+
+  const ATTRS = [
+    ["Género", 2006], ["Posiciones", 1747], ["Año", 1651], ["Alcance", 1534],
+    ["Regiones", 1512], ["Especie", 933], ["Recurso", 867]
+  ];
+  const maxA = ATTRS[0][1];
+  document.getElementById("attrbars").innerHTML = ATTRS.map(([k, v]) => `
+    <div class="barrow" title="${k}: ${v.toLocaleString("es-ES")} violaciones">
+      <div class="barlab"><span class="k">${k}</span></div>
+      <div class="bartrack">
+        <div class="barfill" style="width:${(v / maxA) * 100}%"></div>
+      </div>
+      <span class="barval">${v.toLocaleString("es-ES")}</span>
+    </div>`).join("");
+</script>
