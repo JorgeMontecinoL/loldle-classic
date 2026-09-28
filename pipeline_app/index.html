@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoLdle · pipeline en vivo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:wght@600;800&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #EDEFF1;
+    --panel: #F7F8F9;
+    --panel-2: #E3E7EA;
+    --rule: #CBD2D8;
+    --rule-soft: #DDE2E6;
+    --ink: #10181D;
+    --ink-2: #3D4A53;
+    --ink-3: #66757F;
+    --accent: #8A6516;
+    --accent-strong: #6F500F;
+    --accent-wash: rgba(138, 101, 22, .10);
+    --accent-glow: rgba(138, 101, 22, .28);
+    --good: #16803C;
+    --good-wash: rgba(22, 128, 60, .12);
+    --crit: #B42318;
+    --crit-wash: rgba(180, 35, 24, .10);
+    --fb-green: #16803C;
+    --fb-yellow: #B7791F;
+    --fb-gray: #52525B;
+    --fb-year: #3A63A8;
+    --fb-ink: #FFFFFF;
+    --base-id: #5B6B77;
+    --shadow: 0 1px 2px rgba(16, 24, 29, .06), 0 10px 28px -16px rgba(16, 24, 29, .22);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #0B1216;
+      --panel: #111C22;
+      --panel-2: #18252C;
+      --rule: #2A3943;
+      --rule-soft: #1D2B33;
+      --ink: #E8EDF0;
+      --ink-2: #A9B7C0;
+      --ink-3: #7A8B95;
+      --accent: #C89B3C;
+      --accent-strong: #E0B55A;
+      --accent-wash: rgba(200, 155, 60, .12);
+      --accent-glow: rgba(200, 155, 60, .30);
+      --good: #3FA46A;
+      --good-wash: rgba(63, 164, 106, .14);
+      --crit: #F0796B;
+      --crit-wash: rgba(240, 121, 107, .12);
+      --fb-green: #2C8B4F;
+      --fb-yellow: #A9701C;
+      --fb-gray: #464650;
+      --fb-year: #3C68B0;
+      --fb-ink: #F2F6F8;
+      --base-id: #8FA1AD;
+      --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px -16px rgba(0, 0, 0, .75);
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #0B1216;
+    --panel: #111C22;
+    --panel-2: #18252C;
+    --rule: #2A3943;
+    --rule-soft: #1D2B33;
+    --ink: #E8EDF0;
+    --ink-2: #A9B7C0;
+    --ink-3: #7A8B95;
+    --accent: #C89B3C;
+    --accent-strong: #E0B55A;
+    --accent-wash: rgba(200, 155, 60, .12);
+    --accent-glow: rgba(200, 155, 60, .30);
+    --good: #3FA46A;
+    --good-wash: rgba(63, 164, 106, .14);
+    --crit: #F0796B;
+    --crit-wash: rgba(240, 121, 107, .12);
+    --fb-green: #2C8B4F;
+    --fb-yellow: #A9701C;
+    --fb-gray: #464650;
+    --fb-year: #3C68B0;
+    --fb-ink: #F2F6F8;
+    --base-id: #8FA1AD;
+    --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px -16px rgba(0, 0, 0, .75);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Archivo", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+  button, select { font: inherit; color: inherit; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+  .shell { max-width: 1760px; margin: 0 auto; padding: 18px clamp(14px, 2.2vw, 32px) 40px; display: flex; flex-direction: column; gap: 16px; }
+
+  /* ---------- cabecera ---------- */
+  header.top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-3); }
+  h1 { font-family: "Spectral", ui-serif, Georgia, serif; font-weight: 800; font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 1.1; margin: 4px 0 0; letter-spacing: -.01em; }
+  h1 em { font-style: normal; color: var(--accent); }
+  .top-right { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .chip { display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px; border: 1px solid var(--rule); border-radius: 999px; font-size: .78rem; color: var(--ink-2); background: var(--panel); white-space: nowrap; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ink-3); flex: none; }
+  .chip.up .dot { background: var(--good); box-shadow: 0 0 0 3px var(--good-wash); }
+  .chip.down .dot { background: var(--crit); box-shadow: 0 0 0 3px var(--crit-wash); }
+  .iconbtn { border: 1px solid var(--rule); background: var(--panel); border-radius: 999px; padding: 5px 11px; cursor: pointer; font-size: .78rem; color: var(--ink-2); }
+  .iconbtn:hover { border-color: var(--accent); color: var(--ink); }
+
+  /* ---------- barra de control ---------- */
+  .controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; box-shadow: var(--shadow); }
+  .target-zone { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; min-width: 0; }
+  .target-label { font-family: "IBM Plex Mono", monospace; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+  .target-name { font-family: "Spectral", serif; font-weight: 800; font-size: 1.55rem; line-height: 1; min-width: 5ch; }
+  .target-name.empty { color: var(--ink-3); font-weight: 600; font-size: 1.1rem; }
+  .provenance { font-size: .76rem; color: var(--ink-3); max-width: 34ch; line-height: 1.35; }
+  .btn { border: 1px solid var(--rule); background: var(--panel-2); border-radius: 8px; padding: 8px 13px; cursor: pointer; font-weight: 600; font-size: .86rem; white-space: nowrap; }
+  .btn:hover:not(:disabled) { border-color: var(--accent); }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; padding: 10px 18px; font-size: .95rem; }
+  :root[data-theme="dark"] .btn.primary { color: #1A1406; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn.primary { color: #1A1406; } }
+  .btn.primary:hover:not(:disabled) { background: var(--accent-strong); border-color: var(--accent-strong); }
+  select.pick { border: 1px solid var(--rule); background: var(--panel-2); border-radius: 8px; padding: 8px 10px; max-width: 220px; }
+  .right-controls { display: flex; align-items: center; gap: 12px; }
+  .seg { display: inline-flex; border: 1px solid var(--rule); border-radius: 8px; overflow: hidden; }
+  .seg button { border: 0; background: transparent; padding: 7px 11px; cursor: pointer; font-size: .8rem; color: var(--ink-2); }
+  .seg button[aria-pressed="true"] { background: var(--accent-wash); color: var(--ink); font-weight: 600; }
+  .seg-caption { font-size: .7rem; color: var(--ink-3); max-width: 21ch; line-height: 1.3; }
+
+  /* ---------- columnas ---------- */
+  .arena { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+  @media (max-width: 1100px) { .arena { grid-template-columns: 1fr; } .controls { grid-template-columns: 1fr; } }
+  .col { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow); display: flex; flex-direction: column; min-width: 0; overflow: hidden; }
+  .col-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 16px 11px; border-bottom: 1px solid var(--rule-soft); position: relative; }
+  .col-head::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--base-id); }
+  .col.lora .col-head::before { background: var(--accent); }
+  .col-title { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .col-kicker { font-family: "IBM Plex Mono", monospace; font-size: .66rem; letter-spacing: .14em; text-transform: uppercase; color: var(--base-id); font-weight: 600; }
+  .col.lora .col-kicker { color: var(--accent); }
+  .col-name { font-family: "Spectral", serif; font-weight: 800; font-size: 1.3rem; line-height: 1.1; }
+  .col-model { font-family: "IBM Plex Mono", monospace; font-size: .72rem; color: var(--ink-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .status { font-family: "IBM Plex Mono", monospace; font-size: .74rem; padding: 5px 10px; border-radius: 999px; border: 1px solid var(--rule); color: var(--ink-2); white-space: nowrap; }
+  .status.run { border-color: var(--accent); color: var(--accent); }
+  .status.win { border-color: var(--good); color: var(--good); background: var(--good-wash); font-weight: 600; }
+  .status.lose { border-color: var(--crit); color: var(--crit); background: var(--crit-wash); font-weight: 600; }
+  .status.err { border-color: var(--crit); color: var(--crit); }
+
+  /* ---------- cadena del pipeline ---------- */
+  .pipeline { padding: 14px 16px 6px; }
+  .chain { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; position: relative; }
+  .stage { position: relative; display: flex; flex-direction: column; align-items: stretch; padding: 0 5px; }
+  .stage + .stage::before { content: ""; position: absolute; left: -7px; top: 22px; width: 14px; height: 2px; background: var(--rule); }
+  .stage + .stage::after { content: ""; position: absolute; left: 3px; top: 18px; border: 5px solid transparent; border-left-color: var(--rule); }
+  .stage.done + .stage::before, .stage.active + .stage::before { background: var(--accent); opacity: .55; }
+  .node { border: 1px solid var(--rule); background: var(--panel-2); border-radius: 8px; padding: 7px 8px 8px; min-height: 64px; transition: border-color .25s, box-shadow .25s, background .25s; display: flex; flex-direction: column; gap: 3px; }
+  .node-name { font-family: "IBM Plex Mono", monospace; font-size: .64rem; letter-spacing: .09em; text-transform: uppercase; color: var(--ink-3); display: flex; align-items: center; gap: 5px; white-space: nowrap; }
+  .node-val { font-size: .8rem; font-weight: 600; color: var(--ink); line-height: 1.25; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; word-break: break-word; }
+  .node-val.dim { color: var(--ink-3); font-weight: 500; }
+  .badge { font-family: "IBM Plex Mono", monospace; font-size: .56rem; padding: 0 4px; border-radius: 3px; background: var(--accent); color: #fff; letter-spacing: .04em; line-height: 1.5; }
+  :root[data-theme="dark"] .badge { color: #1A1406; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .badge { color: #1A1406; } }
+  .stage.active .node { border-color: var(--accent); background: var(--accent-wash); box-shadow: 0 0 0 3px var(--accent-glow); }
+  .stage.done .node { border-color: var(--rule); }
+  .stage.bad .node { border-color: var(--crit); background: var(--crit-wash); box-shadow: none; }
+  .stage.good .node { border-color: var(--good); background: var(--good-wash); box-shadow: none; }
+  .loop { display: flex; align-items: center; gap: 8px; margin: 7px 5px 0; font-family: "IBM Plex Mono", monospace; font-size: .64rem; color: var(--ink-3); letter-spacing: .06em; }
+  .loop::before { content: ""; flex: 1; height: 8px; border: 2px solid var(--rule); border-top: 0; border-radius: 0 0 8px 8px; }
+  .loop.on::before { border-color: var(--accent); opacity: .6; }
+  .narration { margin: 8px 16px 0; min-height: 2.9em; font-size: .92rem; color: var(--ink-2); line-height: 1.45; }
+  .narration b { color: var(--ink); }
+  .narration .crit { color: var(--crit); font-weight: 600; }
+  .narration .ok { color: var(--good); font-weight: 600; }
+
+  /* ---------- tablero ---------- */
+  .board { padding: 10px 16px 4px; }
+  .grid-head, .row { display: grid; grid-template-columns: 26px minmax(86px, 1.15fr) minmax(0, 4.6fr) 64px; gap: 8px; align-items: center; }
+  .grid-head { padding: 0 0 5px; border-bottom: 1px solid var(--rule-soft); }
+  .grid-head span { font-family: "IBM Plex Mono", monospace; font-size: .58rem; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); }
+  .grid-head .attrs { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; text-align: center; }
+  .rows { display: flex; flex-direction: column; gap: 4px; padding-top: 6px; min-height: 120px; }
+  .row { animation: rowin .28s ease-out; }
+  @keyframes rowin { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+  .turn { font-family: "IBM Plex Mono", monospace; font-size: .72rem; color: var(--ink-3); text-align: right; }
+  .guess { font-weight: 600; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .guess.invalid { color: var(--crit); font-style: italic; font-weight: 500; }
+  .guess.solved { color: var(--good); }
+  .tiles { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 3px; }
+  .tile { height: 34px; border-radius: 4px; background: var(--fb-gray); color: var(--fb-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding: 0 3px; overflow: hidden; animation: flip .42s ease-out both; }
+  .tile .g { font-family: "IBM Plex Mono", monospace; font-size: .8rem; font-weight: 600; line-height: 1; }
+  .tile .v { font-size: .54rem; letter-spacing: .02em; opacity: .88; line-height: 1.05; max-width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tile.green { background: var(--fb-green); }
+  .tile.yellow { background: var(--fb-yellow); background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.17) 0 3px, transparent 3px 7px); }
+  .tile.gray { background: var(--fb-gray); }
+  .tile.higher, .tile.lower { background: var(--fb-year); }
+  .tile.none { background: transparent; border: 1px dashed var(--rule); color: var(--ink-3); animation: none; }
+  @keyframes flip { from { transform: rotateX(90deg); opacity: .2; } to { transform: none; opacity: 1; } }
+  .verdict { font-family: "IBM Plex Mono", monospace; font-size: .64rem; letter-spacing: .04em; text-transform: uppercase; text-align: right; line-height: 1.2; }
+  .verdict.ok { color: var(--good); }
+  .verdict.bad { color: var(--crit); }
+  .verdict.win { color: var(--good); font-weight: 600; }
+  .placeholder { color: var(--ink-3); font-size: .85rem; padding: 18px 2px; }
+
+  /* ---------- estado revelado ---------- */
+  .facts { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 10px; padding: 12px 16px 16px; margin-top: auto; }
+  .card { border: 1px solid var(--rule-soft); border-radius: 9px; background: var(--panel-2); padding: 10px 12px; min-width: 0; }
+  .card-title { font-family: "IBM Plex Mono", monospace; font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+  .known { display: flex; flex-wrap: wrap; gap: 4px 6px; }
+  .fact { font-size: .74rem; padding: 2px 7px; border-radius: 5px; border: 1px solid var(--rule); background: var(--panel); white-space: nowrap; }
+  .fact.req { border-color: var(--good); color: var(--good); }
+  .fact.forb { color: var(--ink-2); white-space: normal; }
+  .fact.forb .k { color: var(--crit); }
+  .fact .k { color: var(--ink-3); margin-right: 3px; }
+  .fact.req .k { color: var(--good); opacity: .8; }
+  .feasible-num { font-family: "Spectral", serif; font-weight: 800; font-size: 2rem; line-height: 1; }
+  .feasible-num small { font-family: "Archivo", sans-serif; font-weight: 500; font-size: .8rem; color: var(--ink-3); margin-left: 3px; }
+  .meter { height: 6px; border-radius: 3px; background: var(--rule-soft); margin: 8px 0 6px; overflow: hidden; }
+  .meter > i { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .5s ease; }
+  .raw { font-family: "IBM Plex Mono", monospace; font-size: .76rem; color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .listed { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 7px; min-height: 0; }
+  .listed:empty { display: none; }
+  .listed .lab { font-family: "IBM Plex Mono", monospace; font-size: .6rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); width: 100%; }
+  .li { font-size: .74rem; padding: 1px 7px; border-radius: 5px; border: 1px solid var(--good); color: var(--good); background: var(--good-wash); white-space: nowrap; }
+  .li.no { border-color: var(--crit); color: var(--crit); background: var(--crit-wash); text-decoration: line-through; text-decoration-thickness: 1px; }
+  .li.first { font-weight: 700; }
+  .li.more { border-style: dashed; border-color: var(--rule); color: var(--ink-3); background: transparent; }
+  .raw b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- resultados agregados ---------- */
+  .results { background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; box-shadow: var(--shadow); padding: 16px 18px 18px; }
+  .results h2 { font-family: "Spectral", serif; font-weight: 800; font-size: 1.25rem; margin: 2px 0 2px; }
+  .results .sub { font-size: .82rem; color: var(--ink-3); margin: 0 0 12px; max-width: 90ch; }
+  .res-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  @media (max-width: 1100px) { .res-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .metric { border: 1px solid var(--rule-soft); border-radius: 9px; padding: 10px 12px; background: var(--panel-2); }
+  .metric-name { font-family: "IBM Plex Mono", monospace; font-size: .62rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 8px; }
+  .mrow { display: grid; grid-template-columns: 76px minmax(0, 1fr) 62px; gap: 8px; align-items: center; font-size: .78rem; margin-top: 4px; }
+  .mrow .who { color: var(--ink-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mbar { height: 9px; background: var(--rule-soft); border-radius: 0 3px 3px 0; overflow: hidden; }
+  .mbar > i { display: block; height: 100%; background: var(--base-id); border-radius: 0 3px 3px 0; }
+  .mrow.lora .mbar > i { background: var(--accent); }
+  .mrow.ref .mbar > i { background: var(--rule); }
+  .mrow .val { font-family: "IBM Plex Mono", monospace; text-align: right; font-weight: 600; }
+  .mrow.lora .who { color: var(--ink); font-weight: 600; }
+  .failures { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; font-size: .82rem; color: var(--ink-2); }
+  .failures button { border: 1px solid var(--crit); color: var(--crit); background: var(--crit-wash); border-radius: 6px; padding: 3px 9px; cursor: pointer; font-size: .78rem; }
+  .failures button:hover { background: var(--crit); color: #fff; }
+  .empty-res { color: var(--ink-3); font-size: .86rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="top">
+    <div>
+      <div class="eyebrow">Entregable 2 · IA Generativa 580694 · el modelo contra el juego, etapa por etapa</div>
+      <h1>LoLdle · <em>pipeline en vivo</em></h1>
+    </div>
+    <div class="top-right">
+      <span class="chip" id="chip-baseline"><i class="dot"></i><span>Baseline</span></span>
+      <span class="chip" id="chip-lora"><i class="dot"></i><span>Solución</span></span>
+      <button class="iconbtn" id="theme" type="button" aria-label="Cambiar tema">Tema</button>
+    </div>
+  </header>
+
+  <section class="controls" aria-label="Partida">
+    <div class="target-zone">
+      <div>
+        <div class="target-label">Campeón secreto</div>
+        <div class="target-name empty" id="target-name">sin elegir</div>
+      </div>
+      <button class="btn" id="draw" type="button">Sortear entre los 30 de prueba</button>
+      <select class="pick" id="pick" aria-label="Elegir campeón a mano"></select>
+      <div class="provenance" id="provenance">Los 30 objetivos de prueba nunca se usaron como campeón secreto en el entrenamiento.</div>
+    </div>
+    <div class="right-controls">
+      <div>
+        <div class="seg" role="group" aria-label="Ritmo de visualización">
+          <button type="button" data-pace="0.55" aria-pressed="true">Didáctico</button>
+          <button type="button" data-pace="0" aria-pressed="false">Tiempo real</button>
+        </div>
+        <div class="seg-caption">El ritmo sólo espacia la animación; las llamadas al modelo son reales.</div>
+      </div>
+      <button class="btn primary" id="play" type="button" disabled>Jugar las dos variantes</button>
+    </div>
+  </section>
+
+  <main class="arena" id="arena"></main>
+
+  <section class="results" id="results" aria-label="Resultados agregados">
+    <div class="eyebrow">Evidencia · mismos 30 objetivos, mismo criterio de corrección</div>
+    <h2>Baseline contra solución en la evaluación completa</h2>
+    <p class="sub" id="res-sub">Se carga desde <span class="mono">results/d2/summary.json</span> cuando termina la evaluación.</p>
+    <div id="res-body" class="empty-res">Aún no hay evaluación registrada.</div>
+  </section>
+</div>
+
+<template id="col-tpl">
+  <article class="col">
+    <div class="col-head">
+      <div class="col-title">
+        <span class="col-kicker"></span>
+        <span class="col-name"></span>
+        <span class="col-model"></span>
+      </div>
+      <span class="status">esperando</span>
+    </div>
+    <div class="pipeline">
+      <div class="chain">
+        <div class="stage" data-stage="history"><div class="node"><span class="node-name">Historial</span><span class="node-val dim">—</span></div></div>
+        <div class="stage" data-stage="prompt"><div class="node"><span class="node-name">Prompt</span><span class="node-val dim">—</span></div></div>
+        <div class="stage" data-stage="model"><div class="node"><span class="node-name">Modelo<span class="badge" hidden>+LoRA</span></span><span class="node-val dim">—</span></div></div>
+        <div class="stage" data-stage="parse"><div class="node"><span class="node-name">Parser</span><span class="node-val dim">—</span></div></div>
+        <div class="stage" data-stage="verify"><div class="node"><span class="node-name">Verificador</span><span class="node-val dim">—</span></div></div>
+        <div class="stage" data-stage="game"><div class="node"><span class="node-name">Juego</span><span class="node-val dim">—</span></div></div>
+      </div>
+      <div class="loop">el feedback vuelve al historial del turno siguiente</div>
+    </div>
+    <p class="narration">Elige un campeón y pulsa <b>Jugar</b>.</p>
+    <div class="board">
+      <div class="grid-head">
+        <span>#</span><span>Propuesta</span>
+        <span class="attrs"><span>Género</span><span>Posic.</span><span>Especie</span><span>Recurso</span><span>Alcance</span><span>Región</span><span>Año</span></span>
+        <span style="text-align:right">Compat.</span>
+      </div>
+      <div class="rows"><div class="placeholder">Todavía no hay intentos.</div></div>
+    </div>
+    <div class="facts">
+      <div class="card">
+        <div class="card-title">Lo que el juego ya reveló</div>
+        <div class="known"><span class="fact" style="border-style:dashed;color:var(--ink-3)">nada todavía</span></div>
+      </div>
+      <div class="card">
+        <div class="card-title">Campeones compatibles</div>
+        <div class="feasible-num">173<small>de 173</small></div>
+        <div class="meter"><i style="width:100%"></i></div>
+        <div class="raw">salida cruda: <b>—</b></div>
+        <div class="listed"></div>
+      </div>
+    </div>
+  </article>
+</template>
+
+<script>
+(() => {
+  const $ = (sel, el = document) => el.querySelector(sel);
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const GLYPH = { green: "✓", yellow: "≈", gray: "×", higher: "↑", lower: "↓" };
+  const STAGES = ["history", "prompt", "model", "parse", "verify", "game"];
+  const fmtS = (x) => (x == null ? "—" : x.toLocaleString("es-ES", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + " s");
+  const fmtN = (x) => (x == null ? "—" : x.toLocaleString("es-ES"));
+  const clip = (s, n) => (s.length > n ? s.slice(0, n - 1) + "…" : s);
+  const pct = (x) => (x == null ? "—" : (x * 100).toLocaleString("es-ES", { maximumFractionDigits: 1 }) + "%");
+
+  // ---------- tema ----------
+  const root = document.documentElement;
+  try { const t = localStorage.getItem("loldle-theme"); if (t) root.dataset.theme = t; } catch (e) {}
+  $("#theme").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    try { localStorage.setItem("loldle-theme", root.dataset.theme); } catch (e) {}
+  });
+
+  // ---------- estado ----------
+  let config = null;
+  let target = null;
+  let drawSeed = null;
+  let pace = 0.55;
+  const cols = {};
+  const streams = {};
+
+  document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
+    document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    pace = parseFloat(b.dataset.pace);
+  }));
+
+  function buildColumn(key, v) {
+    const node = $("#col-tpl").content.firstElementChild.cloneNode(true);
+    node.classList.add(key);
+    $(".col-kicker", node).textContent = `${v.title} · ${v.subtitle}`;
+    $(".col-name", node).textContent = key === "lora" ? "Modelo ajustado" : "Modelo sin ajustar";
+    $(".col-model", node).textContent = `${v.model} · ${v.weights}`;
+    if (v.adapter) $(".badge", node).hidden = false;
+    if (v.submit === "state-tool") {
+      // en este modo el paso entre el modelo y el juego es la consulta al roster
+      $('[data-stage="parse"] .node-name', node).textContent = "Herramienta";
+    }
+    $("#arena").appendChild(node);
+    cols[key] = { el: node, v };
+  }
+
+  function stage(col, name, cls, value) {
+    const el = col.el.querySelector(`[data-stage="${name}"]`);
+    const idx = STAGES.indexOf(name);
+    STAGES.forEach((s, i) => {
+      const other = col.el.querySelector(`[data-stage="${s}"]`);
+      other.classList.remove("active");
+      if (i < idx) other.classList.add("done");
+    });
+    el.classList.remove("done", "bad", "good");
+    el.classList.add(cls || "active");
+    if (value !== undefined) {
+      const val = $(".node-val", el);
+      val.classList.toggle("dim", false);
+      val.innerHTML = value;
+    }
+  }
+
+  function resetColumn(col) {
+    col.el.querySelectorAll(".stage").forEach((s) => {
+      s.classList.remove("active", "done", "bad", "good");
+      const val = $(".node-val", s); val.textContent = "—"; val.classList.add("dim");
+    });
+    $(".rows", col.el).innerHTML = "";
+    $(".narration", col.el).innerHTML = "Arrancando la partida…";
+    $(".known", col.el).innerHTML = '<span class="fact" style="border-style:dashed;color:var(--ink-3)">nada todavía</span>';
+    setFeasible(col, config.roster.length);
+    $(".raw b", col.el).textContent = "—";
+    $(".listed", col.el).innerHTML = "";
+    setStatus(col, "run", "turno 1");
+    $(".loop", col.el).classList.remove("on");
+  }
+
+  function setStatus(col, cls, text) {
+    const s = $(".status", col.el);
+    s.className = "status " + (cls || "");
+    s.textContent = text;
+  }
+
+  function setFeasible(col, n) {
+    const total = config.roster.length;
+    $(".feasible-num", col.el).innerHTML = `${n}<small>de ${total}</small>`;
+    $(".meter > i", col.el).style.width = `${Math.max(1.5, (n / total) * 100)}%`;
+  }
+
+  function narrate(col, html) { $(".narration", col.el).innerHTML = html; }
+
+  function renderKnown(col, constraints) {
+    // Una ficha por atributo: si ya se conoce el valor exacto, lo descartado
+    // sobra; si no, se listan los valores descartados.
+    const parts = [];
+    constraints.forEach((c) => {
+      if (c.required) {
+        const op = c.field === "release_year" ? "" : "= ";
+        parts.push(`<span class="fact req"><span class="k">${esc(c.label)}</span>${op}${esc(c.required)}</span>`);
+      } else if (c.forbidden.length) {
+        parts.push(`<span class="fact forb"><span class="k">${esc(c.label)} ≠</span>${c.forbidden.map(esc).join(" · ")}</span>`);
+      }
+    });
+    $(".known", col.el).innerHTML = parts.length ? parts.join("") : '<span class="fact" style="border-style:dashed;color:var(--ink-3)">nada todavía</span>';
+  }
+
+  function addRow(col, d) {
+    const rows = $(".rows", col.el);
+    const tiles = d.tiles
+      ? d.tiles.map((t, i) => `<span class="tile ${t.status}" style="animation-delay:${i * 70}ms" title="${esc(t.label)}: ${esc(t.value)}"><span class="g">${GLYPH[t.status]}</span><span class="v">${esc(t.value)}</span></span>`).join("")
+      : Array.from({ length: 7 }, () => '<span class="tile none"><span class="g">·</span></span>').join("");
+    let verdict, vcls;
+    if (d.solved) { verdict = "resuelto"; vcls = "win"; }
+    else if (!d.guess) { verdict = "inválido"; vcls = "bad"; }
+    else if (d.inside_feasible) { verdict = "sí"; vcls = "ok"; }
+    else if (d.repeated) { verdict = "no · repite"; vcls = "bad"; }
+    else { verdict = "no · viola"; vcls = "bad"; }
+    const name = d.guess ? esc(d.guess) : esc((d.raw || "(vacía)").slice(0, 22));
+    const row = document.createElement("div");
+    row.className = "row";
+    row.innerHTML = `<span class="turn">${d.turn}</span><span class="guess ${d.solved ? "solved" : d.guess ? "" : "invalid"}" title="${esc(d.raw)}">${name}</span><span class="tiles">${tiles}</span><span class="verdict ${vcls}">${verdict}</span>`;
+    rows.appendChild(row);
+  }
+
+  // ---------- eventos del servidor ----------
+  const handlers = {
+    start(col) { stage(col, "history", "active", "partida nueva"); },
+    prompt(col, d) {
+      stage(col, "history", "done", d.history_turns ? `${d.history_turns} ${d.history_turns === 1 ? "turno" : "turnos"} de feedback` : "vacío");
+      stage(col, "prompt", "active", `roster ${d.roster} + ${d.messages} mensajes`);
+      setStatus(col, "run", `turno ${d.turn} de ${d.max_attempts}`);
+      setFeasible(col, d.feasible);
+      narrate(col, `<b>Turno ${d.turn}.</b> Se arma el prompt: instrucciones, roster de ${d.roster} campeones y ${d.history_turns ? `el feedback de ${d.history_turns} ${d.history_turns === 1 ? "turno" : "turnos"} anteriores` : "ningún feedback todavía"}. Con lo revelado hasta ahora quedan <b>${d.feasible}</b> campeones compatibles.`);
+    },
+    model_call(col) {
+      stage(col, "model", "active", "eligiendo…");
+      narrate(col, col.v.adapter ? "El modelo elige un campeón <b>con el adaptador LoRA activo</b>…" : "El modelo elige un campeón…");
+    },
+    model_output(col, d) {
+      if (d.prompt_tokens) stage(col, "prompt", "done", `${fmtN(d.prompt_tokens)} tokens`);
+      const shown = JSON.stringify(d.raw).replace(/\\n/g, " ⏎ ");
+      $(".raw b", col.el).textContent = shown;
+      const listed = d.listed;
+      if (d.error) {
+        stage(col, "model", "bad", "sin respuesta");
+        narrate(col, `<span class="crit">El servidor del modelo no respondió</span> (${esc(d.error)}).`);
+        return;
+      }
+      if (listed) {
+        const items = listed.items || [];
+        const good = items.filter((x) => x.ok).length;
+        const stateTag = listed.state === null ? "" : listed.state_ok ? "estado ✓ · " : "estado ✗ · ";
+        stage(col, "model", listed.state_ok === false ? "bad" : "done", `${stateTag}«${esc(d.submitted)}»`);
+        const stateHtml = listed.state === null ? "" :
+          `<span class="lab">lo que el modelo escribe que sabe</span>` +
+          `<span class="li ${listed.state_ok ? "" : "no"}" title="${listed.state_ok ? "coincide con lo que reveló el juego" : "el juego reveló: " + esc(listed.true_state)}">${esc(listed.state)}</span>` +
+          (listed.state_ok ? "" : `<span class="li more" title="estado real">real: ${esc(listed.true_state)}</span>`);
+        $(".listed", col.el).innerHTML = stateHtml +
+          (items.length ? '<span class="lab">su lista de compatibles · verificada contra el juego</span>' +
+            items.map((x, i) => `<span class="li ${x.ok ? "" : "no"} ${i === 0 ? "first" : ""}" title="${x.ok ? "compatible con todo lo revelado" : x.known ? "contradice lo revelado" : "no existe en el roster"}">${esc(x.text)}</span>`).join("") +
+            (listed.more ? '<span class="li more">…más</span>' : "") : "");
+        const stateSentence = listed.state === null ? "" : listed.state_ok
+          ? `El modelo escribe lo que sabe (<span class="ok">coincide con lo revelado</span>)`
+          : `El modelo escribe lo que cree saber (<span class="crit">no coincide con lo revelado</span>)`;
+        if (d.tool) {
+          narrate(col, `${stateSentence || "El modelo escribe su estado"}. La herramienta busca en el roster lo que el modelo dice saber: <b>${d.tool.matches}</b> ${d.tool.matches === 1 ? "campeón lo cumple" : "campeones lo cumplen"}${d.tool.sample.length ? ` (${d.tool.sample.map(esc).join(", ")}${d.tool.matches > d.tool.sample.length ? "…" : ""})` : ""}, y se juega <b>${esc(d.submitted)}</b>. La herramienta nunca ve el feedback real · ${fmtS(d.latency_s)}.`);
+        } else {
+          narrate(col, `${stateSentence}${stateSentence ? " y " : "El modelo escribe "}su lista de compatibles: <b>${good} de ${items.length}</b> ${items.length === 1 ? "es correcto" : "son correctos"} según el juego (hay ${d.feasible} en total). Juega <b>${esc(d.submitted)}</b> en la última línea, lo único que llega al juego · ${fmtS(d.latency_s)}.`);
+        }
+      } else {
+        stage(col, "model", "done", `«${esc(clip(d.raw.trim(), 28))}» · ${fmtS(d.latency_s)}`);
+        $(".listed", col.el).innerHTML = "";
+        narrate(col, `El modelo respondió <b>${esc(clip(JSON.stringify(d.raw), 90))}</b> en ${fmtS(d.latency_s)}${d.prompt_tokens ? ` sobre ${fmtN(d.prompt_tokens)} tokens de entrada` : ""}.`);
+      }
+    },
+    parse(col, d) {
+      if (d.invalid) {
+        stage(col, "parse", "bad", "no es un campeón");
+        narrate(col, `<span class="crit">El parser no encuentra un único campeón del roster</span>: ${esc(d.reason)}`);
+      } else {
+        const fromLast = col.v.submit === "last-line";
+        const fromTool = col.v.submit === "state-tool";
+        stage(col, "parse", d.format_ok ? "done" : "bad", d.format_ok ? (fromTool ? `roster → ${esc(d.guess)}` : fromLast ? `→ ${esc(d.guess)}` : esc(d.guess)) : `${esc(d.guess)} · texto extra`);
+        narrate(col, d.format_ok
+          ? `El parser recibe ${fromLast ? "la última línea," : ""} <b>${esc(d.guess)}</b>, y la reconoce como nombre exacto del roster.`
+          : `El parser rescata <b>${esc(d.guess)}</b>, pero la respuesta traía texto adicional.`);
+      }
+    },
+    verify(col, d) {
+      if (d.invalid) { stage(col, "verify", "bad", "nada que verificar"); return; }
+      if (d.violations.length || d.repeated) {
+        const what = d.violations.map((v) => v.label).filter((x, i, a) => a.indexOf(x) === i);
+        const label = d.repeated && !what.length ? "repetido" : `viola ${what.length}`;
+        stage(col, "verify", "bad", label);
+        const detail = d.violations.slice(0, 3).map((v) => `${esc(v.label)} (${esc(v.rule)})`).join("; ");
+        narrate(col, `<span class="crit">${esc(d.guess)} contradice lo que el juego ya había revelado</span>${detail ? `: ${detail}` : ""}${d.repeated ? ". Además ya lo había propuesto." : "."}`);
+      } else {
+        stage(col, "verify", "good", "compatible");
+        narrate(col, `<span class="ok">${esc(d.guess)} es compatible con todo lo revelado</span>: estaba entre los ${d.feasible} candidatos posibles.`);
+      }
+    },
+    feedback(col, d) {
+      addRow(col, d);
+      if (d.tiles) {
+        const greens = d.tiles.filter((t) => t.status === "green").length;
+        stage(col, "game", d.solved ? "good" : "done", d.solved ? "¡acertó!" : `${greens} de 7 verdes`);
+        renderKnown(col, d.constraints);
+        setFeasible(col, d.feasible_after);
+        narrate(col, d.solved
+          ? `<span class="ok">El juego confirma: ${esc(d.guess)} es el campeón secreto.</span>`
+          : `El juego devuelve ${greens} ${greens === 1 ? "verde" : "verdes"}. Ahora quedan <b>${d.feasible_after}</b> ${d.feasible_after === 1 ? "campeón compatible" : "campeones compatibles"}; el feedback vuelve al historial.`);
+      } else {
+        stage(col, "game", "bad", "intento perdido");
+        narrate(col, "El intento no cuenta como propuesta válida y el juego no da feedback de atributos; se gasta el turno.");
+      }
+      $(".loop", col.el).classList.add("on");
+    },
+    end(col, d) {
+      STAGES.forEach((s) => col.el.querySelector(`[data-stage="${s}"]`).classList.remove("active"));
+      if (d.solved) setStatus(col, "win", `resuelto en ${d.attempts}`);
+      else setStatus(col, "lose", `sin resolver en ${d.attempts}`);
+      const extra = [];
+      if (d.violations) extra.push(`${d.violations} ${d.violations === 1 ? "violación" : "violaciones"}`);
+      if (d.invalid) extra.push(`${d.invalid} ${d.invalid === 1 ? "inválido" : "inválidos"}`);
+      if (d.repeated) extra.push(`${d.repeated} ${d.repeated === 1 ? "repetición" : "repeticiones"}`);
+      narrate(col, `${d.solved ? `<span class="ok">Resuelto en ${d.attempts} ${d.attempts === 1 ? "intento" : "intentos"}.</span>` : `<span class="crit">Sin resolver tras ${d.attempts} intentos.</span>`} ${extra.length ? extra.join(" · ") + "." : "Ninguna violación."} <span class="mono" style="font-size:.74rem;color:var(--ink-3)">registro: ${esc(d.log)}</span>`);
+    },
+  };
+
+  function play() {
+    if (!target) return;
+    $("#play").disabled = true;
+    let open = 0;
+    Object.entries(cols).forEach(([key, col]) => {
+      if (streams[key]) streams[key].close();
+      resetColumn(col);
+      const q = new URLSearchParams({ variant: key, target, pace: String(pace) });
+      if (drawSeed) q.set("seed", String(drawSeed));
+      const es = new EventSource(`/api/play?${q}`);
+      streams[key] = es;
+      open += 1;
+      let finished = false;
+      Object.keys(handlers).forEach((kind) => es.addEventListener(kind, (ev) => {
+        const data = JSON.parse(ev.data);
+        handlers[kind](col, data);
+        if (kind === "end") { finished = true; es.close(); if (--open === 0) $("#play").disabled = false; }
+      }));
+      es.onerror = () => {
+        if (finished) return;
+        es.close();
+        setStatus(col, "err", "sin conexión");
+        narrate(col, '<span class="crit">No se pudo jugar con esta variante.</span> Revisa que su servidor de modelo esté arriba (indicador de la cabecera) y que no haya otra partida en curso.');
+        if (--open === 0) $("#play").disabled = false;
+      };
+    });
+  }
+
+  function setTarget(name, seed, how) {
+    target = name;
+    drawSeed = seed || null;
+    const el = $("#target-name");
+    el.textContent = name;
+    el.classList.remove("empty");
+    $("#pick").value = name;
+    const split = config.split || {};
+    const where = config.test_targets.includes(name) ? "test"
+      : (split.valid || []).includes(name) ? "valid"
+      : (split.train || []).includes(name) ? "train" : "unknown";
+    $("#provenance").textContent = how === "draw"
+      ? `Sorteado al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${seed}. Ninguno se usó como campeón secreto al entrenar.`
+      : {
+          test: "Elegido a mano entre los 30 objetivos de prueba, que nunca se usaron como campeón secreto al entrenar.",
+          valid: "Elegido a mano entre los 15 de validación: nunca fue campeón secreto al entrenar, pero se usó para elegir el punto de control.",
+          train: "Elegido a mano. Fue campeón secreto en los datos de entrenamiento: esta partida no sirve como evidencia.",
+          unknown: "Elegido a mano.",
+        }[where];
+    $("#play").disabled = false;
+  }
+
+  async function refreshHealth() {
+    try {
+      const h = await (await fetch("/api/health")).json();
+      Object.entries(h).forEach(([key, up]) => {
+        const chip = $(`#chip-${key}`);
+        if (!chip) return;
+        chip.classList.toggle("up", up);
+        chip.classList.toggle("down", !up);
+        const v = config.variants[key];
+        const port = (v.base_url.match(/:(\d+)/) || [])[1];
+        $("span", chip).textContent = `${v.title} ${port ? ":" + port : ""} · ${up ? "arriba" : "caído"}`;
+      });
+    } catch (e) {}
+  }
+
+  function metricBlock(title, rows, fmt, max, better) {
+    const body = rows.map((r) => {
+      const width = max ? Math.max(1.5, (r.value / max) * 100) : 0;
+      return `<div class="mrow ${r.cls}"><span class="who" title="${esc(r.label)}">${esc(r.short)}</span><span class="mbar"><i style="width:${width}%"></i></span><span class="val">${fmt(r.value)}</span></div>`;
+    }).join("");
+    return `<div class="metric"><div class="metric-name">${esc(title)} · ${better}</div>${body}</div>`;
+  }
+
+  async function loadResults() {
+    try {
+      const { results } = await (await fetch("/api/results")).json();
+      if (!results) return;
+      const v = results.variants;
+      // la variante que corre en la app se destaca; el resto queda como referencia
+      const mine = config.variants.lora.submit === "state-tool" ? "lora_tool" : "lora";
+      const rows = (key) => v.map((x) => ({ label: x.label, short: x.short, cls: x.key === mine ? "lora" : x.key === "baseline" ? "" : "ref", value: x[key] }));
+      const fails = (results.failures && results.failures[mine]) || [];
+      $("#res-sub").textContent = results.caption;
+      $("#res-body").className = "";
+      $("#res-body").innerHTML = `<div class="res-grid">
+          ${metricBlock("Partidas resueltas", rows("solve_rate"), pct, 1, "más es mejor")}
+          ${metricBlock("Intentos que violan lo revelado", rows("violation_rate"), pct, 1, "menos es mejor")}
+          ${metricBlock("Propuestas compatibles", rows("compatible_rate"), pct, 1, "más es mejor")}
+          ${metricBlock("Respuestas inválidas", rows("invalid_rate"), pct, 1, "menos es mejor")}
+        </div>
+        ${fails.length ? `<div class="failures"><span>Esta variante todavía falla en ${fails.length} de ${results.targets}:</span>${fails.map((f) => `<button type="button" data-t="${esc(f)}">${esc(f)}</button>`).join("")}<span style="color:var(--ink-3)">— pulsa uno para jugarlo.</span></div>` : ""}`;
+      document.querySelectorAll(".failures button").forEach((b) => b.addEventListener("click", () => { setTarget(b.dataset.t, null, "pick"); window.scrollTo({ top: 0, behavior: "smooth" }); }));
+    } catch (e) {}
+  }
+
+  async function init() {
+    config = await (await fetch("/api/config")).json();
+    Object.entries(config.variants).forEach(([k, v]) => buildColumn(k, v));
+    const pick = $("#pick");
+    const test = [...config.test_targets].sort((a, b) => a.localeCompare(b, "es"));
+    const rest = config.roster.filter((n) => !config.test_targets.includes(n));
+    pick.innerHTML = `<option value="" disabled selected>…o elige uno</option>
+      <optgroup label="Objetivos de prueba (30)">${test.map((n) => `<option>${esc(n)}</option>`).join("")}</optgroup>
+      <optgroup label="Resto del roster (validación o entrenamiento)">${rest.map((n) => `<option>${esc(n)}</option>`).join("")}</optgroup>`;
+    pick.addEventListener("change", () => setTarget(pick.value, null, "pick"));
+    $("#draw").addEventListener("click", async () => {
+      const d = await (await fetch("/api/draw")).json();
+      setTarget(d.target, d.seed, "draw");
+    });
+    $("#play").addEventListener("click", play);
+    document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(parseFloat(b.dataset.pace) === config.pace)));
+    pace = config.pace;
+    refreshHealth();
+    setInterval(refreshHealth, 5000);
+    loadResults();
+  }
+  init();
+})();
+</script>
+</body>
+</html>
