@@ -1,0 +1,2725 @@
+{
+  "model_name": "val_reas300_tool",
+  "params_b": 3.0,
+  "started_at": "2026-09-27T03:28:24.665998+00:00",
+  "wall_seconds": 158.1,
+  "config": {
+    "num_games": 15,
+    "max_attempts": 10,
+    "seed": 777,
+    "temperature": 0,
+    "max_tokens": 64,
+    "extra_body": {
+      "adapters": "/private/tmp/claude-501/-Users-matias-C-digos-GenAI-ENTREGABLE1/756fe1e1-afb7-4fb9-9d73-597d44985bcd/scratchpad/reas300"
+    },
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "submit": "state-tool"
+  },
+  "targets": [
+    "Ambessa",
+    "Amumu",
+    "Corki",
+    "Evelynn",
+    "Illaoi",
+    "Karthus",
+    "Kha'Zix",
+    "Orianna",
+    "Quinn",
+    "Shen",
+    "Shyvana",
+    "Twisted Fate",
+    "Vayne",
+    "Yunara",
+    "Zaahen"
+  ],
+  "records": [
+    {
+      "game": 1,
+      "target": "Ambessa",
+      "solved": true,
+      "attempts_used": 2,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "green",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.239,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Ambessa",
+          "guess": "Ambessa",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 2,
+          "latency_s": 1.955,
+          "prompt_tokens": 5399,
+          "completion_tokens": 26,
+          "api_error": null,
+          "model_output": "Sé: Top · Melee · >2013\nCompatibles: Kayle, Kayle\nKayle"
+        }
+      ]
+    },
+    {
+      "game": 2,
+      "target": "Amumu",
+      "solved": true,
+      "attempts_used": 3,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "yellow",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 1.649,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Alistar",
+          "guess": "Alistar",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 2,
+          "latency_s": 3.662,
+          "prompt_tokens": 5402,
+          "completion_tokens": 41,
+          "api_error": null,
+          "model_output": "Sé: Male · Melee · <2013\nCompatibles: Blitzcrank, Fizz, Galio, Hecarim, Jarvan IV…\nBlitzcrank"
+        },
+        {
+          "raw_response": "Amumu",
+          "guess": "Amumu",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 3,
+          "latency_s": 3.517,
+          "prompt_tokens": 5556,
+          "completion_tokens": 43,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Melee · 2009\nCompatibles: Blitzcrank, Fizz, Galio, Hecarim, Jarvan IV…\nBlitzcrank"
+        }
+      ]
+    },
+    {
+      "game": 3,
+      "target": "Corki",
+      "solved": true,
+      "attempts_used": 5,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.385,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Alistar",
+          "guess": "Alistar",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 1.916,
+          "prompt_tokens": 5398,
+          "completion_tokens": 32,
+          "api_error": null,
+          "model_output": "Sé: Male · <2013\nCompatibles: Ahri, Anivia, Annie, Ashe, Caitlyn…\nAhri"
+        },
+        {
+          "raw_response": "Amumu",
+          "guess": "Amumu",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Shurima",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "yellow",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 2.016,
+          "prompt_tokens": 5585,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Blitzcrank",
+          "guess": "Blitzcrank",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "positions",
+              "value": "Support",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 4,
+          "latency_s": 3.466,
+          "prompt_tokens": 5773,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Corki",
+          "guess": "Corki",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 5,
+          "latency_s": 2.724,
+          "prompt_tokens": 5956,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        }
+      ]
+    },
+    {
+      "game": 4,
+      "target": "Evelynn",
+      "solved": true,
+      "attempts_used": 3,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "yellow",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.117,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Akali",
+          "guess": "Akali",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 1.441,
+          "prompt_tokens": 5400,
+          "completion_tokens": 22,
+          "api_error": null,
+          "model_output": "Sé: Melee · <2013\nCompatibles: Katarina\nKatarina"
+        },
+        {
+          "raw_response": "Evelynn",
+          "guess": "Evelynn",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 3,
+          "latency_s": 1.691,
+          "prompt_tokens": 5572,
+          "completion_tokens": 24,
+          "api_error": null,
+          "model_output": "Sé: Female · Melee · <2010\nCompatibles: Katarina\nKatarina"
+        }
+      ]
+    },
+    {
+      "game": 5,
+      "target": "Illaoi",
+      "solved": true,
+      "attempts_used": 4,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "green",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 1.722,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Ambessa",
+          "guess": "Ambessa",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 2,
+          "latency_s": 3.004,
+          "prompt_tokens": 5399,
+          "completion_tokens": 26,
+          "api_error": null,
+          "model_output": "Sé: Top · Melee · >2013\nCompatibles: Kayle, Kayle\nKayle"
+        },
+        {
+          "raw_response": "Camille",
+          "guess": "Camille",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "regions",
+              "value": "Piltover",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 3.016,
+          "prompt_tokens": 5552,
+          "completion_tokens": 38,
+          "api_error": null,
+          "model_output": "Sé: Top · Melee · 2014-2023\nCompatibles: Kayle, Kayn, Kay'Sa, Kayle\nKayle"
+        },
+        {
+          "raw_response": "Illaoi",
+          "guess": "Illaoi",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 4,
+          "latency_s": 2.659,
+          "prompt_tokens": 5732,
+          "completion_tokens": 32,
+          "api_error": null,
+          "model_output": "Sé: Female · Top · Mana · Melee · 2014-2015\nCompatibles: Kayle\nKayle"
+        }
+      ]
+    },
+    {
+      "game": 6,
+      "target": "Karthus",
+      "solved": true,
+      "attempts_used": 5,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 1.785,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Alistar",
+          "guess": "Alistar",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "yellow",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 2.002,
+          "prompt_tokens": 5398,
+          "completion_tokens": 32,
+          "api_error": null,
+          "model_output": "Sé: Male · <2013\nCompatibles: Ahri, Anivia, Annie, Ashe, Caitlyn…\nAhri"
+        },
+        {
+          "raw_response": "Amumu",
+          "guess": "Amumu",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Shurima",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 1.911,
+          "prompt_tokens": 5587,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Fiddlesticks",
+          "guess": "Fiddlesticks",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 4,
+          "latency_s": 3.36,
+          "prompt_tokens": 5777,
+          "completion_tokens": 27,
+          "api_error": null,
+          "model_output": "Sé: Male · Jungle · Mana · 2009\nCompatibles: Master Yi, Twitch\nMaster Yi"
+        },
+        {
+          "raw_response": "Karthus",
+          "guess": "Karthus",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 5,
+          "latency_s": 2.44,
+          "prompt_tokens": 5957,
+          "completion_tokens": 27,
+          "api_error": null,
+          "model_output": "Sé: Male · Jungle · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        }
+      ]
+    },
+    {
+      "game": 7,
+      "target": "Kha'Zix",
+      "solved": true,
+      "attempts_used": 5,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.288,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Alistar",
+          "guess": "Alistar",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 2.581,
+          "prompt_tokens": 5400,
+          "completion_tokens": 41,
+          "api_error": null,
+          "model_output": "Sé: Male · Melee · <2013\nCompatibles: Blitzcrank, Fizz, Galio, Hecarim, Jarvan IV…\nBlitzcrank"
+        },
+        {
+          "raw_response": "Darius",
+          "guess": "Darius",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Noxus",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 2.336,
+          "prompt_tokens": 5578,
+          "completion_tokens": 39,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Melee · 2010-2012\nCompatibles: Kog'Maw, Rengar\nKog'Maw"
+        },
+        {
+          "raw_response": "Hecarim",
+          "guess": "Hecarim",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 4,
+          "latency_s": 3.135,
+          "prompt_tokens": 5762,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Melee · 2012\nCompatibles: Rengar\nRengar"
+        },
+        {
+          "raw_response": "Kha'Zix",
+          "guess": "Kha'Zix",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 5,
+          "latency_s": 2.406,
+          "prompt_tokens": 5917,
+          "completion_tokens": 27,
+          "api_error": null,
+          "model_output": "Sé: Male · Jungle · Mana · Melee · 2012\nCompatibles: Rengar\nRengar"
+        }
+      ]
+    },
+    {
+      "game": 8,
+      "target": "Orianna",
+      "solved": true,
+      "attempts_used": 3,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.078,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Ahri",
+          "guess": "Ahri",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 2,
+          "latency_s": 1.927,
+          "prompt_tokens": 5396,
+          "completion_tokens": 30,
+          "api_error": null,
+          "model_output": "Sé: <2013\nCompatibles: Ahri, Anivia, Annie, Ashe, Caitlyn…\nAhri"
+        },
+        {
+          "raw_response": "Orianna",
+          "guess": "Orianna",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 3,
+          "latency_s": 3.652,
+          "prompt_tokens": 5547,
+          "completion_tokens": 43,
+          "api_error": null,
+          "model_output": "Sé: Female · Middle · Mana · Ranged · 2011\nCompatibles: Anivia, Cassiopeia, LeBlanc, Lux, Nami, Zoe\nAnivia"
+        }
+      ]
+    },
+    {
+      "game": 9,
+      "target": "Quinn",
+      "solved": true,
+      "attempts_used": 2,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "green",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.099,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Quinn",
+          "guess": "Quinn",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 2,
+          "latency_s": 1.949,
+          "prompt_tokens": 5398,
+          "completion_tokens": 20,
+          "api_error": null,
+          "model_output": "Sé: Top · 2013\nCompatibles: Teemo\nTeemo"
+        }
+      ]
+    },
+    {
+      "game": 10,
+      "target": "Shen",
+      "solved": true,
+      "attempts_used": 7,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.203,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Darius",
+          "guess": "Darius",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 2,
+          "latency_s": 2.498,
+          "prompt_tokens": 5402,
+          "completion_tokens": 44,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · <2013\nCompatibles: Gangplank, Malphite, Mordekaiser, Nasus, Olaf, Singed…\nGangplank"
+        },
+        {
+          "raw_response": "Gangplank",
+          "guess": "Gangplank",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "resource",
+              "value": "Mana",
+              "rule": "valor descartado por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 4.212,
+          "prompt_tokens": 5552,
+          "completion_tokens": 45,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · <2012\nCompatibles: Gangplank, Malphite, Nasus, Rengar, Singed, Trundle…\nGangplank"
+        },
+        {
+          "raw_response": "Garen",
+          "guess": "Garen",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "resource",
+              "value": "Manaless",
+              "rule": "valor descartado por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 4,
+          "latency_s": 3.447,
+          "prompt_tokens": 5727,
+          "completion_tokens": 44,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · 2010-2011\nCompatibles: Kayle, Malphite, Nasus, Singed, Trundle\nKayle"
+        },
+        {
+          "raw_response": "Mordekaiser",
+          "guess": "Mordekaiser",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "regions",
+              "value": "Noxus",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 5,
+          "latency_s": 2.89,
+          "prompt_tokens": 5902,
+          "completion_tokens": 42,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Gangplank, Malphite, Nasus, Singed, Trundle\nGangplank"
+        },
+        {
+          "raw_response": "Olaf",
+          "guess": "Olaf",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "resource",
+              "value": "Mana",
+              "rule": "valor descartado por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "yellow",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 6,
+          "latency_s": 2.606,
+          "prompt_tokens": 6081,
+          "completion_tokens": 42,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Gangplank, Malphite, Nasus, Singed, Trundle\nGangplank"
+        },
+        {
+          "raw_response": "Shen",
+          "guess": "Shen",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 7,
+          "latency_s": 4.433,
+          "prompt_tokens": 6258,
+          "completion_tokens": 42,
+          "api_error": null,
+          "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Gangplank, Malphite, Nasus, Singed, Trundle\nGangplank"
+        }
+      ]
+    },
+    {
+      "game": 11,
+      "target": "Shyvana",
+      "solved": true,
+      "attempts_used": 6,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.294,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Akali",
+          "guess": "Akali",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 1.733,
+          "prompt_tokens": 5398,
+          "completion_tokens": 22,
+          "api_error": null,
+          "model_output": "Sé: Melee · <2013\nCompatibles: Katarina\nKatarina"
+        },
+        {
+          "raw_response": "Diana",
+          "guess": "Diana",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Middle",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Human",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "yellow",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 2.018,
+          "prompt_tokens": 5569,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: Female · Melee · 2011-2012\nCompatibles: Katarina\nKatarina"
+        },
+        {
+          "raw_response": "Leona",
+          "guess": "Leona",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "resource",
+              "value": "Mana",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Aspect, Human",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Targon",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 4,
+          "latency_s": 1.915,
+          "prompt_tokens": 5757,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: Female · Melee · 2011-2011\nCompatibles: Katarina\nKatarina"
+        },
+        {
+          "raw_response": "Riven",
+          "guess": "Riven",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "resource",
+              "value": "Manaless",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Human",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Ionia",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 5,
+          "latency_s": 3.092,
+          "prompt_tokens": 5951,
+          "completion_tokens": 21,
+          "api_error": null,
+          "model_output": "Sé: Female · Melee · 2011\nCompatibles: Vi\nVi"
+        },
+        {
+          "raw_response": "Shyvana",
+          "guess": "Shyvana",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 6,
+          "latency_s": 2.026,
+          "prompt_tokens": 6160,
+          "completion_tokens": 21,
+          "api_error": null,
+          "model_output": "Sé: Female · Melee · 2011\nCompatibles: Vi\nVi"
+        }
+      ]
+    },
+    {
+      "game": 12,
+      "target": "Twisted Fate",
+      "solved": false,
+      "attempts_used": 10,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.206,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Alistar",
+          "guess": "Alistar",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 2.111,
+          "prompt_tokens": 5398,
+          "completion_tokens": 32,
+          "api_error": null,
+          "model_output": "Sé: Male · <2013\nCompatibles: Ahri, Anivia, Annie, Ashe, Caitlyn…\nAhri"
+        },
+        {
+          "raw_response": "Amumu",
+          "guess": "Amumu",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Shurima",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 3,
+          "latency_s": 2.03,
+          "prompt_tokens": 5585,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Blitzcrank",
+          "guess": "Blitzcrank",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "range_type",
+              "value": "Melee",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "positions",
+              "value": "Support",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 4,
+          "latency_s": 3.421,
+          "prompt_tokens": 5771,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Corki",
+          "guess": "Corki",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "species",
+              "value": "Yordle",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "yellow",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 5,
+          "latency_s": 2.779,
+          "prompt_tokens": 5954,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · 2009\nCompatibles: Kog'Maw, Twitch\nKog'Maw"
+        },
+        {
+          "raw_response": "Fiddlesticks",
+          "guess": "Fiddlesticks",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Jungle",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 6,
+          "latency_s": 1.986,
+          "prompt_tokens": 6136,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        },
+        {
+          "raw_response": "Heimerdinger",
+          "guess": "Heimerdinger",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Yordle",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Piltover",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 7,
+          "latency_s": 1.674,
+          "prompt_tokens": 6325,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        },
+        {
+          "raw_response": "Karthus",
+          "guess": "Karthus",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Jungle",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Undead",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Noxus",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 8,
+          "latency_s": 1.838,
+          "prompt_tokens": 6524,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        },
+        {
+          "raw_response": "Ryze",
+          "guess": "Ryze",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "regions",
+              "value": "Runeterra",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "yellow",
+            "species": "yellow",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 9,
+          "latency_s": 3.173,
+          "prompt_tokens": 6725,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        },
+        {
+          "raw_response": "Teemo",
+          "guess": "Teemo",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "positions",
+              "value": "Top",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "species",
+              "value": "Yordle",
+              "rule": "valores descartados por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Bandle City",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 10,
+          "latency_s": 2.265,
+          "prompt_tokens": 6908,
+          "completion_tokens": 25,
+          "api_error": null,
+          "model_output": "Sé: Male · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+        }
+      ]
+    },
+    {
+      "game": 13,
+      "target": "Vayne",
+      "solved": true,
+      "attempts_used": 4,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "lower"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.168,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Ahri",
+          "guess": "Ahri",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 2,
+          "latency_s": 1.98,
+          "prompt_tokens": 5396,
+          "completion_tokens": 30,
+          "api_error": null,
+          "model_output": "Sé: <2013\nCompatibles: Ahri, Anivia, Annie, Ashe, Caitlyn…\nAhri"
+        },
+        {
+          "raw_response": "Caitlyn",
+          "guess": "Caitlyn",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "green"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 3,
+          "latency_s": 2.122,
+          "prompt_tokens": 5545,
+          "completion_tokens": 34,
+          "api_error": null,
+          "model_output": "Sé: Female · Mana · Ranged · 2011\nCompatibles: Anivia, Annie, Lulu, Tristana\nAnivia"
+        },
+        {
+          "raw_response": "Vayne",
+          "guess": "Vayne",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 4,
+          "latency_s": 3.418,
+          "prompt_tokens": 5697,
+          "completion_tokens": 31,
+          "api_error": null,
+          "model_output": "Sé: Female · Bottom · Human · Mana · Ranged · 2011\nCompatibles: Tristana\nTristana"
+        }
+      ]
+    },
+    {
+      "game": 14,
+      "target": "Yunara",
+      "solved": true,
+      "attempts_used": 3,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "gray",
+            "resource": "gray",
+            "range_type": "gray",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 2.24,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Akshan",
+          "guess": "Akshan",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": true,
+          "violations": [
+            {
+              "attribute": "gender",
+              "value": "Male",
+              "rule": "valor descartado por feedback gris"
+            },
+            {
+              "attribute": "regions",
+              "value": "Shurima",
+              "rule": "valores descartados por feedback gris"
+            }
+          ],
+          "feedback": {
+            "gender": "gray",
+            "positions": "gray",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "gray",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "constraint_violation",
+          "turn": 2,
+          "latency_s": 2.38,
+          "prompt_tokens": 5395,
+          "completion_tokens": 30,
+          "api_error": null,
+          "model_output": "Sé: >2013\nCompatibles: Kalista, Mel, Neeko, Renata Glasc, Senna…\nKalista"
+        },
+        {
+          "raw_response": "Yunara",
+          "guess": "Yunara",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 3,
+          "latency_s": 2.406,
+          "prompt_tokens": 5578,
+          "completion_tokens": 37,
+          "api_error": null,
+          "model_output": "Sé: Human · Mana · Ranged · >2021\nCompatibles: Kalista, Mel, Neeko, Renata Glasc, Senna…\nKalista"
+        }
+      ]
+    },
+    {
+      "game": 15,
+      "target": "Zaahen",
+      "solved": true,
+      "attempts_used": 2,
+      "trace": [
+        {
+          "raw_response": "Aatrox",
+          "guess": "Aatrox",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": false,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "yellow",
+            "species": "green",
+            "resource": "gray",
+            "range_type": "green",
+            "regions": "yellow",
+            "release_year": "higher"
+          },
+          "solved": false,
+          "reason": "",
+          "status": "valid",
+          "turn": 1,
+          "latency_s": 1.64,
+          "prompt_tokens": 5246,
+          "completion_tokens": 29,
+          "api_error": null,
+          "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+        },
+        {
+          "raw_response": "Zaahen",
+          "guess": "Zaahen",
+          "format_ok": true,
+          "format_violation": false,
+          "invalid": false,
+          "eligible": true,
+          "repeated": false,
+          "constraint_violation": false,
+          "violations": [],
+          "feedback": {
+            "gender": "green",
+            "positions": "green",
+            "species": "green",
+            "resource": "green",
+            "range_type": "green",
+            "regions": "green",
+            "release_year": "green"
+          },
+          "solved": true,
+          "reason": "",
+          "status": "solved",
+          "turn": 2,
+          "latency_s": 3.769,
+          "prompt_tokens": 5405,
+          "completion_tokens": 38,
+          "api_error": null,
+          "model_output": "Sé: Male · Darkin · Melee · >2013\nCompatibles: Kog'Maw, Smolder, Urgot\nKog'Maw"
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "games": 15,
+    "solved_games": 14,
+    "solve_rate": 0.9333333333333333,
+    "attempts": 64,
+    "invalid_count": 0,
+    "invalid_rate": 0.0,
+    "format_count": 0,
+    "format_rate": 0.0,
+    "repeat_count": 0,
+    "constraint_violation_count": 28,
+    "eligible_valid_attempts": 49,
+    "constraint_violation_rate": 0.5714285714285714,
+    "average_attempts_solved": 3.857142857142857
+  },
+  "violations": [
+    {
+      "partida": 3,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 3,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 3,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 3,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Regiones",
+      "valor usado": "Shurima",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 3,
+      "intento": 4,
+      "campeón": "Blitzcrank",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 3,
+      "intento": 4,
+      "campeón": "Blitzcrank",
+      "atributo": "Posiciones",
+      "valor usado": "Support",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 4,
+      "intento": 2,
+      "campeón": "Akali",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 5,
+      "intento": 3,
+      "campeón": "Camille",
+      "atributo": "Regiones",
+      "valor usado": "Piltover",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 6,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 6,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 6,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 6,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Regiones",
+      "valor usado": "Shurima",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 6,
+      "intento": 4,
+      "campeón": "Fiddlesticks",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 7,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 7,
+      "intento": 3,
+      "campeón": "Darius",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 7,
+      "intento": 3,
+      "campeón": "Darius",
+      "atributo": "Regiones",
+      "valor usado": "Noxus",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 10,
+      "intento": 3,
+      "campeón": "Gangplank",
+      "atributo": "Recurso",
+      "valor usado": "Mana",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 10,
+      "intento": 4,
+      "campeón": "Garen",
+      "atributo": "Recurso",
+      "valor usado": "Manaless",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 10,
+      "intento": 5,
+      "campeón": "Mordekaiser",
+      "atributo": "Regiones",
+      "valor usado": "Noxus",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 10,
+      "intento": 6,
+      "campeón": "Olaf",
+      "atributo": "Recurso",
+      "valor usado": "Mana",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 2,
+      "campeón": "Akali",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 3,
+      "campeón": "Diana",
+      "atributo": "Posiciones",
+      "valor usado": "Middle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 3,
+      "campeón": "Diana",
+      "atributo": "Especie",
+      "valor usado": "Human",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 4,
+      "campeón": "Leona",
+      "atributo": "Recurso",
+      "valor usado": "Mana",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 4,
+      "campeón": "Leona",
+      "atributo": "Especie",
+      "valor usado": "Aspect, Human",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 4,
+      "campeón": "Leona",
+      "atributo": "Regiones",
+      "valor usado": "Targon",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 5,
+      "campeón": "Riven",
+      "atributo": "Recurso",
+      "valor usado": "Manaless",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 5,
+      "campeón": "Riven",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 5,
+      "campeón": "Riven",
+      "atributo": "Especie",
+      "valor usado": "Human",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 11,
+      "intento": 5,
+      "campeón": "Riven",
+      "atributo": "Regiones",
+      "valor usado": "Ionia",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 2,
+      "campeón": "Alistar",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 3,
+      "campeón": "Amumu",
+      "atributo": "Regiones",
+      "valor usado": "Shurima",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 4,
+      "campeón": "Blitzcrank",
+      "atributo": "Alcance",
+      "valor usado": "Melee",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 4,
+      "campeón": "Blitzcrank",
+      "atributo": "Posiciones",
+      "valor usado": "Support",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 5,
+      "campeón": "Corki",
+      "atributo": "Especie",
+      "valor usado": "Yordle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 6,
+      "campeón": "Fiddlesticks",
+      "atributo": "Posiciones",
+      "valor usado": "Jungle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 6,
+      "campeón": "Fiddlesticks",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 7,
+      "campeón": "Heimerdinger",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 7,
+      "campeón": "Heimerdinger",
+      "atributo": "Especie",
+      "valor usado": "Yordle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 7,
+      "campeón": "Heimerdinger",
+      "atributo": "Regiones",
+      "valor usado": "Piltover",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 8,
+      "campeón": "Karthus",
+      "atributo": "Posiciones",
+      "valor usado": "Jungle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 8,
+      "campeón": "Karthus",
+      "atributo": "Especie",
+      "valor usado": "Undead",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 8,
+      "campeón": "Karthus",
+      "atributo": "Regiones",
+      "valor usado": "Noxus",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 9,
+      "campeón": "Ryze",
+      "atributo": "Regiones",
+      "valor usado": "Runeterra",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 10,
+      "campeón": "Teemo",
+      "atributo": "Posiciones",
+      "valor usado": "Top",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 10,
+      "campeón": "Teemo",
+      "atributo": "Especie",
+      "valor usado": "Yordle",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 12,
+      "intento": 10,
+      "campeón": "Teemo",
+      "atributo": "Regiones",
+      "valor usado": "Bandle City",
+      "restricción previa": "valores descartados por feedback gris"
+    },
+    {
+      "partida": 14,
+      "intento": 2,
+      "campeón": "Akshan",
+      "atributo": "Género",
+      "valor usado": "Male",
+      "restricción previa": "valor descartado por feedback gris"
+    },
+    {
+      "partida": 14,
+      "intento": 2,
+      "campeón": "Akshan",
+      "atributo": "Regiones",
+      "valor usado": "Shurima",
+      "restricción previa": "valores descartados por feedback gris"
+    }
+  ],
+  "api_calls": 64,
+  "api_errors": 0,
+  "mean_latency_s": 2.47
+}

@@ -1,0 +1,310 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Ekko",
+  "draw_seed": null,
+  "pace_s": 0.0,
+  "started_at": "2026-09-27T04:30:49",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 5,
+    "invalid": 4,
+    "repeated": 1
+  },
+  "record": {
+    "game": 1,
+    "target": "Ekko",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Azir",
+        "guess": "Azir",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Nasus",
+        "guess": "Nasus",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "God-Warrior",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2009",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Zaahen",
+        "guess": "Zaahen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Zaahen *(revisado: solo Top/Jungle con Darkin y Melee, pero año 2025 ↓ y regiones Runeterra no coinciden con Shurima/Melee exacto)*\n\n**Corrección correcta:**\n**K'Sante** *(Male, Middle,",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: K'Sante, Zaahen",
+        "status": "invalid",
+        "turn": 5
+      },
+      {
+        "raw_response": "Zaahen *(revisado: solo Top/Jungle con Darkin, pero el año 2025 ↓ y regiones no coinciden con el Melee exacto y Shurima).*\n\n---\n**Intento válido (ajustado):**\n**K'Sante** *(posiciones",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: K'Sante, Zaahen",
+        "status": "invalid",
+        "turn": 6
+      },
+      {
+        "raw_response": "**Zaahen** *(rechazado por restricciones previas).*\n\n---\n**Intento correcto (solo Top/Jungle, Melee, Darkin, 2009-2014, año ↑):**\n**Zaahen** *(aunque no cumple regiones exact",
+        "guess": "Zaahen",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Darkin",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Runeterra",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2025",
+            "rule": "el objetivo debía ser anterior a 2025"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "**Garen** *(Male, Top, Melee, Manaless, Demacia, 2010 ↓)*\n\n*(Nota: No cumple especie exacta, pero ajusto a restricciones: Top/Melee/Mana, género, año anterior a 2025).*",
+        "guess": "Garen",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "debía coincidir con Mana"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "green",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Garen** *(rechazado por Manaless y año 2010 ↑).*\n\n---\n**Intento válido:**\n**Zaahen** *(revisado: no cumple, pero ajusto a restricciones: Top/Jungle, Melee, Darkin, 20",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Zaahen, Garen",
+        "status": "invalid",
+        "turn": 9
+      },
+      {
+        "raw_response": "**K'Sante** *(revisado: género, Melee, pero posiciones no son Middle, año 2022 ↓ no cumple ↑).*\n\n---\n**Corrección correcta (ajustada):**\n**Zaahen** *(no cumple, pero intento final con restricciones: **",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: K'Sante, Zaahen",
+        "status": "invalid",
+        "turn": 10
+      }
+    ]
+  }
+}

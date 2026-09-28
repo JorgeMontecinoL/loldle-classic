@@ -1,0 +1,37 @@
+Roster: 173 campeones
+Objetivos (SEED=777, n=30): Karma, Samira, Zoe, Nocturne, Veigar, LeBlanc, Morgana, Thresh, Ashe, Zilean, Xin Zhao, Tryndamere, Pantheon, Vladimir, Lissandra, Elise, Ekko, Briar, Mordekaiser, Diana, Aatrox, Zeri, Zac, Xerath, Kog'Maw, Dr. Mundo, Jhin, Malzahar, Soraka, Ezreal
+
+[1/1] baseline (3.0B)
+  [baseline] partida  1/30 --  objetivo=Karma          intentos=10 t=     7s
+  [baseline] partida  2/30 --  objetivo=Samira         intentos=10 t=    27s
+  [baseline] partida  3/30 --  objetivo=Zoe            intentos=10 t=    39s
+  [baseline] partida  4/30 --  objetivo=Nocturne       intentos=10 t=    58s
+  [baseline] partida  5/30 --  objetivo=Veigar         intentos=10 t=    68s
+  [baseline] partida  6/30 --  objetivo=LeBlanc        intentos=10 t=    85s
+  [baseline] partida  7/30 --  objetivo=Morgana        intentos=10 t=   100s
+  [baseline] partida  8/30 --  objetivo=Thresh         intentos=10 t=   121s
+  [baseline] partida  9/30 --  objetivo=Ashe           intentos=10 t=   141s
+  [baseline] partida 10/30 --  objetivo=Zilean         intentos=10 t=   159s
+  [baseline] partida 11/30 --  objetivo=Xin Zhao       intentos=10 t=   175s
+  [baseline] partida 12/30 --  objetivo=Tryndamere     intentos=10 t=   182s
+  [baseline] partida 13/30 --  objetivo=Pantheon       intentos=10 t=   191s
+  [baseline] partida 14/30 --  objetivo=Vladimir       intentos=10 t=   201s
+  [baseline] partida 15/30 --  objetivo=Lissandra      intentos=10 t=   215s
+  [baseline] partida 16/30 --  objetivo=Elise          intentos=10 t=   239s
+  [baseline] partida 17/30 --  objetivo=Ekko           intentos=10 t=   259s
+  [baseline] partida 18/30 --  objetivo=Briar          intentos=10 t=   274s
+  [baseline] partida 19/30 --  objetivo=Mordekaiser    intentos=10 t=   284s
+  [baseline] partida 20/30 --  objetivo=Diana          intentos=10 t=   305s
+  [baseline] partida 21/30 --  objetivo=Aatrox         intentos=10 t=   324s
+  [baseline] partida 22/30 --  objetivo=Zeri           intentos=10 t=   344s
+  [baseline] partida 23/30 --  objetivo=Zac            intentos=10 t=   357s
+  [baseline] partida 24/30 --  objetivo=Xerath         intentos=10 t=   385s
+  [baseline] partida 25/30 --  objetivo=Kog'Maw        intentos=10 t=   407s
+  [baseline] partida 26/30 --  objetivo=Dr. Mundo      intentos=10 t=   421s
+  [baseline] partida 27/30 --  objetivo=Jhin           intentos=10 t=   441s
+  [baseline] partida 28/30 OK  objetivo=Malzahar       intentos=2 t=   441s
+  [baseline] partida 29/30 --  objetivo=Soraka         intentos=10 t=   457s
+  [baseline] partida 30/30 --  objetivo=Ezreal         intentos=10 t=   463s
+  -> resueltas 1/30 | inválidos 50/292 | violaciones 210 | 463s | guardado en results/d2/raw/baseline.json
+
+EXIT 0
