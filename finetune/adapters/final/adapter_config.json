@@ -1,0 +1,50 @@
+{
+    "adapter_path": "finetune/adapters/ministral-3b-loldle-r2",
+    "batch_size": 1,
+    "clear_cache_threshold": 0,
+    "config": "finetune/lora_config_round2.yaml",
+    "data": "finetune/data/reasoned_round2",
+    "fine_tune_type": "lora",
+    "grad_accumulation_steps": 4,
+    "grad_checkpoint": true,
+    "iters": 800,
+    "learning_rate": 1.5e-05,
+    "lora_parameters": {
+        "rank": 16,
+        "scale": 20.0,
+        "dropout": 0.05
+    },
+    "lr_schedule": {
+        "name": "cosine_decay",
+        "warmup": 4,
+        "warmup_init": 1e-06,
+        "arguments": [
+            1.5e-05,
+            196,
+            1e-06
+        ]
+    },
+    "mask_prompt": true,
+    "max_seq_length": 8192,
+    "model": "mlx-community/Ministral-3-3B-Instruct-2512-4bit",
+    "num_layers": 12,
+    "optimizer": "adam",
+    "optimizer_config": {
+        "adam": {},
+        "adamw": {},
+        "muon": {},
+        "sgd": {},
+        "adafactor": {}
+    },
+    "project_name": null,
+    "report_to": null,
+    "resume_adapter_file": "finetune/adapters/ministral-3b-loldle/adapters.safetensors",
+    "save_every": 100,
+    "seed": 2027,
+    "steps_per_eval": 100,
+    "steps_per_report": 20,
+    "test": false,
+    "test_batches": 500,
+    "train": true,
+    "val_batches": 30
+}

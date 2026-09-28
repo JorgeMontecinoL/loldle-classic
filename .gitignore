@@ -2,5 +2,14 @@ __pycache__/
 *.pyc
 .DS_Store
 .venv/
-results/
+.venv-ft/
 .ipynb_checkpoints/
+
+# Datos de entrenamiento: se regeneran idénticos con finetune/make_data.py (semilla fija).
+finetune/data/**/*.jsonl
+# Adaptadores: se versiona sólo el final (finetune/adapters/final/); las rondas
+# y alternativas se regeneran con sus configuraciones en finetune/.
+finetune/adapters/*
+!finetune/adapters/final/
+# Logs de los servidores de modelo de la demo.
+results/d2/server_logs/
