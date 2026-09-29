@@ -255,6 +255,30 @@
   .failures button:hover { background: var(--crit); color: #fff; }
   .empty-res { color: var(--ink-3); font-size: .86rem; }
 
+  /* ---------- marcador de la serie al azar ---------- */
+  .scoreboard { position: fixed; left: 50%; bottom: 12px; transform: translateX(-50%); width: min(1700px, calc(100% - 28px)); z-index: 10; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 18px; align-items: center; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px; padding: 9px 16px; box-shadow: 0 1px 2px rgba(16, 24, 29, .08), 0 14px 34px -12px rgba(16, 24, 29, .38); }
+  .scoreboard[hidden] { display: none; }
+  body.with-sb .shell { padding-bottom: 120px; }
+  .sb-title { font-family: "Spectral", ui-serif, Georgia, serif; font-weight: 800; font-size: 1.05rem; line-height: 1.15; }
+  .sb-games { display: flex; gap: 6px; flex-wrap: wrap; min-width: 0; }
+  .sb-game { display: flex; flex-direction: column; gap: 1px; padding: 4px 10px 5px; border: 1px solid var(--rule-soft); border-radius: 8px; background: var(--panel-2); }
+  .sb-game.current { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-wash); }
+  .sb-game.pending .sb-name { color: var(--ink-3); }
+  .sb-name { font-weight: 600; font-size: .84rem; white-space: nowrap; }
+  .sb-pair { display: flex; gap: 8px; align-items: baseline; font-family: "IBM Plex Mono", monospace; font-size: .72rem; white-space: nowrap; }
+  .sb-who { color: var(--ink-3); }
+  .sb-res.win { color: var(--good); font-weight: 600; }
+  .sb-res.lose { color: var(--crit); font-weight: 600; }
+  .sb-res.pend { color: var(--ink-3); }
+  .sb-totals { display: flex; flex-direction: column; gap: 2px; }
+  .sb-tot { font-size: .86rem; white-space: nowrap; color: var(--ink-2); }
+  .sb-tot b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .sb-lbl { display: inline-block; min-width: 5.6em; font-weight: 700; }
+  .sb-tot.base .sb-lbl { color: var(--base-id); }
+  .sb-tot.lora .sb-lbl { color: var(--accent); }
+  .sb-dim { color: var(--ink-3); font-family: "IBM Plex Mono", monospace; font-size: .74rem; }
+  @media (max-width: 1100px) { .scoreboard { grid-template-columns: 1fr; gap: 8px; } .sb-tot { white-space: normal; } }
+
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
@@ -281,6 +305,7 @@
         <div class="target-name empty" id="target-name">sin elegir</div>
       </div>
       <button class="btn" id="draw" type="button">Sortear entre los 30 de prueba</button>
+      <button class="btn" id="series" type="button">Serie al azar de 7</button>
       <select class="pick" id="pick" aria-label="Elegir campeón a mano"></select>
       <div class="provenance" id="provenance">Los 30 objetivos de prueba nunca se usaron como campeón secreto en el entrenamiento.</div>
     </div>
@@ -304,6 +329,15 @@
     <p class="sub" id="res-sub">Se carga desde <span class="mono">results/d2/summary.json</span> cuando termina la evaluación.</p>
     <div id="res-body" class="empty-res">Aún no hay evaluación registrada.</div>
   </section>
+
+  <aside class="scoreboard" id="scoreboard" aria-label="Marcador de la serie" aria-live="polite" hidden>
+    <div>
+      <div class="eyebrow" id="sb-meta">Serie al azar</div>
+      <div class="sb-title">Mismas entradas, las dos variantes</div>
+    </div>
+    <div class="sb-games" id="sb-games"></div>
+    <div class="sb-totals" id="sb-totals"></div>
+  </aside>
 </div>
 
 <template id="col-tpl">
@@ -377,8 +411,15 @@
   let target = null;
   let drawSeed = null;
   let pace = 0.55;
+  let busy = false;       // hay una serie en curso: los controles quedan bloqueados
+  let series = null;      // { seed, targets, i, games, done }
+  const SERIES_N = 7;
   const cols = {};
   const streams = {};
+  const pause = (ms) => new Promise((r) => setTimeout(r, ms));
+  // ?seed=N repite un sorteo ya mostrado (p. ej. la serie del video); sin ella, cada sorteo es nuevo
+  const FIXED_SEED = new URLSearchParams(location.search).get("seed");
+  const drawUrl = (n) => `/api/draw?n=${n}` + (FIXED_SEED ? `&seed=${encodeURIComponent(FIXED_SEED)}` : "");
 
   document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
     document.querySelectorAll(".seg button").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
@@ -584,32 +625,99 @@
     },
   };
 
+  // Juega el objetivo actual con las dos variantes a la vez; resuelve con el resumen
+  // final de cada una ({ baseline, lora }), o null en la variante que no pudo jugar.
   function play() {
-    if (!target) return;
+    if (!target) return Promise.resolve(null);
     $("#play").disabled = true;
-    let open = 0;
-    Object.entries(cols).forEach(([key, col]) => {
-      if (streams[key]) streams[key].close();
-      resetColumn(col);
-      const q = new URLSearchParams({ variant: key, target, pace: String(pace) });
-      if (drawSeed) q.set("seed", String(drawSeed));
-      const es = new EventSource(`/api/play?${q}`);
-      streams[key] = es;
-      open += 1;
-      let finished = false;
-      Object.keys(handlers).forEach((kind) => es.addEventListener(kind, (ev) => {
-        const data = JSON.parse(ev.data);
-        handlers[kind](col, data);
-        if (kind === "end") { finished = true; es.close(); if (--open === 0) $("#play").disabled = false; }
-      }));
-      es.onerror = () => {
-        if (finished) return;
-        es.close();
-        setStatus(col, "err", "sin conexión");
-        narrate(col, '<span class="crit">No se pudo jugar con esta variante.</span> Revisa que su servidor de modelo esté arriba (indicador de la cabecera) y que no haya otra partida en curso.');
-        if (--open === 0) $("#play").disabled = false;
-      };
+    return new Promise((resolve) => {
+      const outcome = {};
+      let open = 0;
+      const settle = () => { if (--open === 0) { $("#play").disabled = busy; resolve(outcome); } };
+      Object.entries(cols).forEach(([key, col]) => {
+        if (streams[key]) streams[key].close();
+        resetColumn(col);
+        const q = new URLSearchParams({ variant: key, target, pace: String(pace) });
+        if (drawSeed) q.set("seed", String(drawSeed));
+        const es = new EventSource(`/api/play?${q}`);
+        streams[key] = es;
+        open += 1;
+        let finished = false;
+        Object.keys(handlers).forEach((kind) => es.addEventListener(kind, (ev) => {
+          const data = JSON.parse(ev.data);
+          handlers[kind](col, data);
+          if (kind === "end") { finished = true; outcome[key] = data; es.close(); settle(); }
+        }));
+        es.onerror = () => {
+          if (finished) return;
+          es.close();
+          outcome[key] = null;
+          setStatus(col, "err", "sin conexión");
+          narrate(col, '<span class="crit">No se pudo jugar con esta variante.</span> Revisa que su servidor de modelo esté arriba (indicador de la cabecera) y que no haya otra partida en curso.');
+          settle();
+        };
+      });
     });
+  }
+
+  // ---------- serie al azar: n objetivos de prueba distintos, uno tras otro ----------
+  function setBusy(on) {
+    busy = on;
+    ["#draw", "#series", "#pick", "#play"].forEach((sel) => { $(sel).disabled = on; });
+  }
+
+  function renderScoreboard() {
+    const n = series.targets.length;
+    $("#sb-meta").textContent = `Serie al azar · semilla ${series.seed}`;
+    $(".sb-title", $("#scoreboard")).textContent = series.done
+      ? `Serie terminada · ${n} partidas`
+      : `Partida ${series.i + 1} de ${n}`;
+    const res = (r) => (!r ? '<span class="sb-res pend">—</span>'
+      : r.solved ? `<span class="sb-res win">✓ ${r.attempts}</span>`
+      : '<span class="sb-res lose">✗</span>');
+    $("#sb-games").innerHTML = series.targets.map((name, i) => {
+      const g = series.games[i];
+      const current = !series.done && !g && i === series.i;
+      const cell = (key) => (g ? res(g[key]) : '<span class="sb-res pend">·</span>');
+      return `<div class="sb-game${g ? "" : " pending"}${current ? " current" : ""}" title="${esc(name)}: baseline y fine-tuning">
+        <span class="sb-name">${esc(name)}</span>
+        <span class="sb-pair"><span><span class="sb-who">base</span> ${cell("baseline")}</span><span><span class="sb-who">FT</span> ${cell("lora")}</span></span>
+      </div>`;
+    }).join("");
+    const total = (key) => series.games.map((g) => g[key]).filter(Boolean).reduce((a, r) => ({
+      played: a.played + 1,
+      solved: a.solved + (r.solved ? 1 : 0),
+      viol: a.viol + r.violations,
+      elig: a.elig + (r.eligible || 0),
+    }), { played: 0, solved: 0, viol: 0, elig: 0 });
+    // misma tasa que el notebook: violaciones / intentos válidos con feedback previo
+    const line = (label, cls, t) => `<div class="sb-tot ${cls}"><span class="sb-lbl">${label}</span><b>${t.solved}/${t.played}</b> resueltas · <b>${t.elig ? Math.round((100 * t.viol) / t.elig) + "%" : "—"}</b> de intentos violan lo revelado <span class="sb-dim">${t.viol}/${t.elig}</span></div>`;
+    $("#sb-totals").innerHTML = line("Baseline", "base", total("baseline")) + line("Fine-tuning", "lora", total("lora"));
+  }
+
+  async function runSeries() {
+    if (busy) return;
+    setBusy(true);
+    try {
+      const d = await (await fetch(drawUrl(SERIES_N))).json();
+      series = { seed: d.seed, targets: d.targets, i: 0, games: [], done: false };
+      document.body.classList.add("with-sb");
+      $("#scoreboard").hidden = false;
+      for (let i = 0; i < series.targets.length; i += 1) {
+        series.i = i;
+        setTarget(series.targets[i], `${series.seed}:${i + 1}/${series.targets.length}`, "series");
+        renderScoreboard();
+        await pause(2000);   // se lee el siguiente objetivo
+        series.games.push((await play()) || {});
+        renderScoreboard();
+        await pause(3000);   // se lee el resultado
+      }
+      series.done = true;
+      renderScoreboard();
+    } finally {
+      setBusy(false);
+      $("#play").disabled = !target;
+    }
   }
 
   function setTarget(name, seed, how) {
@@ -625,13 +733,15 @@
       : (split.train || []).includes(name) ? "train" : "unknown";
     $("#provenance").textContent = how === "draw"
       ? `Sorteado al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${seed}. Ninguno se usó como campeón secreto al entrenar.`
+      : how === "series"
+      ? `Serie de ${series.targets.length} sorteada al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${series.seed} · partida ${series.i + 1} de ${series.targets.length}. Ninguno se usó como campeón secreto al entrenar.`
       : {
           test: "Elegido a mano entre los 30 objetivos de prueba, que nunca se usaron como campeón secreto al entrenar.",
           valid: "Elegido a mano entre los 15 de validación: nunca fue campeón secreto al entrenar, pero se usó para elegir el punto de control.",
           train: "Elegido a mano. Fue campeón secreto en los datos de entrenamiento: esta partida no sirve como evidencia.",
           unknown: "Elegido a mano.",
         }[where];
-    $("#play").disabled = false;
+    $("#play").disabled = busy;
   }
 
   async function refreshHealth() {
@@ -675,7 +785,7 @@
           ${metricBlock("Respuestas inválidas", rows("invalid_rate"), pct, 1, "menos es mejor")}
         </div>
         ${fails.length ? `<div class="failures"><span>Esta variante todavía falla en ${fails.length} de ${results.targets}:</span>${fails.map((f) => `<button type="button" data-t="${esc(f)}">${esc(f)}</button>`).join("")}<span style="color:var(--ink-3)">— pulsa uno para jugarlo.</span></div>` : ""}`;
-      document.querySelectorAll(".failures button").forEach((b) => b.addEventListener("click", () => { setTarget(b.dataset.t, null, "pick"); window.scrollTo({ top: 0, behavior: "smooth" }); }));
+      document.querySelectorAll(".failures button").forEach((b) => b.addEventListener("click", () => { if (busy) return; setTarget(b.dataset.t, null, "pick"); window.scrollTo({ top: 0, behavior: "smooth" }); }));
     } catch (e) {}
   }
 
@@ -690,10 +800,11 @@
       <optgroup label="Resto del roster (validación o entrenamiento)">${rest.map((n) => `<option>${esc(n)}</option>`).join("")}</optgroup>`;
     pick.addEventListener("change", () => setTarget(pick.value, null, "pick"));
     $("#draw").addEventListener("click", async () => {
-      const d = await (await fetch("/api/draw")).json();
+      const d = await (await fetch(drawUrl(1))).json();
       setTarget(d.target, d.seed, "draw");
     });
-    $("#play").addEventListener("click", play);
+    $("#play").addEventListener("click", () => { play(); });
+    $("#series").addEventListener("click", runSeries);
     document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-pressed", String(parseFloat(b.dataset.pace) === config.pace)));
     pace = config.pace;
     refreshHealth();

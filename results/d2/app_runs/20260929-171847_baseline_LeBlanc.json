@@ -1,0 +1,365 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "LeBlanc",
+  "draw_seed": "9457000:1/5",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:18:47",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 6,
+    "eligible": 6,
+    "invalid": 3,
+    "repeated": 4
+  },
+  "record": {
+    "game": 1,
+    "target": "LeBlanc",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "debía coincidir con Ranged"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2009",
+            "rule": "el año exacto revelado era 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Azir",
+        "guess": "Azir",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2014",
+            "rule": "el año exacto revelado era 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "debía coincidir con Ranged"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2009",
+            "rule": "el año exacto revelado era 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "**Malzahar** *(repetido por restricción de año exacto 2010 y género descartado)* → **Alternativa válida bajo restricciones**:\n**Kassadin** *(excluido por género y regiones, pero revisando: solo coincide en género/posiciones/rec",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Kassadin, Malzahar",
+        "status": "invalid",
+        "turn": 7
+      },
+      {
+        "raw_response": "**Kassadin** *(revisado: género masculino, posiciones Middle, recurso Mana, alcance Ranged, año 2009↑, regiones Shurima/Void GRIS → pero solo coincidencias parciales en regiones y año no exacto. **Alternativa correcta bajo feedback",
+        "guess": "Kassadin",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "debía coincidir con Ranged"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2009",
+            "rule": "el año exacto revelado era 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Kassadin** *(excluido por restricciones previas)* → **Nuevo intento válido**:\n**Malzahar** *(revisado: género masculino, posiciones Middle, recurso Mana, alcance Ranged, año 2010↓, regiones Shurima/Void GR",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Kassadin, Malzahar",
+        "status": "invalid",
+        "turn": 9
+      },
+      {
+        "raw_response": "**Kassadin** *(excluido por restricciones previas)* → **Corrección estricta**:\n**Malzahar** *(excluido por año 2010↓ vs. 2009↑)* → **Única opción válida bajo",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Kassadin, Malzahar",
+        "status": "invalid",
+        "turn": 10
+      }
+    ]
+  }
+}

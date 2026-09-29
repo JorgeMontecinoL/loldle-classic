@@ -298,6 +298,8 @@ def run_game(engine, target, pace, write, draw_seed=None):
         "solved": record["solved"],
         "attempts": record["attempts_used"],
         "violations": sum(e["constraint_violation"] for e in record["trace"]),
+        # denominador de la tasa de violación del notebook: intentos válidos con feedback previo
+        "eligible": sum(e["eligible"] and not e["invalid"] for e in record["trace"]),
         "invalid": sum(e["invalid"] for e in record["trace"]),
         "repeated": sum(e["repeated"] for e in record["trace"]),
     }
@@ -355,7 +357,15 @@ def make_handler(state):
             if route == "/api/health":
                 return self.send_json({k: probe(v) for k, v in state["variants"].items()})
             if route == "/api/draw":
-                return self.send_json(self.draw())
+                try:
+                    n = int(query.get("n", "1"))
+                except ValueError:
+                    n = 1
+                try:
+                    seed = int(query["seed"]) if "seed" in query else None
+                except ValueError:
+                    seed = None
+                return self.send_json(self.draw(n, seed))
             if route == "/api/results":
                 data = None
                 if RESULTS_PATH.exists():
@@ -391,10 +401,17 @@ def make_handler(state):
                 "seed": SEED,
             }
 
-        def draw(self):
-            seed = time.time_ns() % 10_000_000
-            target = random.Random(seed).choice(state["targets"])
-            return {"target": target, "seed": seed, "pool": len(state["targets"])}
+        def draw(self, n=1, seed=None):
+            # sin semilla, una nueva en cada sorteo; con semilla, se repite un sorteo ya mostrado
+            if seed is None:
+                seed = time.time_ns() % 10_000_000
+            pool = state["targets"]
+            if n <= 1:
+                target = random.Random(seed).choice(pool)
+                return {"target": target, "seed": seed, "pool": len(pool)}
+            # serie: n objetivos distintos, en orden aleatorio, reproducibles con la semilla
+            targets = random.Random(seed).sample(pool, min(n, len(pool)))
+            return {"targets": targets, "seed": seed, "pool": len(pool)}
 
         def play(self, query):
             key = query.get("variant")

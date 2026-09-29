@@ -1,0 +1,283 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Zoe",
+  "draw_seed": "1656000:6/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:25:46",
+  "summary": {
+    "solved": true,
+    "attempts": 9,
+    "violations": 4,
+    "eligible": 8,
+    "invalid": 0,
+    "repeated": 1
+  },
+  "record": {
+    "game": 1,
+    "target": "Zoe",
+    "solved": true,
+    "attempts_used": 9,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Kalista",
+        "guess": "Kalista",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2
+      },
+      {
+        "raw_response": "Mel",
+        "guess": "Mel",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 3
+      },
+      {
+        "raw_response": "Neeko",
+        "guess": "Neeko",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 4
+      },
+      {
+        "raw_response": "Renata Glasc",
+        "guess": "Renata Glasc",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "release_year",
+            "value": "2022",
+            "rule": "el objetivo debía ser anterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Syndra",
+        "guess": "Syndra",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "release_year",
+            "value": "2012",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "Syndra",
+        "guess": "Syndra",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "regions",
+            "value": "Ionia",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2012",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "Taliyah",
+        "guess": "Taliyah",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle, Middle",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "Zoe",
+        "guess": "Zoe",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 9
+      }
+    ]
+  }
+}

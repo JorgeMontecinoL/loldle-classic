@@ -12,7 +12,7 @@ roster que ejecuta su propio estado, resuelve **30/30**.
 ## Qué muestra el video
 
 `scripts/demo.sh` levanta la app del **pipeline en vivo** (`http://127.0.0.1:8765`),
-que juega la misma partida con dos variantes lado a lado:
+que juega cada partida con dos variantes lado a lado, sobre la misma entrada:
 
 | Columna | Modelo | Qué recibe el juego |
 |---|---|---|
@@ -32,11 +32,47 @@ notebook ya expone (`query_model` y `show_event`). Cada partida queda registrada
 `results/d2/app_runs/` con la respuesta cruda de cada turno, así lo que se ve en
 pantalla se puede rastrear hasta el repositorio.
 
-El botón **Sortear** elige al azar uno de los 30 objetivos de prueba y muestra la
-semilla; ninguno de esos 30 fue campeón secreto en los datos de entrenamiento. La
-app indica la procedencia de cualquier campeón elegido a mano (prueba, validación o
-entrenamiento). El control **Didáctico / Tiempo real** sólo espacia la animación entre
-etapas; las llamadas al modelo y sus latencias son las reales.
+El botón **Sortear** elige al azar uno de los 30 objetivos de prueba y **Serie al azar
+de 7** sortea siete distintos; ambos muestran la semilla, y ninguno de esos 30 fue
+campeón secreto en los datos de entrenamiento. La app indica la procedencia de
+cualquier campeón elegido a mano (prueba, validación o entrenamiento). El control
+**Didáctico / Tiempo real** sólo espacia la animación entre etapas; las llamadas al
+modelo y sus latencias son las reales.
+
+### La toma del video
+
+Una sola toma, sin cortes (2:03), de **Serie al azar de 7**. El servidor sortea siete
+objetivos distintos entre los 30 de prueba, con la semilla a la vista (1656000), y la
+app los juega uno tras otro con las dos variantes. La primera partida va en ritmo
+**Didáctico**, para seguir el pipeline etapa por etapa, y las otras seis en **Tiempo
+real**. Un marcador fijo acumula, para cada variante, las partidas resueltas y el fallo
+diagnosticado en el Entregable 1: la fracción de intentos que violan lo revelado,
+calculada como en el notebook. Al final se muestra la evidencia de los 30 objetivos.
+
+| Serie del video · semilla 1656000 | Resueltas | Intentos que violan lo revelado |
+|---|---|---|
+| Baseline | 1/7 | 98% (49 de 50) |
+| **Fine-tuning** | **5/7** | **58%** (23 de 40) |
+
+Los objetivos fueron Malzahar, Veigar, Lissandra, Pantheon, Mordekaiser, Zoe y Elise.
+El baseline sólo resuelve Malzahar. Las dos fallas del fine-tuning son los dos modos
+descritos en [Dónde falla la solución](#dónde-falla-la-solución-y-por-qué):
+Mordekaiser queda atascado repitiendo Garen siete veces, y Pantheon agota los intentos
+con jugadas que contradicen lo revelado, sin llegar a atascarse.
+Para repetir exactamente esa serie, con la demo arriba, abre
+`http://127.0.0.1:8765/?seed=1656000` y pulsa **Serie al azar de 7**; sin `?seed`,
+cada sorteo usa una semilla nueva.
+
+**Lo que puede variar entre corridas.** Aun con temperatura 0, las partidas no son
+idénticas bit a bit de una corrida a otra: pequeñas diferencias numéricas en el
+servidor de modelo (probablemente por la reutilización del caché del prompt) pueden
+cambiar alguna elección reñida en los últimos turnos. En la serie del video, 6 de las
+7 partidas del fine-tuning coinciden jugada a jugada con la evaluación registrada.
+Malzahar se aparta desde el intento 7 y se resuelve, mientras que en la evaluación
+falló; por eso figura entre las fallas del panel de evidencia. En la evaluación, esos
+mismos 7 objetivos dan 4/7 para el fine-tuning y 1/7 para el baseline. Cada partida
+del video está registrada en `results/d2/app_runs/` con la semilla de la serie
+(`1656000:k/7`).
 
 ## Reproducir la demo
 
