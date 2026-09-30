@@ -1,0 +1,331 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Samira",
+  "draw_seed": "9457000:5/5",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:19:44",
+  "summary": {
+    "solved": true,
+    "attempts": 9,
+    "violations": 5,
+    "eligible": 7,
+    "invalid": 1,
+    "repeated": 4
+  },
+  "record": {
+    "game": 1,
+    "target": "Samira",
+    "solved": true,
+    "attempts_used": 9,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "release_year",
+            "value": "2018",
+            "rule": "el objetivo debía ser posterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Kog'Maw",
+        "guess": "Kog'Maw",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Kog'Maw",
+        "guess": "Kog'Maw",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Kog'Maw\n*(Ajuste forzado por restricciones: **Kog'Maw** es el único que cumple Bottom, Mana, Ranged, pero con año anterior a 2018. Si el año debe ser **↑2018+**, el siguiente intento",
+        "guess": "Kog'Maw",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "**Kai'Sa** *(revisado: género femenino, Bottom, Mana, Ranged, Shurima/Void, 2018↑)*\n\n*(Nota: Aunque el género es exacto, el año sigue siendo el único criterio no cumplido. Si el objetivo **debe",
+        "guess": "Kai'Sa",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2018",
+            "rule": "el objetivo debía ser posterior a 2018"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "**Kai'Sa** *(reiterado por restricciones estrictas: género, Bottom, Mana, Ranged, regiones parciales, y año 2018↑).*\n\n---\n**Alternativa válida (sin repetición):**\n**Kog'Maw** *(solo",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Kog'Maw, Kai'Sa",
+        "status": "invalid",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Samira**",
+        "guess": "Samira",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "solved",
+        "turn": 9
+      }
+    ]
+  }
+}

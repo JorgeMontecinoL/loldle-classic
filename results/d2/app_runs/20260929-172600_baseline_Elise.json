@@ -1,0 +1,306 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Elise",
+  "draw_seed": "1656000:7/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:26:00",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 5,
+    "eligible": 5,
+    "invalid": 4,
+    "repeated": 3
+  },
+  "record": {
+    "game": 1,
+    "target": "Elise",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Urgot",
+        "guess": "Urgot",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Urgot",
+        "guess": "Urgot",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Urgot\n*(Ajuste: **Urgot** sigue siendo válido por coincidencias amarillas en especie/regiones, pero como no es exacto, busco otro con:\n- **Male**, **Top**, **Chemically Altered/Cyborg/Human**, **Mana**, **R",
+        "guess": "Urgot",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Urgot\n*(Corrección: **Urgot** no cumple con el año exacto, pero como el objetivo debe ser posterior a 2010, el siguiente que encaja es:)\n\n**Urgot** *(reiterado por restricción de año, pero ajustando al siguiente válido con",
+        "guess": "Urgot",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "**Urgot** *(no, no es válido por repetir y no cumplir restricciones de año).*\n\n**Twitch** *(Male, Top/Jungle/Bottom no coincide, pero ajusta:)*\n**Viktor** *(Male, Middle, Cyborg/Human, Mana, Ranged, N",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Twitch, Viktor, Urgot",
+        "status": "invalid",
+        "turn": 6
+      },
+      {
+        "raw_response": "**Viktor**",
+        "guess": "Viktor",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Middle",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "**Viktor** *(repetido por restricciones de género/posiciones, pero ajustando al siguiente que cumpla:)*\n\n**Viktor** *(no, no es válido).*\n\n**Urgot** *(no cumple año).*\n\n**Twitch** *(no cumple género/posiciones).*\n\n**",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Twitch, Viktor, Urgot",
+        "status": "invalid",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Urgot** *(revisado: no cumple año, pero como el objetivo debe ser posterior a 2011, el siguiente que encaja es:)*\n\n**Viktor** *(reiterado por error, pero el correcto es:)*\n\n**Viktor** *(no cumple año, pero el",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Viktor, Urgot",
+        "status": "invalid",
+        "turn": 9
+      },
+      {
+        "raw_response": "**Urgot** *(reiterado por error de restricción, pero el único que cumple con el año posterior a 2011 y coincidencias amarillas en especie/recurso es:)*\n\n*(Corrección final: **Viktor** no cumple año, pero el único que encaja con",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Viktor, Urgot",
+        "status": "invalid",
+        "turn": 10
+      }
+    ]
+  }
+}

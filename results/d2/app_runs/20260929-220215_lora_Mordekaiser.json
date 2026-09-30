@@ -1,0 +1,406 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Mordekaiser",
+  "draw_seed": "1656000:5/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T22:02:15",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 8,
+    "eligible": 9,
+    "invalid": 0,
+    "repeated": 6
+  },
+  "record": {
+    "game": 1,
+    "target": "Mordekaiser",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1,
+        "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+      },
+      {
+        "raw_response": "Darius",
+        "guess": "Darius",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2,
+        "model_output": "Sé: Male · Top · Melee · <2013\nCompatibles: Darius, Gangplank, Mordekaiser, Olaf, Rumble…\nDarius"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3,
+        "model_output": "Sé: Male · Top · Melee · <2012\nCompatibles: Garen, Mordekaiser, Rumble, Sion\nGaren"
+      },
+      {
+        "raw_response": "Gragas",
+        "guess": "Gragas",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Jungle, Top",
+            "rule": "debía coincidir con Top"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Gragas\nGragas"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 7,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 8,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 9,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      },
+      {
+        "raw_response": "Garen",
+        "guess": "Garen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Manaless",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Demacia",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 10,
+        "model_output": "Sé: Male · Top · Melee · 2010\nCompatibles: Garen\nGaren"
+      }
+    ]
+  }
+}

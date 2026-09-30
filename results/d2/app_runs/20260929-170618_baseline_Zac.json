@@ -1,0 +1,457 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Zac",
+  "draw_seed": null,
+  "pace_s": 0.55,
+  "started_at": "2026-09-29T17:06:18",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 8,
+    "invalid": 1,
+    "repeated": 1
+  },
+  "record": {
+    "game": 1,
+    "target": "Zac",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "debía coincidir con Male"
+          },
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Kog'Maw",
+        "guess": "Kog'Maw",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Vel'Koz",
+        "guess": "Vel'Koz",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "debía coincidir con Melee"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Ranged",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Kha'Zix",
+        "guess": "Kha'Zix",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Rek'Sai",
+        "guess": "Rek'Sai",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "debía coincidir con Male"
+          },
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2014",
+            "rule": "el objetivo debía ser anterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "Zaahen",
+        "guess": "Zaahen",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Jungle, Top",
+            "rule": "debía coincidir con Jungle"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2025",
+            "rule": "el objetivo debía ser anterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "Zaahen *(revisado con restricciones: solo Top/Jungle con Darkin, pero no cumple. Próximo válido:)*\n\n**Za'Vale** *(no está en el roster, error en mi intento. Correcto:)*\n\n**Zaahen** *(reiterado, pero",
+        "guess": "Zaahen",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Jungle, Top",
+            "rule": "debía coincidir con Jungle"
+          },
+          {
+            "attribute": "species",
+            "value": "Darkin",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Runeterra",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2025",
+            "rule": "el objetivo debía ser anterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Za'Vale** *(no válido, error en mi proceso. Último válido con restricciones:)*\n\n**Zaahen** *(excluido por año/región). Próximo correcto:*\n\n**Nasus** *(Género: Male ✔, Posiciones:",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Zaahen, Nasus",
+        "status": "invalid",
+        "turn": 9
+      },
+      {
+        "raw_response": "**Za'Vale** *(no está en el roster, error previo. Último intento válido con restricciones:)*\n\n**K'Sante** *(Género: Male ✔, Posiciones: Top ✔, Alcance: Melee ✔, Año: 2022",
+        "guess": "K'Sante",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "resource",
+            "value": "Mana",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "debía coincidir con Jungle"
+          },
+          {
+            "attribute": "species",
+            "value": "Human",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2022",
+            "rule": "el objetivo debía ser anterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 10
+      }
+    ]
+  }
+}

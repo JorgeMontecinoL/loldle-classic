@@ -13,3 +13,5 @@ finetune/adapters/*
 !finetune/adapters/final/
 # Logs de los servidores de modelo de la demo.
 results/d2/server_logs/
+# Grabaciones del video (se suben aparte, con enlace abierto).
+video/

@@ -1,0 +1,334 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Morgana",
+  "draw_seed": "9457000:4/5",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:19:27",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 6,
+    "eligible": 9,
+    "invalid": 0,
+    "repeated": 6
+  },
+  "record": {
+    "game": 1,
+    "target": "Morgana",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Ahri",
+        "guess": "Ahri",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2
+      },
+      {
+        "raw_response": "Ashe",
+        "guess": "Ashe",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 3
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 4
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Ixtal",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Ixtal",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "Ashe",
+        "guess": "Ashe",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "regions",
+            "value": "Freljord",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Ixtal",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Ixtal",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 9
+      },
+      {
+        "raw_response": "Nidalee",
+        "guess": "Nidalee",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Ixtal",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 10
+      }
+    ]
+  }
+}

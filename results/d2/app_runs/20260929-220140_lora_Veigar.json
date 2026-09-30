@@ -1,0 +1,180 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Veigar",
+  "draw_seed": "1656000:2/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T22:01:40",
+  "summary": {
+    "solved": true,
+    "attempts": 5,
+    "violations": 2,
+    "eligible": 4,
+    "invalid": 0,
+    "repeated": 0
+  },
+  "record": {
+    "game": 1,
+    "target": "Veigar",
+    "solved": true,
+    "attempts_used": 5,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "yellow",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1,
+        "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+      },
+      {
+        "raw_response": "Corki",
+        "guess": "Corki",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2,
+        "model_output": "Sé: Male · <2013\nCompatibles: Corki, Draven, Ezreal, Graves, Karthus…\nCorki"
+      },
+      {
+        "raw_response": "Fiddlesticks",
+        "guess": "Fiddlesticks",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Jungle",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "species",
+            "value": "Demon, Spirit",
+            "rule": "debía coincidir con Yordle"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "yellow",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3,
+        "model_output": "Sé: Male · Middle · Yordle · Mana · Ranged · 2009\nCompatibles: Fiddlesticks\nFiddlesticks"
+      },
+      {
+        "raw_response": "Twitch",
+        "guess": "Twitch",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "species",
+            "value": "Chemically Altered, Rat",
+            "rule": "debía coincidir con Yordle"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4,
+        "model_output": "Sé: Male · Middle · Yordle · Mana · Ranged · 2009\nCompatibles: Twitch\nTwitch"
+      },
+      {
+        "raw_response": "Veigar",
+        "guess": "Veigar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 5,
+        "model_output": "Sé: Male · Middle · Yordle · Mana · Ranged · 2009\nCompatibles: Veigar\nVeigar"
+      }
+    ]
+  }
+}

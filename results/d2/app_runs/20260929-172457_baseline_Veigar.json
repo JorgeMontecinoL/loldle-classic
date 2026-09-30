@@ -1,0 +1,447 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Veigar",
+  "draw_seed": "1656000:2/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T17:24:57",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 9,
+    "eligible": 9,
+    "invalid": 0,
+    "repeated": 5
+  },
+  "record": {
+    "game": 1,
+    "target": "Veigar",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "debía coincidir con Male"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2018",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Xerath",
+        "guess": "Xerath",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Middle, Support",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2011",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Azir",
+        "guess": "Azir",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "regions",
+            "value": "Shurima",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2014",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "debía coincidir con Ranged"
+          },
+          {
+            "attribute": "range_type",
+            "value": "Melee",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 7
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 8
+      },
+      {
+        "raw_response": "**Kai'Sa** *(Ajuste: género masculino no coincide, pero es el único con género correcto, recurso mana, alcance ranged y año anterior a 2010 que no descarta regiones por feedback gris en el intento 6).*\n\n---\n**Corrección correcta (sin rep",
+        "guess": "Kai'Sa",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "debía coincidir con Male"
+          },
+          {
+            "attribute": "gender",
+            "value": "Female",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2018",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 9
+      },
+      {
+        "raw_response": "**Malzahar** *(repetido, pero es el único que cumple: género masculino, posiciones Middle, recurso Mana, alcance Ranged, año 2010 ↓, y aunque regiones no coinciden, es el único con género correcto y año válido en el intento 8).*\n\n",
+        "guess": "Malzahar",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "species",
+            "value": "Human, Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el año exacto revelado era 2009"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 10
+      }
+    ]
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Malzahar",
+  "draw_seed": "1656000:1/7",
+  "pace_s": 0.55,
+  "started_at": "2026-09-29T17:24:27",
+  "summary": {
+    "solved": true,
+    "attempts": 7,
+    "violations": 4,
+    "eligible": 6,
+    "invalid": 0,
+    "repeated": 1
+  },
+  "record": {
+    "game": 1,
+    "target": "Malzahar",
+    "solved": true,
+    "attempts_used": 7,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "yellow",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1
+      },
+      {
+        "raw_response": "Corki",
+        "guess": "Corki",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2
+      },
+      {
+        "raw_response": "Draven",
+        "guess": "Draven",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3
+      },
+      {
+        "raw_response": "Viktor",
+        "guess": "Viktor",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "regions",
+            "value": "Piltover",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4
+      },
+      {
+        "raw_response": "Swain",
+        "guess": "Swain",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Middle, Support",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "regions",
+            "value": "Noxus",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "yellow",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "green"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5
+      },
+      {
+        "raw_response": "Viktor",
+        "guess": "Viktor",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "regions",
+            "value": "Piltover, Zaun",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2011",
+            "rule": "el año exacto revelado era 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 6
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 7
+      }
+    ]
+  }
+}
