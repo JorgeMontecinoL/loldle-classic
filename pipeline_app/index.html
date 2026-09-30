@@ -419,6 +419,7 @@
   const pause = (ms) => new Promise((r) => setTimeout(r, ms));
   // ?seed=N repite un sorteo ya mostrado (p. ej. la serie del video); sin ella, cada sorteo es nuevo
   const FIXED_SEED = new URLSearchParams(location.search).get("seed");
+  const REPLAY_NOTE = FIXED_SEED ? " La semilla viene fijada en la URL: repite un sorteo anterior." : "";
   const drawUrl = (n) => `/api/draw?n=${n}` + (FIXED_SEED ? `&seed=${encodeURIComponent(FIXED_SEED)}` : "");
 
   document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => {
@@ -668,7 +669,7 @@
 
   function renderScoreboard() {
     const n = series.targets.length;
-    $("#sb-meta").textContent = `Serie al azar · semilla ${series.seed}`;
+    $("#sb-meta").textContent = `${FIXED_SEED ? "Serie repetida" : "Serie al azar"} · semilla ${series.seed}`;
     $(".sb-title", $("#scoreboard")).textContent = series.done
       ? `Serie terminada · ${n} partidas`
       : `Partida ${series.i + 1} de ${n}`;
@@ -732,9 +733,9 @@
       : (split.valid || []).includes(name) ? "valid"
       : (split.train || []).includes(name) ? "train" : "unknown";
     $("#provenance").textContent = how === "draw"
-      ? `Sorteado al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${seed}. Ninguno se usó como campeón secreto al entrenar.`
+      ? `Sorteado al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${seed}. Ninguno se usó como campeón secreto al entrenar.${REPLAY_NOTE}`
       : how === "series"
-      ? `Serie de ${series.targets.length} sorteada al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${series.seed} · partida ${series.i + 1} de ${series.targets.length}. Ninguno se usó como campeón secreto al entrenar.`
+      ? `Serie de ${series.targets.length} sorteada al azar entre los ${config.test_targets.length} objetivos de prueba · semilla ${series.seed} · partida ${series.i + 1} de ${series.targets.length}. Ninguno se usó como campeón secreto al entrenar.${REPLAY_NOTE}`
       : {
           test: "Elegido a mano entre los 30 objetivos de prueba, que nunca se usaron como campeón secreto al entrenar.",
           valid: "Elegido a mano entre los 15 de validación: nunca fue campeón secreto al entrenar, pero se usó para elegir el punto de control.",

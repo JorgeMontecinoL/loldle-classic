@@ -1,0 +1,108 @@
+{
+  "variant": "lora",
+  "config": {
+    "title": "Solución",
+    "subtitle": "Fine-tuning LoRA",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "mismos pesos + adaptador LoRA",
+    "base_url": "http://127.0.0.1:8082/v1",
+    "api_model": "default_model",
+    "adapter": "finetune/adapters/final",
+    "submit": "last-line"
+  },
+  "target": "Elise",
+  "draw_seed": "1656000:7/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T22:02:42",
+  "summary": {
+    "solved": true,
+    "attempts": 3,
+    "violations": 0,
+    "eligible": 2,
+    "invalid": 0,
+    "repeated": 0
+  },
+  "record": {
+    "game": 1,
+    "target": "Elise",
+    "solved": true,
+    "attempts_used": 3,
+    "trace": [
+      {
+        "raw_response": "Aatrox",
+        "guess": "Aatrox",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "gray",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1,
+        "model_output": "Sé: nada\nCompatibles: Aatrox, Ahri, Akali, Akshan, Alistar…\nAatrox"
+      },
+      {
+        "raw_response": "Ahri",
+        "guess": "Ahri",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 2,
+        "model_output": "Sé: <2013\nCompatibles: Ahri, Anivia, Ashe, Caitlyn, Elise…\nAhri"
+      },
+      {
+        "raw_response": "Elise",
+        "guess": "Elise",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 3,
+        "model_output": "Sé: Female · Mana · Ranged · 2012-2012\nCompatibles: Elise, Lulu, Zyra\nElise"
+      }
+    ]
+  }
+}

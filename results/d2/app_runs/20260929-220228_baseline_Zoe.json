@@ -1,0 +1,434 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Zoe",
+  "draw_seed": "1656000:6/7",
+  "pace_s": 0.0,
+  "started_at": "2026-09-29T22:02:28",
+  "summary": {
+    "solved": false,
+    "attempts": 10,
+    "violations": 7,
+    "eligible": 7,
+    "invalid": 2,
+    "repeated": 2
+  },
+  "record": {
+    "game": 1,
+    "target": "Zoe",
+    "solved": false,
+    "attempts_used": 10,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1,
+        "model_output": "Kassadin"
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "green",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 2,
+        "model_output": "Malzahar"
+      },
+      {
+        "raw_response": "Kai'Sa",
+        "guess": "Kai'Sa",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "regions",
+            "value": "Shurima, Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "green",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "lower"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 3,
+        "model_output": "Kai'Sa"
+      },
+      {
+        "raw_response": "Kog'Maw",
+        "guess": "Kog'Maw",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "positions",
+            "value": "Bottom",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2010"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 4,
+        "model_output": "Kog'Maw"
+      },
+      {
+        "raw_response": "Vel'Koz",
+        "guess": "Vel'Koz",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Support",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "constraint_violation",
+        "turn": 5,
+        "model_output": "Vel'Koz"
+      },
+      {
+        "raw_response": "Vel'Koz *(revisado con restricciones: solo Void-Being, Ranged, Mana, año ↑2014, género/regiones/posiciones ignoradas por feedback gris)* **→**\n\n**Xerath** *(especie Baccai, no Void-Being; desc",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Vel'Koz, Xerath",
+        "status": "invalid",
+        "turn": 6,
+        "model_output": "Vel'Koz *(revisado con restricciones: solo Void-Being, Ranged, Mana, año ↑2014, género/regiones/posiciones ignoradas por feedback gris)* **→**\n\n**Xerath** *(especie Baccai, no Void-Being; desc"
+      },
+      {
+        "raw_response": "Vel'Koz *(revisado: género masculino, año posterior a 2014, Ranged, Mana, Void-Being, regiones Void)* **→**\n\n**Kog'Maw** *(año 2010, no cumple con ↑2014)* **→**\n\n",
+        "guess": null,
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": true,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": null,
+        "solved": false,
+        "reason": "La respuesta menciona más de un campeón: Kog'Maw, Vel'Koz",
+        "status": "invalid",
+        "turn": 7,
+        "model_output": "Vel'Koz *(revisado: género masculino, año posterior a 2014, Ranged, Mana, Void-Being, regiones Void)* **→**\n\n**Kog'Maw** *(año 2010, no cumple con ↑2014)* **→**\n\n"
+      },
+      {
+        "raw_response": "**Vel'Koz** *(excluyendo otros por restricciones de género/año, pero ajustando: solo Void-Being, Ranged, Mana, año ↑2014, y género masculino no coincidido en feedback verde, pero el feedback verde solo valía para posiciones/recurso.",
+        "guess": "Vel'Koz",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Support",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "positions",
+            "value": "Support",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "species",
+            "value": "Void-Being",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Void",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2014",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "gray",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 8,
+        "model_output": "**Vel'Koz** *(excluyendo otros por restricciones de género/año, pero ajustando: solo Void-Being, Ranged, Mana, año ↑2014, y género masculino no coincidido en feedback verde, pero el feedback verde solo valía para posiciones/recurso."
+      },
+      {
+        "raw_response": "**Urgot** *(género masculino, Support, Void-Being no exacto, pero con recursos/alcance/regiones parciales válidas; año 2010 no cumple, pero es el único con Ranged, Mana y regiones cercanas a Void en el roster que cumple más restricciones",
+        "guess": "Urgot",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 9,
+        "model_output": "**Urgot** *(género masculino, Support, Void-Being no exacto, pero con recursos/alcance/regiones parciales válidas; año 2010 no cumple, pero es el único con Ranged, Mana y regiones cercanas a Void en el roster que cumple más restricciones"
+      },
+      {
+        "raw_response": "**Urgot** *(excluido por año 2010, pero ajustando: el único con Ranged, Mana, y especie parcial compatible con el feedback amarillo de \"Chemically Altered, Cyborg, Human\" y género masculino, aunque no Middle/Top exactos)* **→",
+        "guess": "Urgot",
+        "format_ok": false,
+        "format_violation": true,
+        "invalid": false,
+        "eligible": true,
+        "repeated": true,
+        "constraint_violation": true,
+        "violations": [
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "debía coincidir con Female"
+          },
+          {
+            "attribute": "gender",
+            "value": "Male",
+            "rule": "valor descartado por feedback gris"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "debía coincidir con Middle"
+          },
+          {
+            "attribute": "positions",
+            "value": "Top",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "regions",
+            "value": "Noxus, Zaun",
+            "rule": "valores descartados por feedback gris"
+          },
+          {
+            "attribute": "release_year",
+            "value": "2010",
+            "rule": "el objetivo debía ser posterior a 2014"
+          }
+        ],
+        "feedback": {
+          "gender": "gray",
+          "positions": "gray",
+          "species": "yellow",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "gray",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "Se reconoció el campeón, pero había texto o puntuación adicional.",
+        "status": "constraint_violation",
+        "turn": 10,
+        "model_output": "**Urgot** *(excluido por año 2010, pero ajustando: el único con Ranged, Mana, y especie parcial compatible con el feedback amarillo de \"Chemically Altered, Cyborg, Human\" y género masculino, aunque no Middle/Top exactos)* **→"
+      }
+    ]
+  }
+}

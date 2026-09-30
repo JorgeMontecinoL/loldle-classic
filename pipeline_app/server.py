@@ -177,6 +177,8 @@ class Game:
         self.used = []
         self.feasible_before = engine.ns["NAMES"]
         self.started = time.monotonic()
+        # respuesta completa del modelo por turno: el juego sólo recibe lo enviado
+        self.outputs = {}
 
     def emit(self, kind, **data):
         data["t"] = round(time.monotonic() - self.started, 3)
@@ -215,6 +217,7 @@ class Game:
             if state is not None:
                 matches = query_roster(ns, state, set(self.used))
                 tool = {"matches": len(matches), "sample": matches[:5], "submitted": submitted}
+        self.outputs[turn] = {"model_output": full, "tool": tool}
         self.emit(
             "model_output",
             turn=turn,
@@ -294,6 +297,14 @@ def run_game(engine, target, pace, write, draw_seed=None):
         record = ns["play_game"](target, 1)
     finally:
         ns["query_model"] = engine.query_model
+    # Como en run_benchmark.py: cada turno guarda la respuesta completa del modelo
+    # (model_output) junto a lo que recibió el juego (raw_response), así lo que la app
+    # muestra —la línea «Sé:» y los compatibles incluidos— queda en el registro.
+    for event in record["trace"]:
+        turn_output = game.outputs.get(event.get("turn"), {})
+        event["model_output"] = turn_output.get("model_output")
+        if turn_output.get("tool") is not None:
+            event["tool"] = turn_output["tool"]
     summary = {
         "solved": record["solved"],
         "attempts": record["attempts_used"],

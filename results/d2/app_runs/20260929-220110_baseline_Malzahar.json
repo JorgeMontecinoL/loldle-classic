@@ -1,0 +1,83 @@
+{
+  "variant": "baseline",
+  "config": {
+    "title": "Baseline",
+    "subtitle": "Prompting directo",
+    "model": "ministral-3-3b-instruct-2512",
+    "weights": "MLX 4-bit · sin ajuste",
+    "base_url": "http://127.0.0.1:8081/v1",
+    "api_model": "default_model",
+    "adapter": null,
+    "submit": "whole"
+  },
+  "target": "Malzahar",
+  "draw_seed": "1656000:1/7",
+  "pace_s": 0.55,
+  "started_at": "2026-09-29T22:01:10",
+  "summary": {
+    "solved": true,
+    "attempts": 2,
+    "violations": 0,
+    "eligible": 1,
+    "invalid": 0,
+    "repeated": 0
+  },
+  "record": {
+    "game": 1,
+    "target": "Malzahar",
+    "solved": true,
+    "attempts_used": 2,
+    "trace": [
+      {
+        "raw_response": "Kassadin",
+        "guess": "Kassadin",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": false,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "gray",
+          "regions": "green",
+          "release_year": "higher"
+        },
+        "solved": false,
+        "reason": "",
+        "status": "valid",
+        "turn": 1,
+        "model_output": "Kassadin"
+      },
+      {
+        "raw_response": "Malzahar",
+        "guess": "Malzahar",
+        "format_ok": true,
+        "format_violation": false,
+        "invalid": false,
+        "eligible": true,
+        "repeated": false,
+        "constraint_violation": false,
+        "violations": [],
+        "feedback": {
+          "gender": "green",
+          "positions": "green",
+          "species": "green",
+          "resource": "green",
+          "range_type": "green",
+          "regions": "green",
+          "release_year": "green"
+        },
+        "solved": true,
+        "reason": "",
+        "status": "solved",
+        "turn": 2,
+        "model_output": "Malzahar"
+      }
+    ]
+  }
+}
