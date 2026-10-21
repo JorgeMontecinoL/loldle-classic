@@ -1,0 +1,2 @@
+label,source,split,complete,games,solved,solve_rate,attempts,mean_attempts_solved,historical_violation_rate,strict_violation_rate,eligible_attempts,invalid_rate,repeat_rate,cfs_historical,stopped_games,zero_submission_games,calls,calls_per_game,model_seconds,model_seconds_per_game,completion_tokens,protocol_errors,revisions,tool_calls
+base/full,results/d3/probes_v7/valid_base_full_n2.json.gz,valid,True,2,0,0,2,,0.0,,0,0.0,0.0,0.7157142857142857,2,0,38,19.0,26.578,13.2889,2067,8,4,13

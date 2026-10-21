@@ -1,0 +1,51 @@
+{
+  "rows": [
+    {
+      "label": "base/full",
+      "source": "results/d3/probes_v7/valid_base_full_n2.json.gz",
+      "split": "valid",
+      "complete": true,
+      "games": 2,
+      "solved": 0,
+      "solve_rate": 0,
+      "attempts": 2,
+      "mean_attempts_solved": null,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": null,
+      "eligible_attempts": 0,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.7157142857142857,
+      "stopped_games": 2,
+      "zero_submission_games": 0,
+      "calls": 38,
+      "calls_per_game": 19.0,
+      "model_seconds": 26.578,
+      "model_seconds_per_game": 13.2889,
+      "completion_tokens": 2067,
+      "protocol_errors": 8,
+      "revisions": 4,
+      "tool_calls": 13,
+      "failures": [
+        {
+          "target": "Ambessa",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Amumu",
+          "attempts": 1,
+          "stop": "agent_stop: No evidence to add beyond prior feedback; state schema is fully validated. Partial regions must be derived from yellow feedback, not forced. No further action aligns with constraints.",
+          "guesses": [
+            "Aatrox"
+          ]
+        }
+      ]
+    }
+  ],
+  "comparisons": {},
+  "note": "Una partida por objetivo, temperatura 0. No son réplicas independientes. Los paros cuentan como no resueltos."
+}

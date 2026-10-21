@@ -1,0 +1,6 @@
+Worked example of a hypothetical history:
+guess=Ahri; clues: gender [Female] green, positions [Middle] green, species [Vastayan] gray, resource [Mana] green, range_type [Ranged] gray, regions [Ionia] gray, release_year 2011 higher.
+{"action":"entregar_estado","exact":{"gender":["Female"],"positions":["Middle"],"resource":["Mana"]},"forbidden":{"species":["Vastayan"],"range_type":["Ranged"],"regions":["Ionia"]},"partial":{},"year":{"gt":2011},"used":["Ahri"]}
+Second hypothetical example: guess=Akali; gender [Female] gray, positions [Middle,Top] yellow, species [Human] green, resource [Energy] gray, range_type [Melee] green, regions [Ionia] yellow, release_year 2010 lower.
+{"action":"entregar_estado","exact":{"species":["Human"],"range_type":["Melee"]},"forbidden":{"gender":["Female"],"resource":["Energy"]},"partial":{"positions":[["Middle","Top"]],"regions":[["Ionia"]]},"year":{"lt":2010},"used":["Akali"]}
+These are illustrations, not clues for your current game. Never copy their values into your game unless history contains them.

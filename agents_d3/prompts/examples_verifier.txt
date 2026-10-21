@@ -1,0 +1,2 @@
+Example: input candidate="Ahri", message={"ok":true,"errors":[]} -> {"action":"aprobar"}.
+Example: message.errors says a discarded Top is missing from memory -> {"action":"revisar_memoria","reason":"Add Top to forbidden.positions from gray feedback."}.

@@ -1,0 +1,3 @@
+label,source,split,complete,games,solved,solve_rate,attempts,mean_attempts_solved,historical_violation_rate,strict_violation_rate,eligible_attempts,invalid_rate,repeat_rate,cfs_historical,stopped_games,zero_submission_games,calls,calls_per_game,model_seconds,model_seconds_per_game,completion_tokens,api_errors,protocol_errors,revisions,tool_calls
+base/full,results/d3/dev/valid_base_full.json.gz,valid,True,15,4,0.26666666666666666,28,2.0,0.0,0.0,13,0.0,0.0,0.8006666666666666,11,0,353,23.533333333333335,180.041,12.002746666666667,15005,0,50,27,164
+lora/full,results/d3/dev/valid_lora_full.json.gz,valid,True,15,0,0,0,,0.0,,0,0.0,0.0,0.6699999999999999,15,15,270,18.0,116.033,7.735533333333334,7725,0,240,0,15

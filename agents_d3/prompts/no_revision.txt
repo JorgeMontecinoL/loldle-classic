@@ -1,0 +1,1 @@
+CONFIGURACIÓN DE ABLACIÓN: sin crítica con revisión. Las acciones revisar_memoria y revisar_selector no están disponibles. El verificador puede auditar, aprobar o parar. Si la propuesta es incorrecta y no puedes aprobar, usa stop. No existe reemplazo automático por código.

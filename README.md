@@ -1,5 +1,18 @@
 # LoLdle Classic — seguimiento de restricciones con un modelo de 3B
 
+## Entregable 3 · sistema de agentes
+
+La continuación incorpora **Memoria, Selector y Verificador**, con herramientas
+y ciclos de revisión, usando Ministral 3B. La demo se inicia con
+`scripts/demo_d3.sh` en el puerto 8766. Incluye comparación de pesos en
+validación, tres ablaciones y controles sobre los mismos objetivos.
+
+Documentación: [agents_d3/README.md](agents_d3/README.md).
+Grafo: [docs/d3/ARQUITECTURA.md](docs/d3/ARQUITECTURA.md).
+Resultados: [results/d3/ANALISIS_D3.md](results/d3/ANALISIS_D3.md).
+
+---
+
 Inteligencia Artificial Generativa (580694). **Entregable 2**: la intervención contra
 el fallo diagnosticado en el Entregable 1, funcionando de punta a punta y medida
 contra el baseline de prompting directo sobre las mismas entradas.
