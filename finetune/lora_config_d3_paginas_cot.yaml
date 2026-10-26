@@ -1,0 +1,41 @@
+# v4b: el Selector por páginas escribe un veredicto por fila antes de la lista.
+#
+# Por qué: con sólo la lista (lora_config_d3_paginas.yaml) el modelo aprendió a responder
+# casi siempre [] (exhaustividad 2% en validación): a mitad de partida cada página tiene 1-2
+# nombres válidos y la lista vacía es casi correcta. Escribir "Nombre ok" o "Nombre x campo"
+# por cada fila hace explícita la revisión de las 25 filas (razonamiento estructurado).
+#   .venv-ft/bin/python finetune/make_data_d3.py --paginas --out d3_paginas_cot
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3_paginas_cot.yaml
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_paginas_cot
+resume_adapter_file: finetune/adapters/d3_paginas/adapters.safetensors
+adapter_path: finetune/adapters/d3_paginas_cot
+seed: 3033
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 4096                 # el ejemplo más largo mide 2.776 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 1763                          # una pasada: 1.763 ejemplos = 440 actualizaciones
+learning_rate: 1.5e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8
+  warmup_init: 1.0e-6
+  arguments: [1.5e-5, 432, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 880
+val_batches: 50
+save_every: 880

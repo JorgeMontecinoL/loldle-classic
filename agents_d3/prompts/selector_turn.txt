@@ -1,0 +1,3 @@
+NOTE: Memoria registra: {state}
+REJECT: El Verificador rechazó {candidate}: {reason}. Elige otro campeón del roster que cumpla todo lo revelado.
+FORMAT: Responde con tu formato habitual y termina con el nombre exacto de un campeón del roster.

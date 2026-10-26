@@ -6,7 +6,7 @@ PY="${PY_D3:-.venv-ft/bin/python}"
 URL="${MODEL_URL:-http://127.0.0.1:8083/v1}"
 PHASE="${1:-valid}"
 if [[ "$PHASE" == valid ]]; then
-  for weights in base lora; do
+  for weights in base lora multirol multirol2 paginas; do
     "$PY" -m agents_d3.evaluate --split valid --weights "$weights" --base-url "$URL" --out results/d3/dev
   done
   "$PY" -m agents_d3.analyze --input results/d3/dev --out results/d3/dev

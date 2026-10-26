@@ -1,0 +1,42 @@
+# v4c: como lora_config_d3_paginas_cot.yaml, más el campo years_allowed.
+#
+# Por qué: con veredictos por fila el Selector acierta 96% de las filas en formato de
+# entrenamiento, pero casi todos sus errores son falsos "x release_year": comparar gt/lt
+# es lo más difícil para un 3B. years_allowed lista los años que permite el estado escrito
+# por Memoria (reformatea el estado del agente; no consulta la evidencia), y la revisión del
+# año pasa a ser pertenencia a una lista.
+#   .venv-ft/bin/python finetune/make_data_d3.py --paginas --out d3_paginas_cot2
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3_paginas_cot2.yaml
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_paginas_cot2
+resume_adapter_file: finetune/adapters/d3_paginas_cot/adapters.safetensors
+adapter_path: finetune/adapters/d3_paginas_cot2
+seed: 3034
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 4096                 # el ejemplo más largo mide 2.776 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 2030                          # una pasada: 2.030 ejemplos = 507 actualizaciones
+learning_rate: 1.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8
+  warmup_init: 1.0e-6
+  arguments: [1.0e-5, 499, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 1015
+val_batches: 50
+save_every: 1015

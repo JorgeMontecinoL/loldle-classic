@@ -1,0 +1,10 @@
+Worked example with a hypothetical page:
+memory={"green":{"gender":["Female"],"range_type":["Ranged"]},"gray":{"regions":["Ionia"]},"yellow":{"positions":[["Middle","Top"]]},"year":{"gt":2011},"used":["Ahri"]}, excluded=["Ahri"], years_allowed=[2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025]
+rows:
+name|gender|positions|species|resource|range_type|regions|release_year
+Ahri|Female|Middle|Vastayan|Mana|Ranged|Ionia|2011
+Jinx|Female|Bottom|Human|Mana|Ranged|Piltover,Zaun|2013
+Karma|Female|Support,Middle|Human|Mana|Ranged|Ionia|2011
+Seraphine|Female|Middle,Support|Human|Mana|Ranged|Piltover,Zaun|2020
+Zoe|Female|Middle|Aspect|Mana|Ranged|Targon|2017
+-> {"action":"listar","revision":["Ahri x excluded","Jinx x positions","Karma x regions","Seraphine ok","Zoe ok"],"candidates":["Seraphine","Zoe"]}

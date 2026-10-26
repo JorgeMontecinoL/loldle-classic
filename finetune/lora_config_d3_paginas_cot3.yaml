@@ -1,0 +1,39 @@
+# v4d: otra pasada desde d3_paginas_cot2 con datos nuevos (otra semilla) y 300 partidas de
+# repaso de Memoria y Verificador (antes 100). Por qué: en validación v4 (6/15) Memoria quedó
+# atascada en contradicciones de su propio estado en 4 partidas, y el Selector no encontró
+# candidatos en todo el roster en 5 (exhaustividad 42%).
+#   .venv-ft/bin/python finetune/make_data_d3.py --paginas --repaso 300 --semilla 10 --out d3_paginas_cot3
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3_paginas_cot3.yaml
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_paginas_cot3
+resume_adapter_file: finetune/adapters/d3_paginas_cot2/adapters.safetensors
+adapter_path: finetune/adapters/d3_paginas_cot3
+seed: 3035
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 4096                 # el ejemplo más largo mide 2.776 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 2529                          # una pasada: 2529 ejemplos
+learning_rate: 1.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8
+  warmup_init: 1.0e-6
+  arguments: [1.0e-5, 624, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 1264
+val_batches: 50
+save_every: 1264

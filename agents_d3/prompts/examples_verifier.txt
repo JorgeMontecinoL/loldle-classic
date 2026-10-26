@@ -1,2 +1,4 @@
-Example: input candidate="Ahri", message={"ok":true,"errors":[]} -> {"action":"aprobar"}.
-Example: message.errors says a discarded Top is missing from memory -> {"action":"revisar_memoria","reason":"Add Top to forbidden.positions from gray feedback."}.
+Example: candidate="Zeri", message={"instruction":"Revisa la propuesta contra cada pista y decide."} -> {"action":"ver_atributos"}.
+Example: memory={"green":{"gender":["Female"]},"gray":{"regions":["Ionia"]},"yellow":{"positions":[["Middle","Top"]]},"year":{"gt":2011},"used":["Ahri"]}; row Zeri: gender Female, positions [Bottom], regions [Zaun], release_year 2022 -> {"action":"revisar_selector","reason":"Zeri shares no position with the yellow clue Middle,Top."}
+Example: same memory; row Akali: gender Female, positions [Top,Middle], regions [Ionia], release_year 2010 -> {"action":"revisar_selector","reason":"Akali is from gray Ionia and older than 2011."}
+Example: same memory; row Seraphine: gender Female, positions [Middle,Support], regions [Piltover,Zaun], release_year 2020 -> {"action":"aprobar","reason":"Every line holds; Middle is shared with the yellow clause."}

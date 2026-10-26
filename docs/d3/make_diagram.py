@@ -13,11 +13,11 @@ ax.set(xlim=(-.2, 12.2), ylim=(-.5, 8.2))
 ax.axis('off')
 boxes = {'game': (1.3, 6.7, 'Juego / historial', 'feedback público'),
          'memory': (5.2, 6.7, '01 · Memoria', 'reconstruye restricciones'),
-         'selector': (10.1, 6.7, '02 · Selector', 'propone candidato'),
+         'selector': (10.1, 6.7, '02 · Selector', 'busca de a 25 filas'),
          'state': (5.2, 4.6, 'validar_estado', 'consistencia interna'),
-         'roster': (10.1, 4.6, 'consultar_roster', 'estado de Memoria'),
+         'roster': (10.1, 4.6, 'roster paginado', '7 páginas · sin filtrar'),
          'verifier': (5.2, 2.8, '03 · Verificador', 'aprueba o devuelve'),
-         'check': (5.2, .8, 'validar_jugada', 'historial original completo')}
+         'check': (5.2, .8, 'ver_atributos', 'fila del roster, sin comparar')}
 W, H = 2.75, 1.05
 for key, (x, y, title, sub) in boxes.items():
     tool = key in ('state', 'roster', 'check')
@@ -38,18 +38,17 @@ arrow([(2.72,6.7),(3.78,6.7)],'historial',(3.2,6.94))
 arrow([(6.62,6.7),(8.68,6.7)],'estado',(7.7,6.94))
 arrow([(4.98,6.13),(4.98,5.18)])
 arrow([(5.42,5.18),(5.42,6.13)],'formato',(6.05,5.65))
-arrow([(9.88,6.13),(9.88,5.18)])
-arrow([(10.32,5.18),(10.32,6.13)],'consulta',(11,5.65))
-arrow([(10.1,4.03),(10.1,2.8),(6.62,2.8)],'propuesta',(8.1,3.03))
+arrow([(10.32,5.18),(10.32,6.13)],'una página por llamada',(9.2,5.65))
+arrow([(8.68,6.45),(8.0,6.45),(8.0,2.8),(6.62,2.8)],'primer candidato de su lista',(9.25,3.55))
+arrow([(9.0,7.27),(9.0,7.75),(5.6,7.75),(5.6,7.27)],'lista vacía en 4 pasadas → revisar estado',(7.3,7.82),revision=True)
 arrow([(4.98,2.23),(4.98,1.38)])
-arrow([(5.42,1.38),(5.42,2.23)],'auditoría',(6.1,1.75))
+arrow([(5.42,1.38),(5.42,2.23)],'atributos',(6.1,1.75))
 arrow([(3.78,2.8),(1.8,2.8),(1.8,6.13)],'aprobar → jugar',(2.8,3.04))
 arrow([(.6,6.13),(.6,3.8),(3.2,3.8),(3.2,2.98),(3.78,2.98)],'evidencia original',(1.9,4.02))
 arrow([(3.78,2.58),(3.18,2.58),(3.18,6.3),(3.78,6.3)],revision=True)
-ax.text(2.97,4.8,'revisar memoria',rotation=90,fontsize=8.5,color=MUTED,ha='center')
-arrow([(6.62,2.6),(11.76,2.6),(11.76,6.7),(11.52,6.7)],'revisar selección',(9,2.2),revision=True)
-arrow([(10.1,7.27),(10.1,7.75),(5.2,7.75),(5.2,7.27)],'sin candidatos → revisar',(7.5,7.82),revision=True)
-ax.text(.0,.05,'Fin: resuelto · 10 jugadas · stop · 18 llamadas/turno · 160 llamadas/partida',fontsize=9,color=MUTED)
+ax.text(2.97,4.25,'revisar memoria + motivo',rotation=90,fontsize=8.5,color=MUTED,ha='center')
+arrow([(6.62,2.6),(11.76,2.6),(11.76,6.7),(11.52,6.7)],'rechazo + motivo → siguiente de la lista',(9,2.2),revision=True)
+ax.text(.0,.05,'Fin: resuelto · 10 jugadas · stop · tras 3 rechazos sólo aprueba o para · 60 llamadas/turno · 160/partida',fontsize=9,color=MUTED)
 fig.savefig(HERE/'pipeline.pdf',bbox_inches='tight',facecolor=BG)
 fig.savefig(HERE/'pipeline.png',bbox_inches='tight',dpi=180,facecolor=BG)
 plt.close(fig)

@@ -13,6 +13,11 @@ from .runtime import AgentConfig, AgentSystem, algorithmic_control
 from .state import public_history, validate_move
 
 ROOT = Path(__file__).resolve().parent.parent
+# Pesos comunes de los tres agentes: modelo base, adaptador del D2 o adaptador multirol del D3.
+ADAPTERS = {"base": None, "lora": "finetune/adapters/final", "multirol": "finetune/adapters/d3_multirol",
+            "multirol2": "finetune/adapters/d3_multirol_r2", "paginas": "finetune/adapters/d3_paginas_cot3"}
+# Búsqueda del Selector por pesos: v3 (formato D2) con los adaptadores anteriores, v4 (páginas) con el suyo.
+SEARCH = {"paginas": "paginas"}
 VARIANTS = ("full", "no_examples", "no_previous_state", "no_revision", "direct", "d2_lora", "d2_tool", "algorithmic")
 
 
@@ -56,8 +61,8 @@ def evaluate(args):
     targets = split[args.split][:args.limit] if args.limit else split[args.split]
     config = AgentConfig(examples=args.variant != "no_examples", previous_state=args.variant != "no_previous_state",
                          revision=args.variant != "no_revision", max_calls_per_turn=args.max_calls_per_turn,
-                         max_calls_per_game=args.max_calls_per_game)
-    adapter = str((ROOT / "finetune/adapters/final").resolve()) if args.weights == "lora" else None
+                         max_calls_per_game=args.max_calls_per_game, search=SEARCH.get(args.weights, "d2"))
+    adapter = str((ROOT / ADAPTERS[args.weights]).resolve()) if ADAPTERS[args.weights] else None
     if args.variant in ("d2_lora", "d2_tool"):
         adapter = str((ROOT / "finetune/adapters/final").resolve())
     if args.variant == "direct":
@@ -65,7 +70,7 @@ def evaluate(args):
     client = ModelClient(args.base_url, args.model, adapter, args.max_tokens)
     system = AgentSystem(client, config)
     meta = system.metadata()
-    effective_weights = "lora" if adapter else "base"
+    effective_weights = args.weights if args.variant not in ("direct", "d2_lora", "d2_tool") else ("lora" if adapter else "base")
     if args.variant == "algorithmic":
         effective_weights = "none"
         meta = {"algorithm": "first full-public-feedback-compatible", "llm": False}
@@ -112,13 +117,13 @@ def evaluate(args):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--split", choices=("valid", "test", "train"), default="valid")
-    p.add_argument("--weights", choices=("base", "lora"), default="base")
+    p.add_argument("--weights", choices=tuple(ADAPTERS), default="base")
     p.add_argument("--variant", choices=VARIANTS, default="full")
     p.add_argument("--limit", type=int)
     p.add_argument("--base-url", default="http://127.0.0.1:8083/v1")
     p.add_argument("--model", default="default_model")
     p.add_argument("--max-tokens", type=int, default=768)
-    p.add_argument("--max-calls-per-turn", type=int, default=18)
+    p.add_argument("--max-calls-per-turn", type=int, default=60)
     p.add_argument("--max-calls-per-game", type=int, default=160)
     p.add_argument("--out", default="results/d3/dev")
     p.add_argument("--force", action="store_true")

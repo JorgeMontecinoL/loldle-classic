@@ -1,1 +1,1 @@
-CONFIGURACIÓN DE ABLACIÓN: sin reinyección de memoria previa. Reconstruye el estado desde history en cada turno; no recibes previous_state. El historial completo continúa disponible, y los otros roles y herramientas se conservan.
+ABLATION: previous_state is not provided. Rebuild the whole state from every turn in history on every call. Every other rule stays the same.

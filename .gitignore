@@ -17,3 +17,8 @@ results/d2/server_logs/
 video/
 # Logs locales del servidor del Entregable 3.
 results/d3/server_logs/
+# Adaptadores del D3: el multirol (v3) y el seleccionado (v4); no los intermedios ni sus puntos de control.
+!finetune/adapters/d3_multirol/
+finetune/adapters/d3_multirol/0*_adapters.safetensors
+!finetune/adapters/d3_paginas_cot3/
+finetune/adapters/d3_paginas_cot3/0*_adapters.safetensors

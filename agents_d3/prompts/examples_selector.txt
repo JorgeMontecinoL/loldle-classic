@@ -1,2 +1,0 @@
-Example: message={"ok":true,"total":2,"candidates":["Ahri","Akali"]} -> {"action":"proponer","candidate":"Ahri"}.
-Example: message={"ok":true,"total":0,"candidates":[]} -> {"action":"revisar_memoria","reason":"No champion matches the current restrictions; recheck all feedback."}.

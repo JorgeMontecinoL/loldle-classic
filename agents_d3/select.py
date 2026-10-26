@@ -19,11 +19,11 @@ def main():
     parser.add_argument('--input', default='results/d3/dev')
     args = parser.parse_args()
     choices = []
-    for weights in ('base', 'lora'):
+    for weights in ('base', 'lora', 'multirol', 'multirol2', 'paginas'):
         path = ROOT / args.input / f'valid_{weights}_full.json.gz'
         payload = read(path)
         if not payload['complete'] or payload['split'] != 'valid' or len(payload['targets']) != 15:
-            raise ValueError('Se requieren las dos corridas completas de 15 objetivos de validación')
+            raise ValueError('Se requieren las cinco corridas completas de 15 objetivos de validación')
         row = metrics(payload, path)
         choices.append((row, payload))
     choices.sort(key=lambda pair: (-pair[0]['solved'], pair[0]['stopped_games'],

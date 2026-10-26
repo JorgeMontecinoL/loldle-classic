@@ -1,0 +1,45 @@
+# Entregable 3, v4: el Selector busca en el roster por páginas de 25 filas.
+#
+# Por qué: con el adaptador multirol, sólo 37% de las jugadas del Selector (formato D2,
+# 173 filas en una pasada) cumplen lo revelado en validación, y su lista Compatibles casi
+# nunca tiene otro candidato válido (6 de 71). La búsqueda es el cuello de botella: el D2 ya
+# documentó que cruzar condiciones contra 173 filas es lo que menos aprende un 3B. Aquí el
+# modelo revisa 25 filas por llamada y lista las que cumplen el estado de Memoria; el código
+# sólo pagina la tabla. Parte del adaptador multirol (conserva Memoria y Verificador) y suma
+# un repaso de esos roles:
+#   .venv-ft/bin/python finetune/make_data_d3.py --paginas
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3_paginas.yaml
+# Misma partición: los 15 de validación sólo miden la pérdida; prueba no aparece.
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_paginas
+resume_adapter_file: finetune/adapters/d3_multirol/adapters.safetensors
+adapter_path: finetune/adapters/d3_paginas
+seed: 3032
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 4096                 # el ejemplo más largo mide 2.776 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 1352                          # una pasada: 1.352 ejemplos = 338 actualizaciones
+learning_rate: 1.5e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8
+  warmup_init: 1.0e-6
+  arguments: [1.5e-5, 330, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 676
+val_batches: 50
+save_every: 676

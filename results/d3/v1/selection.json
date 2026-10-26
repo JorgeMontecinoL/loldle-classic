@@ -1,0 +1,280 @@
+{
+  "selected_weights": "base",
+  "selected_at": "2026-10-15T13:53:30.639640+00:00",
+  "rule": "Mayor resolución; desempate por menos paros, menor violación estricta, menos llamadas.",
+  "validation": [
+    {
+      "label": "base/full",
+      "source": "results/d3/dev/valid_base_full.json.gz",
+      "split": "valid",
+      "complete": true,
+      "games": 15,
+      "solved": 4,
+      "solve_rate": 0.26666666666666666,
+      "attempts": 28,
+      "mean_attempts_solved": 2.0,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": 0.0,
+      "eligible_attempts": 13,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.8006666666666666,
+      "stopped_games": 11,
+      "zero_submission_games": 0,
+      "calls": 353,
+      "calls_per_game": 23.533333333333335,
+      "model_seconds": 180.041,
+      "model_seconds_per_game": 12.002746666666667,
+      "completion_tokens": 15005,
+      "api_errors": 0,
+      "protocol_errors": 50,
+      "revisions": 27,
+      "tool_calls": 164,
+      "failures": [
+        {
+          "target": "Amumu",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Alistar"
+          ]
+        },
+        {
+          "target": "Evelynn",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Illaoi",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ambessa"
+          ]
+        },
+        {
+          "target": "Karthus",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Corki"
+          ]
+        },
+        {
+          "target": "Kha'Zix",
+          "attempts": 3,
+          "stop": "agent_stop: Inconsistent feedback detected: prior exact[range_type]=[Melee] conflicts with exact[gender]=[Male] and year bounds, and candidate Draven is not in used. Must revalidate tool results.",
+          "guesses": [
+            "Aatrox",
+            "Blitzcrank",
+            "Fizz"
+          ]
+        },
+        {
+          "target": "Orianna",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Shen",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Darius"
+          ]
+        },
+        {
+          "target": "Shyvana",
+          "attempts": 2,
+          "stop": "agent_stop: Contradiction detected: Diana's feedback conflicts with prior state (gender: Female conflicts with prior forbidden Male, range_type: Melee aligns but species feedback is gray and not aligned with Diana's partial).",
+          "guesses": [
+            "Aatrox",
+            "Diana"
+          ]
+        },
+        {
+          "target": "Twisted Fate",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Corki"
+          ]
+        },
+        {
+          "target": "Vayne",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Yunara",
+          "attempts": 2,
+          "stop": "agent_stop: No se puede determinar un rango de años válido con feedback de feedbackes. Revisar que el año solo acepte valores numéricos o null para desconocerlo.",
+          "guesses": [
+            "Aatrox",
+            "Kalista"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "lora/full",
+      "source": "results/d3/dev/valid_lora_full.json.gz",
+      "split": "valid",
+      "complete": true,
+      "games": 15,
+      "solved": 0,
+      "solve_rate": 0,
+      "attempts": 0,
+      "mean_attempts_solved": null,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": null,
+      "eligible_attempts": 0,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.6699999999999999,
+      "stopped_games": 15,
+      "zero_submission_games": 15,
+      "calls": 270,
+      "calls_per_game": 18.0,
+      "model_seconds": 116.033,
+      "model_seconds_per_game": 7.735533333333334,
+      "completion_tokens": 7725,
+      "api_errors": 0,
+      "protocol_errors": 240,
+      "revisions": 0,
+      "tool_calls": 15,
+      "failures": [
+        {
+          "target": "Ambessa",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Amumu",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Corki",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Evelynn",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Illaoi",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Karthus",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Kha'Zix",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Orianna",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Quinn",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Shen",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Shyvana",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Twisted Fate",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Vayne",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Yunara",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Zaahen",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        }
+      ]
+    }
+  ],
+  "source_hashes": {
+    "agents_d3/prompts/common.txt": "a92e082496c289fbaee113075c79b182b3944f22dd054f79eff093fb131dcdfd",
+    "agents_d3/prompts/examples_memory.txt": "aa47c389ae26cdf581e9a93f936fa51550734ad31300c48919928397b45e2956",
+    "agents_d3/prompts/examples_selector.txt": "8c77b582e18700940e8a55be60f2ccc613e30ed68a160f46c299c40c544c6fc2",
+    "agents_d3/prompts/examples_verifier.txt": "a4380f6040cc506c32262e7f6afb45d85df37ac7ca7f63406240ff5184e07a7a",
+    "agents_d3/prompts/memory.txt": "34492a87172fbe5d722d7ba056e68d961155632b5125c82748ef40959b80a2b1",
+    "agents_d3/prompts/no_previous_state.txt": "dbe1c1dbe20b8182c02063459da5025e9c3333393ae435b3d526397ca68f655a",
+    "agents_d3/prompts/no_revision.txt": "b92e35e2e244bc7157e191e8ec6fc6c033864e31b40978b5a090e909789b2d53",
+    "agents_d3/prompts/selector.txt": "f4f33c3897bc9376dad873f3e734bd18df02f91de80a75685d8a7e57d2c77708",
+    "agents_d3/prompts/verifier.txt": "45ab8b2cfaf2599ad9ef9333d1636c72ca1de13c2db0160bb3be8939f8f0140d",
+    "agents_d3/runtime.py": "a4de8ad1f73a05db89007fd097997cd6596c8a3b5a53eb0275f3dcfde8af39e8",
+    "agents_d3/state.py": "cd48784c66abfed03076b8e8895ec762a8fd873f0c7646e9d9d21df4f483a9a1",
+    "agents_d3/client.py": "809d812320af38e1256f66cebb330280471d6310665894ebf6159018c0fc5273"
+  },
+  "agent_config": {
+    "examples": true,
+    "previous_state": true,
+    "revision": true,
+    "max_calls_per_turn": 18,
+    "max_calls_per_game": 160,
+    "max_attempts": 10
+  },
+  "max_tokens": 768,
+  "adapter_sha256": null,
+  "test_targets_used_for_selection": false,
+  "note": "Objetivos test ya usados en D1/D2; no se usan para ajustar el protocolo D3."
+}

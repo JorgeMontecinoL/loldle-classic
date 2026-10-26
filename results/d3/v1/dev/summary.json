@@ -1,0 +1,266 @@
+{
+  "rows": [
+    {
+      "label": "base/full",
+      "source": "results/d3/dev/valid_base_full.json.gz",
+      "split": "valid",
+      "complete": true,
+      "games": 15,
+      "solved": 4,
+      "solve_rate": 0.26666666666666666,
+      "attempts": 28,
+      "mean_attempts_solved": 2.0,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": 0.0,
+      "eligible_attempts": 13,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.8006666666666666,
+      "stopped_games": 11,
+      "zero_submission_games": 0,
+      "calls": 353,
+      "calls_per_game": 23.533333333333335,
+      "model_seconds": 180.041,
+      "model_seconds_per_game": 12.002746666666667,
+      "completion_tokens": 15005,
+      "api_errors": 0,
+      "protocol_errors": 50,
+      "revisions": 27,
+      "tool_calls": 164,
+      "failures": [
+        {
+          "target": "Amumu",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Alistar"
+          ]
+        },
+        {
+          "target": "Evelynn",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Illaoi",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ambessa"
+          ]
+        },
+        {
+          "target": "Karthus",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Corki"
+          ]
+        },
+        {
+          "target": "Kha'Zix",
+          "attempts": 3,
+          "stop": "agent_stop: Inconsistent feedback detected: prior exact[range_type]=[Melee] conflicts with exact[gender]=[Male] and year bounds, and candidate Draven is not in used. Must revalidate tool results.",
+          "guesses": [
+            "Aatrox",
+            "Blitzcrank",
+            "Fizz"
+          ]
+        },
+        {
+          "target": "Orianna",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Shen",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Darius"
+          ]
+        },
+        {
+          "target": "Shyvana",
+          "attempts": 2,
+          "stop": "agent_stop: Contradiction detected: Diana's feedback conflicts with prior state (gender: Female conflicts with prior forbidden Male, range_type: Melee aligns but species feedback is gray and not aligned with Diana's partial).",
+          "guesses": [
+            "Aatrox",
+            "Diana"
+          ]
+        },
+        {
+          "target": "Twisted Fate",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Corki"
+          ]
+        },
+        {
+          "target": "Vayne",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Yunara",
+          "attempts": 2,
+          "stop": "agent_stop: No se puede determinar un rango de años válido con feedback de feedbackes. Revisar que el año solo acepte valores numéricos o null para desconocerlo.",
+          "guesses": [
+            "Aatrox",
+            "Kalista"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "lora/full",
+      "source": "results/d3/dev/valid_lora_full.json.gz",
+      "split": "valid",
+      "complete": true,
+      "games": 15,
+      "solved": 0,
+      "solve_rate": 0,
+      "attempts": 0,
+      "mean_attempts_solved": null,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": null,
+      "eligible_attempts": 0,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.6699999999999999,
+      "stopped_games": 15,
+      "zero_submission_games": 15,
+      "calls": 270,
+      "calls_per_game": 18.0,
+      "model_seconds": 116.033,
+      "model_seconds_per_game": 7.735533333333334,
+      "completion_tokens": 7725,
+      "api_errors": 0,
+      "protocol_errors": 240,
+      "revisions": 0,
+      "tool_calls": 15,
+      "failures": [
+        {
+          "target": "Ambessa",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Amumu",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Corki",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Evelynn",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Illaoi",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Karthus",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Kha'Zix",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Orianna",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Quinn",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Shen",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Shyvana",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Twisted Fate",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Vayne",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Yunara",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        },
+        {
+          "target": "Zaahen",
+          "attempts": 0,
+          "stop": "call_limit",
+          "guesses": []
+        }
+      ]
+    }
+  ],
+  "comparisons": {
+    "lora/full → base/full": {
+      "paired_targets": 15,
+      "wins": 4,
+      "losses": 0,
+      "mcnemar_exact_p": 0.125
+    },
+    "base/full → lora/full": {
+      "paired_targets": 15,
+      "wins": 0,
+      "losses": 4,
+      "mcnemar_exact_p": 0.125
+    }
+  },
+  "note": "Una partida por objetivo, temperatura 0. No son réplicas independientes. Los paros cuentan como no resueltos."
+}

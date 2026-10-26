@@ -11,7 +11,7 @@ from urllib.parse import parse_qs, urlparse
 from run_benchmark import load_engine, build_runner
 from .analyze import read
 from .client import ModelClient
-from .evaluate import ROOT, atomic_json, legacy_game
+from .evaluate import ADAPTERS, ROOT, SEARCH, atomic_json, legacy_game
 from .runtime import AgentSystem, AgentConfig
 from .state import jsonable
 
@@ -84,9 +84,9 @@ def handler_for(args):
 
                 try:
                     send({'kind': 'start', 'variant': variant, 'mode': 'live', 'target': target})
-                    adapter = str(ROOT / 'finetune/adapters/final') if args.weights == 'lora' else None
+                    adapter = str(ROOT / ADAPTERS[args.weights]) if ADAPTERS[args.weights] else None
                     client = ModelClient(args.base_url, adapter=adapter)
-                    system = AgentSystem(client, observer=send)
+                    system = AgentSystem(client, AgentConfig(search=SEARCH.get(args.weights, "d2")), observer=send)
                     if variant == 'full':
                         record = system.play(target)
                     else:
@@ -131,7 +131,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--port', type=int, default=8766)
     p.add_argument('--base-url', default='http://127.0.0.1:8083/v1')
-    p.add_argument('--weights', choices=('base', 'lora'), default='base')
+    p.add_argument('--weights', choices=tuple(ADAPTERS), default='base')
     args = p.parse_args()
     server = ThreadingHTTPServer(('127.0.0.1', args.port), handler_for(args))
     print(f'Demo D3: http://127.0.0.1:{args.port}', flush=True)

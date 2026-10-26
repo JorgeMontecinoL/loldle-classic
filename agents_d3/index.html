@@ -9,23 +9,20 @@
 <svg viewBox="0 0 640 440" role="img" aria-label="Grafo de agentes, herramientas, revisiones y feedback del juego"><defs><marker id="arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7" fill="#99aa9e"/></marker></defs>
 <path class="edge" d="M175 64H245"/><text class="edge-label" x="180" y="54">historial</text><path class="edge" d="M390 64H495"/><text class="edge-label" x="409" y="54">estado</text>
 <path class="edge" d="M320 94V146"/><path class="edge" d="M335 146V94"/><text class="edge-label" x="343" y="122">validación</text>
-<path class="edge" d="M550 94V146"/><path class="edge" d="M566 146V94"/><text class="edge-label" x="575" y="122">consulta</text>
-<path class="edge" d="M550 199V261H395"/><text class="edge-label" x="435" y="248">propuesta</text>
-<path class="edge" d="M320 291V340"/><path class="edge" d="M335 340V291"/><text class="edge-label" x="345" y="321">auditoría</text>
+<path class="edge" d="M550 94V261H395"/><text class="edge-label" x="435" y="248">propuesta</text>
+<path class="edge" d="M320 291V340"/><path class="edge" d="M335 340V291"/><text class="edge-label" x="345" y="321">fila del candidato</text>
 <path class="edge" d="M60 94V214H230V245H245"/><text class="edge-label" x="67" y="204">evidencia original</text><path class="edge" d="M245 261H130V94"/><text class="edge-label" x="137" y="246">aprobación → juego</text>
-<path class="edge revision" d="M390 276H604V72H590"/><text class="edge-label" x="458" y="298">revisar selección</text>
+<path class="edge revision" d="M390 276H604V72H590"/><text class="edge-label" x="440" y="298">rechazo → siguiente de la lista</text>
 <path class="edge revision" d="M245 278H209V77H245"/><text class="edge-label" x="211" y="211" transform="rotate(-90 211 211)">revisar memoria</text>
-<path class="edge revision" d="M500 45V21H320V34"/><text class="edge-label" x="380" y="15">sin candidatos → revisar</text>
 <g class="node" id="node-game"><rect x="30" y="34" width="145" height="60" rx="10"/><text x="48" y="59">Juego / historial</text><text x="48" y="78" class="small">feedback público</text></g>
 <g class="node" id="node-memory"><rect x="245" y="34" width="145" height="60" rx="10"/><text x="264" y="59">01 · Memoria</text><text x="264" y="78" class="small">interpreta las pistas</text></g>
-<g class="node" id="node-selector"><rect x="480" y="34" width="145" height="60" rx="10"/><text x="497" y="59">02 · Selector</text><text x="497" y="78" class="small">propone una jugada</text></g>
+<g class="node" id="node-selector"><rect x="480" y="34" width="145" height="60" rx="10"/><text x="497" y="59">02 · Selector</text><text x="497" y="78" class="small">busca de a 25 filas</text></g>
 <g class="node tool" id="node-validar_estado"><rect x="245" y="146" width="145" height="53" rx="5"/><text x="258" y="169">validar_estado</text><text x="258" y="186" class="small">consistencia interna</text></g>
-<g class="node tool" id="node-consultar_roster"><rect x="480" y="146" width="145" height="53" rx="5"/><text x="493" y="169">consultar_roster</text><text x="493" y="186" class="small">filtra el estado recibido</text></g>
 <g class="node" id="node-verifier"><rect x="245" y="232" width="150" height="60" rx="10"/><text x="260" y="257">03 · Verificador</text><text x="260" y="276" class="small">aprueba o devuelve</text></g>
-<g class="node tool" id="node-validar_jugada"><rect x="245" y="340" width="150" height="53" rx="5"/><text x="260" y="363">validar_jugada</text><text x="260" y="380" class="small">evidencia pública original</text></g>
-<text class="edge-label" x="30" y="421">Parada: resuelto · 10 jugadas · stop del agente · 18 llamadas/turno · 160/partida</text></svg>
+<g class="node tool" id="node-ver_atributos"><rect x="245" y="340" width="150" height="53" rx="5"/><text x="260" y="363">ver_atributos</text><text x="260" y="380" class="small">fila del roster, sin comparar</text></g>
+<text class="edge-label" x="30" y="421">Parada: resuelto · 10 jugadas · stop · 3 rechazos · 60 llamadas/turno · 160/partida</text></svg>
 <div class="metric-row"><div><strong id="calls">0</strong><span>llamadas del equipo</span></div><div><strong id="revisions">0</strong><span>devoluciones</span></div><div><strong id="elapsed">0 s</strong><span>tiempo observado</span></div></div>
-<details open><summary>Estado que escribió Memoria</summary><pre id="memory">Aún no hay estado.</pre></details><p class="fine">Las cajas amarillas son herramientas deterministas. El modelo decide cuándo llamarlas y si acepta sus resultados.</p></section>
+<details open><summary>Estado que escribió Memoria</summary><pre id="memory">Aún no hay estado.</pre></details><p class="fine">Las cajas amarillas son herramientas deterministas que no deducen: validan formato o devuelven una fila del roster. El Selector revisa el roster de a 25 filas y escribe un veredicto por fila.</p></section>
 <section><h2>Mensajes y decisiones reales</h2><div class="trace-list" id="events"></div><details id="detail"><summary>Inspeccionar entrada / salida</summary><pre id="payload">Selecciona un evento.</pre></details><h3>Respuesta más reciente</h3><pre id="output">—</pre></section></div>
 <div class="columns"><section><h2 id="solution-title">Sistema de agentes</h2><div class="board"><table><thead><tr><th>Jugada</th><th>Gén.</th><th>Pos.</th><th>Esp.</th><th>Rec.</th><th>Alc.</th><th>Reg.</th><th>Año</th></tr></thead><tbody id="board-full"></tbody></table></div><p id="outcome-full" class="status">—</p></section><section><h2 id="baseline-title">Referencia · mismo objetivo</h2><div class="board"><table><thead><tr><th>Jugada</th><th>Gén.</th><th>Pos.</th><th>Esp.</th><th>Rec.</th><th>Alc.</th><th>Reg.</th><th>Año</th></tr></thead><tbody id="board-reference"></tbody></table></div><p id="outcome-reference" class="status">—</p></section></div>
 <section><h2>Evaluación guardada</h2><p class="fine">Selecciona una cabecera para ordenar. Los paros cuentan como no resueltos; una tasa de violación baja por sí sola no indica éxito.</p><div class="board"><table><thead id="results-head"></thead><tbody id="results"></tbody></table></div><div class="cases" id="cases"></div></section>

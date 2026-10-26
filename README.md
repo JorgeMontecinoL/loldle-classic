@@ -2,10 +2,14 @@
 
 ## Entregable 3 · sistema de agentes
 
-La continuación incorpora **Memoria, Selector y Verificador**, con herramientas
-y ciclos de revisión, usando Ministral 3B. La demo se inicia con
-`scripts/demo_d3.sh` en el puerto 8766. Incluye comparación de pesos en
-validación, tres ablaciones y controles sobre los mismos objetivos.
+La continuación encapsula el trabajo del Entregable 2 en **Memoria, Selector y
+Verificador**, tres agentes con el mismo Ministral 3B y los mismos pesos: un
+adaptador LoRA común entrenado para los tres roles. Memoria conserva lo revelado,
+el Selector busca en el roster de a 25 filas con un veredicto por fila y el
+Verificador revisa cada jugada antes de gastar un intento. Ninguna herramienta hace
+la deducción. En prueba (30 objetivos) resuelve **25/30**, frente a 2/30 del
+prompting directo y 14/30 del D2; las ablaciones y los fallos están documentados.
+La demo se inicia con `scripts/demo_d3.sh` en el puerto 8766.
 
 Documentación: [agents_d3/README.md](agents_d3/README.md).
 Grafo: [docs/d3/ARQUITECTURA.md](docs/d3/ARQUITECTURA.md).

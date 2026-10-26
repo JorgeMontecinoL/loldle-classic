@@ -85,7 +85,7 @@ def main():
     parser.add_argument('--input', default='results/d3/raw')
     parser.add_argument('--out', default='results/d3')
     args = parser.parse_args()
-    paths = sorted((ROOT / args.input).glob('*.json*'))
+    paths = sorted((ROOT / args.input).glob('*.json.gz'))
     payloads = [(p, read(p)) for p in paths]
     rows = [metrics(p, path) for path, p in payloads if p.get('records')]
     out = ROOT / args.out
