@@ -43,6 +43,9 @@ muestra su entrada y salida exactas. Las partidas quedan en
 `results/d3/app_runs/*.json.gz`. Los botones «Ver fallo» reproducen **trazas
 guardadas**, etiquetadas como tales; no llaman al modelo.
 
+El video de la entrega ([`docs/d3/videoD3.mp4`](../docs/d3/videoD3.mp4)) y cómo
+repetirlo se describen en el [README raíz](../README.md#video-del-entregable-3).
+
 ## Reproducir el entrenamiento
 
 Cada ronda parte del adaptador de la anterior (unas 1-2 h cada una en un M5 Pro,

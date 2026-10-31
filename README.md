@@ -15,6 +15,38 @@ Documentación: [agents_d3/README.md](agents_d3/README.md).
 Grafo: [docs/d3/ARQUITECTURA.md](docs/d3/ARQUITECTURA.md).
 Resultados: [results/d3/ANALISIS_D3.md](results/d3/ANALISIS_D3.md).
 
+### Video del Entregable 3
+
+**[Ver el video (2:12, sin audio)](https://cdn.jsdelivr.net/gh/JorgeMontecinoL/loldle-classic@ed0d3a3/docs/d3/videoD3.mp4)**
+· archivo en el repositorio: [`docs/d3/videoD3.mp4`](docs/d3/videoD3.mp4).
+
+Una sola toma de la app de `scripts/demo_d3.sh` (`http://127.0.0.1:8766`), con los
+pesos de `results/d3/selection.json` (`paginas`). Muestra dos cosas:
+
+1. **Partida en vivo, objetivo Mordekaiser** (conjunto de prueba), con «Comparar con:
+   D2 · fine-tuning LoRA» y «Jugar comparación en vivo». Se ven el agente activo en el
+   grafo, cada mensaje entre agentes (Memoria `entregar_estado`, Selector `listar` por
+   página de 25 filas, Verificador `ver_atributos` y `aprobar`), el estado que escribe
+   Memoria y la respuesta más reciente. Los agentes resuelven en **3 jugadas** (Aatrox,
+   Darius, Mordekaiser) con 30 llamadas, 0 devoluciones y 74,0 s de modelo. Después, la
+   solución del D2 juega el mismo objetivo y no lo resuelve en 10 jugadas (repite Garen).
+2. **Caso de fallo, «Ver fallo · paginas/full · Samira»**: reproduce la traza guardada de
+   la evaluación de prueba (rotulada «TRAZA GUARDADA · no es una ejecución en vivo»; no
+   llama al modelo y se anima más rápido que el original). Samira queda sin resolver tras
+   2 jugadas (Aatrox, Kai'Sa), 82 llamadas, 1 devolución y 147,2 s de modelo: en el
+   tercer turno Memoria encadena 60 errores de protocolo y la partida se detiene por
+   `call_limit` (60 llamadas por turno).
+
+**Trazas.** El fallo es el registro `target == "Samira"` de
+[`results/d3/raw/test_paginas_full.json.gz`](results/d3/raw/test_paginas_full.json.gz).
+La partida en vivo queda en `results/d3/app_runs/` del equipo que la grabó; el mismo
+archivo de prueba contiene Mordekaiser con las mismas 3 jugadas y 30 llamadas (63,8 s de
+modelo: sólo cambian las latencias).
+
+**Repetirlo.** Con la demo arriba, escribir `Mordekaiser` en «Objetivo compartido», dejar
+«Comparar con» en «D2 · fine-tuning LoRA» y pulsar «Jugar comparación en vivo»; al
+terminar, bajar a «Evaluación guardada» y pulsar «Ver fallo · paginas/full · Samira».
+
 ---
 
 Inteligencia Artificial Generativa (580694). **Entregable 2**: la intervención contra
