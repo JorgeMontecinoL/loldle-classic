@@ -21,8 +21,14 @@ Cada fila declara su tamaño y si terminó. Los fallos y paros permanecen en los
 - La equivalencia de Memoria exportada compara el conjunto de candidatos de su última entrega por turno con el derivado del feedback público. No garantiza igualdad de todas las cláusulas ni evalúa estados que nunca llegaron a entregarse.
 - Directo y D2 permiten 64 tokens por turno. Cada agente permite hasta 768 por llamada y varias llamadas; los costes no son iguales.
 - McNemar mide diferencias pareadas de resolución en estos objetivos. No prueba que un agente razone ni generaliza a otros juegos. Las múltiples comparaciones son exploratorias.
+- La mejora de 14 a 25 frente al D2 corresponde a toda la configuración (adaptador, hasta 768 tokens por llamada, 46,5 frente a 7,2 llamadas por partida), no a un agente.
+- Sin revisión: 13 de los 16 paros son `revision_disabled` (el Verificador pidió revisar y la ablación detiene la partida) y 3 `call_limit`; la prueba mide a la vez revisar y poder continuar. El motivo de `revisar_selector` sólo se registra y no llega al Selector; sólo `revisar_memoria` lo entrega, y no se usó en prueba.
+- Sin ejemplos (p = 0,12) y sin resumen previo de Memoria (29/30, p = 0,22) no son significativos. El adaptador se entrenó con ejemplos en el prompt. Que sin resumen se resuelva más cuestiona la ventaja del resumen incremental, sin probar que reconstruir sea mejor.
+- Paginación, prellenado JSON y `ver_atributos` no tienen ablación propia.
 
 ## Comparaciones pareadas
+
+En «X → paginas/full», victorias y derrotas son las del sistema completo respecto de X.
 
 - base/direct → paginas/full: 24 victorias, 1 derrotas discordantes; p=1.54972e-06 (n=30).
 - lora/d2_lora → paginas/full: 13 victorias, 2 derrotas discordantes; p=0.00738525 (n=30).
@@ -34,6 +40,8 @@ Cada fila declara su tamaño y si terminó. Los fallos y paros permanecen en los
 
 ## Fallos reales
 
+Se listan todos los fallos del sistema completo y los tres primeros de cada otra variante; la lista completa está en `summary.json`.
+
 - **base/direct · Karma**: 10 jugadas; 10 intentos agotados; secuencia: Kassadin, Malzahar, Malzahar, Xerath, Xerath, Ryze, None, Ryze, None, Ryze. Fuente: `results/d3/raw/test_base_direct.json.gz`.
 - **base/direct · Zoe**: 10 jugadas; 10 intentos agotados; secuencia: Kassadin, Malzahar, Kai'Sa, Kai'Sa, Kassadin, Malzahar, Kai'Sa, Kassadin, Kassadin, Malzahar. Fuente: `results/d3/raw/test_base_direct.json.gz`.
 - **base/direct · Nocturne**: 10 jugadas; 10 intentos agotados; secuencia: Kassadin, Kai'Sa, Kog'Maw, Vel'Koz, Kassadin, None, Kassadin, Kassadin, Kog'Maw, Kassadin. Fuente: `results/d3/raw/test_base_direct.json.gz`.
@@ -43,6 +51,8 @@ Cada fila declara su tamaño y si terminó. Los fallos y paros permanecen en los
 - **paginas/full · Samira**: 2 jugadas; call_limit; secuencia: Aatrox, Kai'Sa. Fuente: `results/d3/raw/test_paginas_full.json.gz`.
 - **paginas/full · Morgana**: 3 jugadas; call_limit; secuencia: Aatrox, Ahri, LeBlanc. Fuente: `results/d3/raw/test_paginas_full.json.gz`.
 - **paginas/full · Thresh**: 2 jugadas; call_limit; secuencia: Aatrox, Lucian. Fuente: `results/d3/raw/test_paginas_full.json.gz`.
+- **paginas/full · Ashe**: 4 jugadas; call_limit; secuencia: Aatrox, Ahri, Tristana, Nidalee. Fuente: `results/d3/raw/test_paginas_full.json.gz`.
+- **paginas/full · Soraka**: 3 jugadas; call_limit; secuencia: Aatrox, Ahri, Sona. Fuente: `results/d3/raw/test_paginas_full.json.gz`.
 - **paginas/no_examples · Nocturne**: 2 jugadas; call_limit; secuencia: Ahri, Jarvan IV. Fuente: `results/d3/raw/test_paginas_no_examples.json.gz`.
 - **paginas/no_examples · LeBlanc**: 1 jugadas; call_limit; secuencia: Ahri. Fuente: `results/d3/raw/test_paginas_no_examples.json.gz`.
 - **paginas/no_examples · Morgana**: 2 jugadas; call_limit; secuencia: Ahri, Cassiopeia. Fuente: `results/d3/raw/test_paginas_no_examples.json.gz`.

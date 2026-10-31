@@ -160,5 +160,7 @@ igual presupuesto.
 | `lora_config_round2.yaml` | Ronda 2, que continúa desde el adaptador de la ronda 1 |
 | `lora_answer_only.yaml`, `lora_candidates_only.yaml` | Alternativas descartadas |
 | `data/split.json` | Partición de objetivos: prueba, validación y entrenamiento |
-| `adapters/final/` | El adaptador elegido y su configuración |
-| `logs/` | Logs de las cuatro corridas de entrenamiento |
+| `adapters/final/` | El adaptador elegido del Entregable 2 y su configuración |
+| `logs/` | Logs de las corridas de entrenamiento (cuatro del D2 y seis del D3) |
+| `make_data_d3.py`, `lora_config_d3*.yaml` | Datos y rondas del adaptador del Entregable 3 (ver [agents_d3/README.md](../agents_d3/README.md)) |
+| `adapters/d3_paginas_cot3/`, `adapters/d3_multirol/` | Adaptadores del Entregable 3: el seleccionado y el del v3 |

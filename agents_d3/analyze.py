@@ -120,13 +120,19 @@ def main():
               '- El control algorítmico reconstruye todo el feedback sin LLM. Permite separar la capacidad del filtro de la coordinación de agentes.',
               '- La equivalencia de Memoria exportada compara el conjunto de candidatos de su última entrega por turno con el derivado del feedback público. No garantiza igualdad de todas las cláusulas ni evalúa estados que nunca llegaron a entregarse.',
               '- Directo y D2 permiten 64 tokens por turno. Cada agente permite hasta 768 por llamada y varias llamadas; los costes no son iguales.',
-              '- McNemar mide diferencias pareadas de resolución en estos objetivos. No prueba que un agente razone ni generaliza a otros juegos. Las múltiples comparaciones son exploratorias.', '',
-              '## Comparaciones pareadas', '']
+              '- McNemar mide diferencias pareadas de resolución en estos objetivos. No prueba que un agente razone ni generaliza a otros juegos. Las múltiples comparaciones son exploratorias.',
+              '- La mejora de 14 a 25 frente al D2 corresponde a toda la configuración (adaptador, hasta 768 tokens por llamada, 46,5 frente a 7,2 llamadas por partida), no a un agente.',
+              '- Sin revisión: 13 de los 16 paros son `revision_disabled` (el Verificador pidió revisar y la ablación detiene la partida) y 3 `call_limit`; la prueba mide a la vez revisar y poder continuar. El motivo de `revisar_selector` sólo se registra y no llega al Selector; sólo `revisar_memoria` lo entrega, y no se usó en prueba.',
+              '- Sin ejemplos (p = 0,12) y sin resumen previo de Memoria (29/30, p = 0,22) no son significativos. El adaptador se entrenó con ejemplos en el prompt. Que sin resumen se resuelva más cuestiona la ventaja del resumen incremental, sin probar que reconstruir sea mejor.',
+              '- Paginación, prellenado JSON y `ver_atributos` no tienen ablación propia.', '',
+              '## Comparaciones pareadas', '',
+              'En «X → paginas/full», victorias y derrotas son las del sistema completo respecto de X.', '']
     for label, comparison in comparisons.items():
         lines.append(f"- {label}: {comparison['wins']} victorias, {comparison['losses']} derrotas discordantes; p={comparison['mcnemar_exact_p']:.6g} (n={comparison['paired_targets']}).")
-    lines += ['', '## Fallos reales', '']
+    lines += ['', '## Fallos reales', '',
+              'Se listan todos los fallos del sistema completo y los tres primeros de cada otra variante; la lista completa está en `summary.json`.', '']
     for row in rows:
-        for failure in row['failures'][:3]:
+        for failure in row['failures'] if row['label'] == 'paginas/full' else row['failures'][:3]:
             lines.append(f"- **{row['label']} · {failure['target']}**: {failure['attempts']} jugadas; {failure['stop'] or '10 intentos agotados'}; secuencia: {', '.join(str(n) for n in failure['guesses']) or 'ninguna'}. Fuente: `{row['source']}`.")
     (out / 'ANALISIS_D3.md').write_text('\n'.join(lines) + '\n')
     print(out / 'ANALISIS_D3.md')
