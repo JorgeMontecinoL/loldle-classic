@@ -1,5 +1,84 @@
 # LoLdle Classic — seguimiento de restricciones con un modelo de 3B
 
+## Entregable 3 · sistema de agentes
+
+La continuación encapsula el trabajo del Entregable 2 en **Memoria, Selector y
+Verificador**, tres agentes con el mismo Ministral 3B y los mismos pesos: un
+adaptador LoRA común entrenado para los tres roles. Memoria conserva lo revelado,
+el Selector busca en el roster de a 25 filas con un veredicto por fila y el
+Verificador revisa cada jugada antes de gastar un intento. Ninguna herramienta hace
+la deducción. En prueba (30 objetivos) resuelve **25/30**, frente a 2/30 de la
+referencia directa (el mismo modelo sin ajuste LoRA; el D2 midió 1/30 con esa
+configuración, la diferencia es Samira) y 14/30 de la solución del D2; las ablaciones
+y los fallos están documentados.
+
+Para correr la demo: macOS con Apple Silicon y `uv`, desde la raíz del repositorio.
+
+```bash
+uv venv .venv-ft --python 3.12        # omitir si ya existe el entorno del D2
+uv pip install --python .venv-ft/bin/python -r agents_d3/requirements.txt
+# Una sola vez: bajar los pesos (2,78 GB) antes, porque el script espera 120 s al servidor.
+.venv-ft/bin/python -c "from huggingface_hub import snapshot_download; snapshot_download('mlx-community/Ministral-3-3B-Instruct-2512-4bit')"
+scripts/demo_d3.sh                    # http://127.0.0.1:8766
+```
+
+Documentación: [agents_d3/README.md](agents_d3/README.md) (continuidad, desviaciones,
+evaluación y trazas). Grafo, contratos y técnicas:
+[docs/d3/ARQUITECTURA.md](docs/d3/ARQUITECTURA.md). Prompts de cada agente:
+[agents_d3/prompts/](agents_d3/prompts/). Trazas: [results/d3/raw/](results/d3/raw/).
+Resultados: [results/d3/ANALISIS_D3.md](results/d3/ANALISIS_D3.md).
+
+### Video del Entregable 3
+
+**[Ver el video (2:12, sin audio)](https://cdn.jsdelivr.net/gh/JorgeMontecinoL/loldle-classic@ed0d3a3/docs/d3/videoD3.mp4)**
+· archivo en el repositorio: [`docs/d3/videoD3.mp4`](docs/d3/videoD3.mp4).
+
+Una sola toma de la app de `scripts/demo_d3.sh` (`http://127.0.0.1:8766`), con los
+pesos de `results/d3/selection.json` (`paginas`): 0:06–1:20 partida en vivo con
+Mordekaiser; 1:20–1:34 el D2 sobre el mismo objetivo; 1:42–2:09 la traza guardada
+de Samira, rotulada como tal. Muestra dos cosas:
+
+1. **Partida en vivo, objetivo Mordekaiser** (conjunto de prueba), con «Comparar con:
+   D2 · fine-tuning LoRA» y «Jugar comparación en vivo». Se ven el agente activo en el
+   grafo, cada mensaje entre agentes (Memoria `entregar_estado`, Selector `listar` por
+   página de 25 filas, Verificador `ver_atributos` y `aprobar`), el estado que escribe
+   Memoria y la respuesta más reciente. Los agentes resuelven en **3 jugadas** (Aatrox,
+   Darius, Mordekaiser) con 30 llamadas, 0 devoluciones y 74,0 s de modelo. Después, la
+   solución del D2 juega el mismo objetivo y no lo resuelve en 10 jugadas (repite Garen).
+2. **Caso de fallo, «Ver fallo · paginas/full · Samira»**: reproduce la traza guardada de
+   la evaluación de prueba (rotulada «TRAZA GUARDADA · no es una ejecución en vivo»; no
+   llama al modelo y se anima más rápido que el original). Samira queda sin resolver tras
+   2 jugadas (Aatrox, Kai'Sa), 82 llamadas, 1 devolución y 147,2 s de modelo: en el
+   tercer turno Memoria encadena 60 errores de protocolo y la partida se detiene por
+   `call_limit` (60 llamadas por turno).
+
+**Trazas.** El fallo es el registro `target == "Samira"` de
+[`results/d3/raw/test_paginas_full.json.gz`](results/d3/raw/test_paginas_full.json.gz).
+La partida en vivo del video no se versionó (la app la guarda en `results/d3/app_runs/`
+del equipo que la grabó); su equivalente en el repositorio es el registro
+`target == "Mordekaiser"` del mismo archivo, con las mismas 3 jugadas y 30 llamadas
+(63,8 s de modelo: sólo cambian las latencias). El D2 sobre Mordekaiser está en
+[`results/d3/raw/test_lora_d2_lora.json.gz`](results/d3/raw/test_lora_d2_lora.json.gz).
+
+**Fallos del sistema.** Los 5 paros de la prueba terminan al agotar 60 llamadas en un
+turno. En cuatro (Morgana, Thresh, Ashe, Soraka) Memoria entrega un estado equivalente
+al público, pero el Selector descarta al secreto en todas las pasadas; en Samira, el
+caso del video, el fallo es de Memoria.
+
+**Repetirlo.** Con la demo arriba, escribir `Mordekaiser` en «Objetivo compartido», dejar
+«Comparar con» en «D2 · fine-tuning LoRA» y pulsar «Jugar comparación en vivo»; al
+terminar, bajar a «Evaluación guardada» y pulsar «Ver fallo · paginas/full · Samira».
+
+**Evaluación de prueba.** `scripts/eval_d3.sh test` ejecuta el protocolo congelado (8
+configuraciones sobre los 30 objetivos) contra el modelo base servido en el puerto
+8083 (ver [agents_d3/README.md](agents_d3/README.md#evaluación-reproducible)). Como
+reanuda desde `results/d3/raw/`, que ya está completo, no vuelve a jugar; repetirlo
+desde cero exige mover antes esas trazas (`mv results/d3/raw results/d3/raw_original`).
+
+---
+
+Lo que sigue documenta el Entregable 2 y se conserva por continuidad.
+
 Inteligencia Artificial Generativa (580694). **Entregable 2**: la intervención contra
 el fallo diagnosticado en el Entregable 1, funcionando de punta a punta y medida
 contra el baseline de prompting directo sobre las mismas entradas.
@@ -9,7 +88,7 @@ modelo a escribir lo que ya sabe antes de jugar pasa de **1/30 a 14/30** partida
 resueltas con los mismos pesos (p = 0,001), y el mismo modelo, con una consulta al
 roster que ejecuta su propio estado, resuelve **30/30**.
 
-## Qué muestra el video
+## Qué mostró el video del Entregable 2
 
 `scripts/demo.sh` levanta la app del **pipeline en vivo** (`http://127.0.0.1:8765`),
 que juega cada partida con dos variantes lado a lado, sobre la misma entrada:
@@ -42,7 +121,7 @@ cualquier campeón elegido a mano (prueba, validación o entrenamiento). El cont
 **Didáctico / Tiempo real** sólo espacia la animación entre etapas; las llamadas al
 modelo y sus latencias son las reales.
 
-### La toma del video
+### La toma del video del Entregable 2
 
 Una sola toma, sin cortes (2:03), de **Serie al azar de 7**: siete objetivos distintos
 entre los 30 de prueba, jugados uno tras otro con las dos variantes. La primera partida
@@ -71,7 +150,7 @@ juego había revelado, y el 68% de los nombres que lista como compatibles lo son
 
 Los objetivos fueron Malzahar, Veigar, Lissandra, Pantheon, Mordekaiser, Zoe y Elise.
 El baseline sólo resuelve Malzahar. Las dos fallas del fine-tuning son los dos modos
-descritos en [Dónde falla la solución](#dónde-falla-la-solución-y-por-qué):
+descritos en [Dónde falla la solución](#dónde-falla-la-solución-del-entregable-2-y-por-qué):
 Mordekaiser queda atascado repitiendo Garen siete veces, y Pantheon agota los intentos
 con jugadas que contradicen lo revelado, sin llegar a atascarse.
 Para repetir exactamente esa serie, con la demo arriba, abre
@@ -89,7 +168,7 @@ figura entre las fallas del panel de evidencia. El baseline varía más en sus j
 mismo en las 7. En la evaluación, esos mismos 7 objetivos dan 4/7 para el fine-tuning
 y 1/7 para el baseline.
 
-## Reproducir la demo
+## Reproducir la demo del Entregable 2
 
 Requiere un Mac con Apple Silicon (se desarrolló en un M5 Pro de 64 GB), `uv` y
 conexión para descargar los pesos una vez (2,78 GB).
@@ -181,7 +260,7 @@ se jugaron una única vez, con ese modelo. Configuraciones comentadas en
 El paso a paso —datos, hiperparámetros, elección del punto de control y cómo usar o
 fusionar el modelo ajustado— está en **[finetune/README.md](finetune/README.md)**.
 
-## Resultados sobre los 30 objetivos de prueba
+## Resultados del Entregable 2 sobre los 30 objetivos de prueba
 
 Los mismos 30 campeones del Entregable 1 (SEED=777), el mismo motor y el mismo
 criterio de corrección para todas las variantes. Detalle completo, pruebas y tablas
@@ -231,7 +310,7 @@ Todas sobre los 15 objetivos de validación, antes de tocar el conjunto de prueb
 | Fine-tuning de tres pasos · ronda 2 (pasos 200 / 400 / 800, **el 800 es el elegido**) | 2 · 6 · 8 /15 | reiniciar la tasa hunde el paso 200; al final, estado exacto en el 99% de los turnos |
 | Fine-tuning + consulta al roster | 14/15 | ver Twisted Fate, abajo |
 
-## Dónde falla la solución, y por qué
+## Dónde falla la solución del Entregable 2, y por qué
 
 **Zac, con el fine-tuning puro** (objetivo de prueba; es el que salió al sortear en la
 app). El modelo escribe su estado sin error —`Male · Melee · 2013`— y propone Yasuo,
@@ -252,7 +331,7 @@ cuando el estado queda incompleto.
 Ambas partidas se pueden jugar en la app: Zac con `scripts/demo.sh`, Twisted Fate con
 `scripts/demo.sh state-tool`, eligiéndolo en la lista.
 
-## Desviaciones respecto del Entregable 1, declaradas
+## Desviaciones del Entregable 2 respecto del Entregable 1, declaradas
 
 1. **Formato de la respuesta.** El modelo ajustado escribe dos líneas de trabajo
    (`Sé:` y `Compatibles:`) antes de la jugada, y el pipeline envía al juego sólo
@@ -270,7 +349,9 @@ Ambas partidas se pueden jugar en la app: Zac con `scripts/demo.sh`, Twisted Fat
    (Q4_K_M ≈ 4,8 bits/peso con tensores a 6 bits, frente a 4 bits afín). Se reportan
    ambos.
 3. **Tokens de salida.** Se mantiene `max_tokens=64`: la respuesta de tres líneas mide
-   33 tokens de mediana y 48 como máximo en los datos de entrenamiento.
+   33 tokens de mediana y 48 como máximo en los datos de entrenamiento. (El
+   Entregable 3 usa hasta 768 tokens por llamada; sus desviaciones están en
+   [agents_d3/README.md](agents_d3/README.md#continuidad-con-el-d1-y-el-d2-y-desviaciones-declaradas).)
 
 ## Límites conocidos, y por qué ocurren
 
@@ -344,8 +425,15 @@ evaluación. Las alternativas descartadas se reproducen con
 | `finetune/README.md` | Cómo se hizo el fine-tuning, paso a paso, y cómo usar el modelo ajustado. |
 | `finetune/make_data.py` | Genera los datos de entrenamiento con el motor del notebook. |
 | `finetune/lora_*.yaml` | Configuraciones de entrenamiento, comentadas con lo medido. |
-| `finetune/adapters/final/` | El adaptador LoRA elegido (45 MB). |
-| `finetune/logs/` | Logs de las cuatro corridas de entrenamiento. |
+| `finetune/adapters/final/` | El adaptador LoRA elegido del Entregable 2 (45 MB). |
+| `finetune/logs/` | Logs de las corridas de entrenamiento (D2 y D3). |
+| `agents_d3/` | Sistema de agentes del Entregable 3: controlador (`runtime.py`), estado y herramientas (`state.py`), cliente del modelo, evaluación (`evaluate.py`, `select.py`, `analyze.py`) y app de la demo (`app.py` + `index.html`). README propio. |
+| `agents_d3/prompts/` | Un prompt versionado por agente (`memory.txt`, `selector_paginas.txt`, `verifier.txt`), sus ejemplos y los textos de ablación. |
+| `docs/d3/` | `ARQUITECTURA.md` (grafo, contrato de cada agente, técnicas), diagrama (`pipeline.pdf`/`.png`) y `videoD3.mp4`. |
+| `results/d3/` | Entregable 3: `raw/` (trazas de la prueba final, con los mensajes entre agentes), `dev/` (validación), `selection.json` (pesos y hashes congelados), `summary.json`/`.csv`, `ANALISIS_D3.md`. `v1/`, `v2_herramientas/` y `v3/` son protocolos anteriores; `probes*` son exploraciones, no resultados. |
+| `scripts/demo_d3.sh` | Levanta el servidor MLX y la app del Entregable 3 (puerto 8766): lo que muestra su video. |
+| `scripts/eval_d3.sh` | `test`: protocolo congelado de 30 objetivos del Entregable 3 (`valid`: ver `agents_d3/README.md`). |
+| `finetune/make_data_d3.py`, `finetune/lora_config_d3*.yaml` | Datos y rondas del adaptador del Entregable 3; `finetune/adapters/d3_paginas_cot3/` es el seleccionado (45 MB). |
 | `analyze_d2.py` | Métricas, comparación pareada, estrategias evaluadas y casos de falla. |
 | `docs/make_pipeline_diagram.py` | Diagrama del pipeline para el PDF (`docs/pipeline_diagram*.pdf`). |
 | `results/d2/` | Resultados del Entregable 2: `ANALISIS_D2.md`, `summary.json`, trazas por variante en `raw/`, evaluaciones de validación en `dev/`, partidas jugadas en la app en `app_runs/`. |

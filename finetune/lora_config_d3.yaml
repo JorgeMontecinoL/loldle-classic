@@ -1,0 +1,44 @@
+# Entregable 3: un adaptador multirol para Selector, Memoria y Verificador.
+#
+# Por qué: con pesos comunes y sin herramientas que deduzcan, el adaptador del
+# D2 sólo sabe hacer de Selector (Memoria y Verificador vuelven a su formato
+# Sé/Compatibles) y el modelo base no sabe hacer de Selector (validación v3:
+# LoRA 1/15, base 0/15). Este adaptador parte del final del D2 y se entrena en
+# los tres roles a la vez, con la entrada exacta que cada agente recibe:
+#   .venv-ft/bin/python finetune/make_data_d3.py
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3.yaml
+# Partición del D2: 128 objetivos de entrenamiento; los 15 de validación sólo
+# miden la pérdida; los 30 de prueba no aparecen.
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_multirol
+resume_adapter_file: finetune/adapters/final/adapters.safetensors
+adapter_path: finetune/adapters/d3_multirol
+seed: 3030
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true                    # la pérdida cae sólo en la respuesta del rol
+max_seq_length: 8192                 # el ejemplo más largo mide 6.891 tokens
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 1694                          # una pasada: 1.694 ejemplos = 423 actualizaciones
+learning_rate: 1.5e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 8
+  warmup_init: 1.0e-6
+  arguments: [1.5e-5, 415, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 400
+val_batches: 50
+save_every: 400

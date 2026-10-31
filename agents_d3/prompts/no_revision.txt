@@ -1,0 +1,1 @@
+ABLATION: revision is disabled. revisar_memoria and revisar_selector are not available. Wherever a rule above says revisar_memoria or revisar_selector, output {"action":"stop","reason":"same reason"} instead. Every other rule stays the same.

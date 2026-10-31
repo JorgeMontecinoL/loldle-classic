@@ -1,0 +1,45 @@
+# Entregable 3, ronda 2 del adaptador multirol (desde el final de la ronda 1).
+#
+# Por qué: en validación (multirol 5/15) 7 de 10 fallos fueron el mismo bucle:
+# el Selector arma una lista Compatibles equivocada, el Verificador rechaza la
+# jugada con su motivo y el Selector, con decodificación greedy, vuelve a
+# proponer lo mismo hasta agotar las 30 llamadas del turno. La ronda 1 tenía
+# 125 rechazos de una sola vuelta. Esta ronda añade 256 cadenas de 1-3 rechazos
+# (con repeticiones) y un repaso de los tres roles, como la ronda 2 del D2
+# añadió historiales con repeticiones:
+#   .venv-ft/bin/python finetune/make_data_d3.py --round2
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d3_r2.yaml
+# Misma partición: los 15 de validación sólo miden la pérdida; prueba no aparece.
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit
+train: true
+data: finetune/data/d3_multirol_r2
+resume_adapter_file: finetune/adapters/d3_multirol/adapters.safetensors
+adapter_path: finetune/adapters/d3_multirol_r2
+seed: 3031
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 8192
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 466                           # una pasada: 466 ejemplos = 116 actualizaciones
+learning_rate: 1.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 4
+  warmup_init: 1.0e-6
+  arguments: [1.0e-5, 112, 1.0e-6]
+
+steps_per_report: 40
+steps_per_eval: 233
+val_batches: 33
+save_every: 233

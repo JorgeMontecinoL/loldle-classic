@@ -1,0 +1,1362 @@
+{
+  "rows": [
+    {
+      "label": "base/direct",
+      "source": "results/d3/raw/test_base_direct.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 2,
+      "solve_rate": 0.06666666666666667,
+      "attempts": 291,
+      "mean_attempts_solved": 5.5,
+      "historical_violation_rate": 0.9814814814814815,
+      "strict_violation_rate": 0.9907407407407407,
+      "eligible_attempts": 216,
+      "invalid_rate": 0.15463917525773196,
+      "repeat_rate": 0.3539518900343643,
+      "cfs_historical": 0.3777141220749468,
+      "stopped_games": 0,
+      "zero_submission_games": 0,
+      "calls": 291,
+      "calls_per_game": 9.7,
+      "model_seconds": 197.001,
+      "model_seconds_per_game": 6.5667,
+      "completion_tokens": 8818,
+      "api_errors": 0,
+      "protocol_errors": 0,
+      "memory_turns_checked": 0,
+      "memory_pool_equivalence_rate": null,
+      "revisions": 0,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Karma",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Malzahar",
+            "Xerath",
+            "Xerath",
+            "Ryze",
+            null,
+            "Ryze",
+            null,
+            "Ryze"
+          ]
+        },
+        {
+          "target": "Zoe",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kai'Sa",
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kassadin",
+            "Kassadin",
+            "Malzahar"
+          ]
+        },
+        {
+          "target": "Nocturne",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            "Kassadin",
+            null,
+            "Kassadin",
+            "Kassadin",
+            "Kog'Maw",
+            "Kassadin"
+          ]
+        },
+        {
+          "target": "Veigar",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Malzahar",
+            "Xerath",
+            "Azir",
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            null
+          ]
+        },
+        {
+          "target": "LeBlanc",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kassadin",
+            "Azir",
+            "Kassadin",
+            "Malzahar",
+            null,
+            null,
+            "Malzahar",
+            "Malzahar"
+          ]
+        },
+        {
+          "target": "Morgana",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "target": "Thresh",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            "Vel'Koz",
+            null,
+            null,
+            "Vel'Koz",
+            null,
+            null
+          ]
+        },
+        {
+          "target": "Ashe",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kai'Sa",
+            "Kog'Maw",
+            null,
+            "Kog'Maw",
+            "Kog'Maw",
+            null,
+            "Vel'Koz",
+            null
+          ]
+        },
+        {
+          "target": "Zilean",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            "Vel'Koz",
+            "Vel'Koz",
+            "Vel'Koz",
+            "Urgot",
+            "Urgot",
+            null
+          ]
+        },
+        {
+          "target": "Xin Zhao",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Kha'Zix",
+            "Rengar",
+            "Zaahen",
+            null,
+            "Zaahen",
+            "Zaahen",
+            "Nasus"
+          ]
+        },
+        {
+          "target": "Tryndamere",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Varus",
+            "Nasus",
+            "Zaahen",
+            "Garen",
+            "Rengar",
+            "Riven",
+            "Fiora"
+          ]
+        },
+        {
+          "target": "Pantheon",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Kha'Zix",
+            "Rengar",
+            "Zaahen",
+            "Zaahen",
+            "K'Sante",
+            null,
+            "K'Sante"
+          ]
+        },
+        {
+          "target": "Vladimir",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Vel'Koz",
+            null,
+            "Kog'Maw",
+            "Vel'Koz",
+            null,
+            "Kog'Maw",
+            null
+          ]
+        },
+        {
+          "target": "Lissandra",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kai'Sa",
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kassadin",
+            "Kassadin",
+            "Malzahar"
+          ]
+        },
+        {
+          "target": "Elise",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Twisted Fate",
+            "Twitch",
+            "Twitch",
+            "Twitch",
+            "Twitch"
+          ]
+        },
+        {
+          "target": "Ekko",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Azir",
+            "Nasus",
+            "Zaahen",
+            null,
+            null,
+            "Zaahen",
+            "Garen",
+            null,
+            null
+          ]
+        },
+        {
+          "target": "Briar",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Rek'Sai",
+            "Kai'Sa",
+            "Rek'Sai",
+            null,
+            "Kai'Sa",
+            "Kog'Maw"
+          ]
+        },
+        {
+          "target": "Mordekaiser",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Varus",
+            "Nasus",
+            "Zaahen",
+            "Rengar",
+            "K'Sante",
+            "Kai'Sa",
+            null
+          ]
+        },
+        {
+          "target": "Diana",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Azir",
+            "Nasus",
+            "Zaahen",
+            null,
+            null,
+            "K'Sante",
+            "Garen",
+            "Garen",
+            "Zaahen"
+          ]
+        },
+        {
+          "target": "Aatrox",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Urgot",
+            "Singed",
+            "Zaahen",
+            "Zaahen",
+            "Zaahen",
+            "Zaahen",
+            "Nasus",
+            null,
+            null
+          ]
+        },
+        {
+          "target": "Zeri",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Twisted Fate",
+            "Twitch",
+            "Twitch",
+            "Twitch",
+            "Twitch"
+          ]
+        },
+        {
+          "target": "Zac",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            "Kassadin",
+            "Rek'Sai",
+            "Kha'Zix",
+            null,
+            "Kha'Zix",
+            "Kha'Zix"
+          ]
+        },
+        {
+          "target": "Xerath",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot"
+          ]
+        },
+        {
+          "target": "Kog'Maw",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot",
+            "Urgot"
+          ]
+        },
+        {
+          "target": "Dr. Mundo",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Varus",
+            "Nasus",
+            "Zaahen",
+            null,
+            null,
+            "Zaahen",
+            "Zaahen"
+          ]
+        },
+        {
+          "target": "Jhin",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            null,
+            null,
+            null,
+            "Kassadin",
+            null,
+            null
+          ]
+        },
+        {
+          "target": "Soraka",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Malzahar",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Vel'Koz",
+            null,
+            "Vel'Koz",
+            "Vel'Koz",
+            null,
+            "Vel'Koz"
+          ]
+        },
+        {
+          "target": "Ezreal",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Kassadin",
+            "Kai'Sa",
+            "Kog'Maw",
+            "Veigar",
+            "Varus",
+            "Draven",
+            "Jayce",
+            "Jayce",
+            "Jayce",
+            "Jayce"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "lora/d2_lora",
+      "source": "results/d3/raw/test_lora_d2_lora.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 14,
+      "solve_rate": 0.4666666666666667,
+      "attempts": 216,
+      "mean_attempts_solved": 4.0,
+      "historical_violation_rate": 0.6972972972972973,
+      "strict_violation_rate": 0.8108108108108109,
+      "eligible_attempts": 185,
+      "invalid_rate": 0.004629629629629629,
+      "repeat_rate": 0.3472222222222222,
+      "cfs_historical": 0.6012597597597598,
+      "stopped_games": 0,
+      "zero_submission_games": 0,
+      "calls": 216,
+      "calls_per_game": 7.2,
+      "model_seconds": 172.337,
+      "model_seconds_per_game": 5.744566666666667,
+      "completion_tokens": 6588,
+      "api_errors": 0,
+      "protocol_errors": 0,
+      "memory_turns_checked": 0,
+      "memory_pool_equivalence_rate": null,
+      "revisions": 0,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Karma",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "LeBlanc",
+            "Lux",
+            "Syndra",
+            "Lux",
+            "Syndra",
+            "LeBlanc",
+            "LeBlanc",
+            "Lux"
+          ]
+        },
+        {
+          "target": "Samira",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Kalista",
+            "Mel",
+            "Xayah",
+            "Zeri",
+            "Neeko",
+            "Renata Glasc",
+            "Xayah",
+            null,
+            "Kai'Sa"
+          ]
+        },
+        {
+          "target": "Nocturne",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Akali",
+            "Diana",
+            "Leona",
+            "Sejuani",
+            "Vi",
+            "Sejuani",
+            "Vi",
+            "Sejuani",
+            "Vi"
+          ]
+        },
+        {
+          "target": "Morgana",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Ashe",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee",
+            "Ashe",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee"
+          ]
+        },
+        {
+          "target": "Zilean",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Twitch",
+            "Fiddlesticks",
+            "Twitch",
+            "Twitch",
+            "Twitch",
+            "Twitch",
+            "Twitch",
+            "Twitch"
+          ]
+        },
+        {
+          "target": "Tryndamere",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Darius",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen"
+          ]
+        },
+        {
+          "target": "Pantheon",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Blitzcrank",
+            "Darius",
+            "Fizz",
+            "Lee Sin",
+            "Master Yi",
+            "Gragas",
+            "Gragas",
+            "Gragas",
+            "Alistar"
+          ]
+        },
+        {
+          "target": "Vladimir",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Draven",
+            "Viktor",
+            "Swain",
+            "Swain",
+            "Swain",
+            "LeBlanc",
+            "Urgot",
+            "Viktor"
+          ]
+        },
+        {
+          "target": "Mordekaiser",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Darius",
+            "Garen",
+            "Gragas",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen",
+            "Garen"
+          ]
+        },
+        {
+          "target": "Zac",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Yasuo",
+            "Yasuo",
+            "Yasuo",
+            "Lucian",
+            "Yasuo",
+            "Yasuo",
+            "Yasuo",
+            "Yasuo",
+            "Yasuo"
+          ]
+        },
+        {
+          "target": "Xerath",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Draven",
+            "Graves",
+            "Viktor",
+            "Viktor",
+            "Viktor",
+            "Talon",
+            "Viktor",
+            "Viktor"
+          ]
+        },
+        {
+          "target": "Kog'Maw",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Draven",
+            "Ziggs",
+            "Lucian",
+            "Twitch",
+            "Varus",
+            "Ziggs",
+            "Ziggs",
+            "Ziggs"
+          ]
+        },
+        {
+          "target": "Dr. Mundo",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Blitzcrank",
+            "Warwick",
+            "Warwick",
+            "Warwick",
+            "Warwick",
+            "Warwick",
+            "Warwick",
+            "Warwick",
+            "Warwick"
+          ]
+        },
+        {
+          "target": "Malzahar",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Draven",
+            "Viktor",
+            "Swain",
+            "Viktor",
+            "Swain",
+            "Viktor",
+            "Swain",
+            "Viktor"
+          ]
+        },
+        {
+          "target": "Soraka",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Ashe",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee",
+            "Nidalee"
+          ]
+        },
+        {
+          "target": "Ezreal",
+          "attempts": 10,
+          "stop": null,
+          "guesses": [
+            "Aatrox",
+            "Corki",
+            "Draven",
+            "Varus",
+            "Ziggs",
+            "Kog'Maw",
+            "Twitch",
+            "Kog'Maw",
+            "Karthus",
+            "Kog'Maw"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "lora/d2_tool",
+      "source": "results/d3/raw/test_lora_d2_tool.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 30,
+      "solve_rate": 1,
+      "attempts": 139,
+      "mean_attempts_solved": 4.633333333333334,
+      "historical_violation_rate": 0.5504587155963303,
+      "strict_violation_rate": 0.6055045871559633,
+      "eligible_attempts": 109,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.7932110091743119,
+      "stopped_games": 0,
+      "zero_submission_games": 0,
+      "calls": 139,
+      "calls_per_game": 4.633333333333334,
+      "model_seconds": 111.648,
+      "model_seconds_per_game": 3.7216,
+      "completion_tokens": 4457,
+      "api_errors": 0,
+      "protocol_errors": 0,
+      "memory_turns_checked": 0,
+      "memory_pool_equivalence_rate": null,
+      "revisions": 0,
+      "tool_calls": 0,
+      "failures": []
+    },
+    {
+      "label": "none/algorithmic",
+      "source": "results/d3/raw/test_none_algorithmic.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 30,
+      "solve_rate": 1,
+      "attempts": 94,
+      "mean_attempts_solved": 3.1333333333333333,
+      "historical_violation_rate": 0.0,
+      "strict_violation_rate": 0.0,
+      "eligible_attempts": 64,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.9846874999999999,
+      "stopped_games": 0,
+      "zero_submission_games": 0,
+      "calls": 0,
+      "calls_per_game": 0.0,
+      "model_seconds": 0,
+      "model_seconds_per_game": 0.0,
+      "completion_tokens": 0,
+      "api_errors": 0,
+      "protocol_errors": 0,
+      "memory_turns_checked": 0,
+      "memory_pool_equivalence_rate": null,
+      "revisions": 0,
+      "tool_calls": 0,
+      "failures": []
+    },
+    {
+      "label": "paginas/full",
+      "source": "results/d3/raw/test_paginas_full.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 25,
+      "solve_rate": 0.8333333333333334,
+      "attempts": 95,
+      "mean_attempts_solved": 3.24,
+      "historical_violation_rate": 0.03076923076923077,
+      "strict_violation_rate": 0.15384615384615385,
+      "eligible_attempts": 65,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.9357838827838829,
+      "stopped_games": 5,
+      "zero_submission_games": 0,
+      "calls": 1394,
+      "calls_per_game": 46.46666666666667,
+      "model_seconds": 2939.163,
+      "model_seconds_per_game": 97.97211,
+      "completion_tokens": 185467,
+      "api_errors": 0,
+      "protocol_errors": 60,
+      "memory_turns_checked": 99,
+      "memory_pool_equivalence_rate": 1.0,
+      "revisions": 29,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Samira",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Kai'Sa"
+          ]
+        },
+        {
+          "target": "Morgana",
+          "attempts": 3,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "LeBlanc"
+          ]
+        },
+        {
+          "target": "Thresh",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Lucian"
+          ]
+        },
+        {
+          "target": "Ashe",
+          "attempts": 4,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Tristana",
+            "Nidalee"
+          ]
+        },
+        {
+          "target": "Soraka",
+          "attempts": 3,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Sona"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "paginas/no_examples",
+      "source": "results/d3/raw/test_paginas_no_examples.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 18,
+      "solve_rate": 0.6,
+      "attempts": 89,
+      "mean_attempts_solved": 3.5555555555555554,
+      "historical_violation_rate": 0.3050847457627119,
+      "strict_violation_rate": 0.3898305084745763,
+      "eligible_attempts": 59,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.7878870056497174,
+      "stopped_games": 12,
+      "zero_submission_games": 0,
+      "calls": 2006,
+      "calls_per_game": 66.86666666666666,
+      "model_seconds": 3757.92,
+      "model_seconds_per_game": 125.26399333333333,
+      "completion_tokens": 251511,
+      "api_errors": 0,
+      "protocol_errors": 198,
+      "memory_turns_checked": 98,
+      "memory_pool_equivalence_rate": 0.8673469387755102,
+      "revisions": 81,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Nocturne",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Jarvan IV"
+          ]
+        },
+        {
+          "target": "LeBlanc",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri"
+          ]
+        },
+        {
+          "target": "Morgana",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Cassiopeia"
+          ]
+        },
+        {
+          "target": "Xin Zhao",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Malphite"
+          ]
+        },
+        {
+          "target": "Pantheon",
+          "attempts": 5,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Alistar",
+            "Malphite",
+            "Gragas",
+            "Olaf"
+          ]
+        },
+        {
+          "target": "Lissandra",
+          "attempts": 3,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Vex",
+            "Zoe"
+          ]
+        },
+        {
+          "target": "Ekko",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri"
+          ]
+        },
+        {
+          "target": "Briar",
+          "attempts": 1,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri"
+          ]
+        },
+        {
+          "target": "Mordekaiser",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Jarvan IV"
+          ]
+        },
+        {
+          "target": "Diana",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Vex"
+          ]
+        },
+        {
+          "target": "Zac",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Xerath",
+          "attempts": 2,
+          "stop": "call_limit",
+          "guesses": [
+            "Ahri",
+            "Graves"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "paginas/no_previous_state",
+      "source": "results/d3/raw/test_paginas_no_previous_state.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 29,
+      "solve_rate": 0.9666666666666667,
+      "attempts": 105,
+      "mean_attempts_solved": 3.4827586206896552,
+      "historical_violation_rate": 0.09333333333333334,
+      "strict_violation_rate": 0.21333333333333335,
+      "eligible_attempts": 75,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.944447619047619,
+      "stopped_games": 1,
+      "zero_submission_games": 0,
+      "calls": 1332,
+      "calls_per_game": 44.4,
+      "model_seconds": 2746.033,
+      "model_seconds_per_game": 91.53443999999999,
+      "completion_tokens": 174237,
+      "api_errors": 0,
+      "protocol_errors": 30,
+      "memory_turns_checked": 106,
+      "memory_pool_equivalence_rate": 0.8773584905660378,
+      "revisions": 19,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Pantheon",
+          "attempts": 4,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Darius",
+            "Gangplank",
+            "Olaf"
+          ]
+        }
+      ]
+    },
+    {
+      "label": "paginas/no_revision",
+      "source": "results/d3/raw/test_paginas_no_revision.json.gz",
+      "split": "test",
+      "complete": true,
+      "games": 30,
+      "solved": 14,
+      "solve_rate": 0.4666666666666667,
+      "attempts": 75,
+      "mean_attempts_solved": 3.2142857142857144,
+      "historical_violation_rate": 0.044444444444444446,
+      "strict_violation_rate": 0.26666666666666666,
+      "eligible_attempts": 45,
+      "invalid_rate": 0.0,
+      "repeat_rate": 0.0,
+      "cfs_historical": 0.8133968253968253,
+      "stopped_games": 16,
+      "zero_submission_games": 0,
+      "calls": 1203,
+      "calls_per_game": 40.1,
+      "model_seconds": 2486.638,
+      "model_seconds_per_game": 82.88792333333335,
+      "completion_tokens": 164536,
+      "api_errors": 0,
+      "protocol_errors": 0,
+      "memory_turns_checked": 91,
+      "memory_pool_equivalence_rate": 0.989010989010989,
+      "revisions": 9,
+      "tool_calls": 0,
+      "failures": [
+        {
+          "target": "Samira",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Veigar",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Morgana",
+          "attempts": 3,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "LeBlanc"
+          ]
+        },
+        {
+          "target": "Ashe",
+          "attempts": 4,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Tristana",
+            "Nidalee"
+          ]
+        },
+        {
+          "target": "Zilean",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Xin Zhao",
+          "attempts": 4,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox",
+            "Blitzcrank",
+            "Fizz",
+            "Wukong"
+          ]
+        },
+        {
+          "target": "Tryndamere",
+          "attempts": 4,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox",
+            "Darius",
+            "Rumble",
+            "Gangplank"
+          ]
+        },
+        {
+          "target": "Vladimir",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Mordekaiser",
+          "attempts": 2,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox",
+            "Darius"
+          ]
+        },
+        {
+          "target": "Diana",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Xerath",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Kog'Maw",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Jhin",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Malzahar",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        },
+        {
+          "target": "Soraka",
+          "attempts": 3,
+          "stop": "call_limit",
+          "guesses": [
+            "Aatrox",
+            "Ahri",
+            "Sona"
+          ]
+        },
+        {
+          "target": "Ezreal",
+          "attempts": 1,
+          "stop": "revision_disabled",
+          "guesses": [
+            "Aatrox"
+          ]
+        }
+      ]
+    }
+  ],
+  "comparisons": {
+    "base/direct → paginas/full": {
+      "paired_targets": 30,
+      "wins": 24,
+      "losses": 1,
+      "mcnemar_exact_p": 1.5497207641601562e-06
+    },
+    "lora/d2_lora → paginas/full": {
+      "paired_targets": 30,
+      "wins": 13,
+      "losses": 2,
+      "mcnemar_exact_p": 0.00738525390625
+    },
+    "lora/d2_tool → paginas/full": {
+      "paired_targets": 30,
+      "wins": 0,
+      "losses": 5,
+      "mcnemar_exact_p": 0.0625
+    },
+    "none/algorithmic → paginas/full": {
+      "paired_targets": 30,
+      "wins": 0,
+      "losses": 5,
+      "mcnemar_exact_p": 0.0625
+    },
+    "paginas/no_examples → paginas/full": {
+      "paired_targets": 30,
+      "wins": 11,
+      "losses": 4,
+      "mcnemar_exact_p": 0.11846923828125
+    },
+    "paginas/no_previous_state → paginas/full": {
+      "paired_targets": 30,
+      "wins": 1,
+      "losses": 5,
+      "mcnemar_exact_p": 0.21875
+    },
+    "paginas/no_revision → paginas/full": {
+      "paired_targets": 30,
+      "wins": 12,
+      "losses": 1,
+      "mcnemar_exact_p": 0.00341796875
+    }
+  },
+  "note": "Una partida por objetivo, temperatura 0. No son réplicas independientes. Los paros cuentan como no resueltos."
+}
