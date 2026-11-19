@@ -1,7 +1,11 @@
 # Video del Entregable 4 · recorrido para grabar (≤ 3:00)
 
-La grabación de pantalla necesita una acción del equipo (permiso de grabación de macOS y
-subir el archivo con enlace abierto). Todo lo que se muestra es real: la interfaz llama al
+**Grabado:** [`docs/d4/videoD4.mp4`](../../docs/d4/videoD4.mp4) (2:20, 1440×900, sin audio). Se capturó la
+pestaña de Chrome con el screencast del protocolo de depuración (sin grabar la pantalla), siguiendo este guion;
+las partidas de Thresh son en vivo y los tramos largos se aceleraron al montar (×6 D3, ×3 D4, ×4 traza de Samira).
+La tabla de resultados y el cierre se grabaron en una segunda toma para que el rótulo no tapara la fila del D4.
+
+Para volver a grabarlo a mano basta con seguir el guion (⇧⌘5 en macOS). Todo lo que se muestra es real: la interfaz llama al
 sistema (servidor MLX + adaptadores del repositorio) o reproduce trazas guardadas,
 rotuladas como tales.
 
