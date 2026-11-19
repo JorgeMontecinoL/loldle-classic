@@ -1,0 +1,48 @@
+{"set": "d3_valid_trace[amarillo]", "label": "d3_d3", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "d3", "n": 84, "pages": 84, "fits": 20, "listed": 18, "true_pos": 12, "recall": 0.6, "precision": 0.6666666666666666, "exact_pages": 71, "protocol_errors": 0, "false_drops": 8, "false_keeps": 6, "yellow_errors": 10, "target_pages": 12, "target_dropped": 7, "yellow_single_pages": 49, "yellow_single_recall": 0.4444444444444444, "yellow_single_fits": 9, "yellow_single_errors": 2, "empty_pages": 67, "empty_pages_clean": 63, "seconds": 1077.8}
+{"set": "d3_valid_trace[amarillo]", "label": "d3_amarillo", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "amarillo", "n": 84, "pages": 84, "fits": 20, "listed": 14, "true_pos": 11, "recall": 0.55, "precision": 0.7857142857142857, "exact_pages": 72, "protocol_errors": 0, "false_drops": 9, "false_keeps": 3, "yellow_errors": 11, "target_pages": 12, "target_dropped": 8, "yellow_single_pages": 49, "yellow_single_recall": 0.4444444444444444, "yellow_single_fits": 9, "yellow_single_errors": 4, "empty_pages": 67, "empty_pages_clean": 65, "seconds": 1039.3}
+{"set": "valid_generado[amarillo]", "label": "d3_d3", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "d3", "n": 73, "pages": 73, "fits": 47, "listed": 40, "true_pos": 34, "recall": 0.723404255319149, "precision": 0.85, "exact_pages": 55, "protocol_errors": 0, "false_drops": 13, "false_keeps": 6, "yellow_errors": 13, "target_pages": 33, "target_dropped": 9, "yellow_single_pages": 25, "yellow_single_recall": 0.875, "yellow_single_fits": 16, "yellow_single_errors": 0, "empty_pages": 28, "empty_pages_clean": 25, "seconds": 997.2}
+{"set": "valid_generado[amarillo]", "label": "d3_amarillo", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "amarillo", "n": 73, "pages": 73, "fits": 47, "listed": 36, "true_pos": 32, "recall": 0.6808510638297872, "precision": 0.8888888888888888, "exact_pages": 54, "protocol_errors": 0, "false_drops": 15, "false_keeps": 4, "yellow_errors": 14, "target_pages": 33, "target_dropped": 12, "yellow_single_pages": 25, "yellow_single_recall": 0.8125, "yellow_single_fits": 16, "yellow_single_errors": 2, "empty_pages": 28, "empty_pages_clean": 26, "seconds": 900.1}
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] The tokenizer you are loading from '/Users/matias/.cache/huggingface/hub/models--mlx-community--Ministral-3-3B-Instruct-2512-4bit/snapshots/a962dcb09eee4169c890e544c9eb938f1113fdee' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+d3_d3 test_generado: 75/156
+d3_d3 test_generado: 100/156
+d3_d3 test_generado: 125/156
+d3_d3 test_generado: 150/156
+{"set": "test_generado", "label": "d3_d3", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "d3", "n": 156, "pages": 156, "fits": 341, "listed": 315, "true_pos": 301, "recall": 0.8826979472140762, "precision": 0.9555555555555556, "exact_pages": 111, "protocol_errors": 0, "false_drops": 40, "false_keeps": 14, "yellow_errors": 35, "target_pages": 58, "target_dropped": 29, "yellow_single_pages": 59, "yellow_single_recall": 0.5, "yellow_single_fits": 30, "yellow_single_errors": 11, "empty_pages": 64, "empty_pages_clean": 57, "seconds": 1750.5}
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] The tokenizer you are loading from '/Users/matias/.cache/huggingface/hub/models--mlx-community--Ministral-3-3B-Instruct-2512-4bit/snapshots/a962dcb09eee4169c890e544c9eb938f1113fdee' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+d3_d3 d3_test_trace: 25/280
+d3_d3 d3_test_trace: 50/280
+d3_d3 d3_test_trace: 75/280
+d3_d3 d3_test_trace: 100/280
+d3_d3 d3_test_trace: 125/280
+d3_d3 d3_test_trace: 150/280
+d3_d3 d3_test_trace: 175/280
+d3_d3 d3_test_trace: 200/280
+d3_d3 d3_test_trace: 225/280
+d3_d3 d3_test_trace: 250/280
+d3_d3 d3_test_trace: 275/280
+{"set": "d3_test_trace[amarillo]", "label": "d3_d3", "weights": "d3", "adapter": "finetune/adapters/d3_paginas_cot3", "prompt": "d3", "n": 280, "pages": 280, "fits": 62, "listed": 88, "true_pos": 40, "recall": 0.6451612903225806, "precision": 0.45454545454545453, "exact_pages": 237, "protocol_errors": 0, "false_drops": 22, "false_keeps": 48, "yellow_errors": 63, "target_pages": 40, "target_dropped": 18, "yellow_single_pages": 133, "yellow_single_recall": 0.4074074074074074, "yellow_single_fits": 27, "yellow_single_errors": 12, "empty_pages": 225, "empty_pages_clean": 204, "seconds": 2158.8}
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] The tokenizer you are loading from '/Users/matias/.cache/huggingface/hub/models--mlx-community--Ministral-3-3B-Instruct-2512-4bit/snapshots/a962dcb09eee4169c890e544c9eb938f1113fdee' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+base_d3 test_generado: 25/156
+base_d3 test_generado: 50/156
+base_d3 test_generado: 75/156
+base_d3 test_generado: 100/156
+base_d3 test_generado: 125/156
+base_d3 test_generado: 150/156
+{"set": "test_generado", "label": "base_d3", "weights": "base", "adapter": null, "prompt": "d3", "n": 156, "pages": 156, "fits": 341, "listed": 1234, "true_pos": 191, "recall": 0.5601173020527859, "precision": 0.1547811993517018, "exact_pages": 1, "protocol_errors": 44, "false_drops": 150, "false_keeps": 1043, "yellow_errors": 623, "target_pages": 58, "target_dropped": 33, "yellow_single_pages": 59, "yellow_single_recall": 0.36666666666666664, "yellow_single_fits": 30, "yellow_single_errors": 0, "empty_pages": 64, "empty_pages_clean": 1, "seconds": 1107.8}
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] The tokenizer you are loading from '/Users/matias/.cache/huggingface/hub/models--mlx-community--Ministral-3-3B-Instruct-2512-4bit/snapshots/a962dcb09eee4169c890e544c9eb938f1113fdee' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+base_d3 d3_test_trace: 25/280
+base_d3 d3_test_trace: 50/280
+base_d3 d3_test_trace: 75/280
+base_d3 d3_test_trace: 100/280
+base_d3 d3_test_trace: 125/280
+base_d3 d3_test_trace: 150/280
+base_d3 d3_test_trace: 175/280
+base_d3 d3_test_trace: 200/280
+base_d3 d3_test_trace: 225/280
+base_d3 d3_test_trace: 250/280
+base_d3 d3_test_trace: 275/280
+{"set": "d3_test_trace[amarillo]", "label": "base_d3", "weights": "base", "adapter": null, "prompt": "d3", "n": 280, "pages": 280, "fits": 62, "listed": 2269, "true_pos": 38, "recall": 0.6129032258064516, "precision": 0.016747465843984136, "exact_pages": 6, "protocol_errors": 44, "false_drops": 24, "false_keeps": 2231, "yellow_errors": 1946, "target_pages": 40, "target_dropped": 15, "yellow_single_pages": 133, "yellow_single_recall": 0.5555555555555556, "yellow_single_fits": 27, "yellow_single_errors": 0, "empty_pages": 225, "empty_pages_clean": 6, "seconds": 1714.1}

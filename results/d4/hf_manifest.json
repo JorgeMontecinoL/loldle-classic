@@ -1,0 +1,17 @@
+{
+ "README.md": "d09ef9198b8696a866234ebabfba5c9373543e704a9ce2ffeb735745d8e3048c",
+ "adapter_config.json": "1f51aa12d977aed0df158a02fa922fa8ccec0a2cc5fd08963dcc579e05207efb",
+ "adapters.safetensors": "bcb99e98591255cf4a3d3d9645764cf9cd9e9a096fb4a3c1c03fadb5004c915a",
+ "checkpoint_selection.json": "03432da51f333407937d321827555be7ab095a993fe95835eec97e39a82970e4",
+ "data/ronda1/report.json": "1fdb91ce73ac497ade2e8f17f5cf83f1eb31bdb9e05eb4cd474c348d882a8b56",
+ "data/ronda1/train.jsonl": "7a8fb2820255d528aece176639b236551739e026b744c40656403d127524d30e",
+ "data/ronda1/valid.jsonl": "11383d5c52fa21da98f617569b7980c89a95f26282ff4fe9033c0853737a2112",
+ "data/ronda2/report.json": "33cf65b0ce090c413038c8c4f969555ea286ed3e0eba4db8f9d623e1153ee2c2",
+ "data/ronda2/train.jsonl": "731b80b76e12e91dcc60873c465e84dc78457cbaebc8a6b27fbdc1354e84de0d",
+ "data/ronda2/valid.jsonl": "11383d5c52fa21da98f617569b7980c89a95f26282ff4fe9033c0853737a2112",
+ "lora_config_d4_selector_r1.yaml": "92daf9ec20ef70b280aa9015a85511cb88e20689d44cdfa0d2cc25fcd4679900",
+ "lora_config_d4_selector_r2.yaml": "6a344145cc3fe0750cf922085724cdeff61dac47a2b5e833153fa3d03e42cfc9",
+ "prompt_memoria.txt": "8611f7f5c06c9f98b9ee5bf4d48a4d0d163dae62dfd20e69d27500baed0e3de1",
+ "prompt_selector.txt": "ff21d425061d7688eb307068441b28a6a568da8114e1144db33ab29a17e966c4",
+ "prompt_verificador.txt": "db5d2ce3ab90bda725aa822f9765141bba3139cdb4dfc6ea838244c97591fb8f"
+}

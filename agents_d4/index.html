@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LoLdle D4 · Selector ajustado</title>
+<style>
+:root{--bg:#0d1220;--panel:#151c2e;--panel2:#1c2540;--line:#2a3555;--text:#e8ecf5;--muted:#93a0bd;--green:#1f9d55;--partial:#d68a00;--wrong:#b83232;--accent:#c8a34a;--agent:#3b82f6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+header{padding:14px 20px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between}
+h1{margin:0;font-size:20px;letter-spacing:.5px}h1 b{color:var(--accent)}h2{font-size:16px;margin:0 0 10px}
+.muted{color:var(--muted)}main{padding:16px 20px;display:grid;gap:18px;max-width:1500px;margin:auto}
+section{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px}
+.controls{display:flex;flex-wrap:wrap;gap:10px;align-items:end}.controls label{display:grid;gap:4px;font-size:12px;color:var(--muted)}
+input,select,button{font:inherit;color:var(--text);background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:7px 10px}
+button{cursor:pointer;background:#24304f}button.primary{background:var(--accent);color:#1a1300;border-color:var(--accent);font-weight:600}button:disabled{opacity:.45;cursor:default}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;font-weight:600;letter-spacing:.3px}
+.live{background:#123d27;color:#7ee2a8}.replay{background:#3d3212;color:#f0c96a}.na{background:#3d1717;color:#f19a9a}
+.boards{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:18px}
+.boardhead{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:10px}.stat{background:var(--panel2);border-radius:6px;padding:6px 8px}.stat b{display:block;font-size:16px}.stat span{font-size:11px;color:var(--muted)}
+.board{width:100%;border-collapse:separate;border-spacing:4px;table-layout:fixed}.board th{font-size:11px;color:var(--muted);font-weight:600;padding:0 2px;border-bottom:2px solid var(--line)}
+.board td{height:58px;border-radius:4px;text-align:center;font-size:11px;font-weight:600;padding:3px;border:1px solid rgba(0,0,0,.35);word-break:break-word;animation:flip .45s ease both}
+.board td.name{background:#26304d;font-size:12px}.g{background:var(--green)}.y{background:var(--partial)}.r{background:var(--wrong)}
+.arrow{font-size:20px;line-height:1;display:block}
+@keyframes flip{from{transform:rotateX(90deg);opacity:0}to{transform:none;opacity:1}}
+details{margin-top:10px;background:var(--panel2);border-radius:8px;padding:8px 10px}summary{cursor:pointer;font-weight:600}
+.graph{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0}.node{padding:4px 10px;border-radius:99px;border:1px solid var(--line);font-size:12px}.node.on{background:var(--agent);border-color:var(--agent);color:#fff;box-shadow:0 0 10px var(--agent)}
+.log{max-height:300px;overflow:auto;font:12px/1.35 ui-monospace,SFMono-Regular,Menlo,monospace;display:grid;gap:4px}
+.msg{padding:4px 6px;border-left:3px solid var(--line);background:rgba(255,255,255,.02);white-space:pre-wrap;word-break:break-word}
+.msg.memory{border-color:#a78bfa}.msg.selector{border-color:#38bdf8}.msg.verifier{border-color:#f59e0b}.msg.game{border-color:#22c55e}.msg.err{border-color:#ef4444}
+.sel{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px;margin-top:10px}.selcol{background:var(--panel2);border-radius:8px;padding:8px}
+.vrow{display:flex;justify-content:space-between;gap:6px;font:12px ui-monospace,Menlo,monospace;padding:2px 4px;border-radius:3px}.vrow.bad{background:rgba(184,50,50,.35)}.vrow.tgt{outline:1px solid var(--accent)}
+table.res{width:100%;border-collapse:collapse;font-size:13px}table.res th,table.res td{padding:5px 8px;border-bottom:1px solid var(--line);text-align:left}table.res td.n{text-align:right;font-variant-numeric:tabular-nums}
+pre.input{max-height:180px;overflow:auto;background:#0a0f1c;padding:8px;border-radius:6px;font-size:11px;white-space:pre-wrap}
+.err{color:#f19a9a}
+@media (max-width:640px){main{padding:10px}.boards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}.board td{height:44px;font-size:9px}}
+</style>
+</head>
+<body>
+<header>
+  <div><h1>LoLdle Classic · <b>Entregable 4</b></h1><div class="muted">Memoria → Selector (ajustado) → Verificador · el secreto sólo lo usa el motor del juego</div></div>
+  <div class="muted" id="model"></div>
+</header>
+<main>
+<section>
+  <div class="controls">
+    <label>Secreto compartido<input id="target" list="names" placeholder="Thresh" size="16"></label>
+    <datalist id="names"></datalist>
+    <span id="part" class="muted"></span>
+    <button id="draw">Sortear (prueba)</button>
+    <label>Sistema A<select id="sysA"></select></label>
+    <label>Sistema B<select id="sysB"></select></label>
+    <button id="play" class="primary">Jugar A y luego B</button>
+    <button id="playA">Sólo A</button>
+  </div>
+  <div class="controls" style="margin-top:10px">
+    <label>Reproducción de traza (archivo guardado)<select id="traceFile" style="max-width:420px"></select></label>
+    <button id="replay">Reproducir en A</button>
+    <span class="muted">Usa el secreto de arriba. No llama al modelo.</span>
+  </div>
+  <div class="err" id="error"></div>
+</section>
+<div class="boards">
+  <section id="A"></section>
+  <section id="B"></section>
+</div>
+<section>
+  <h2>Selector base frente a ajustado · misma entrada</h2>
+  <div class="controls">
+    <label>Entrada real del Selector<select id="case" style="max-width:520px"></select></label>
+    <button id="selAll" class="primary">Ejecutar base, D3 y D4</button>
+  </div>
+  <details><summary>Entrada exacta que recibe el Selector (sin el secreto)</summary><pre class="input" id="caseInput"></pre></details>
+  <div class="sel" id="selOut"></div>
+</section>
+<section>
+  <h2>Resultados con procedencia</h2>
+  <div id="results" class="muted">Sin resultados todavía.</div>
+</section>
+</main>
+<script>
+const $=s=>document.querySelector(s);let config,busy=false;
+const FIELDS=[["gender","Género"],["positions","Posiciones"],["species","Especie"],["resource","Recurso"],["range_type","Rango"],["regions","Regiones"],["release_year","Año"]];
+const MODE={live:["En vivo","live"],replay:["Reproducción de traza","replay"],unavailable:["No disponible","na"]};
+function panel(id){const el=$('#'+id);el.innerHTML=`<div class="boardhead"><h2 class="title">—</h2><span class="badge mode"></span></div>
+<div class="stats"><div class="stat"><b class="solved">—</b><span>Acierto</span></div><div class="stat"><b class="att">0</b><span>Intentos</span></div><div class="stat"><b class="calls">0</b><span>Llamadas</span></div><div class="stat"><b class="time">0 s</b><span>Tiempo</span></div><div class="stat"><b class="stop">—</b><span>Parada</span></div></div>
+<table class="board"><thead><tr><th>Campeón</th>${FIELDS.map(f=>`<th>${f[1]}</th>`).join('')}</tr></thead><tbody></tbody></table>
+<details open><summary>Agentes · mensajes y decisiones</summary><div class="graph"><span class="node" data-a="memory">Memoria</span>→<span class="node" data-a="selector">Selector</span>→<span class="node" data-a="controller">Controlador</span>→<span class="node" data-a="verifier">Verificador</span>→<span class="node" data-a="game">Juego</span></div><div class="log"></div></details>`;
+el.state={calls:0,t0:performance.now(),timer:null};return el}
+function setMode(el,label,mode){el.querySelector('.title').textContent=label;const m=MODE[mode]||MODE.unavailable;const b=el.querySelector('.mode');b.textContent=m[0];b.className='badge mode '+m[1]}
+function fmt(v){return Array.isArray(v)?v.join(', '):String(v)}
+function addRow(el,ev){const c=config.roster[ev.guess];const tr=document.createElement('tr');let td=document.createElement('td');td.className='name';td.textContent=ev.guess||'(inválido)';tr.append(td);
+ for(const[f]of FIELDS){td=document.createElement('td');const fb=ev.feedback?.[f];if(!c||!fb){td.textContent='—';tr.append(td);continue}
+  if(f==='release_year'){td.className=fb==='green'?'g':'r';td.innerHTML=(fb==='higher'?'<span class="arrow">↑</span>':fb==='lower'?'<span class="arrow">↓</span>':'')+c.release_year}
+  else{td.className=fb==='green'?'g':fb==='yellow'?'y':'r';td.textContent=fmt(c[f])}
+  td.style.animationDelay=(FIELDS.findIndex(x=>x[0]===f)*0.12)+'s';tr.append(td)}
+ el.querySelector('tbody').append(tr);el.querySelector('.att').textContent=el.querySelectorAll('tbody tr').length;if(ev.solved)el.querySelector('.solved').textContent='Sí'}
+function log(el,cls,text){const d=document.createElement('div');d.className='msg '+cls;d.textContent=text;const l=el.querySelector('.log');l.append(d);l.scrollTop=l.scrollHeight}
+function active(el,a){el.querySelectorAll('.node').forEach(n=>n.classList.toggle('on',n.dataset.a===a))}
+function short(s,n=420){s=typeof s==='string'?s:JSON.stringify(s);return s.length>n?s.slice(0,n)+' …':s}
+function receive(el,e){const s=el.state;
+ if(e.kind==='model_call'){s.calls++;el.querySelector('.calls').textContent=s.calls;const a=['memory','selector','verifier'].includes(e.agent)?e.agent:'selector';active(el,a);
+   const last=e.messages?.[e.messages.length-1];let txt=last?.content||'';try{const j=JSON.parse(txt);if(j.page)txt=`página ${j.page} · excluidos ${j.excluded?.length||0} · estado ${JSON.stringify(j.memory)}`;}catch{}log(el,a,`→ ${e.agent} (#${e.call||s.calls}): ${short(txt,300)}`)}
+ else if(e.kind==='model_output'){const a=['memory','selector','verifier'].includes(e.agent)?e.agent:'selector';log(el,a,`← ${e.agent}: ${short(e.content)}`)}
+ else if(e.kind==='decision'){const d=e.decision||{};if(e.agent==='selector')log(el,'selector',`✓ Selector página ${d.page}: ${d.candidates?.length?d.candidates.join(', '):'ninguno'}`);else if(e.agent==='verifier')log(el,'verifier',`✓ Verificador: ${d.action}${d.reason?' · '+d.reason:''}`)}
+ else if(e.kind==='handoff'){active(el,e.destination==='verifier'?'controller':e.destination);log(el,'game',`⇢ ${e.source} → ${e.destination}${e.candidate?' · candidato '+e.candidate:''}${e.reason?' · '+short(e.reason,160):''}`)}
+ else if(e.kind==='search_retry')log(el,'selector',`↻ búsqueda vacía: nueva pasada ${e.round}`)
+ else if(e.kind==='protocol_error')log(el,'err',`! ${e.agent}: ${short((e.errors||[]).join('; '),200)}`)
+ else if(e.kind==='approved'){active(el,'game');log(el,'verifier',`✔ aprobado: ${e.candidate}`)}
+ else if(e.kind==='game_feedback'){active(el,'game');addRow(el,e.event);log(el,'game',`■ Juego: ${e.event.guess} ${e.event.solved?'¡acierto!':''}`)}
+ else if(e.kind==='stop'){el.querySelector('.stop').textContent=e.reason;log(el,'err',`■ parada: ${e.reason}`)}
+ else if(e.kind==='finished'){const r=e.record;el.querySelector('.solved').textContent=r.solved?'Sí':'No';el.querySelector('.att').textContent=r.attempts_used;el.querySelector('.stop').textContent=r.stop_reason||(r.solved?'acierto':'10 jugadas');if(e.calls)el.querySelector('.calls').textContent=e.calls;if(r.wall_seconds)el.querySelector('.time').textContent=r.wall_seconds.toFixed(1)+' s';if(e.saved)log(el,'game',`guardado en ${e.saved}`);active(el,'')}
+ else if(e.kind==='error'){$('#error').textContent=e.error;log(el,'err',e.error)}}
+function tick(el){el.state.timer=setInterval(()=>{el.querySelector('.time').textContent=((performance.now()-el.state.t0)/1000).toFixed(0)+' s'},500)}
+function play(id,system,target){return new Promise((ok,fail)=>{const el=panel(id);const info=config.systems[system];setMode(el,info.label,info.mode);if(info.mode!=='live'){log(el,'err','No disponible: '+info.why);return ok()}
+ tick(el);const es=new EventSource(`/api/play?system=${encodeURIComponent(system)}&target=${encodeURIComponent(target)}`);
+ es.onmessage=m=>{const e=JSON.parse(m.data);receive(el,e);if(e.kind==='finished'||e.kind==='error'){es.close();clearInterval(el.state.timer);ok()}};
+ es.onerror=()=>{es.close();clearInterval(el.state.timer);fail(Error('Conexión interrumpida (¿otra ejecución en curso?)'))}})}
+async function replay(){const file=$('#traceFile').value,target=$('#target').value;const data=await fetch(`/api/trace?file=${encodeURIComponent(file)}&target=${encodeURIComponent(target)}`).then(r=>r.json());if(data.error)throw Error(data.error);
+ const el=panel('A');setMode(el,'Traza guardada · '+data.label+' · '+file.split('/').slice(-2).join('/'),'replay');const r=data.record;
+ if(r.agent_trace?.length){for(const e of r.agent_trace){receive(el,e);await new Promise(ok=>setTimeout(ok,e.kind==='model_call'?120:25))}}else for(const ev of r.trace){receive(el,{kind:'game_feedback',event:ev});await new Promise(ok=>setTimeout(ok,300))}
+ receive(el,{kind:'finished',record:r,calls:(r.agent_trace||[]).filter(e=>e.kind==='model_call').length||r.trace.length})}
+function partition(){const t=$('#target').value,s=config.split;$('#part').textContent=s.test.includes(t)?'prueba':s.valid.includes(t)?'validación':s.train.includes(t)?'entrenamiento':''}
+async function guard(fn){if(busy)return;busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);$('#error').textContent='';try{await fn()}catch(e){$('#error').textContent=e.message}finally{busy=false;document.querySelectorAll('button').forEach(b=>b.disabled=false)}}
+async function selector(w){const c=$('#case').value;const col=document.createElement('div');col.className='selcol';col.innerHTML=`<b>${{base:'Ministral base (sin adaptador)',d3:'D3 · d3_paginas_cot3',d4:'D4 · d4_selector'}[w]}</b> <span class="muted">ejecutando…</span>`;$('#selOut').append(col);
+ const r=await fetch(`/api/selector?case=${encodeURIComponent(c)}&weights=${w}`).then(x=>x.json());if(r.error){col.innerHTML+=`<div class="err">${r.error}</div>`;return}
+ const s=r.score,cs=config.cases.find(x=>x.id===c);col.querySelector('.muted').textContent=`${r.latency_s.toFixed(1)} s`;
+ let html=`<div class="muted" style="margin:4px 0">Conserva ${s.true_pos}/${s.fits} compatibles · lista ${s.listed} · ${s.protocol_error?'fuera de protocolo':'protocolo ok'} · secreto ${s.target_on_page?(s.target_dropped?'<b class="err">descartado</b>':'conservado'):'no está en la página'}</div>`;
+ for(const[n,t]of Object.entries(r.truth)){const v=r.verdicts[n]||'(sin veredicto)';const listed=r.candidates.includes(n);const bad=(t==='ok')!==listed;html+=`<div class="vrow ${bad?'bad':''} ${n===cs.target?'tgt':''}"><span>${n}</span><span>modelo: ${v}${listed?' ✓':''}</span><span class="muted">reglas: ${t}</span></div>`}
+ col.innerHTML+=html}
+function showCase(){const c=config.cases.find(x=>x.id===$('#case').value);$('#caseInput').textContent=c?JSON.stringify(c.payload,null,1):'';$('#selOut').innerHTML=''}
+async function results(){const d=await fetch('/api/results').then(r=>r.json());if(!d.reproduced)return;const L={"base/direct":"D1 · prompting directo","lora/d2_lora":"D2 · LoRA sin agentes","paginas/full":"D3 · tres agentes","d3/full":"D3 · tres agentes","d4/full":"D4 · Selector ajustado","none/algorithmic":"Control · filtro por reglas"};
+ let h='<table class="res"><tr><th>Sistema</th><th>Procedencia</th><th>Resueltas</th><th>Intentos incompatibles</th><th>Paros</th><th>Llamadas/partida</th></tr>';
+ for(const[k,lab]of Object.entries(L)){for(const[o,row]of[['histórico · results/d3/raw',d.historical?.[k]],['reproducido · '+d.run_id,d.reproduced?.[k]]]){if(!row)continue;h+=`<tr><td>${lab}</td><td>${o}</td><td class="n">${row.solved}/${row.games}</td><td class="n">${row.strict_violation_rate==null?'—':(100*row.strict_violation_rate).toFixed(1)+'%'}</td><td class="n">${row.stopped_games}</td><td class="n">${row.calls_per_game.toFixed(1)}</td></tr>`}}
+ $('#results').innerHTML=h+'</table>'}
+(async()=>{config=await fetch('/api/config').then(r=>r.json());$('#model').textContent=config.model;
+ for(const n of config.names){const o=document.createElement('option');o.value=n;$('#names').append(o)}
+ for(const[k,v]of Object.entries(config.systems))for(const id of['#sysA','#sysB']){const o=document.createElement('option');o.value=k;o.textContent=`${v.label} · ${MODE[v.mode][0]}`;$(id).append(o)}
+ $('#sysA').value='d3';$('#sysB').value='d4';for(const f of config.traces){const o=document.createElement('option');o.value=f;o.textContent=f;$('#traceFile').append(o)}
+ for(const c of config.cases){const o=document.createElement('option');o.value=c.id;o.textContent=c.label;$('#case').append(o)}
+ const q=new URLSearchParams(location.search);$('#target').value=q.get('target')||'Thresh';const pick=(sel,v)=>{if([...$(sel).options].some(o=>o.value===v))$(sel).value=v};pick('#traceFile','results/d4/runs/test_v1/test_d4.json.gz');pick('#case',q.get('case')||'ashe-t4-p1');partition();showCase();panel('A');panel('B');results()})().catch(e=>$('#error').textContent=e.message);
+$('#target').oninput=partition;$('#case').onchange=showCase;
+$('#draw').onclick=()=>{const t=config.split.test;$('#target').value=t[Math.floor(Math.random()*t.length)];partition()};
+$('#play').onclick=()=>guard(async()=>{const t=$('#target').value;await play('A',$('#sysA').value,t);await play('B',$('#sysB').value,t)});
+$('#playA').onclick=()=>guard(()=>play('A',$('#sysA').value,$('#target').value));
+$('#replay').onclick=()=>guard(replay);
+$('#selAll').onclick=()=>guard(async()=>{$('#selOut').innerHTML='';for(const w of['base','d3','d4'])await selector(w)});
+</script>
+</body>
+</html>

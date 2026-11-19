@@ -1,0 +1,97 @@
+puerto 8083 ya activo
+puerto 8084 ya activo
+puerto 8085 ya activo
+paginas/direct 1/30 Karma: solved=False attempts=10 calls=0 stop=None
+paginas/direct 2/30 Samira: solved=True attempts=9 calls=0 stop=None
+paginas/direct 3/30 Zoe: solved=False attempts=10 calls=0 stop=None
+paginas/direct 4/30 Nocturne: solved=False attempts=10 calls=0 stop=None
+paginas/direct 5/30 Veigar: solved=False attempts=10 calls=0 stop=None
+paginas/direct 6/30 LeBlanc: solved=False attempts=10 calls=0 stop=None
+paginas/direct 7/30 Morgana: solved=False attempts=10 calls=0 stop=None
+paginas/direct 8/30 Thresh: solved=False attempts=10 calls=0 stop=None
+paginas/direct 9/30 Ashe: solved=False attempts=10 calls=0 stop=None
+paginas/direct 10/30 Zilean: solved=False attempts=10 calls=0 stop=None
+paginas/direct 11/30 Xin Zhao: solved=False attempts=10 calls=0 stop=None
+paginas/direct 12/30 Tryndamere: solved=False attempts=10 calls=0 stop=None
+paginas/direct 13/30 Pantheon: solved=False attempts=10 calls=0 stop=None
+paginas/direct 14/30 Vladimir: solved=False attempts=10 calls=0 stop=None
+paginas/direct 15/30 Lissandra: solved=False attempts=10 calls=0 stop=None
+paginas/direct 16/30 Elise: solved=False attempts=10 calls=0 stop=None
+paginas/direct 17/30 Ekko: solved=False attempts=10 calls=0 stop=None
+paginas/direct 18/30 Briar: solved=False attempts=10 calls=0 stop=None
+paginas/direct 19/30 Mordekaiser: solved=False attempts=10 calls=0 stop=None
+paginas/direct 20/30 Diana: solved=False attempts=10 calls=0 stop=None
+paginas/direct 21/30 Aatrox: solved=False attempts=10 calls=0 stop=None
+paginas/direct 22/30 Zeri: solved=False attempts=10 calls=0 stop=None
+paginas/direct 23/30 Zac: solved=False attempts=10 calls=0 stop=None
+paginas/direct 24/30 Xerath: solved=False attempts=10 calls=0 stop=None
+paginas/direct 25/30 Kog'Maw: solved=False attempts=10 calls=0 stop=None
+paginas/direct 26/30 Dr. Mundo: solved=False attempts=10 calls=0 stop=None
+paginas/direct 27/30 Jhin: solved=False attempts=10 calls=0 stop=None
+paginas/direct 28/30 Malzahar: solved=True attempts=2 calls=0 stop=None
+paginas/direct 29/30 Soraka: solved=False attempts=10 calls=0 stop=None
+paginas/direct 30/30 Ezreal: solved=False attempts=10 calls=0 stop=None
+/Users/matias/Códigos/GenAI/ENTREGABLE1/results/d4/runs/test_v1/legacy/test_base_direct.json.gz
+paginas/d2_lora 1/30 Karma: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 2/30 Samira: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 3/30 Zoe: solved=True attempts=9 calls=0 stop=None
+paginas/d2_lora 4/30 Nocturne: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 5/30 Veigar: solved=True attempts=5 calls=0 stop=None
+paginas/d2_lora 6/30 LeBlanc: solved=True attempts=4 calls=0 stop=None
+paginas/d2_lora 7/30 Morgana: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 8/30 Thresh: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 9/30 Ashe: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 10/30 Zilean: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 11/30 Xin Zhao: solved=True attempts=8 calls=0 stop=None
+paginas/d2_lora 12/30 Tryndamere: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 13/30 Pantheon: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 14/30 Vladimir: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 15/30 Lissandra: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 16/30 Elise: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 17/30 Ekko: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 18/30 Briar: solved=True attempts=2 calls=0 stop=None
+paginas/d2_lora 19/30 Mordekaiser: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 20/30 Diana: solved=True attempts=3 calls=0 stop=None
+paginas/d2_lora 21/30 Aatrox: solved=True attempts=1 calls=0 stop=None
+paginas/d2_lora 22/30 Zeri: solved=True attempts=5 calls=0 stop=None
+paginas/d2_lora 23/30 Zac: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 24/30 Xerath: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 25/30 Kog'Maw: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 26/30 Dr. Mundo: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 27/30 Jhin: solved=True attempts=4 calls=0 stop=None
+paginas/d2_lora 28/30 Malzahar: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 29/30 Soraka: solved=False attempts=10 calls=0 stop=None
+paginas/d2_lora 30/30 Ezreal: solved=False attempts=10 calls=0 stop=None
+/Users/matias/Códigos/GenAI/ENTREGABLE1/results/d4/runs/test_v1/legacy/test_lora_d2_lora.json.gz
+paginas/algorithmic 1/30 Karma: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 2/30 Samira: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 3/30 Zoe: solved=True attempts=5 calls=0 stop=None
+paginas/algorithmic 4/30 Nocturne: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 5/30 Veigar: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 6/30 LeBlanc: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 7/30 Morgana: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 8/30 Thresh: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 9/30 Ashe: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 10/30 Zilean: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 11/30 Xin Zhao: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 12/30 Tryndamere: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 13/30 Pantheon: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 14/30 Vladimir: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 15/30 Lissandra: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 16/30 Elise: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 17/30 Ekko: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 18/30 Briar: solved=True attempts=2 calls=0 stop=None
+paginas/algorithmic 19/30 Mordekaiser: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 20/30 Diana: solved=True attempts=2 calls=0 stop=None
+paginas/algorithmic 21/30 Aatrox: solved=True attempts=1 calls=0 stop=None
+paginas/algorithmic 22/30 Zeri: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 23/30 Zac: solved=True attempts=2 calls=0 stop=None
+paginas/algorithmic 24/30 Xerath: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 25/30 Kog'Maw: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 26/30 Dr. Mundo: solved=True attempts=2 calls=0 stop=None
+paginas/algorithmic 27/30 Jhin: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 28/30 Malzahar: solved=True attempts=3 calls=0 stop=None
+paginas/algorithmic 29/30 Soraka: solved=True attempts=4 calls=0 stop=None
+paginas/algorithmic 30/30 Ezreal: solved=True attempts=3 calls=0 stop=None
+/Users/matias/Códigos/GenAI/ENTREGABLE1/results/d4/runs/test_v1/legacy/test_none_algorithmic.json.gz
+/Users/matias/Códigos/GenAI/ENTREGABLE1/results/d4/RESULTADOS_test_v1.md

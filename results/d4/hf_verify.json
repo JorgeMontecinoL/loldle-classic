@@ -1,0 +1,50 @@
+{
+ "repo": "MatiasCaamano/loldle-d4-selector-lora",
+ "revision": "35115f23f12d960cbea09390d897d4f907a7ea3b",
+ "downloaded_to": "hf_release/descarga",
+ "sha256_remote": "bcb99e98591255cf4a3d3d9645764cf9cd9e9a096fb4a3c1c03fadb5004c915a",
+ "sha256_local": "bcb99e98591255cf4a3d3d9645764cf9cd9e9a096fb4a3c1c03fadb5004c915a",
+ "identical": true,
+ "behaviour_check": {
+  "selector_test_generado_first40_identical": "40/40",
+  "games": {
+   "Morgana": {
+    "hf": [
+     "Aatrox",
+     "Ahri",
+     "Anivia",
+     "Nidalee",
+     "Morgana"
+    ],
+    "test_v1": [
+     "Aatrox",
+     "Ahri",
+     "Anivia",
+     "Nidalee",
+     "Morgana"
+    ],
+    "identicas": true,
+    "mismas_llamadas": true
+   },
+   "Elise": {
+    "hf": [
+     "Aatrox",
+     "Ahri",
+     "Caitlyn",
+     "Lulu",
+     "Elise"
+    ],
+    "test_v1": [
+     "Aatrox",
+     "Ahri",
+     "Caitlyn",
+     "Lulu",
+     "Elise"
+    ],
+    "identicas": true,
+    "mismas_llamadas": true
+   }
+  },
+  "run": "results/d4/runs/hf_check/test_d4.json.gz"
+ }
+}

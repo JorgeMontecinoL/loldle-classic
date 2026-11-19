@@ -1,0 +1,50 @@
+{
+    "adapter_path": "finetune/adapters/d4_selector_r2",
+    "batch_size": 1,
+    "clear_cache_threshold": 0,
+    "config": "finetune/lora_config_d4_selector_r2.yaml",
+    "data": "finetune/data/d4_selector_r2",
+    "fine_tune_type": "lora",
+    "grad_accumulation_steps": 4,
+    "grad_checkpoint": true,
+    "iters": 1340,
+    "learning_rate": 1e-05,
+    "lora_parameters": {
+        "rank": 16,
+        "scale": 20.0,
+        "dropout": 0.05
+    },
+    "lr_schedule": {
+        "name": "cosine_decay",
+        "warmup": 20,
+        "warmup_init": 1e-06,
+        "arguments": [
+            1e-05,
+            315,
+            1e-06
+        ]
+    },
+    "mask_prompt": true,
+    "max_seq_length": 4096,
+    "model": "mlx-community/Ministral-3-3B-Instruct-2512-4bit",
+    "num_layers": 12,
+    "optimizer": "adam",
+    "optimizer_config": {
+        "adam": {},
+        "adamw": {},
+        "muon": {},
+        "sgd": {},
+        "adafactor": {}
+    },
+    "project_name": null,
+    "report_to": null,
+    "resume_adapter_file": "finetune/adapters/d4_selector_r1/0001000_adapters.safetensors",
+    "save_every": 335,
+    "seed": 4042,
+    "steps_per_eval": 335,
+    "steps_per_report": 25,
+    "test": false,
+    "test_batches": 500,
+    "train": true,
+    "val_batches": 95
+}

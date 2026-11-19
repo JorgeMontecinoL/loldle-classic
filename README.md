@@ -1,5 +1,31 @@
 # LoLdle Classic — seguimiento de restricciones con un modelo de 3B
 
+## Entregable 4 · fine-tuning del agente Selector
+
+El D4 conserva el sistema de tres agentes del D3 y cambia **sólo los pesos del Selector**:
+un adaptador LoRA propio, entrenado con páginas del roster etiquetadas por las reglas del
+juego, contra el error que las trazas del D3 mostraron (descartar al secreto bajo pistas
+amarillas de un valor). Memoria y Verificador siguen con el adaptador del D3. En los 30
+secretos de prueba, reproducidos en este repositorio: **D4 29/30** frente a D3 25/30, D2 14/30
+y D1 2/30 (control por reglas 30/30); intentos incompatibles 12,7 % frente a 15,4 %;
+36,6 frente a 45,5 llamadas por partida. McNemar D3 → D4: 4 a 0, p = 0,125.
+
+- Adaptador: <https://huggingface.co/MatiasCaamano/loldle-d4-selector-lora> (verificado:
+  `results/d4/hf_verify.json`).
+- Documentación, datos, entrenamiento, resultados y cómo reproducir: [agents_d4/README.md](agents_d4/README.md).
+- Fallos y degradaciones del D4: [results/d4/FALLOS_D4.md](results/d4/FALLOS_D4.md).
+- Decisiones de desarrollo, en orden: [results/d4/BITACORA.md](results/d4/BITACORA.md).
+- Prompt de cada agente: [agents_d4/prompts/](agents_d4/prompts/) (`memoria.txt`, `selector.txt`, `verificador.txt`).
+- Trazas: `results/d4/runs/test_v1/`.
+
+```bash
+scripts/demo_d4.sh                    # demo: http://127.0.0.1:8767 (requiere .venv-ft, ver agents_d4/README.md)
+```
+
+Video del Entregable 4: *(enlace pendiente)*. Recorrido para grabarlo: [results/d4/VIDEO.md](results/d4/VIDEO.md).
+
+---
+
 ## Entregable 3 · sistema de agentes
 
 La continuación encapsula el trabajo del Entregable 2 en **Memoria, Selector y
