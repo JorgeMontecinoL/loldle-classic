@@ -1,0 +1,5 @@
+Yellow check, worked rows (a yellow clause is NOT a gray list and NOT an exact match):
+yellow positions [["Middle"]]: row positions Middle,Support -> shares Middle and is not exactly [Middle] -> ok. Row positions Middle -> exactly [Middle] -> x positions. Row positions Top -> shares nothing -> x positions.
+yellow regions [["Ionia"]]: row regions Ionia,Targon -> ok. Row regions Ionia -> x regions.
+yellow regions [["Demacia","Shadow Isles"]]: row regions Shadow Isles -> shares Shadow Isles and is not exactly the list -> ok. Row regions Demacia,Shadow Isles -> x regions.
+A one-value yellow clause [["X"]] means the answer HAS X and also some other value.

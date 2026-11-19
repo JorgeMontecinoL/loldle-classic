@@ -1,0 +1,41 @@
+# Entregable 4 · ronda 2 del adaptador del Selector (la que se publica).
+# Por qué: la ronda 1 (lr 2e-5, datos generales con amarillos) recuperó la pérdida de validación
+# en el paso 1000, pero seguía descartando a Morgana, Ashe, Soraka y Thresh en sus entradas
+# reales del D3: amarillos de un valor en positions/regions, donde abundan filas iguales a la
+# cláusula ("Middle" sola) que sí deben descartarse. La ronda 2 concentra páginas con una fila
+# compatible bajo un amarillo difícil (positions/regions sobre todo) y baja el lr.
+#   .venv-ft/bin/python finetune/make_data_d4.py --ronda 2 --states 8
+#   .venv-ft/bin/python -m mlx_lm lora --config finetune/lora_config_d4_selector_r2.yaml
+
+model: mlx-community/Ministral-3-3B-Instruct-2512-4bit   # revisión a962dcb09eee4169c890e544c9eb938f1113fdee
+train: true
+data: finetune/data/d4_selector_r2
+resume_adapter_file: finetune/adapters/d4_selector_r1/0001000_adapters.safetensors
+adapter_path: finetune/adapters/d4_selector_r2
+seed: 4042
+
+fine_tune_type: lora
+num_layers: 12
+lora_parameters:
+  rank: 16
+  scale: 20.0
+  dropout: 0.05
+
+mask_prompt: true
+max_seq_length: 4096
+grad_checkpoint: true
+
+batch_size: 1
+grad_accumulation_steps: 4
+iters: 1340                          # una pasada: 1.340 ejemplos
+learning_rate: 1.0e-5
+lr_schedule:
+  name: cosine_decay
+  warmup: 20
+  warmup_init: 1.0e-6
+  arguments: [1.0e-5, 315, 1.0e-6]   # 335 pasos de optimizador - warmup
+
+steps_per_report: 25
+steps_per_eval: 335
+val_batches: 95
+save_every: 335

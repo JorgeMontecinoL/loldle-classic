@@ -1,0 +1,366 @@
+[
+ {
+  "id": "morgana-t3-p4",
+  "label": "Morgana · turno 3 · página 4/7 · amarillo {\"positions\": [[\"Middle\"]]} (D3 lo descartó: «positions»)",
+  "target": "Morgana",
+  "source": "results/d3/raw/test_paginas_full.json.gz",
+  "turn": 3,
+  "d3_output": "{\"action\":\"listar\",\"revision\":[\"Lucian x gender\",\"Lulu x positions\",\"Lux x positions\",\"Malphite x gender\",\"Malzahar x gender\",\"Maokai x gender\",\"Master Yi x gender\",\"Mel x positions\",\"Milio x gender\",\"Miss Fortune x positions\",\"Mordekaiser x gender\",\"Morgana x positions\",\"Naafiri x range_type\",\"Nami x species\",\"Nasus x gender\",\"Nautilus x gender\",\"Neeko x species\",\"Nidalee x positions\",\"Nilah x range_type\",\"Nocturne x gender\",\"Nunu & Willump x gender\",\"Olaf x gender\",\"Orianna x positions\",\"Ornn x gender\",\"Pantheon x gender\"],\"candidates\":[]}",
+  "payload": {
+   "your_role": "selector",
+   "available_actions": [
+    "listar"
+   ],
+   "memory": {
+    "green": {
+     "gender": [
+      "Female"
+     ],
+     "resource": [
+      "Mana"
+     ],
+     "range_type": [
+      "Ranged"
+     ]
+    },
+    "gray": {
+     "gender": [
+      "Male"
+     ],
+     "resource": [
+      "Manaless"
+     ],
+     "range_type": [
+      "Melee"
+     ],
+     "positions": [
+      "Top"
+     ],
+     "species": [
+      "Darkin",
+      "Vastayan"
+     ],
+     "regions": [
+      "Ionia",
+      "Runeterra",
+      "Shurima"
+     ]
+    },
+    "yellow": {
+     "positions": [
+      [
+       "Middle"
+      ]
+     ]
+    },
+    "year": {
+     "eq": null,
+     "gt": null,
+     "lt": 2011
+    },
+    "used": [
+     "Aatrox",
+     "Ahri"
+    ]
+   },
+   "excluded": [
+    "Aatrox",
+    "Ahri"
+   ],
+   "page": "4/7",
+   "rows": "name|gender|positions|species|resource|range_type|regions|release_year\nLucian|Male|Bottom|Human|Mana|Ranged|Demacia,Shadow Isles|2013\nLulu|Female|Support|Yordle|Mana|Ranged|Bandle City|2012\nLux|Female|Middle,Support|Human,Magicborn|Mana|Ranged|Demacia|2010\nMalphite|Male|Top|Golem|Mana|Melee|Ixtal,Shurima|2009\nMalzahar|Male|Middle|Human,Void-Being|Mana|Ranged|Shurima,Void|2010\nMaokai|Male|Support|Spirit|Mana|Melee|Shadow Isles|2011\nMaster Yi|Male|Jungle|Human,Spiritualist|Mana|Melee|Ionia|2009\nMel|Female|Middle,Support|Human,Magically Altered|Mana|Ranged|Noxus,Piltover|2025\nMilio|Male|Support|Human,Magicborn|Mana|Ranged|Ixtal|2023\nMiss Fortune|Female|Bottom|Human|Mana|Ranged|Bilgewater|2010\nMordekaiser|Male|Top|Revenant|Shield|Melee|Noxus,Shadow Isles|2010\nMorgana|Female|Middle,Support|Aspect,Human,Magically Altered|Mana|Ranged|Demacia,Targon|2009\nNaafiri|Female|Jungle,Middle|Darkin,Dog|Mana|Melee|Shurima|2023\nNami|Female|Support|Vastayan|Mana|Ranged|Bilgewater,Runeterra|2012\nNasus|Male|Top|God-Warrior|Mana|Melee|Shurima|2009\nNautilus|Male|Support|Revenant|Mana|Melee|Bilgewater|2012\nNeeko|Female|Middle,Support|Vastayan|Mana|Ranged|Ixtal|2018\nNidalee|Female|Jungle|Human,Spiritualist|Mana|Ranged|Ixtal|2009\nNilah|Female|Bottom|Human,Magically Altered|Mana|Melee|Bilgewater|2022\nNocturne|Other|Jungle|Demon,Spirit|Mana|Melee|Runeterra|2011\nNunu & Willump|Male|Jungle|Human,Yeti|Mana|Melee|Freljord|2009\nOlaf|Male|Top|Human,Iceborn|Mana|Melee|Freljord|2010\nOrianna|Female|Middle|Golem|Mana|Ranged|Piltover|2011\nOrnn|Male|Top|God,Spirit|Mana|Melee|Freljord|2017\nPantheon|Male|Top,Jungle,Support|Aspect,Human|Mana|Melee|Targon|2010",
+   "years_allowed": [
+    2009,
+    2010
+   ]
+  }
+ },
+ {
+  "id": "ashe-t4-p1",
+  "label": "Ashe · turno 4 · página 1/7 · amarillo {\"positions\": [[\"Bottom\"]]} (D3 lo descartó: «positions»)",
+  "target": "Ashe",
+  "source": "results/d3/raw/test_paginas_full.json.gz",
+  "turn": 4,
+  "d3_output": "{\"action\":\"listar\",\"revision\":[\"Aatrox x excluded\",\"Ahri x excluded\",\"Akali x resource\",\"Akshan x gender\",\"Alistar x gender\",\"Ambessa x resource\",\"Amumu x gender\",\"Anivia x positions\",\"Annie x positions\",\"Aphelios x gender\",\"Ashe x positions\",\"Aurelion Sol x gender\",\"Aurora x positions\",\"Azir x gender\",\"Bard x gender\",\"Bel'Veth x resource\",\"Blitzcrank x gender\",\"Brand x gender\",\"Braum x gender\",\"Briar x resource\",\"Caitlyn x positions\",\"Camille x range_type\",\"Cassiopeia x positions\",\"Cho'Gath x gender\",\"Corki x gender\"],\"candidates\":[]}",
+  "payload": {
+   "your_role": "selector",
+   "available_actions": [
+    "listar"
+   ],
+   "memory": {
+    "green": {
+     "gender": [
+      "Female"
+     ],
+     "resource": [
+      "Mana"
+     ],
+     "range_type": [
+      "Ranged"
+     ]
+    },
+    "gray": {
+     "gender": [
+      "Male"
+     ],
+     "resource": [
+      "Manaless"
+     ],
+     "range_type": [
+      "Melee"
+     ],
+     "positions": [
+      "Middle",
+      "Top"
+     ],
+     "species": [
+      "Darkin",
+      "Vastayan",
+      "Yordle"
+     ],
+     "regions": [
+      "Bandle City",
+      "Ionia",
+      "Runeterra",
+      "Shurima"
+     ]
+    },
+    "yellow": {
+     "positions": [
+      [
+       "Bottom"
+      ]
+     ]
+    },
+    "year": {
+     "eq": 2009,
+     "gt": null,
+     "lt": 2011
+    },
+    "used": [
+     "Aatrox",
+     "Ahri",
+     "Tristana"
+    ]
+   },
+   "excluded": [
+    "Aatrox",
+    "Ahri",
+    "Tristana"
+   ],
+   "page": "1/7",
+   "rows": "name|gender|positions|species|resource|range_type|regions|release_year\nAatrox|Male|Top|Darkin|Manaless|Melee|Runeterra,Shurima|2013\nAhri|Female|Middle|Vastayan|Mana|Ranged|Ionia|2011\nAkali|Female|Top,Middle|Human|Energy|Melee|Ionia|2010\nAkshan|Male|Middle|Human|Mana|Ranged|Shurima|2021\nAlistar|Male|Support|Minotaur|Mana|Melee|Noxus,Runeterra|2009\nAmbessa|Female|Top|Human|Energy|Melee|Noxus,Piltover|2024\nAmumu|Male|Jungle|Undead,Yordle|Mana|Melee|Shurima|2009\nAnivia|Female|Middle|God,Spirit|Mana|Ranged|Freljord|2009\nAnnie|Female|Middle|Human,Magicborn|Mana|Ranged|Noxus,Runeterra|2009\nAphelios|Male|Bottom|Human,Spiritualist|Mana|Ranged|Targon|2019\nAshe|Female|Bottom,Support|Human,Iceborn|Mana|Ranged|Freljord|2009\nAurelion Sol|Male|Middle|Celestial,Dragon|Mana|Ranged|Runeterra,Targon|2016\nAurora|Female|Top,Middle|Vastayan|Mana|Ranged|Freljord|2024\nAzir|Male|Middle|God-Warrior|Mana|Ranged|Shurima|2014\nBard|Male|Support|Celestial|Mana|Ranged|Runeterra|2015\nBel'Veth|Female|Jungle|Void-Being|Manaless|Melee|Void|2022\nBlitzcrank|Male|Support|Golem|Mana|Melee|Zaun|2009\nBrand|Male|Jungle,Middle,Support|Human,Magically Altered|Mana|Ranged|Freljord,Runeterra|2011\nBraum|Male|Support|Human,Iceborn|Mana|Melee|Freljord|2014\nBriar|Female|Jungle|Golem|Health costs|Melee|Noxus|2023\nCaitlyn|Female|Bottom|Human|Mana|Ranged|Piltover|2011\nCamille|Female|Top|Cyborg,Human|Mana|Melee|Piltover|2016\nCassiopeia|Female|Middle|Human,Magically Altered|Mana|Ranged|Noxus,Shurima|2010\nCho'Gath|Other|Top|Void-Being|Mana|Melee|Void|2009\nCorki|Male|Middle|Yordle|Mana|Ranged|Bandle City,Piltover|2009",
+   "years_allowed": [
+    2009
+   ]
+  }
+ },
+ {
+  "id": "soraka-t3-p6",
+  "label": "Soraka · turno 3 · página 6/7 · amarillo {\"regions\": [[\"Ionia\"]]} (D3 lo descartó: «regions»)",
+  "target": "Soraka",
+  "source": "results/d3/raw/test_paginas_full.json.gz",
+  "turn": 3,
+  "d3_output": "{\"action\":\"listar\",\"revision\":[\"Skarner x gender\",\"Smolder x gender\",\"Sona ok\",\"Soraka x regions\",\"Swain x gender\",\"Sylas x gender\",\"Syndra x positions\",\"Tahm Kench x gender\",\"Taliyah x positions\",\"Talon x gender\",\"Taric x gender\",\"Teemo x gender\",\"Thresh x gender\",\"Tristana x regions\",\"Trundle x gender\",\"Tryndamere x gender\",\"Twisted Fate x gender\",\"Twitch x gender\",\"Udyr x gender\",\"Urgot x gender\",\"Varus x gender\",\"Vayne x regions\",\"Veigar x gender\",\"Vel'Koz x gender\",\"Vex x positions\"],\"candidates\":[\"Sona\"]}",
+  "payload": {
+   "your_role": "selector",
+   "available_actions": [
+    "listar"
+   ],
+   "memory": {
+    "green": {
+     "gender": [
+      "Female"
+     ],
+     "resource": [
+      "Mana"
+     ],
+     "range_type": [
+      "Ranged"
+     ]
+    },
+    "gray": {
+     "gender": [
+      "Male"
+     ],
+     "resource": [
+      "Manaless"
+     ],
+     "range_type": [
+      "Melee"
+     ],
+     "positions": [
+      "Middle",
+      "Top"
+     ],
+     "species": [
+      "Darkin",
+      "Vastayan"
+     ],
+     "regions": [
+      "Runeterra",
+      "Shurima"
+     ]
+    },
+    "yellow": {
+     "regions": [
+      [
+       "Ionia"
+      ]
+     ]
+    },
+    "year": {
+     "eq": null,
+     "gt": null,
+     "lt": 2011
+    },
+    "used": [
+     "Aatrox",
+     "Ahri"
+    ]
+   },
+   "excluded": [
+    "Aatrox",
+    "Ahri"
+   ],
+   "page": "6/7",
+   "rows": "name|gender|positions|species|resource|range_type|regions|release_year\nSkarner|Male|Top,Jungle|Brackern|Mana|Melee|Ixtal|2011\nSmolder|Male|Bottom|Dragon|Mana|Ranged|Camavor,Noxus|2024\nSona|Female|Support|Human,Magicborn|Mana|Ranged|Demacia,Ionia|2010\nSoraka|Female|Support|Celestial|Mana|Ranged|Ionia,Targon|2009\nSwain|Male|Middle,Support|Human,Magically Altered|Mana|Ranged|Noxus|2010\nSylas|Male|Jungle,Middle|Human,Magicborn|Mana|Melee|Demacia,Freljord|2019\nSyndra|Female|Middle|Human,Magicborn|Mana|Ranged|Ionia|2012\nTahm Kench|Male|Top,Support|Demon,Spirit|Mana|Melee|Bilgewater,Runeterra|2015\nTaliyah|Female|Jungle,Middle|Human,Magicborn|Mana|Ranged|Shurima|2016\nTalon|Male|Jungle,Middle|Human|Mana|Melee|Noxus|2011\nTaric|Male|Support|Aspect,Human|Mana|Melee|Demacia,Targon|2009\nTeemo|Male|Top|Yordle|Mana|Ranged|Bandle City|2009\nThresh|Male|Support|Undead|Mana|Ranged|Shadow Isles|2013\nTristana|Female|Bottom|Yordle|Mana|Ranged|Bandle City|2009\nTrundle|Male|Top|Iceborn,Troll|Mana|Melee|Freljord|2010\nTryndamere|Male|Top|Human,Magically Altered|Fury|Melee|Freljord|2009\nTwisted Fate|Male|Middle,Bottom|Human,Magicborn|Mana|Ranged|Bilgewater|2009\nTwitch|Male|Bottom|Chemically Altered,Rat|Mana|Ranged|Zaun|2009\nUdyr|Male|Top,Jungle|Human,Spiritualist|Mana|Melee|Freljord,Ionia|2009\nUrgot|Male|Top|Chemically Altered,Cyborg,Human|Mana|Ranged|Noxus,Zaun|2010\nVarus|Male|Bottom|Darkin,Human|Mana|Ranged|Ionia,Runeterra,Shurima|2012\nVayne|Female|Bottom|Human|Mana|Ranged|Demacia|2011\nVeigar|Male|Middle|Yordle|Mana|Ranged|Bandle City,Runeterra,Shadow Isles|2009\nVel'Koz|Male|Support|Void-Being|Mana|Ranged|Void|2014\nVex|Female|Middle|Yordle|Mana|Ranged|Bandle City,Shadow Isles|2021",
+   "years_allowed": [
+    2009,
+    2010
+   ]
+  }
+ },
+ {
+  "id": "thresh-t3-p6",
+  "label": "Thresh · turno 3 · página 6/7 · amarillo {\"regions\": [[\"Demacia\", \"Shadow Isles\"]]} (D3 lo descartó: «regions»)",
+  "target": "Thresh",
+  "source": "results/d3/raw/test_paginas_full.json.gz",
+  "turn": 3,
+  "d3_output": "{\"action\":\"listar\",\"revision\":[\"Skarner x range_type\",\"Smolder x positions\",\"Sona x gender\",\"Soraka x gender\",\"Swain x species\",\"Sylas x range_type\",\"Syndra x gender\",\"Tahm Kench x range_type\",\"Taliyah x gender\",\"Talon x range_type\",\"Taric x range_type\",\"Teemo x positions\",\"Thresh x regions\",\"Tristana x gender\",\"Trundle x range_type\",\"Tryndamere x resource\",\"Twisted Fate x positions\",\"Twitch x positions\",\"Udyr x range_type\",\"Urgot x positions\",\"Varus x positions\",\"Vayne x gender\",\"Veigar x regions\",\"Vel'Koz x regions\",\"Vex x gender\"],\"candidates\":[]}",
+  "payload": {
+   "your_role": "selector",
+   "available_actions": [
+    "listar"
+   ],
+   "memory": {
+    "green": {
+     "gender": [
+      "Male"
+     ],
+     "resource": [
+      "Mana"
+     ],
+     "range_type": [
+      "Ranged"
+     ]
+    },
+    "gray": {
+     "resource": [
+      "Manaless"
+     ],
+     "range_type": [
+      "Melee"
+     ],
+     "positions": [
+      "Bottom",
+      "Top"
+     ],
+     "species": [
+      "Darkin",
+      "Human"
+     ],
+     "regions": [
+      "Runeterra",
+      "Shurima"
+     ]
+    },
+    "yellow": {
+     "regions": [
+      [
+       "Demacia",
+       "Shadow Isles"
+      ]
+     ]
+    },
+    "year": {
+     "eq": 2013,
+     "gt": null,
+     "lt": null
+    },
+    "used": [
+     "Aatrox",
+     "Lucian"
+    ]
+   },
+   "excluded": [
+    "Aatrox",
+    "Lucian"
+   ],
+   "page": "6/7",
+   "rows": "name|gender|positions|species|resource|range_type|regions|release_year\nSkarner|Male|Top,Jungle|Brackern|Mana|Melee|Ixtal|2011\nSmolder|Male|Bottom|Dragon|Mana|Ranged|Camavor,Noxus|2024\nSona|Female|Support|Human,Magicborn|Mana|Ranged|Demacia,Ionia|2010\nSoraka|Female|Support|Celestial|Mana|Ranged|Ionia,Targon|2009\nSwain|Male|Middle,Support|Human,Magically Altered|Mana|Ranged|Noxus|2010\nSylas|Male|Jungle,Middle|Human,Magicborn|Mana|Melee|Demacia,Freljord|2019\nSyndra|Female|Middle|Human,Magicborn|Mana|Ranged|Ionia|2012\nTahm Kench|Male|Top,Support|Demon,Spirit|Mana|Melee|Bilgewater,Runeterra|2015\nTaliyah|Female|Jungle,Middle|Human,Magicborn|Mana|Ranged|Shurima|2016\nTalon|Male|Jungle,Middle|Human|Mana|Melee|Noxus|2011\nTaric|Male|Support|Aspect,Human|Mana|Melee|Demacia,Targon|2009\nTeemo|Male|Top|Yordle|Mana|Ranged|Bandle City|2009\nThresh|Male|Support|Undead|Mana|Ranged|Shadow Isles|2013\nTristana|Female|Bottom|Yordle|Mana|Ranged|Bandle City|2009\nTrundle|Male|Top|Iceborn,Troll|Mana|Melee|Freljord|2010\nTryndamere|Male|Top|Human,Magically Altered|Fury|Melee|Freljord|2009\nTwisted Fate|Male|Middle,Bottom|Human,Magicborn|Mana|Ranged|Bilgewater|2009\nTwitch|Male|Bottom|Chemically Altered,Rat|Mana|Ranged|Zaun|2009\nUdyr|Male|Top,Jungle|Human,Spiritualist|Mana|Melee|Freljord,Ionia|2009\nUrgot|Male|Top|Chemically Altered,Cyborg,Human|Mana|Ranged|Noxus,Zaun|2010\nVarus|Male|Bottom|Darkin,Human|Mana|Ranged|Ionia,Runeterra,Shurima|2012\nVayne|Female|Bottom|Human|Mana|Ranged|Demacia|2011\nVeigar|Male|Middle|Yordle|Mana|Ranged|Bandle City,Runeterra,Shadow Isles|2009\nVel'Koz|Male|Support|Void-Being|Mana|Ranged|Void|2014\nVex|Female|Middle|Yordle|Mana|Ranged|Bandle City,Shadow Isles|2021",
+   "years_allowed": [
+    2013
+   ]
+  }
+ },
+ {
+  "id": "mordekaiser-t2-p5",
+  "label": "Mordekaiser · turno 2 · página 5/7 · control sin amarillo difícil",
+  "target": "Mordekaiser",
+  "source": "results/d3/raw/test_paginas_full.json.gz",
+  "turn": 2,
+  "d3_output": "{\"action\":\"listar\",\"revision\":[\"Poppy x gender\",\"Pyke x positions\",\"Qiyana x gender\",\"Quinn x gender\",\"Rakan x positions\",\"Rammus x positions\",\"Rek'Sai x gender\",\"Rell x gender\",\"Renata Glasc x gender\",\"Renekton x regions\",\"Rengar x positions\",\"Riven x gender\",\"Rumble ok\",\"Ryze x range_type\",\"Samira x gender\",\"Sejuani x gender\",\"Senna x gender\",\"Seraphine x gender\",\"Sett x release_year\",\"Shaco x positions\",\"Shen ok\",\"Shyvana x gender\",\"Singed ok\",\"Sion ok\",\"Sivir x gender\"],\"candidates\":[\"Rumble\",\"Shen\",\"Singed\",\"Sion\"]}",
+  "payload": {
+   "your_role": "selector",
+   "available_actions": [
+    "listar"
+   ],
+   "memory": {
+    "green": {
+     "gender": [
+      "Male"
+     ],
+     "range_type": [
+      "Melee"
+     ],
+     "positions": [
+      "Top"
+     ]
+    },
+    "gray": {
+     "resource": [
+      "Manaless"
+     ],
+     "species": [
+      "Darkin"
+     ],
+     "regions": [
+      "Runeterra",
+      "Shurima"
+     ]
+    },
+    "yellow": {},
+    "year": {
+     "eq": null,
+     "gt": null,
+     "lt": 2013
+    },
+    "used": [
+     "Aatrox"
+    ]
+   },
+   "excluded": [
+    "Aatrox"
+   ],
+   "page": "5/7",
+   "rows": "name|gender|positions|species|resource|range_type|regions|release_year\nPoppy|Female|Top,Jungle|Yordle|Mana|Melee|Demacia|2010\nPyke|Male|Support|Revenant|Mana|Melee|Bilgewater|2018\nQiyana|Female|Jungle,Middle|Human,Magicborn|Mana|Melee|Ixtal|2019\nQuinn|Female|Top|Human|Mana|Ranged|Demacia|2013\nRakan|Male|Support|Vastayan|Mana|Melee|Ionia|2017\nRammus|Male|Top,Jungle|Unknown|Mana|Melee|Shurima|2009\nRek'Sai|Female|Jungle|Void-Being|Rage|Melee|Shurima,Void|2014\nRell|Female|Support|Human,Magically Altered,Magicborn|Mana|Melee|Noxus|2020\nRenata Glasc|Female|Support|Chemically Altered,Human|Mana|Ranged|Zaun|2022\nRenekton|Male|Top|God-Warrior|Fury|Melee|Shurima|2011\nRengar|Male|Jungle|Vastayan|Ferocity|Melee|Ixtal,Shurima|2012\nRiven|Female|Top|Human|Manaless|Melee|Ionia,Noxus|2011\nRumble|Male|Top|Yordle|Heat|Melee|Bandle City|2011\nRyze|Male|Middle|Human,Magically Altered|Mana|Ranged|Runeterra|2009\nSamira|Female|Bottom|Human|Mana|Ranged|Noxus,Shurima|2020\nSejuani|Female|Jungle|Human,Iceborn|Mana|Melee|Freljord|2012\nSenna|Female|Bottom,Support|Human,Undead|Mana|Ranged|Shadow Isles|2019\nSeraphine|Female|Bottom,Support|Human,Magicborn|Mana|Ranged|Piltover,Zaun|2020\nSett|Male|Top|Human,Vastayan|Grit|Melee|Ionia|2020\nShaco|Male|Jungle|Spirit|Mana|Melee|Runeterra|2009\nShen|Male|Top|Human,Spiritualist|Energy|Melee|Ionia|2010\nShyvana|Female|Jungle|Dragon,Magically Altered|Fury|Melee|Demacia|2011\nSinged|Male|Top|Chemically Altered,Human|Mana|Melee|Piltover,Zaun|2009\nSion|Male|Top|Revenant|Mana|Melee|Noxus|2009\nSivir|Female|Bottom|Human|Mana|Ranged|Shurima|2009",
+   "years_allowed": [
+    2009,
+    2010,
+    2011,
+    2012
+   ]
+  }
+ }
+]

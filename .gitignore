@@ -22,3 +22,9 @@ results/d3/server_logs/
 finetune/adapters/d3_multirol/0*_adapters.safetensors
 !finetune/adapters/d3_paginas_cot3/
 finetune/adapters/d3_paginas_cot3/0*_adapters.safetensors
+# Entregable 4: se versiona el adaptador del Selector elegido, no sus puntos de control.
+!finetune/adapters/d4_selector/
+finetune/adapters/d4_selector/0*_adapters.safetensors
+results/d4/server_logs/
+# Paquete local para Hugging Face y descargas de verificación.
+hf_release/

@@ -1,0 +1,3360 @@
+{
+ "run_id": "test_v1",
+ "historical": {
+  "base/direct": {
+   "label": "base/direct",
+   "source": "results/d3/raw/test_base_direct.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 2,
+   "solve_rate": 0.06666666666666667,
+   "attempts": 291,
+   "mean_attempts_solved": 5.5,
+   "historical_violation_rate": 0.9814814814814815,
+   "strict_violation_rate": 0.9907407407407407,
+   "eligible_attempts": 216,
+   "invalid_rate": 0.15463917525773196,
+   "repeat_rate": 0.3539518900343643,
+   "cfs_historical": 0.3777141220749468,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 291,
+   "calls_per_game": 9.7,
+   "model_seconds": 197.001,
+   "model_seconds_per_game": 6.5667,
+   "completion_tokens": 8818,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Karma",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Malzahar",
+      "Xerath",
+      "Xerath",
+      "Ryze",
+      null,
+      "Ryze",
+      null,
+      "Ryze"
+     ]
+    },
+    {
+     "target": "Zoe",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kassadin",
+      "Kassadin",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Nocturne",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Kassadin",
+      null,
+      "Kassadin",
+      "Kassadin",
+      "Kog'Maw",
+      "Kassadin"
+     ]
+    },
+    {
+     "target": "Veigar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Malzahar",
+      "Xerath",
+      "Azir",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      null
+     ]
+    },
+    {
+     "target": "LeBlanc",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kassadin",
+      "Azir",
+      "Kassadin",
+      "Malzahar",
+      null,
+      null,
+      "Malzahar",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Thresh",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Vel'Koz",
+      null,
+      null,
+      "Vel'Koz",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Ashe",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kog'Maw",
+      null,
+      "Kog'Maw",
+      "Kog'Maw",
+      null,
+      "Vel'Koz",
+      null
+     ]
+    },
+    {
+     "target": "Zilean",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Urgot",
+      "Urgot",
+      null
+     ]
+    },
+    {
+     "target": "Xin Zhao",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Kha'Zix",
+      "Rengar",
+      "Zaahen",
+      null,
+      "Zaahen",
+      "Zaahen",
+      "Nasus"
+     ]
+    },
+    {
+     "target": "Tryndamere",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      "Garen",
+      "Rengar",
+      "Riven",
+      "Fiora"
+     ]
+    },
+    {
+     "target": "Pantheon",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Kha'Zix",
+      "Rengar",
+      "Zaahen",
+      "Zaahen",
+      "K'Sante",
+      null,
+      "K'Sante"
+     ]
+    },
+    {
+     "target": "Vladimir",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Vel'Koz",
+      null,
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      "Kog'Maw",
+      null
+     ]
+    },
+    {
+     "target": "Lissandra",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kassadin",
+      "Kassadin",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Elise",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Twisted Fate",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Ekko",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Azir",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "Zaahen",
+      "Garen",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Briar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Rek'Sai",
+      "Kai'Sa",
+      "Rek'Sai",
+      null,
+      "Kai'Sa",
+      "Kog'Maw"
+     ]
+    },
+    {
+     "target": "Mordekaiser",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      "Rengar",
+      "K'Sante",
+      "Kai'Sa",
+      null
+     ]
+    },
+    {
+     "target": "Diana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Azir",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "K'Sante",
+      "Garen",
+      "Garen",
+      "Zaahen"
+     ]
+    },
+    {
+     "target": "Aatrox",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Singed",
+      "Zaahen",
+      "Zaahen",
+      "Zaahen",
+      "Zaahen",
+      "Nasus",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Zeri",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Twisted Fate",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Zac",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Kassadin",
+      "Rek'Sai",
+      "Kha'Zix",
+      null,
+      "Kha'Zix",
+      "Kha'Zix"
+     ]
+    },
+    {
+     "target": "Xerath",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot"
+     ]
+    },
+    {
+     "target": "Kog'Maw",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot"
+     ]
+    },
+    {
+     "target": "Dr. Mundo",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "Zaahen",
+      "Zaahen"
+     ]
+    },
+    {
+     "target": "Jhin",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      null,
+      null,
+      "Kassadin",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      "Vel'Koz",
+      "Vel'Koz",
+      null,
+      "Vel'Koz"
+     ]
+    },
+    {
+     "target": "Ezreal",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Veigar",
+      "Varus",
+      "Draven",
+      "Jayce",
+      "Jayce",
+      "Jayce",
+      "Jayce"
+     ]
+    }
+   ]
+  },
+  "lora/d2_lora": {
+   "label": "lora/d2_lora",
+   "source": "results/d3/raw/test_lora_d2_lora.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 14,
+   "solve_rate": 0.4666666666666667,
+   "attempts": 216,
+   "mean_attempts_solved": 4.0,
+   "historical_violation_rate": 0.6972972972972973,
+   "strict_violation_rate": 0.8108108108108109,
+   "eligible_attempts": 185,
+   "invalid_rate": 0.004629629629629629,
+   "repeat_rate": 0.3472222222222222,
+   "cfs_historical": 0.6012597597597598,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 216,
+   "calls_per_game": 7.2,
+   "model_seconds": 172.337,
+   "model_seconds_per_game": 5.744566666666667,
+   "completion_tokens": 6588,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Karma",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "LeBlanc",
+      "Lux",
+      "Syndra",
+      "Lux",
+      "Syndra",
+      "LeBlanc",
+      "LeBlanc",
+      "Lux"
+     ]
+    },
+    {
+     "target": "Samira",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Kalista",
+      "Mel",
+      "Xayah",
+      "Zeri",
+      "Neeko",
+      "Renata Glasc",
+      "Xayah",
+      null,
+      "Kai'Sa"
+     ]
+    },
+    {
+     "target": "Nocturne",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Akali",
+      "Diana",
+      "Leona",
+      "Sejuani",
+      "Vi",
+      "Sejuani",
+      "Vi",
+      "Sejuani",
+      "Vi"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Zilean",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Twitch",
+      "Fiddlesticks",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Tryndamere",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Darius",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen"
+     ]
+    },
+    {
+     "target": "Pantheon",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Blitzcrank",
+      "Darius",
+      "Fizz",
+      "Lee Sin",
+      "Master Yi",
+      "Gragas",
+      "Gragas",
+      "Gragas",
+      "Alistar"
+     ]
+    },
+    {
+     "target": "Vladimir",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Viktor",
+      "Swain",
+      "Swain",
+      "Swain",
+      "LeBlanc",
+      "Urgot",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Mordekaiser",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Darius",
+      "Garen",
+      "Gragas",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen"
+     ]
+    },
+    {
+     "target": "Zac",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Lucian",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo"
+     ]
+    },
+    {
+     "target": "Xerath",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Graves",
+      "Viktor",
+      "Viktor",
+      "Viktor",
+      "Talon",
+      "Viktor",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Kog'Maw",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Ziggs",
+      "Lucian",
+      "Twitch",
+      "Varus",
+      "Ziggs",
+      "Ziggs",
+      "Ziggs"
+     ]
+    },
+    {
+     "target": "Dr. Mundo",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Blitzcrank",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick"
+     ]
+    },
+    {
+     "target": "Malzahar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Viktor",
+      "Swain",
+      "Viktor",
+      "Swain",
+      "Viktor",
+      "Swain",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Ezreal",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Varus",
+      "Ziggs",
+      "Kog'Maw",
+      "Twitch",
+      "Kog'Maw",
+      "Karthus",
+      "Kog'Maw"
+     ]
+    }
+   ]
+  },
+  "none/algorithmic": {
+   "label": "none/algorithmic",
+   "source": "results/d3/raw/test_none_algorithmic.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 30,
+   "solve_rate": 1,
+   "attempts": 94,
+   "mean_attempts_solved": 3.1333333333333333,
+   "historical_violation_rate": 0.0,
+   "strict_violation_rate": 0.0,
+   "eligible_attempts": 64,
+   "invalid_rate": 0.0,
+   "repeat_rate": 0.0,
+   "cfs_historical": 0.9846874999999999,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 0,
+   "calls_per_game": 0.0,
+   "model_seconds": 0,
+   "model_seconds_per_game": 0.0,
+   "completion_tokens": 0,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": []
+  },
+  "paginas/full": {
+   "label": "paginas/full",
+   "source": "results/d3/raw/test_paginas_full.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 25,
+   "solve_rate": 0.8333333333333334,
+   "attempts": 95,
+   "mean_attempts_solved": 3.24,
+   "historical_violation_rate": 0.03076923076923077,
+   "strict_violation_rate": 0.15384615384615385,
+   "eligible_attempts": 65,
+   "invalid_rate": 0.0,
+   "repeat_rate": 0.0,
+   "cfs_historical": 0.9357838827838829,
+   "stopped_games": 5,
+   "zero_submission_games": 0,
+   "calls": 1394,
+   "calls_per_game": 46.46666666666667,
+   "model_seconds": 2939.163,
+   "model_seconds_per_game": 97.97211,
+   "completion_tokens": 185467,
+   "api_errors": 0,
+   "protocol_errors": 60,
+   "memory_turns_checked": 99,
+   "memory_pool_equivalence_rate": 1.0,
+   "revisions": 29,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Samira",
+     "attempts": 2,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Kai'Sa"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 3,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "LeBlanc"
+     ]
+    },
+    {
+     "target": "Thresh",
+     "attempts": 2,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Lucian"
+     ]
+    },
+    {
+     "target": "Ashe",
+     "attempts": 4,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Tristana",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 3,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Sona"
+     ]
+    }
+   ]
+  }
+ },
+ "reproduced": {
+  "base/direct": {
+   "label": "base/direct",
+   "source": "results/d4/runs/test_v1/legacy/test_base_direct.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 2,
+   "solve_rate": 0.06666666666666667,
+   "attempts": 291,
+   "mean_attempts_solved": 5.5,
+   "historical_violation_rate": 0.9814814814814815,
+   "strict_violation_rate": 0.9907407407407407,
+   "eligible_attempts": 216,
+   "invalid_rate": 0.15463917525773196,
+   "repeat_rate": 0.3539518900343643,
+   "cfs_historical": 0.3777141220749468,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 291,
+   "calls_per_game": 9.7,
+   "model_seconds": 160.074,
+   "model_seconds_per_game": 5.335800000000001,
+   "completion_tokens": 8818,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Karma",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Malzahar",
+      "Xerath",
+      "Xerath",
+      "Ryze",
+      null,
+      "Ryze",
+      null,
+      "Ryze"
+     ]
+    },
+    {
+     "target": "Zoe",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kassadin",
+      "Kassadin",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Nocturne",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Kassadin",
+      null,
+      "Kassadin",
+      "Kassadin",
+      "Kog'Maw",
+      "Kassadin"
+     ]
+    },
+    {
+     "target": "Veigar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Malzahar",
+      "Xerath",
+      "Azir",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      null
+     ]
+    },
+    {
+     "target": "LeBlanc",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kassadin",
+      "Azir",
+      "Kassadin",
+      "Malzahar",
+      null,
+      null,
+      "Malzahar",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Thresh",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Vel'Koz",
+      null,
+      null,
+      "Vel'Koz",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Ashe",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kog'Maw",
+      null,
+      "Kog'Maw",
+      "Kog'Maw",
+      null,
+      "Vel'Koz",
+      null
+     ]
+    },
+    {
+     "target": "Zilean",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Vel'Koz",
+      "Urgot",
+      "Urgot",
+      null
+     ]
+    },
+    {
+     "target": "Xin Zhao",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Kha'Zix",
+      "Rengar",
+      "Zaahen",
+      null,
+      "Zaahen",
+      "Zaahen",
+      "Nasus"
+     ]
+    },
+    {
+     "target": "Tryndamere",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      "Garen",
+      "Rengar",
+      "Riven",
+      "Fiora"
+     ]
+    },
+    {
+     "target": "Pantheon",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Kha'Zix",
+      "Rengar",
+      "Zaahen",
+      "Zaahen",
+      "K'Sante",
+      null,
+      "K'Sante"
+     ]
+    },
+    {
+     "target": "Vladimir",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Vel'Koz",
+      null,
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      "Kog'Maw",
+      null
+     ]
+    },
+    {
+     "target": "Lissandra",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kassadin",
+      "Kassadin",
+      "Malzahar"
+     ]
+    },
+    {
+     "target": "Elise",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Twisted Fate",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Ekko",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Azir",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "Zaahen",
+      "Garen",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Briar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Rek'Sai",
+      "Kai'Sa",
+      "Rek'Sai",
+      null,
+      "Kai'Sa",
+      "Kog'Maw"
+     ]
+    },
+    {
+     "target": "Mordekaiser",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      "Rengar",
+      "K'Sante",
+      "Kai'Sa",
+      null
+     ]
+    },
+    {
+     "target": "Diana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Azir",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "K'Sante",
+      "Garen",
+      "Garen",
+      "Zaahen"
+     ]
+    },
+    {
+     "target": "Aatrox",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Singed",
+      "Zaahen",
+      "Zaahen",
+      "Zaahen",
+      "Zaahen",
+      "Nasus",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Zeri",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Twisted Fate",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Zac",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      "Kassadin",
+      "Rek'Sai",
+      "Kha'Zix",
+      null,
+      "Kha'Zix",
+      "Kha'Zix"
+     ]
+    },
+    {
+     "target": "Xerath",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot"
+     ]
+    },
+    {
+     "target": "Kog'Maw",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot",
+      "Urgot"
+     ]
+    },
+    {
+     "target": "Dr. Mundo",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Varus",
+      "Nasus",
+      "Zaahen",
+      null,
+      null,
+      "Zaahen",
+      "Zaahen"
+     ]
+    },
+    {
+     "target": "Jhin",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      null,
+      null,
+      "Kassadin",
+      null,
+      null
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Malzahar",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Vel'Koz",
+      null,
+      "Vel'Koz",
+      "Vel'Koz",
+      null,
+      "Vel'Koz"
+     ]
+    },
+    {
+     "target": "Ezreal",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Kassadin",
+      "Kai'Sa",
+      "Kog'Maw",
+      "Veigar",
+      "Varus",
+      "Draven",
+      "Jayce",
+      "Jayce",
+      "Jayce",
+      "Jayce"
+     ]
+    }
+   ]
+  },
+  "lora/d2_lora": {
+   "label": "lora/d2_lora",
+   "source": "results/d4/runs/test_v1/legacy/test_lora_d2_lora.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 14,
+   "solve_rate": 0.4666666666666667,
+   "attempts": 216,
+   "mean_attempts_solved": 4.0,
+   "historical_violation_rate": 0.6972972972972973,
+   "strict_violation_rate": 0.8108108108108109,
+   "eligible_attempts": 185,
+   "invalid_rate": 0.004629629629629629,
+   "repeat_rate": 0.3472222222222222,
+   "cfs_historical": 0.6012597597597598,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 216,
+   "calls_per_game": 7.2,
+   "model_seconds": 141.716,
+   "model_seconds_per_game": 4.723866666666667,
+   "completion_tokens": 6588,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Karma",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "LeBlanc",
+      "Lux",
+      "Syndra",
+      "Lux",
+      "Syndra",
+      "LeBlanc",
+      "LeBlanc",
+      "Lux"
+     ]
+    },
+    {
+     "target": "Samira",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Kalista",
+      "Mel",
+      "Xayah",
+      "Zeri",
+      "Neeko",
+      "Renata Glasc",
+      "Xayah",
+      null,
+      "Kai'Sa"
+     ]
+    },
+    {
+     "target": "Nocturne",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Akali",
+      "Diana",
+      "Leona",
+      "Sejuani",
+      "Vi",
+      "Sejuani",
+      "Vi",
+      "Sejuani",
+      "Vi"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Zilean",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Twitch",
+      "Fiddlesticks",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch",
+      "Twitch"
+     ]
+    },
+    {
+     "target": "Tryndamere",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Darius",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen"
+     ]
+    },
+    {
+     "target": "Pantheon",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Blitzcrank",
+      "Darius",
+      "Fizz",
+      "Lee Sin",
+      "Master Yi",
+      "Gragas",
+      "Gragas",
+      "Gragas",
+      "Alistar"
+     ]
+    },
+    {
+     "target": "Vladimir",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Viktor",
+      "Swain",
+      "Swain",
+      "Swain",
+      "LeBlanc",
+      "Urgot",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Mordekaiser",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Darius",
+      "Garen",
+      "Gragas",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen",
+      "Garen"
+     ]
+    },
+    {
+     "target": "Zac",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Lucian",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo",
+      "Yasuo"
+     ]
+    },
+    {
+     "target": "Xerath",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Graves",
+      "Viktor",
+      "Viktor",
+      "Viktor",
+      "Talon",
+      "Viktor",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Kog'Maw",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Ziggs",
+      "Lucian",
+      "Twitch",
+      "Varus",
+      "Ziggs",
+      "Ziggs",
+      "Ziggs"
+     ]
+    },
+    {
+     "target": "Dr. Mundo",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Blitzcrank",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick",
+      "Warwick"
+     ]
+    },
+    {
+     "target": "Malzahar",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Viktor",
+      "Swain",
+      "Viktor",
+      "Swain",
+      "Viktor",
+      "Swain",
+      "Viktor"
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Ashe",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Ezreal",
+     "attempts": 10,
+     "stop": null,
+     "guesses": [
+      "Aatrox",
+      "Corki",
+      "Draven",
+      "Varus",
+      "Ziggs",
+      "Kog'Maw",
+      "Twitch",
+      "Kog'Maw",
+      "Karthus",
+      "Kog'Maw"
+     ]
+    }
+   ]
+  },
+  "none/algorithmic": {
+   "label": "none/algorithmic",
+   "source": "results/d4/runs/test_v1/legacy/test_none_algorithmic.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 30,
+   "solve_rate": 1,
+   "attempts": 94,
+   "mean_attempts_solved": 3.1333333333333333,
+   "historical_violation_rate": 0.0,
+   "strict_violation_rate": 0.0,
+   "eligible_attempts": 64,
+   "invalid_rate": 0.0,
+   "repeat_rate": 0.0,
+   "cfs_historical": 0.9846874999999999,
+   "stopped_games": 0,
+   "zero_submission_games": 0,
+   "calls": 0,
+   "calls_per_game": 0.0,
+   "model_seconds": 0,
+   "model_seconds_per_game": 0.0,
+   "completion_tokens": 0,
+   "api_errors": 0,
+   "protocol_errors": 0,
+   "memory_turns_checked": 0,
+   "memory_pool_equivalence_rate": null,
+   "revisions": 0,
+   "tool_calls": 0,
+   "failures": []
+  },
+  "d3/full": {
+   "label": "d3/full",
+   "source": "results/d4/runs/test_v1/test_d3.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 25,
+   "solve_rate": 0.8333333333333334,
+   "attempts": 95,
+   "mean_attempts_solved": 3.24,
+   "historical_violation_rate": 0.03076923076923077,
+   "strict_violation_rate": 0.15384615384615385,
+   "eligible_attempts": 65,
+   "invalid_rate": 0.0,
+   "repeat_rate": 0.0,
+   "cfs_historical": 0.9357838827838829,
+   "stopped_games": 5,
+   "zero_submission_games": 0,
+   "calls": 1365,
+   "calls_per_game": 45.5,
+   "model_seconds": 8547.829,
+   "model_seconds_per_game": 284.92762666666664,
+   "completion_tokens": 181027,
+   "api_errors": 0,
+   "protocol_errors": 60,
+   "memory_turns_checked": 99,
+   "memory_pool_equivalence_rate": 1.0,
+   "revisions": 28,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Samira",
+     "attempts": 2,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Kai'Sa"
+     ]
+    },
+    {
+     "target": "Morgana",
+     "attempts": 3,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "LeBlanc"
+     ]
+    },
+    {
+     "target": "Thresh",
+     "attempts": 2,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Lucian"
+     ]
+    },
+    {
+     "target": "Ashe",
+     "attempts": 4,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Tristana",
+      "Nidalee"
+     ]
+    },
+    {
+     "target": "Soraka",
+     "attempts": 3,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Ahri",
+      "Sona"
+     ]
+    }
+   ]
+  },
+  "d4/full": {
+   "label": "d4/full",
+   "source": "results/d4/runs/test_v1/test_d4.json.gz",
+   "split": "test",
+   "complete": true,
+   "games": 30,
+   "solved": 29,
+   "solve_rate": 0.9666666666666667,
+   "attempts": 101,
+   "mean_attempts_solved": 3.413793103448276,
+   "historical_violation_rate": 0.014084507042253521,
+   "strict_violation_rate": 0.1267605633802817,
+   "eligible_attempts": 71,
+   "invalid_rate": 0.0,
+   "repeat_rate": 0.0,
+   "cfs_historical": 0.9733152246814218,
+   "stopped_games": 1,
+   "zero_submission_games": 0,
+   "calls": 1098,
+   "calls_per_game": 36.6,
+   "model_seconds": 7436.962,
+   "model_seconds_per_game": 247.89874666666668,
+   "completion_tokens": 138564,
+   "api_errors": 0,
+   "protocol_errors": 60,
+   "memory_turns_checked": 101,
+   "memory_pool_equivalence_rate": 1.0,
+   "revisions": 14,
+   "tool_calls": 0,
+   "failures": [
+    {
+     "target": "Samira",
+     "attempts": 2,
+     "stop": "call_limit",
+     "guesses": [
+      "Aatrox",
+      "Kai'Sa"
+     ]
+    }
+   ]
+  }
+ },
+ "comparisons": {
+  "D3 → D4 (reproducidos)": {
+   "paired_targets": 30,
+   "wins": 4,
+   "losses": 0,
+   "mcnemar_exact_p": 0.125
+  }
+ },
+ "selector": [
+  {
+   "set": "d3_test_trace[amarillo]",
+   "label": "base_d3",
+   "weights": "base",
+   "adapter": null,
+   "prompt": "d3",
+   "n": 280,
+   "pages": 280,
+   "fits": 62,
+   "listed": 2269,
+   "true_pos": 38,
+   "recall": 0.6129032258064516,
+   "precision": 0.016747465843984136,
+   "exact_pages": 6,
+   "protocol_errors": 44,
+   "false_drops": 24,
+   "false_keeps": 2231,
+   "yellow_errors": 1946,
+   "target_pages": 40,
+   "target_dropped": 15,
+   "yellow_single_pages": 133,
+   "yellow_single_recall": 0.5555555555555556,
+   "yellow_single_fits": 27,
+   "yellow_single_errors": 0,
+   "empty_pages": 225,
+   "empty_pages_clean": 6,
+   "seconds": 1714.1
+  },
+  {
+   "set": "d3_test_trace[amarillo]",
+   "label": "d3_d3",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "d3",
+   "n": 280,
+   "pages": 280,
+   "fits": 62,
+   "listed": 88,
+   "true_pos": 40,
+   "recall": 0.6451612903225806,
+   "precision": 0.45454545454545453,
+   "exact_pages": 237,
+   "protocol_errors": 0,
+   "false_drops": 22,
+   "false_keeps": 48,
+   "yellow_errors": 63,
+   "target_pages": 40,
+   "target_dropped": 18,
+   "yellow_single_pages": 133,
+   "yellow_single_recall": 0.4074074074074074,
+   "yellow_single_fits": 27,
+   "yellow_single_errors": 12,
+   "empty_pages": 225,
+   "empty_pages_clean": 204,
+   "seconds": 2158.8
+  },
+  {
+   "set": "d3_test_trace[amarillo]",
+   "label": "d4_d3",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector",
+   "prompt": "d3",
+   "n": 280,
+   "pages": 280,
+   "fits": 62,
+   "listed": 97,
+   "true_pos": 57,
+   "recall": 0.9193548387096774,
+   "precision": 0.5876288659793815,
+   "exact_pages": 238,
+   "protocol_errors": 0,
+   "false_drops": 5,
+   "false_keeps": 40,
+   "yellow_errors": 36,
+   "target_pages": 40,
+   "target_dropped": 5,
+   "yellow_single_pages": 133,
+   "yellow_single_recall": 0.8518518518518519,
+   "yellow_single_fits": 27,
+   "yellow_single_errors": 2,
+   "empty_pages": 225,
+   "empty_pages_clean": 191,
+   "seconds": 2235.2
+  },
+  {
+   "set": "d3_valid_trace[amarillo]",
+   "label": "ckpt_r1_1000",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r1_1000",
+   "prompt": "d3",
+   "n": 84,
+   "pages": 84,
+   "fits": 20,
+   "listed": 20,
+   "true_pos": 13,
+   "recall": 0.65,
+   "precision": 0.65,
+   "exact_pages": 71,
+   "protocol_errors": 0,
+   "false_drops": 7,
+   "false_keeps": 7,
+   "yellow_errors": 11,
+   "target_pages": 12,
+   "target_dropped": 6,
+   "yellow_single_pages": 49,
+   "yellow_single_recall": 0.5555555555555556,
+   "yellow_single_fits": 9,
+   "yellow_single_errors": 3,
+   "empty_pages": 67,
+   "empty_pages_clean": 61,
+   "seconds": 661.1
+  },
+  {
+   "set": "d3_valid_trace[amarillo]",
+   "label": "ckpt_r2_0670",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r2_0670",
+   "prompt": "d3",
+   "n": 84,
+   "pages": 84,
+   "fits": 20,
+   "listed": 25,
+   "true_pos": 19,
+   "recall": 0.95,
+   "precision": 0.76,
+   "exact_pages": 78,
+   "protocol_errors": 0,
+   "false_drops": 1,
+   "false_keeps": 6,
+   "yellow_errors": 6,
+   "target_pages": 12,
+   "target_dropped": 1,
+   "yellow_single_pages": 49,
+   "yellow_single_recall": 0.8888888888888888,
+   "yellow_single_fits": 9,
+   "yellow_single_errors": 1,
+   "empty_pages": 67,
+   "empty_pages_clean": 63,
+   "seconds": 657.1
+  },
+  {
+   "set": "d3_valid_trace[amarillo]",
+   "label": "ckpt_r2_final",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r2_final",
+   "prompt": "d3",
+   "n": 84,
+   "pages": 84,
+   "fits": 20,
+   "listed": 25,
+   "true_pos": 19,
+   "recall": 0.95,
+   "precision": 0.76,
+   "exact_pages": 78,
+   "protocol_errors": 0,
+   "false_drops": 1,
+   "false_keeps": 6,
+   "yellow_errors": 5,
+   "target_pages": 12,
+   "target_dropped": 1,
+   "yellow_single_pages": 49,
+   "yellow_single_recall": 0.8888888888888888,
+   "yellow_single_fits": 9,
+   "yellow_single_errors": 1,
+   "empty_pages": 67,
+   "empty_pages_clean": 63,
+   "seconds": 661.9
+  },
+  {
+   "set": "d3_valid_trace[amarillo]",
+   "label": "d3_amarillo",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "amarillo",
+   "n": 84,
+   "pages": 84,
+   "fits": 20,
+   "listed": 14,
+   "true_pos": 11,
+   "recall": 0.55,
+   "precision": 0.7857142857142857,
+   "exact_pages": 72,
+   "protocol_errors": 0,
+   "false_drops": 9,
+   "false_keeps": 3,
+   "yellow_errors": 11,
+   "target_pages": 12,
+   "target_dropped": 8,
+   "yellow_single_pages": 49,
+   "yellow_single_recall": 0.4444444444444444,
+   "yellow_single_fits": 9,
+   "yellow_single_errors": 4,
+   "empty_pages": 67,
+   "empty_pages_clean": 65,
+   "seconds": 1039.3
+  },
+  {
+   "set": "d3_valid_trace[amarillo]",
+   "label": "d3_d3",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "d3",
+   "n": 84,
+   "pages": 84,
+   "fits": 20,
+   "listed": 18,
+   "true_pos": 12,
+   "recall": 0.6,
+   "precision": 0.6666666666666666,
+   "exact_pages": 71,
+   "protocol_errors": 0,
+   "false_drops": 8,
+   "false_keeps": 6,
+   "yellow_errors": 10,
+   "target_pages": 12,
+   "target_dropped": 7,
+   "yellow_single_pages": 49,
+   "yellow_single_recall": 0.4444444444444444,
+   "yellow_single_fits": 9,
+   "yellow_single_errors": 2,
+   "empty_pages": 67,
+   "empty_pages_clean": 63,
+   "seconds": 1077.8
+  },
+  {
+   "set": "test_generado",
+   "label": "base_d3",
+   "weights": "base",
+   "adapter": null,
+   "prompt": "d3",
+   "n": 156,
+   "pages": 156,
+   "fits": 341,
+   "listed": 1234,
+   "true_pos": 191,
+   "recall": 0.5601173020527859,
+   "precision": 0.1547811993517018,
+   "exact_pages": 1,
+   "protocol_errors": 44,
+   "false_drops": 150,
+   "false_keeps": 1043,
+   "yellow_errors": 623,
+   "target_pages": 58,
+   "target_dropped": 33,
+   "yellow_single_pages": 59,
+   "yellow_single_recall": 0.36666666666666664,
+   "yellow_single_fits": 30,
+   "yellow_single_errors": 0,
+   "empty_pages": 64,
+   "empty_pages_clean": 1,
+   "seconds": 1107.8
+  },
+  {
+   "set": "test_generado",
+   "label": "d3_d3",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "d3",
+   "n": 156,
+   "pages": 156,
+   "fits": 341,
+   "listed": 315,
+   "true_pos": 301,
+   "recall": 0.8826979472140762,
+   "precision": 0.9555555555555556,
+   "exact_pages": 111,
+   "protocol_errors": 0,
+   "false_drops": 40,
+   "false_keeps": 14,
+   "yellow_errors": 35,
+   "target_pages": 58,
+   "target_dropped": 29,
+   "yellow_single_pages": 59,
+   "yellow_single_recall": 0.5,
+   "yellow_single_fits": 30,
+   "yellow_single_errors": 11,
+   "empty_pages": 64,
+   "empty_pages_clean": 57,
+   "seconds": 1750.5
+  },
+  {
+   "set": "test_generado",
+   "label": "d4_d3",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector",
+   "prompt": "d3",
+   "n": 156,
+   "pages": 156,
+   "fits": 341,
+   "listed": 306,
+   "true_pos": 276,
+   "recall": 0.8093841642228738,
+   "precision": 0.9019607843137255,
+   "exact_pages": 122,
+   "protocol_errors": 0,
+   "false_drops": 65,
+   "false_keeps": 30,
+   "yellow_errors": 28,
+   "target_pages": 58,
+   "target_dropped": 6,
+   "yellow_single_pages": 59,
+   "yellow_single_recall": 0.9333333333333333,
+   "yellow_single_fits": 30,
+   "yellow_single_errors": 2,
+   "empty_pages": 64,
+   "empty_pages_clean": 47,
+   "seconds": 1242.1
+  },
+  {
+   "set": "valid_generado[amarillo]",
+   "label": "ckpt_r1_1000",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r1_1000",
+   "prompt": "d3",
+   "n": 73,
+   "pages": 73,
+   "fits": 47,
+   "listed": 43,
+   "true_pos": 37,
+   "recall": 0.7872340425531915,
+   "precision": 0.8604651162790697,
+   "exact_pages": 58,
+   "protocol_errors": 0,
+   "false_drops": 10,
+   "false_keeps": 6,
+   "yellow_errors": 13,
+   "target_pages": 33,
+   "target_dropped": 5,
+   "yellow_single_pages": 25,
+   "yellow_single_recall": 0.875,
+   "yellow_single_fits": 16,
+   "yellow_single_errors": 1,
+   "empty_pages": 28,
+   "empty_pages_clean": 23,
+   "seconds": 569.0
+  },
+  {
+   "set": "valid_generado[amarillo]",
+   "label": "ckpt_r2_0670",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r2_0670",
+   "prompt": "d3",
+   "n": 73,
+   "pages": 73,
+   "fits": 47,
+   "listed": 53,
+   "true_pos": 43,
+   "recall": 0.9148936170212766,
+   "precision": 0.8113207547169812,
+   "exact_pages": 61,
+   "protocol_errors": 0,
+   "false_drops": 4,
+   "false_keeps": 10,
+   "yellow_errors": 13,
+   "target_pages": 33,
+   "target_dropped": 3,
+   "yellow_single_pages": 25,
+   "yellow_single_recall": 1.0,
+   "yellow_single_fits": 16,
+   "yellow_single_errors": 0,
+   "empty_pages": 28,
+   "empty_pages_clean": 22,
+   "seconds": 570.9
+  },
+  {
+   "set": "valid_generado[amarillo]",
+   "label": "ckpt_r2_final",
+   "weights": "d4",
+   "adapter": "finetune/adapters/d4_selector_ckpts/r2_final",
+   "prompt": "d3",
+   "n": 73,
+   "pages": 73,
+   "fits": 47,
+   "listed": 55,
+   "true_pos": 44,
+   "recall": 0.9361702127659575,
+   "precision": 0.8,
+   "exact_pages": 61,
+   "protocol_errors": 0,
+   "false_drops": 3,
+   "false_keeps": 11,
+   "yellow_errors": 13,
+   "target_pages": 33,
+   "target_dropped": 3,
+   "yellow_single_pages": 25,
+   "yellow_single_recall": 1.0,
+   "yellow_single_fits": 16,
+   "yellow_single_errors": 0,
+   "empty_pages": 28,
+   "empty_pages_clean": 21,
+   "seconds": 570.7
+  },
+  {
+   "set": "valid_generado[amarillo]",
+   "label": "d3_amarillo",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "amarillo",
+   "n": 73,
+   "pages": 73,
+   "fits": 47,
+   "listed": 36,
+   "true_pos": 32,
+   "recall": 0.6808510638297872,
+   "precision": 0.8888888888888888,
+   "exact_pages": 54,
+   "protocol_errors": 0,
+   "false_drops": 15,
+   "false_keeps": 4,
+   "yellow_errors": 14,
+   "target_pages": 33,
+   "target_dropped": 12,
+   "yellow_single_pages": 25,
+   "yellow_single_recall": 0.8125,
+   "yellow_single_fits": 16,
+   "yellow_single_errors": 2,
+   "empty_pages": 28,
+   "empty_pages_clean": 26,
+   "seconds": 900.1
+  },
+  {
+   "set": "valid_generado[amarillo]",
+   "label": "d3_d3",
+   "weights": "d3",
+   "adapter": "finetune/adapters/d3_paginas_cot3",
+   "prompt": "d3",
+   "n": 73,
+   "pages": 73,
+   "fits": 47,
+   "listed": 40,
+   "true_pos": 34,
+   "recall": 0.723404255319149,
+   "precision": 0.85,
+   "exact_pages": 55,
+   "protocol_errors": 0,
+   "false_drops": 13,
+   "false_keeps": 6,
+   "yellow_errors": 13,
+   "target_pages": 33,
+   "target_dropped": 9,
+   "yellow_single_pages": 25,
+   "yellow_single_recall": 0.875,
+   "yellow_single_fits": 16,
+   "yellow_single_errors": 0,
+   "empty_pages": 28,
+   "empty_pages_clean": 25,
+   "seconds": 997.2
+  }
+ ],
+ "loss": {
+  "train": [
+   {
+    "iter": 25,
+    "loss": 0.03,
+    "lr": 1.287e-05,
+    "it_s": 0.192,
+    "tokens": 4187,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 25
+   },
+   {
+    "iter": 50,
+    "loss": 0.071,
+    "lr": 2e-05,
+    "it_s": 0.226,
+    "tokens": 8352,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 50
+   },
+   {
+    "iter": 75,
+    "loss": 0.112,
+    "lr": 1.999e-05,
+    "it_s": 0.269,
+    "tokens": 12474,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 75
+   },
+   {
+    "iter": 100,
+    "loss": 0.103,
+    "lr": 1.997e-05,
+    "it_s": 0.253,
+    "tokens": 16547,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 100
+   },
+   {
+    "iter": 125,
+    "loss": 0.086,
+    "lr": 1.995e-05,
+    "it_s": 0.211,
+    "tokens": 20726,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 125
+   },
+   {
+    "iter": 150,
+    "loss": 0.079,
+    "lr": 1.992e-05,
+    "it_s": 0.21,
+    "tokens": 24775,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 150
+   },
+   {
+    "iter": 175,
+    "loss": 0.082,
+    "lr": 1.987e-05,
+    "it_s": 0.212,
+    "tokens": 28793,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 175
+   },
+   {
+    "iter": 200,
+    "loss": 0.068,
+    "lr": 1.981e-05,
+    "it_s": 0.193,
+    "tokens": 32868,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 200
+   },
+   {
+    "iter": 225,
+    "loss": 0.078,
+    "lr": 1.976e-05,
+    "it_s": 0.209,
+    "tokens": 36958,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 225
+   },
+   {
+    "iter": 250,
+    "loss": 0.072,
+    "lr": 1.969e-05,
+    "it_s": 0.212,
+    "tokens": 41141,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 250
+   },
+   {
+    "iter": 275,
+    "loss": 0.054,
+    "lr": 1.961e-05,
+    "it_s": 0.212,
+    "tokens": 45416,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 275
+   },
+   {
+    "iter": 300,
+    "loss": 0.056,
+    "lr": 1.951e-05,
+    "it_s": 0.216,
+    "tokens": 49475,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 300
+   },
+   {
+    "iter": 325,
+    "loss": 0.051,
+    "lr": 1.942e-05,
+    "it_s": 0.215,
+    "tokens": 53583,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 325
+   },
+   {
+    "iter": 350,
+    "loss": 0.048,
+    "lr": 1.932e-05,
+    "it_s": 0.217,
+    "tokens": 57758,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 350
+   },
+   {
+    "iter": 375,
+    "loss": 0.051,
+    "lr": 1.921e-05,
+    "it_s": 0.209,
+    "tokens": 61879,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 375
+   },
+   {
+    "iter": 400,
+    "loss": 0.039,
+    "lr": 1.907e-05,
+    "it_s": 0.214,
+    "tokens": 66108,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 400
+   },
+   {
+    "iter": 425,
+    "loss": 0.056,
+    "lr": 1.895e-05,
+    "it_s": 0.215,
+    "tokens": 70273,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 425
+   },
+   {
+    "iter": 450,
+    "loss": 0.049,
+    "lr": 1.882e-05,
+    "it_s": 0.211,
+    "tokens": 74478,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 450
+   },
+   {
+    "iter": 475,
+    "loss": 0.04,
+    "lr": 1.868e-05,
+    "it_s": 0.219,
+    "tokens": 78718,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 475
+   },
+   {
+    "iter": 500,
+    "loss": 0.042,
+    "lr": 1.851e-05,
+    "it_s": 0.213,
+    "tokens": 82928,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 500
+   },
+   {
+    "iter": 525,
+    "loss": 0.046,
+    "lr": 1.835e-05,
+    "it_s": 0.213,
+    "tokens": 87178,
+    "peak_gb": 5.41,
+    "round": 1,
+    "iter_global": 525
+   },
+   {
+    "iter": 550,
+    "loss": 0.039,
+    "lr": 1.819e-05,
+    "it_s": 0.212,
+    "tokens": 91234,
+    "peak_gb": 5.433,
+    "round": 1,
+    "iter_global": 550
+   },
+   {
+    "iter": 575,
+    "loss": 0.041,
+    "lr": 1.802e-05,
+    "it_s": 0.215,
+    "tokens": 95416,
+    "peak_gb": 5.433,
+    "round": 1,
+    "iter_global": 575
+   },
+   {
+    "iter": 600,
+    "loss": 0.037,
+    "lr": 1.782e-05,
+    "it_s": 0.22,
+    "tokens": 99646,
+    "peak_gb": 5.433,
+    "round": 1,
+    "iter_global": 600
+   },
+   {
+    "iter": 625,
+    "loss": 0.045,
+    "lr": 1.763e-05,
+    "it_s": 0.213,
+    "tokens": 103671,
+    "peak_gb": 5.433,
+    "round": 1,
+    "iter_global": 625
+   },
+   {
+    "iter": 650,
+    "loss": 0.047,
+    "lr": 1.744e-05,
+    "it_s": 0.209,
+    "tokens": 107877,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 650
+   },
+   {
+    "iter": 675,
+    "loss": 0.038,
+    "lr": 1.725e-05,
+    "it_s": 0.216,
+    "tokens": 112009,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 675
+   },
+   {
+    "iter": 700,
+    "loss": 0.032,
+    "lr": 1.702e-05,
+    "it_s": 0.212,
+    "tokens": 116266,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 700
+   },
+   {
+    "iter": 725,
+    "loss": 0.042,
+    "lr": 1.681e-05,
+    "it_s": 0.214,
+    "tokens": 120496,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 725
+   },
+   {
+    "iter": 750,
+    "loss": 0.044,
+    "lr": 1.66e-05,
+    "it_s": 0.218,
+    "tokens": 124580,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 750
+   },
+   {
+    "iter": 775,
+    "loss": 0.039,
+    "lr": 1.638e-05,
+    "it_s": 0.213,
+    "tokens": 128653,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 775
+   },
+   {
+    "iter": 800,
+    "loss": 0.031,
+    "lr": 1.612e-05,
+    "it_s": 0.212,
+    "tokens": 132814,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 800
+   },
+   {
+    "iter": 825,
+    "loss": 0.032,
+    "lr": 1.589e-05,
+    "it_s": 0.213,
+    "tokens": 136983,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 825
+   },
+   {
+    "iter": 850,
+    "loss": 0.034,
+    "lr": 1.566e-05,
+    "it_s": 0.217,
+    "tokens": 141337,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 850
+   },
+   {
+    "iter": 875,
+    "loss": 0.042,
+    "lr": 1.542e-05,
+    "it_s": 0.242,
+    "tokens": 145439,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 875
+   },
+   {
+    "iter": 900,
+    "loss": 0.044,
+    "lr": 1.514e-05,
+    "it_s": 0.255,
+    "tokens": 149652,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 900
+   },
+   {
+    "iter": 925,
+    "loss": 0.035,
+    "lr": 1.489e-05,
+    "it_s": 0.242,
+    "tokens": 153833,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 925
+   },
+   {
+    "iter": 950,
+    "loss": 0.032,
+    "lr": 1.464e-05,
+    "it_s": 0.254,
+    "tokens": 158192,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 950
+   },
+   {
+    "iter": 975,
+    "loss": 0.03,
+    "lr": 1.439e-05,
+    "it_s": 0.237,
+    "tokens": 162406,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 975
+   },
+   {
+    "iter": 1000,
+    "loss": 0.028,
+    "lr": 1.409e-05,
+    "it_s": 0.224,
+    "tokens": 166451,
+    "peak_gb": 5.455,
+    "round": 1,
+    "iter_global": 1000
+   },
+   {
+    "iter": 25,
+    "loss": 0.034,
+    "lr": 3.25e-06,
+    "it_s": 0.234,
+    "tokens": 4126,
+    "peak_gb": 5.387,
+    "round": 2,
+    "iter_global": 1025
+   },
+   {
+    "iter": 50,
+    "loss": 0.04,
+    "lr": 5.95e-06,
+    "it_s": 0.238,
+    "tokens": 8202,
+    "peak_gb": 5.41,
+    "round": 2,
+    "iter_global": 1050
+   },
+   {
+    "iter": 75,
+    "loss": 0.042,
+    "lr": 8.65e-06,
+    "it_s": 0.236,
+    "tokens": 12294,
+    "peak_gb": 5.41,
+    "round": 2,
+    "iter_global": 1075
+   },
+   {
+    "iter": 100,
+    "loss": 0.045,
+    "lr": 9.998e-06,
+    "it_s": 0.236,
+    "tokens": 16429,
+    "peak_gb": 5.41,
+    "round": 2,
+    "iter_global": 1100
+   },
+   {
+    "iter": 125,
+    "loss": 0.05,
+    "lr": 9.982e-06,
+    "it_s": 0.235,
+    "tokens": 20552,
+    "peak_gb": 5.41,
+    "round": 2,
+    "iter_global": 1125
+   },
+   {
+    "iter": 150,
+    "loss": 0.042,
+    "lr": 9.95e-06,
+    "it_s": 0.235,
+    "tokens": 24688,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1150
+   },
+   {
+    "iter": 175,
+    "loss": 0.048,
+    "lr": 9.902e-06,
+    "it_s": 0.236,
+    "tokens": 28720,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1175
+   },
+   {
+    "iter": 200,
+    "loss": 0.04,
+    "lr": 9.826e-06,
+    "it_s": 0.241,
+    "tokens": 32751,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1200
+   },
+   {
+    "iter": 225,
+    "loss": 0.049,
+    "lr": 9.744e-06,
+    "it_s": 0.237,
+    "tokens": 36896,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1225
+   },
+   {
+    "iter": 250,
+    "loss": 0.037,
+    "lr": 9.647e-06,
+    "it_s": 0.236,
+    "tokens": 40957,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1250
+   },
+   {
+    "iter": 275,
+    "loss": 0.036,
+    "lr": 9.535e-06,
+    "it_s": 0.239,
+    "tokens": 45038,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1275
+   },
+   {
+    "iter": 300,
+    "loss": 0.033,
+    "lr": 9.386e-06,
+    "it_s": 0.237,
+    "tokens": 49107,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1300
+   },
+   {
+    "iter": 325,
+    "loss": 0.032,
+    "lr": 9.243e-06,
+    "it_s": 0.237,
+    "tokens": 53184,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1325
+   },
+   {
+    "iter": 350,
+    "loss": 0.037,
+    "lr": 9.087e-06,
+    "it_s": 0.224,
+    "tokens": 57287,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1350
+   },
+   {
+    "iter": 375,
+    "loss": 0.038,
+    "lr": 8.918e-06,
+    "it_s": 0.219,
+    "tokens": 61432,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1375
+   },
+   {
+    "iter": 400,
+    "loss": 0.038,
+    "lr": 8.706e-06,
+    "it_s": 0.228,
+    "tokens": 65505,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1400
+   },
+   {
+    "iter": 425,
+    "loss": 0.032,
+    "lr": 8.511e-06,
+    "it_s": 0.236,
+    "tokens": 69622,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1425
+   },
+   {
+    "iter": 450,
+    "loss": 0.031,
+    "lr": 8.306e-06,
+    "it_s": 0.236,
+    "tokens": 73813,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1450
+   },
+   {
+    "iter": 475,
+    "loss": 0.039,
+    "lr": 8.09e-06,
+    "it_s": 0.236,
+    "tokens": 77943,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1475
+   },
+   {
+    "iter": 500,
+    "loss": 0.034,
+    "lr": 7.827e-06,
+    "it_s": 0.237,
+    "tokens": 82127,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1500
+   },
+   {
+    "iter": 525,
+    "loss": 0.032,
+    "lr": 7.593e-06,
+    "it_s": 0.239,
+    "tokens": 86254,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1525
+   },
+   {
+    "iter": 550,
+    "loss": 0.034,
+    "lr": 7.351e-06,
+    "it_s": 0.208,
+    "tokens": 90414,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1550
+   },
+   {
+    "iter": 575,
+    "loss": 0.03,
+    "lr": 7.102e-06,
+    "it_s": 0.193,
+    "tokens": 94548,
+    "peak_gb": 5.468,
+    "round": 2,
+    "iter_global": 1575
+   },
+   {
+    "iter": 600,
+    "loss": 0.032,
+    "lr": 6.805e-06,
+    "it_s": 0.193,
+    "tokens": 98621,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1600
+   },
+   {
+    "iter": 625,
+    "loss": 0.03,
+    "lr": 6.545e-06,
+    "it_s": 0.194,
+    "tokens": 102690,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1625
+   },
+   {
+    "iter": 650,
+    "loss": 0.03,
+    "lr": 6.281e-06,
+    "it_s": 0.197,
+    "tokens": 106710,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1650
+   },
+   {
+    "iter": 675,
+    "loss": 0.029,
+    "lr": 6.015e-06,
+    "it_s": 0.208,
+    "tokens": 110770,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1675
+   },
+   {
+    "iter": 700,
+    "loss": 0.031,
+    "lr": 5.702e-06,
+    "it_s": 0.202,
+    "tokens": 114881,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1700
+   },
+   {
+    "iter": 725,
+    "loss": 0.03,
+    "lr": 5.433e-06,
+    "it_s": 0.213,
+    "tokens": 118961,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1725
+   },
+   {
+    "iter": 750,
+    "loss": 0.029,
+    "lr": 5.164e-06,
+    "it_s": 0.209,
+    "tokens": 123094,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1750
+   },
+   {
+    "iter": 775,
+    "loss": 0.037,
+    "lr": 4.896e-06,
+    "it_s": 0.212,
+    "tokens": 127178,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1775
+   },
+   {
+    "iter": 800,
+    "loss": 0.029,
+    "lr": 4.586e-06,
+    "it_s": 0.209,
+    "tokens": 131291,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1800
+   },
+   {
+    "iter": 825,
+    "loss": 0.029,
+    "lr": 4.324e-06,
+    "it_s": 0.208,
+    "tokens": 135397,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1825
+   },
+   {
+    "iter": 850,
+    "loss": 0.03,
+    "lr": 4.067e-06,
+    "it_s": 0.205,
+    "tokens": 139549,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1850
+   },
+   {
+    "iter": 875,
+    "loss": 0.032,
+    "lr": 3.814e-06,
+    "it_s": 0.215,
+    "tokens": 143555,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1875
+   },
+   {
+    "iter": 900,
+    "loss": 0.029,
+    "lr": 3.527e-06,
+    "it_s": 0.223,
+    "tokens": 147647,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1900
+   },
+   {
+    "iter": 925,
+    "loss": 0.031,
+    "lr": 3.289e-06,
+    "it_s": 0.231,
+    "tokens": 151704,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1925
+   },
+   {
+    "iter": 950,
+    "loss": 0.031,
+    "lr": 3.059e-06,
+    "it_s": 0.227,
+    "tokens": 155827,
+    "peak_gb": 5.513,
+    "round": 2,
+    "iter_global": 1950
+   },
+   {
+    "iter": 975,
+    "loss": 0.03,
+    "lr": 2.837e-06,
+    "it_s": 0.229,
+    "tokens": 159933,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 1975
+   },
+   {
+    "iter": 1000,
+    "loss": 0.036,
+    "lr": 2.59e-06,
+    "it_s": 0.23,
+    "tokens": 163966,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2000
+   },
+   {
+    "iter": 1025,
+    "loss": 0.029,
+    "lr": 2.39e-06,
+    "it_s": 0.196,
+    "tokens": 168096,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2025
+   },
+   {
+    "iter": 1050,
+    "loss": 0.028,
+    "lr": 2.201e-06,
+    "it_s": 0.192,
+    "tokens": 172212,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2050
+   },
+   {
+    "iter": 1075,
+    "loss": 0.029,
+    "lr": 2.024e-06,
+    "it_s": 0.194,
+    "tokens": 176297,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2075
+   },
+   {
+    "iter": 1100,
+    "loss": 0.029,
+    "lr": 1.833e-06,
+    "it_s": 0.194,
+    "tokens": 180418,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2100
+   },
+   {
+    "iter": 1125,
+    "loss": 0.028,
+    "lr": 1.684e-06,
+    "it_s": 0.193,
+    "tokens": 184511,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2125
+   },
+   {
+    "iter": 1150,
+    "loss": 0.029,
+    "lr": 1.548e-06,
+    "it_s": 0.195,
+    "tokens": 188657,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2150
+   },
+   {
+    "iter": 1175,
+    "loss": 0.028,
+    "lr": 1.426e-06,
+    "it_s": 0.195,
+    "tokens": 192785,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2175
+   },
+   {
+    "iter": 1200,
+    "loss": 0.027,
+    "lr": 1.303e-06,
+    "it_s": 0.191,
+    "tokens": 196923,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2200
+   },
+   {
+    "iter": 1225,
+    "loss": 0.028,
+    "lr": 1.213e-06,
+    "it_s": 0.194,
+    "tokens": 201080,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2225
+   },
+   {
+    "iter": 1250,
+    "loss": 0.026,
+    "lr": 1.139e-06,
+    "it_s": 0.192,
+    "tokens": 205228,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2250
+   },
+   {
+    "iter": 1275,
+    "loss": 0.028,
+    "lr": 1.081e-06,
+    "it_s": 0.195,
+    "tokens": 209323,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2275
+   },
+   {
+    "iter": 1300,
+    "loss": 0.031,
+    "lr": 1.032e-06,
+    "it_s": 0.202,
+    "tokens": 213352,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2300
+   },
+   {
+    "iter": 1325,
+    "loss": 0.03,
+    "lr": 1.008e-06,
+    "it_s": 0.226,
+    "tokens": 217491,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2325
+   },
+   {
+    "iter": 1340,
+    "loss": 0.034,
+    "lr": 1.001e-06,
+    "it_s": 0.371,
+    "tokens": 219907,
+    "peak_gb": 5.572,
+    "round": 2,
+    "iter_global": 2340
+   }
+  ],
+  "valid": [
+   {
+    "iter": 1,
+    "loss": 0.028,
+    "round": 1,
+    "iter_global": 1
+   },
+   {
+    "iter": 250,
+    "loss": 0.062,
+    "round": 1,
+    "iter_global": 250
+   },
+   {
+    "iter": 500,
+    "loss": 0.04,
+    "round": 1,
+    "iter_global": 500
+   },
+   {
+    "iter": 750,
+    "loss": 0.036,
+    "round": 1,
+    "iter_global": 750
+   },
+   {
+    "iter": 1000,
+    "loss": 0.03,
+    "round": 1,
+    "iter_global": 1000
+   },
+   {
+    "iter": 1,
+    "loss": 0.03,
+    "round": 2,
+    "iter_global": 1001
+   },
+   {
+    "iter": 335,
+    "loss": 0.032,
+    "round": 2,
+    "iter_global": 1335
+   },
+   {
+    "iter": 670,
+    "loss": 0.03,
+    "round": 2,
+    "iter_global": 1670
+   },
+   {
+    "iter": 1005,
+    "loss": 0.027,
+    "round": 2,
+    "iter_global": 2005
+   },
+   {
+    "iter": 1340,
+    "loss": 0.026,
+    "round": 2,
+    "iter_global": 2340
+   }
+  ]
+ }
+}

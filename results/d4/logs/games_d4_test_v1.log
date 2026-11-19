@@ -1,0 +1,32 @@
+[transformers] PyTorch was not found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.
+[transformers] The tokenizer you are loading from '/Users/matias/.cache/huggingface/hub/models--mlx-community--Ministral-3-3B-Instruct-2512-4bit/snapshots/a962dcb09eee4169c890e544c9eb938f1113fdee' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+d4 2/30 Samira: solved=False attempts=2 calls=82 stop=call_limit adapters={'memory:d3_paginas_cot3': 62, 'selector:d4_selector': 14, 'verifier:d3_paginas_cot3': 6}
+d4 3/30 Zoe: solved=True attempts=5 calls=52 stop=None adapters={'memory:d3_paginas_cot3': 5, 'selector:d4_selector': 35, 'verifier:d3_paginas_cot3': 12}
+d4 4/30 Nocturne: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 5/30 Veigar: solved=True attempts=4 calls=40 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 8}
+d4 6/30 LeBlanc: solved=True attempts=4 calls=40 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 8}
+d4 7/30 Morgana: solved=True attempts=5 calls=54 stop=None adapters={'memory:d3_paginas_cot3': 5, 'selector:d4_selector': 35, 'verifier:d3_paginas_cot3': 14}
+d4 8/30 Thresh: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 9/30 Ashe: solved=True attempts=5 calls=50 stop=None adapters={'memory:d3_paginas_cot3': 5, 'selector:d4_selector': 35, 'verifier:d3_paginas_cot3': 10}
+d4 10/30 Zilean: solved=True attempts=5 calls=52 stop=None adapters={'memory:d3_paginas_cot3': 5, 'selector:d4_selector': 35, 'verifier:d3_paginas_cot3': 12}
+d4 11/30 Xin Zhao: solved=True attempts=4 calls=42 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 10}
+d4 12/30 Tryndamere: solved=True attempts=4 calls=44 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 12}
+d4 13/30 Pantheon: solved=True attempts=4 calls=40 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 8}
+d4 14/30 Vladimir: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 15/30 Lissandra: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 16/30 Elise: solved=True attempts=5 calls=50 stop=None adapters={'memory:d3_paginas_cot3': 5, 'selector:d4_selector': 35, 'verifier:d3_paginas_cot3': 10}
+d4 17/30 Ekko: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 18/30 Briar: solved=True attempts=2 calls=20 stop=None adapters={'memory:d3_paginas_cot3': 2, 'selector:d4_selector': 14, 'verifier:d3_paginas_cot3': 4}
+d4 19/30 Mordekaiser: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 20/30 Diana: solved=True attempts=2 calls=20 stop=None adapters={'memory:d3_paginas_cot3': 2, 'selector:d4_selector': 14, 'verifier:d3_paginas_cot3': 4}
+d4 21/30 Aatrox: solved=True attempts=1 calls=10 stop=None adapters={'memory:d3_paginas_cot3': 1, 'selector:d4_selector': 7, 'verifier:d3_paginas_cot3': 2}
+d4 22/30 Zeri: solved=True attempts=4 calls=44 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 12}
+d4 23/30 Zac: solved=True attempts=2 calls=20 stop=None adapters={'memory:d3_paginas_cot3': 2, 'selector:d4_selector': 14, 'verifier:d3_paginas_cot3': 4}
+d4 24/30 Xerath: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 25/30 Kog'Maw: solved=True attempts=4 calls=40 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 8}
+d4 26/30 Dr. Mundo: solved=True attempts=2 calls=20 stop=None adapters={'memory:d3_paginas_cot3': 2, 'selector:d4_selector': 14, 'verifier:d3_paginas_cot3': 4}
+d4 27/30 Jhin: solved=True attempts=3 calls=32 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 8}
+d4 28/30 Malzahar: solved=True attempts=3 calls=30 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 6}
+d4 29/30 Soraka: solved=True attempts=4 calls=40 stop=None adapters={'memory:d3_paginas_cot3': 4, 'selector:d4_selector': 28, 'verifier:d3_paginas_cot3': 8}
+d4 30/30 Ezreal: solved=True attempts=3 calls=36 stop=None adapters={'memory:d3_paginas_cot3': 3, 'selector:d4_selector': 21, 'verifier:d3_paginas_cot3': 12}
+/Users/matias/Códigos/GenAI/ENTREGABLE1/results/d4/runs/test_v1/test_d4.json.gz
