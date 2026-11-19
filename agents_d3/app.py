@@ -103,7 +103,7 @@ def handler_for(args):
                             send(event)
                             return original_query(messages)
                         system.ns['query_model'] = request
-                        def output(event):
+                        def output(event, game_number=None):
                             sample = telemetry[-1] if telemetry else {}
                             response = {'kind': 'model_output', 'agent': variant, 'content': sample.get('model_output', '')}
                             feedback = {'kind': 'game_feedback', 'event': event}
