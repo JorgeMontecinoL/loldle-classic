@@ -7,7 +7,7 @@
 - «No disponible»: falta el adaptador o el servidor.
 El secreto lo elige la interfaz y sólo lo usa el motor del juego (`AgentSystem.play`):
 nunca entra en los mensajes de los agentes. Las partidas se ejecutan de a una (un
-servidor, un adaptador por llamada).
+servidor, un adaptador por llamada), salvo el control por reglas.
 """
 import argparse
 import json
@@ -39,6 +39,20 @@ SYSTEM_INFO = {
 }
 CASES = ROOT / "results/d4/demo_cases.json"
 TRACE_DIRS = [ROOT / "results/d4/runs", ROOT / "results/d3/raw"]
+FRONTEND_FILES = {
+    "/": ("arena.html", "text/html; charset=utf-8"),
+    "/original": ("index.html", "text/html; charset=utf-8"),
+    "/arena.css": ("arena.css", "text/css; charset=utf-8"),
+    "/arena.js": ("arena.js", "text/javascript; charset=utf-8"),
+    "/arcane.jpg": ("assets/arcane.jpg", "image/jpeg"),
+    "/portraits.json": ("assets/portraits.json", "application/json"),
+}
+REPLAY_FILES = {
+    "direct": "legacy/test_base_direct.json.gz",
+    "d2_lora": "legacy/test_lora_d2_lora.json.gz",
+    "d3": "test_d3.json.gz",
+    "d4": "test_d4.json.gz",
+}
 
 
 def server_ok(base_url):
@@ -75,7 +89,7 @@ def traces():
     found = []
     for directory in TRACE_DIRS:
         for path in sorted(directory.rglob("*.json.gz")):
-            found.append(str(path.relative_to(ROOT)))
+            found.append(path.relative_to(ROOT).as_posix())
     return found
 
 
@@ -117,16 +131,22 @@ def handler_for(args):
         def do_GET(self):
             url = urlparse(self.path)
             q = {k: v[0] for k, v in parse_qs(url.query).items()}
-            if url.path == "/":
-                data = (Path(__file__).parent / "index.html").read_bytes()
+            if url.path in FRONTEND_FILES:
+                filename, content_type = FRONTEND_FILES[url.path]
+                path = Path(__file__).parent / filename
+                if not path.is_file():
+                    return self.json({"error": "Recurso no encontrado"}, 404)
+                data = path.read_bytes()
                 self.send_response(200)
-                self.send_header("Content-Type", "text/html; charset=utf-8")
+                self.send_header("Content-Type", content_type)
                 self.send_header("Content-Length", str(len(data)))
                 self.end_headers()
                 self.wfile.write(data)
             elif url.path == "/api/config":
                 self.json({"names": ns["NAMES"], "split": split, "roster": ns["CHAMPIONS"],
                            "systems": availability(args.base_url), "traces": traces(),
+                           "replays": {key: "results/d4/runs/test_v1/" + file
+                                       for key, file in REPLAY_FILES.items()},
                            "model": "Ministral-3-3B-Instruct-2512 · MLX 4-bit",
                            "cases": json.loads(CASES.read_text()) if CASES.exists() else []})
             elif url.path == "/api/results":
@@ -155,9 +175,11 @@ def handler_for(args):
                 return self.json({"error": "Secreto o sistema inválidos"}, 400)
             if info["mode"] != "live":
                 return self.json({"error": f"{info['label']}: no disponible ({info['why']})"}, 409)
-            if not LOCK.acquire(blocking=False):
-                return self.json({"error": "Hay una ejecución en curso"}, 409)
             send = self.stream_start()
+            uses_model = info["kind"] != "control"
+            if uses_model and not LOCK.acquire(blocking=False):
+                send({"kind": "queued"})
+                LOCK.acquire()
             try:
                 send({"kind": "start", "system": system, "label": info["label"], "mode": "live"})
                 start = time.monotonic()
@@ -184,7 +206,8 @@ def handler_for(args):
 
                     def show(event, game_number=None):
                         sample = telemetry[-1] if telemetry else {}
-                        send({"kind": "model_output", "agent": system, "content": sample.get("model_output", "")})
+                        send({"kind": "model_output", "agent": system, "content": sample.get("model_output", ""),
+                              "latency_s": sample.get("latency_s")})
                         send({"kind": "game_feedback", "turn": event.get("turn"), "event": event})
                     legacy_ns["query_model"], legacy_ns["show_event"] = request, show
                     record = legacy_game(legacy_ns, target, 1, telemetry)
@@ -199,7 +222,8 @@ def handler_for(args):
             except Exception as exc:
                 send({"kind": "error", "error": f"{type(exc).__name__}: {exc}"})
             finally:
-                LOCK.release()
+                if uses_model:
+                    LOCK.release()
 
         def selector(self, q):
             """Una misma entrada del Selector con base, D3 o D4: la salida y su verificación por reglas."""

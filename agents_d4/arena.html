@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LoLdle · Duelo de modelos</title>
+  <link rel="stylesheet" href="/arena.css">
+  <script src="/arena.js" defer></script>
+</head>
+<body>
+  <main>
+    <header class="masthead">
+      <div><p class="brand">LoLdle</p><h1>Duelo de modelos</h1></div>
+      <div class="target">
+        <span class="portrait target-portrait" id="targetPortrait"></span>
+        <div class="target-search">
+          <label for="target">Campeón objetivo</label>
+          <input id="target" role="combobox" aria-autocomplete="list" aria-controls="champions"
+            aria-expanded="false" autocomplete="off" placeholder="Busca un campeón" disabled>
+          <div class="suggestions" hidden>
+            <ul id="champions" role="listbox" aria-label="Campeones que coinciden"></ul>
+            <p class="no-results" role="status" hidden>Sin coincidencias</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <p role="alert" id="setup-error" hidden></p>
+    <section class="arena" aria-label="Tableros de comparación" id="arena"></section>
+    <section class="comparison" aria-labelledby="compare-title">
+      <h2 id="compare-title">Contradicciones con las pistas</h2>
+      <div id="comparison"></div>
+    </section>
+  </main>
+  <template id="lane">
+    <article class="lane">
+      <header class="lane-head">
+        <div class="lane-choice">
+          <label class="side sr-only"></label>
+          <select class="system" disabled></select>
+        </div>
+        <div class="lane-actions">
+          <button class="trace" hidden>Reproducir traza</button>
+          <button class="start" disabled>Jugar</button>
+        </div>
+      </header>
+      <p class="status" role="status">Cargando…</p>
+      <div class="score"><span><b class="attempts">0</b> intentos</span><span><b class="total">—</b> total</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th scope="col">Campeón</th><th scope="col">Género</th><th scope="col">Posición</th><th scope="col">Especie</th><th scope="col">Recurso</th><th scope="col">Alcance</th><th scope="col">Región</th><th scope="col">Año</th><th scope="col">Tiempo</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <p class="empty">Los intentos aparecerán aquí.</p>
+      </div>
+      <details class="activity"><summary>Actividad de los agentes <span class="current"></span></summary><ol class="events"></ol></details>
+    </article>
+  </template>
+</body>
+</html>

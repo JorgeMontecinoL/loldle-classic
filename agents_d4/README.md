@@ -12,6 +12,19 @@ del D3 (`d3_paginas_cot3`). El modelo base es el mismo:
 `bcb99e98591255cf4a3d3d9645764cf9cd9e9a096fb4a3c1c03fadb5004c915a`, el mismo que produjo
 estas cifras; verificación en `results/d4/hf_verify.json`).
 
+## Demo comparativa
+
+En el Mac con el entorno original, copia el proyecto completo y ejecuta
+`bash scripts/demo_d4.sh` desde su raíz. La interfaz se abre en
+`http://127.0.0.1:8767/`. Cada tablero ofrece **Jugar** con su sistema disponible.
+Para objetivos que tienen una partida guardada, también ofrece **Reproducir traza**
+cuando el modelo está activo.
+
+Para usar las trazas sin iniciar MLX, ejecuta
+`python3 -m agents_d4.app --port 8767` desde la raíz, o usa
+`Abrir-demo.cmd` en Windows. El buscador muestra todo el catálogo y cada tablero
+indica si el campeón seleccionado tiene una traza disponible.
+
 ## Resultados (30 secretos de prueba, `RUN_ID=test_v1`)
 
 Todas las filas son corridas nuevas de este entregable (`results/d4/runs/test_v1/`); D1, D2,
