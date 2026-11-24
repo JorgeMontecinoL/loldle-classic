@@ -24,12 +24,12 @@ scripts/demo_d4.sh                    # demo: http://127.0.0.1:8767 (requiere .v
 
 ### Video del Entregable 4
 
-**[Ver el video (2:20, sin audio)](docs/d4/videoD4.mp4)** · archivo en el repositorio: [`docs/d4/videoD4.mp4`](docs/d4/videoD4.mp4).
+**[Ver el video (2:10, sin audio)](docs/d4/videoD4.mp4)** · archivo en el repositorio: [`docs/d4/videoD4.mp4`](docs/d4/videoD4.mp4).
 
-Grabado de la interfaz real (`scripts/demo_d4.sh`) el 18-11-2026: el Selector base, el del D3 y el del D4 con la misma
+Grabado de la interfaz real (`scripts/demo_d4.sh`, con el diseño actual) el 24-11-2026, en una sola toma: el Selector base, el del D3 y el del D4 con la misma
 entrada del D3 (Ashe); Thresh en vivo, D3 contra D4 (D3 se detiene por límite de llamadas, D4 acierta en 3 intentos);
 la traza guardada de Samira (falla de Memoria que el D4 no corrige) y la tabla de resultados. Los tramos largos van
-acelerados (×6, ×3 y ×4) y así lo indica el rótulo en pantalla. Guion: [results/d4/VIDEO.md](results/d4/VIDEO.md).
+acelerados (×4 Selector, ×6 D3, ×3 D4, ×2 traza de Samira) y así lo indica el rótulo en pantalla. Guion: [results/d4/VIDEO.md](results/d4/VIDEO.md).
 
 ---
 
