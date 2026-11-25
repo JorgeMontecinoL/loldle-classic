@@ -24,7 +24,7 @@ scripts/demo_d4.sh                    # demo: http://127.0.0.1:8767 (requiere .v
 
 ### Video del Entregable 4
 
-**[Ver el video (2:10, sin audio)](docs/d4/videoD4.mp4)** · archivo en el repositorio: [`docs/d4/videoD4.mp4`](docs/d4/videoD4.mp4).
+**[Ver el video (2:08, sin audio)](docs/d4/videoD4.mp4)** · archivo en el repositorio: [`docs/d4/videoD4.mp4`](docs/d4/videoD4.mp4).
 
 Grabado de la interfaz real (`scripts/demo_d4.sh`, con el diseño actual) el 24-11-2026, en una sola toma: el Selector base, el del D3 y el del D4 con la misma
 entrada del D3 (Ashe); Thresh en vivo, D3 contra D4 (D3 se detiene por límite de llamadas, D4 acierta en 3 intentos);

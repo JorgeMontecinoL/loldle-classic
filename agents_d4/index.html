@@ -113,6 +113,22 @@ pre.input{max-height:200px;overflow:auto;background:var(--well);border:1px solid
 .vrow{display:grid;grid-template-columns:1fr auto auto;gap:10px;font:12px var(--mono);padding:3px 6px;border-radius:2px}
 .vrow:nth-child(odd){background:#ffffff05}
 .vrow.bad{background:#9b473b55}.vrow.tgt{outline:1px solid var(--gold);outline-offset:-1px;color:var(--gold)}
+/* Lectura rápida (sin saber del juego): tarea, pistas, veredicto en una frase y grilla de nombres. */
+.task{display:grid;gap:10px;margin-top:4px;padding:14px 16px;background:var(--well);border:1px solid #dcb57826;border-radius:3px}
+.task p{margin:0;font:17px/1.4 var(--display);color:var(--paper)}.task p b{color:var(--gold);font-weight:400}
+.clues{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.clue{padding:3px 10px;border-radius:99px;border:1px solid #3f8a6499;background:#3f8a6426;color:var(--text)}
+.clue.part{border-color:#c99a3c99;background:#c99a3c22}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin-top:14px}.legend:empty{display:none}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:2px;vertical-align:-2px;margin-right:6px}
+.verdict{margin:8px 0 4px;font:21px/1.25 var(--display)}.verdict.okv{color:#8fd0ad}.verdict.mid{color:var(--y)}.verdict.badv{color:#e79a8c}
+.vsub{font-size:13px;color:var(--muted);margin-bottom:10px}
+.chips{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.chip{padding:5px 2px;border-radius:2px;text-align:center;font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.chip.keep{background:#3f8a64;color:#fbf6ea}.chip.drop{background:#ffffff08;color:#7e8d85}
+.chip.err{background:#b0574a;color:#fff;font-weight:650}.chip.tgt{outline:2px solid var(--gold);outline-offset:-2px;color:var(--gold);font-weight:650}
+.chip.keep.tgt{color:#fff6dc}
+.selcol details{margin-top:12px}.selcol details summary{font-size:13px;color:var(--muted)}
 
 /* Resultados */
 .ledger{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
@@ -199,7 +215,9 @@ footer{position:relative;z-index:1;text-align:center;padding:0 20px 34px;color:v
     <label>Entrada real del Selector<select id="case" style="max-width:520px"></select></label>
     <button id="selAll" class="primary">Ejecutar base, D3 y D4</button>
   </div>
+  <div class="task" id="task"></div>
   <details><summary>Entrada exacta que recibe el Selector (sin el secreto)</summary><pre class="input" id="caseInput"></pre></details>
+  <div class="legend" id="legend"></div>
   <div class="sel" id="selOut"></div>
 </section>
 <section>
@@ -253,13 +271,32 @@ async function replay(){const file=$('#traceFile').value,target=$('#target').val
  receive(el,{kind:'finished',record:r,calls:(r.agent_trace||[]).filter(e=>e.kind==='model_call').length||r.trace.length})}
 function partition(){const t=$('#target').value,s=config.split;$('#part').textContent=s.test.includes(t)?'prueba':s.valid.includes(t)?'validación':s.train.includes(t)?'entrenamiento':''}
 async function guard(fn){if(busy)return;busy=true;document.querySelectorAll('button').forEach(b=>b.disabled=true);$('#error').textContent='';try{await fn()}catch(e){$('#error').textContent=e.message}finally{busy=false;document.querySelectorAll('button').forEach(b=>b.disabled=false)}}
-async function selector(w){const c=$('#case').value;const col=document.createElement('div');col.className='selcol';col.innerHTML=`<b>${{base:'Ministral base (sin adaptador)',d3:'D3 · d3_paginas_cot3',d4:'D4 · d4_selector'}[w]}</b> <span class="muted">ejecutando…</span>`;$('#selOut').append(col);
+const SEL_NAME={base:'Modelo base · sin ajuste',d3:'D3 · ajuste compartido por los 3 agentes',d4:'D4 · ajuste propio del Selector'};
+const CLUE_LABEL={gender:'Género',positions:'Posición',species:'Especie',resource:'Recurso',range_type:'Alcance',regions:'Región'};
+const CLUE_VALUE={Female:'mujer',Male:'hombre',Ranged:'a distancia',Melee:'cuerpo a cuerpo',Mana:'maná',Manaless:'sin recurso'};
+const cv=v=>CLUE_VALUE[v]||v;
+function clues(m){const out=[];for(const[f,v]of Object.entries(m?.green||{}))out.push(['',`${CLUE_LABEL[f]||f}: ${v.map(cv).join(', ')}`]);
+ for(const[f,v]of Object.entries(m?.yellow||{}))out.push(['part',`${CLUE_LABEL[f]||f}: incluye ${v.flat().map(cv).join(' o ')}`]);
+ const y=m?.year||{};if(y.eq!=null)out.push(['',`Año: ${y.eq}`]);else if(y.gt!=null||y.lt!=null)out.push(['',`Año: ${y.gt!=null?'después de '+y.gt:''}${y.gt!=null&&y.lt!=null?' y ':''}${y.lt!=null?'antes de '+y.lt:''}`]);
+ return out}
+async function selector(w){const c=$('#case').value;const col=document.createElement('div');col.className='selcol';col.innerHTML=`<b>${SEL_NAME[w]}</b> <span class="muted">ejecutando…</span>`;$('#selOut').append(col);
  const r=await fetch(`/api/selector?case=${encodeURIComponent(c)}&weights=${w}`).then(x=>x.json());if(r.error){col.innerHTML+=`<div class="err">${r.error}</div>`;return}
- const s=r.score,cs=config.cases.find(x=>x.id===c);col.querySelector('.muted').textContent=`${r.latency_s.toFixed(1)} s`;
- let html=`<div class="muted" style="margin:6px 0 8px">Conserva ${s.true_pos}/${s.fits} compatibles · lista ${s.listed} · ${s.protocol_error?'fuera de protocolo':'protocolo ok'} · secreto ${s.target_on_page?(s.target_dropped?'<b class="err">descartado</b>':'conservado'):'no está en la página'}</div>`;
- for(const[n,t]of Object.entries(r.truth)){const v=r.verdicts[n]||'(sin veredicto)';const listed=r.candidates.includes(n);const bad=(t==='ok')!==listed;html+=`<div class="vrow ${bad?'bad':''} ${n===cs.target?'tgt':''}"><span>${n}</span><span>modelo: ${v}${listed?' ✓':''}</span><span class="muted">reglas: ${t}</span></div>`}
- col.innerHTML+=html}
-function showCase(){const c=config.cases.find(x=>x.id===$('#case').value);$('#caseInput').textContent=c?JSON.stringify(c.payload,null,1):'';$('#selOut').innerHTML=''}
+ const s=r.score,cs=config.cases.find(x=>x.id===c),names=Object.keys(r.truth);col.querySelector('.muted').textContent=`${r.latency_s.toFixed(1)} s`;
+ const fits=names.filter(n=>r.truth[n]==='ok'),extra=names.filter(n=>r.truth[n]!=='ok'&&r.candidates.includes(n)),lost=fits.filter(n=>!r.candidates.includes(n));
+ if(!$('#legend').innerHTML)$('#legend').innerHTML=`<span><i style="background:#3f8a64"></i>se queda con él</span><span><i style="background:#ffffff14"></i>lo descarta</span><span><i style="background:#b0574a"></i>error</span><span><i style="outline:2px solid var(--gold);outline-offset:-2px"></i>el secreto (${cs.target})</span><span>De ${names.length} personajes, ${fits.length===1?'sólo 1 cumple':fits.length+' cumplen'} todas las pistas.</span>`;
+ let head,cls;const tgt=cs.target,onPage=names.includes(tgt),keptT=r.candidates.includes(tgt);
+ if(s.protocol_error){head='✘ Respuesta fuera de formato';cls='badv'}
+ else if(onPage&&!keptT){head='✘ Descarta al secreto';cls='badv'}
+ else if(!extra.length&&!lost.length){head=r.candidates.length===1&&keptT?'✔ Se queda sólo con el secreto':'✔ Sin errores';cls='okv'}
+ else{head=keptT?`≈ Se queda con el secreto y ${extra.length} que no cumplen`:`✘ ${extra.length+lost.length} errores`;cls='mid'}
+ const sub=`Se queda con ${r.candidates.length} de ${names.length} · errores: ${extra.length+lost.length}`;
+ let html=`<div class="verdict ${cls}">${head}</div><div class="vsub">${sub}</div><div class="chips">`;
+ for(const n of names){const listed=r.candidates.includes(n),bad=(r.truth[n]==='ok')!==listed;html+=`<span class="chip ${listed?'keep':'drop'} ${bad?'err':''} ${n===tgt?'tgt':''}" title="${n}">${n}</span>`}
+ html+=`</div><details><summary>Ver los ${names.length} veredictos</summary>`;
+ for(const[n,t]of Object.entries(r.truth)){const v=r.verdicts[n]||'(sin veredicto)';const listed=r.candidates.includes(n);const bad=(t==='ok')!==listed;html+=`<div class="vrow ${bad?'bad':''} ${n===tgt?'tgt':''}"><span>${n}</span><span>modelo: ${v}${listed?' ✓':''}</span><span class="muted">reglas: ${t}</span></div>`}
+ col.innerHTML+=html+'</details>'}
+function showCase(){const c=config.cases.find(x=>x.id===$('#case').value);$('#caseInput').textContent=c?JSON.stringify(c.payload,null,1):'';$('#selOut').innerHTML='';$('#legend').innerHTML='';
+ const m=c?.payload?.memory;$('#task').innerHTML=c?`<p>El juego ya dio pistas sobre el personaje secreto. El Selector recibe una <b>página de ${(c.payload.rows||'').trim().split('\n').length-1} personajes</b> y debe quedarse sólo con los que cumplen <b>todas</b> las pistas.</p><div class="clues"><span>Pistas hasta ahora:</span>${clues(m).map(([k,t])=>`<span class="clue ${k}">${t}</span>`).join('')}</div>`:''}
 function units(solved,games){let h='<div class="units" aria-hidden="true">';for(let i=0;i<games;i++)h+=`<i${i<solved?' class="won"':''}></i>`;return h+'</div>'}
 async function results(){const d=await fetch('/api/results').then(r=>r.json());if(!d.reproduced)return;const L={"base/direct":"D1 · prompting directo","lora/d2_lora":"D2 · LoRA sin agentes","paginas/full":"D3 · tres agentes","d3/full":"D3 · tres agentes","d4/full":"D4 · Selector ajustado","none/algorithmic":"Control · filtro por reglas"};
  let h='<table class="ledger"><thead><tr><th scope="col">Sistema</th><th scope="col">Procedencia</th><th scope="col">Una marca por partida</th><th scope="col" class="n">Resueltas</th><th scope="col" class="n">Incompatibles</th><th scope="col" class="n">Paros</th><th scope="col" class="n">Llamadas/partida</th></tr></thead><tbody>';

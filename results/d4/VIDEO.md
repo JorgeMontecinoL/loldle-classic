@@ -1,10 +1,10 @@
 # Video del Entregable 4 · recorrido para grabar (≤ 3:00)
 
-**Grabado:** [`docs/d4/videoD4.mp4`](../../docs/d4/videoD4.mp4) (2:10, 1440×900, sin audio), regrabado el
-24-11-2026 con el diseño actual de la interfaz. Se capturó la pestaña de Chrome con el screencast del protocolo de
+**Grabado:** [`docs/d4/videoD4.mp4`](../../docs/d4/videoD4.mp4) (2:08, 1440×900, sin audio), regrabado el
+25-11-2026 con la ficha del Selector simplificada para quien no conoce el juego. Se capturó la pestaña de Chrome con el screencast del protocolo de
 depuración (sin grabar la pantalla), en una sola toma y siguiendo este guion; los rótulos de abajo se agregan dentro de
 la página durante la grabación. Las partidas de Thresh son en vivo: D3 se detiene por `call_limit` (2 intentos,
-80 llamadas, 156 s) y D4 acierta en 3 intentos (30 llamadas, 59 s), como en `test_v1`. Los tramos largos se aceleraron
+80 llamadas, 162 s) y D4 acierta en 3 intentos (30 llamadas, 60 s), como en `test_v1`. Los tramos largos se aceleraron
 al montar (×4 Selector, ×6 D3, ×3 D4, ×2 traza de Samira) y el rótulo lo indica.
 
 Para volver a grabarlo a mano basta con seguir el guion (⇧⌘5 en macOS). Todo lo que se muestra es real: la interfaz llama al
@@ -26,7 +26,7 @@ lado a lado). Grabar con ⇧⌘5 → «Grabar pantalla completa».
 | Tiempo | Qué hacer | Qué se ve |
 |---|---|---|
 | 0:00–0:15 | Encabezado | Memoria → Selector (ajustado) → Verificador; el secreto sólo lo usa el motor. |
-| 0:15–1:05 | Sección «Selector base frente a ajustado», caso **Ashe · turno 4 · página 1/7** → «Ejecutar base, D3 y D4». Desplegar «Entrada exacta». | La misma entrada real del D3 (amarillo `positions [["Bottom"]]`). Base: en prueba lista casi todas las filas (precisión 1,7 %). D3: «Ashe x positions» (fila en rojo). D4: «Ashe ok» y la conserva. (Con la entrada de Morgana el D4 todavía la descarta, por año: ver `results/d4/FALLOS_D4.md`.) |
+| 0:15–1:05 | Sección «Selector base frente a ajustado», caso **Ashe · turno 4 · página 1/7** → «Ejecutar base, D3 y D4». | Pensado para quien no conoce el juego: arriba, la tarea en una frase y las pistas en palabras (mujer, maná, a distancia, posición incluye Bottom, año 2009); por columna, una frase de veredicto y una grilla de los 25 nombres (verde = se queda, gris = descarta, rojo = error, borde dorado = el secreto). Base: se queda con Ashe y 6 que no cumplen. D3: descarta a Ashe. D4: se queda sólo con Ashe. Los 25 veredictos con su regla quedan plegados en «Ver los 25 veredictos». (Con la entrada de Morgana el D4 todavía la descarta, por año: ver `results/d4/FALLOS_D4.md`.) |
 | 1:05–2:25 | Arriba: secreto **Thresh** (o Morgana), Sistema A = D3, Sistema B = D4 → «Jugar A y luego B». Abrir el panel «Agentes» del tablero B. | Filas del tablero al ritmo del motor, colores por atributo, flechas del año; agente activo y cada mensaje (estado de Memoria, página y veredictos del Selector, decisión del Verificador); acierto, intentos, llamadas, tiempo y motivo de parada. |
 | 2:25–2:50 | Caso de falla del D4: secreto **Samira**, «Ver una partida guardada» → `results/d4/runs/test_v1/test_d4.json.gz` → «Reproducir en A». | Traza guardada, rotulada; Memoria repite 60 veces un estado inválido (`Void-Being` en `regions`) y se detiene por `call_limit` (ver `results/d4/FALLOS_D4.md`). |
 | 2:50–3:00 | Tabla «Resultados con procedencia». | Histórico (D3) frente a reproducido (D4), mismos 30 secretos. |
