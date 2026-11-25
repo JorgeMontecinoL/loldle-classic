@@ -1,0 +1,23 @@
+{
+ "seed": 4060,
+ "ronda": 2,
+ "examples": 1340,
+ "targets": 128,
+ "kinds": {
+  "amarillo_dificil": 1109,
+  "vacia": 202,
+  "con_candidatos": 29
+ },
+ "pages_by_hard_field": {
+  "positions": 694,
+  "species": 363,
+  "regions": 421
+ },
+ "pages_with_contrast_rows": 240,
+ "distinct_states": 871,
+ "valid": "copia de d4_selector/valid.jsonl",
+ "target_overlap": {
+  "train∩valid": 0,
+  "train∩test": 0
+ }
+}

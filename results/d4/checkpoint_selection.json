@@ -1,0 +1,63 @@
+{
+ "rule": "Regla (fijada antes de ver los resultados de los candidatos): mayor número de páginas exactas en la unión de `d3_valid_trace[amarillo]` y `valid_generado[amarillo]`; desempate por más filas compatibles conservadas en páginas con amarillo de un valor y, después, el candidato posterior en la lista. Registro: `results/d4/checkpoint_selection.json`.",
+ "candidates": [
+  {
+   "candidate": "r1_1000",
+   "path": "finetune/adapters/d4_selector_ckpts/r1_1000",
+   "order": 0,
+   "exact": 129,
+   "pages": 157,
+   "ys_tp": 19,
+   "ys_fits": 25,
+   "tp": 50,
+   "fits": 67,
+   "target_dropped": 11,
+   "target_pages": 45,
+   "protocol": 0
+  },
+  {
+   "candidate": "r2_0670",
+   "path": "finetune/adapters/d4_selector_ckpts/r2_0670",
+   "order": 1,
+   "exact": 139,
+   "pages": 157,
+   "ys_tp": 24,
+   "ys_fits": 25,
+   "tp": 62,
+   "fits": 67,
+   "target_dropped": 4,
+   "target_pages": 45,
+   "protocol": 0
+  },
+  {
+   "candidate": "r2_final",
+   "path": "finetune/adapters/d4_selector_ckpts/r2_final",
+   "order": 2,
+   "exact": 139,
+   "pages": 157,
+   "ys_tp": 24,
+   "ys_fits": 25,
+   "tp": 63,
+   "fits": 67,
+   "target_dropped": 4,
+   "target_pages": 45,
+   "protocol": 0
+  }
+ ],
+ "selected": "r2_final",
+ "source": "finetune/adapters/d4_selector_ckpts/r2_final",
+ "adapter_sha256": "bcb99e98591255cf4a3d3d9645764cf9cd9e9a096fb4a3c1c03fadb5004c915a",
+ "reference_d3_valid": {
+  "exact": 126,
+  "pages": 157,
+  "ys_tp": 18,
+  "ys_fits": 25,
+  "tp": 46,
+  "fits": 67,
+  "target_dropped": 16,
+  "target_pages": 45,
+  "protocol": 0
+ },
+ "selected_at": "2026-11-17T23:08:08.463190+00:00",
+ "test_used_for_selection": false
+}

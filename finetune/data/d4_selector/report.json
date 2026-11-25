@@ -1,0 +1,79 @@
+{
+ "seed": 4040,
+ "source": "historiales simulados con el motor del notebook (política del D2 + ruido)",
+ "labeling": "reglas del juego sobre el estado público (agents_d3.state.violations); sin modelo de lenguaje",
+ "split": {
+  "train_targets": 128,
+  "valid_targets": 15,
+  "test_targets": 30
+ },
+ "train": {
+  "examples": 2503,
+  "targets": 128,
+  "kinds": {
+   "vacia": 672,
+   "con_candidatos": 619,
+   "amarillo_dificil": 918,
+   "amarillo": 294
+  },
+  "pages_with_single_value_yellow_fit": 439,
+  "pages_with_subset_yellow_fit": 570,
+  "fit_rows": 4793,
+  "empty_pages": 936,
+  "distinct_states": 946
+ },
+ "valid": {
+  "examples": 95,
+  "targets": 15,
+  "kinds": {
+   "amarillo_dificil": 34,
+   "con_candidatos": 22,
+   "vacia": 34,
+   "amarillo": 5
+  },
+  "pages_with_single_value_yellow_fit": 11,
+  "pages_with_subset_yellow_fit": 27,
+  "fit_rows": 183,
+  "empty_pages": 39,
+  "distinct_states": 48
+ },
+ "valid_generado": {
+  "examples": 104,
+  "targets": 15,
+  "kinds": {
+   "con_candidatos": 27,
+   "vacia": 28,
+   "amarillo_dificil": 39,
+   "amarillo": 10
+  },
+  "pages_with_single_value_yellow_fit": 16,
+  "pages_with_subset_yellow_fit": 26,
+  "fit_rows": 169,
+  "empty_pages": 37,
+  "distinct_states": 50
+ },
+ "test_generado": {
+  "examples": 156,
+  "targets": 30,
+  "kinds": {
+   "amarillo_dificil": 61,
+   "vacia": 43,
+   "amarillo": 21,
+   "con_candidatos": 31
+  },
+  "pages_with_single_value_yellow_fit": 29,
+  "pages_with_subset_yellow_fit": 39,
+  "fit_rows": 341,
+  "empty_pages": 64,
+  "distinct_states": 69
+ },
+ "state_overlap_with_train": {
+  "valid": 18,
+  "valid_generado": 18,
+  "test_generado": 39
+ },
+ "target_overlap": {
+  "train∩valid": 0,
+  "train∩test": 0
+ }
+}
